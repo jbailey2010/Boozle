@@ -1,17 +1,24 @@
 package com.bevinisaditch.theinebriator;
 
 import android.os.Bundle;
+import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
 import android.view.Menu;
 import android.widget.ImageView;
 
 public class Loading extends Activity {
-
+	public Context cont;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_loading);
+		ActionBar ab = getActionBar();
+		cont = this;
+		//ab.setDisplayShowHomeEnabled(false);
+		ab.setDisplayShowTitleEnabled(false);
 		handleInitialLoad();
 	}
 

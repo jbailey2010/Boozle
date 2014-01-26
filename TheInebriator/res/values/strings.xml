@@ -4,6 +4,6 @@
     <string name="app_name">The Inebriator</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_loading">Loading</string>
+    <string name="title_activity_loading">The Inebriator</string>
 
 </resources>
