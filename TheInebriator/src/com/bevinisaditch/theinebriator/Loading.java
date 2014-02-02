@@ -7,6 +7,7 @@ import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
 import android.view.Menu;
 import android.widget.ImageView;
+import com.devingotaswitch.theinebriator.R;
 
 public class Loading extends Activity {
 	public Context cont;

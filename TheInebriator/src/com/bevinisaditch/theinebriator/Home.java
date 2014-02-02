@@ -3,6 +3,7 @@ package com.bevinisaditch.theinebriator;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import com.devingotaswitch.theinebriator.R;
 
 public class Home extends Activity {
 
