@@ -19,5 +19,13 @@ public class Home extends Activity {
 		getMenuInflater().inflate(R.menu.home, menu);
 		return true;
 	}
+	
+	/**
+	 * Overridden and empty because you shouldn't need to go back to loading...ever.
+	 */
+	@Override
+	public void onBackPressed() {
+
+	}
 
 }
