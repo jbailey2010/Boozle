@@ -1,16 +1,28 @@
 package com.bevinisaditch.theinebriator;
 
 import android.os.Bundle;
+import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Context;
 import android.view.Menu;
+import android.widget.ListView;
+
+import com.bevinisaditch.theinebriator.InterfaceAugmentations.ActivitySwipeDetector;
 import com.devingotaswitch.theinebriator.R;
 
 public class Home extends Activity {
-
+	public Context cont;
+	private ListView list;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
+		ActionBar ab = getActionBar();
+		cont = this;
+		ab.setDisplayShowTitleEnabled(false);
+		list = (ListView)findViewById(R.id.home_list);
+		list.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
 	}
 
 	@Override
@@ -25,7 +37,10 @@ public class Home extends Activity {
 	 */
 	@Override
 	public void onBackPressed() {
+	}
 
+	public void toggleMenu() {
+		//When side bar is here, toggle the menu
 	}
 
 }
