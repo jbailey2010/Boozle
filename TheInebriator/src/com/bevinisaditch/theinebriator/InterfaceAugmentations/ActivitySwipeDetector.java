@@ -37,6 +37,7 @@ public class ActivitySwipeDetector implements View.OnTouchListener {
 				   {
 					   isFarLeft = false;
 				   }
+				   return true;
 			  }
 			  case MotionEvent.ACTION_UP: {
 				   upX = event.getX();
