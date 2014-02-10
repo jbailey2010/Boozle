@@ -8,11 +8,12 @@ import android.view.Menu;
 import android.widget.ListView;
 
 import com.bevinisaditch.theinebriator.InterfaceAugmentations.ActivitySwipeDetector;
+import com.bevinisaditch.theinebriator.InterfaceAugmentations.BounceListView;
 import com.devingotaswitch.theinebriator.R;
 
 public class Home extends Activity {
 	public Context cont;
-	private ListView list;
+	private BounceListView list;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +22,7 @@ public class Home extends Activity {
 		ActionBar ab = getActionBar();
 		cont = this;
 		ab.setDisplayShowTitleEnabled(false);
-		list = (ListView)findViewById(R.id.home_list);
+		list = (BounceListView)findViewById(R.id.listview_rankings);
 		list.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
 	}
 

@@ -4,9 +4,14 @@
     android:layout_height="match_parent"
     tools:context=".Home" >
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/home_list" />
+    <com.bevinisaditch.theinebriator.InterfaceAugmentations.BounceListView
+	        
+	        android:id="@+id/listview_rankings"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:divider="#999999"
+	        android:background="#999999"
+	        android:clickable="true"> 
+	    </com.bevinisaditch.theinebriator.InterfaceAugmentations.BounceListView>
 
 </RelativeLayout>
