@@ -13,5 +13,9 @@
 	        android:background="#999999"
 	        android:clickable="true"> 
 	    </com.bevinisaditch.theinebriator.InterfaceAugmentations.BounceListView>
+	    <com.devspark.sidenavigation.SideNavigationView
+        android:id="@+id/side_navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

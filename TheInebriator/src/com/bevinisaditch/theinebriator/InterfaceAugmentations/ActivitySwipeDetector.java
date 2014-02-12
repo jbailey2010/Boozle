@@ -4,6 +4,8 @@ import com.bevinisaditch.theinebriator.Home;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -22,6 +24,10 @@ public class ActivitySwipeDetector implements View.OnTouchListener {
 	
 	 public void onLeftToRightSwipe(){
 	  	((Home)activity).toggleMenu();
+	 }
+	 
+	 public void onRightToLeftSwipe(){
+
 	 }
 
 	 public boolean onTouch(View v, MotionEvent event) {
