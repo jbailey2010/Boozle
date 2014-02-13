@@ -1,5 +1,9 @@
 package com.bevinisaditch.theinebriator;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
@@ -7,6 +11,7 @@ import android.content.Context;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
 import com.bevinisaditch.theinebriator.InterfaceAugmentations.ActivitySwipeDetector;
 import com.bevinisaditch.theinebriator.InterfaceAugmentations.BounceListView;
@@ -31,6 +36,7 @@ public class Home extends Activity {
 		list = (BounceListView)findViewById(R.id.listview_rankings);
 		list.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
 		menuInit();
+		listviewInit();
 	}
 
 	@Override
@@ -96,6 +102,25 @@ public class Home extends Activity {
 		{
 			sideNavigationView.toggleMenu();
 		}
+	}
+	
+	public void listviewInit()
+	{
+		list = (BounceListView)findViewById(R.id.listview_rankings);
+		List<HashMap<String, String>> dataSet = new ArrayList<HashMap<String, String>>();
+		for(int i = 0; i < 50; i++)
+		{
+			HashMap<String, String> datum = new HashMap<String, String>();
+			datum.put("name", "Sample Drink " + (i+1));
+			datum.put("info", "List of ingredints, list of ingredients, list of ingredients, list of ingredients, list of ingredients");
+			dataSet.add(datum);
+		}
+		final SimpleAdapter adapter = new SimpleAdapter(cont, dataSet, 
+	    		R.layout.two_line_listview_elem, 
+	    		new String[] {"name", "info"}, 
+	    		new int[] {R.id.text1, 
+	    			R.id.text2});
+	    list.setAdapter(adapter);
 	}
 
 }
