@@ -18,7 +18,7 @@ public class Home extends Activity {
 	public Context cont;
 	private BounceListView list;
 	SideNavigationView sideNavigationView;
-	private ListView sideListView;
+	private ListView sideListView; 
 	
 	
 	@Override
