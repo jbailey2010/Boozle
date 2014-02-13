@@ -7,11 +7,21 @@ import java.util.List;
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import com.bevinisaditch.theinebriator.InterfaceAugmentations.ActivitySwipeDetector;
 import com.bevinisaditch.theinebriator.InterfaceAugmentations.BounceListView;
@@ -121,6 +131,39 @@ public class Home extends Activity {
 	    		new int[] {R.id.text1, 
 	    			R.id.text2});
 	    list.setAdapter(adapter);
+	    
+	    list.setOnItemClickListener(new OnItemClickListener(){
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				String name = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text1)).getText().toString();
+				String ingredients = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text2)).getText().toString();
+				drinkPopUp(name, ingredients);
+			}
+	    });
 	}
 
+	
+	public void drinkPopUp(String name, String ingredients)
+	{
+		final Dialog dialog = new Dialog(cont, R.style.DialogBackground);
+		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		dialog.setContentView(R.layout.drink_popup);
+		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+	    lp.copyFrom(dialog.getWindow().getAttributes());
+	    lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+	    dialog.getWindow().setAttributes(lp);
+	    dialog.show();
+	    Button close = (Button)dialog.findViewById(R.id.close);
+	    close.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				dialog.dismiss();
+			}
+	    });
+	    TextView ingredientsView = (TextView)dialog.findViewById(R.id.ingredients_view);
+	    ingredientsView.setText(ingredients);
+	    TextView nameView = (TextView)dialog.findViewById(R.id.drink_name);
+	    nameView.setText(name);
+	}
 }

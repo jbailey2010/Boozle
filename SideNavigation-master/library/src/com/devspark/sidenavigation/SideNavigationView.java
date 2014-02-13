@@ -28,7 +28,6 @@ import android.widget.TextView;
  */
 public class SideNavigationView extends LinearLayout {
     private static final String LOG_TAG = SideNavigationView.class.getSimpleName();
-    //test comment
     private LinearLayout navigationMenu;
     private ListView listView;
     private View outsideView;

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:padding="10dp"
+        android:text="X"
+        android:textColor="#FF0000"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/drink_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/close"
+        android:layout_centerHorizontal="true"
+        android:text="Drink Name"
+        style="@style/ButtonText" />
+
+    <ImageView
+        android:id="@+id/rating_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/drink_name"
+        android:visibility="gone" />
+    <Button
+        android:id="@+id/rate_drink_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/drink_name"
+        style="@style/ButtonText"
+        android:background="@drawable/btn_blue"
+        android:text="Rate the Drink"
+        android:layout_marginTop="10dp" />
+    <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rate_drink_btn"
+        android:layout_marginTop="10dp">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+	        <TextView 
+	            android:id="@+id/ingredients_view"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="blah 1"
+	            android:layout_marginLeft="8dp"/>
+	        
+	        <TextView 
+	            android:id="@+id/instructions_view"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="blah 2"
+	            android:layout_marginLeft="8dp"
+	            android:layout_below="@+id/ingredients_view"
+	            android:layout_marginTop="20dp"
+	            android:visibility="gone"/>
+	    </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
