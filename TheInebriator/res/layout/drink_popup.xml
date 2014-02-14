@@ -24,28 +24,12 @@
         android:text="Drink Name"
         style="@style/ButtonText" />
 
-    <ImageView
-        android:id="@+id/rating_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/drink_name"
-        android:visibility="gone" />
-    <Button
-        android:id="@+id/rate_drink_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/drink_name"
-        style="@style/ButtonText"
-        android:background="@drawable/btn_blue"
-        android:text="Rate the Drink"
-        android:layout_marginTop="10dp" />
-    <ScrollView 
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rate_drink_btn"
-        android:layout_marginTop="10dp">
+        android:layout_below="@+id/btn_base"
+        android:layout_marginTop="10dp" >
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -54,6 +38,7 @@
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:text="blah 1"
+	            android:padding = "15dp"
 	            android:layout_marginLeft="8dp"/>
 	        
 	        <TextView 
@@ -68,4 +53,28 @@
 	    </RelativeLayout>
     </ScrollView>
 
+    <RelativeLayout 
+        android:id="@+id/btn_base"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/drink_name"
+        android:layout_marginTop="12dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/btn_background">
+        
+	    <ImageView
+	        android:id="@+id/thumbs_down_img"
+	        android:layout_width="50dp"
+	        android:layout_height="50dp"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignTop="@+id/thumbs_up_img"
+	        android:src="@drawable/thumbsdown" />
+	
+	    <ImageView
+	        android:id="@+id/thumbs_up_img"
+	        android:layout_width="50dp"
+	        android:layout_alignParentRight="true"
+	        android:layout_height="50dp"
+	        android:src="@drawable/thumbsup" />
+	</RelativeLayout>
 </RelativeLayout>
