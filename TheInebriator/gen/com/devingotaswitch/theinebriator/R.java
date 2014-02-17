@@ -73,13 +73,14 @@ public final class R {
         public static final int frame_021=0x7f020019;
         public static final int listview_elem=0x7f02001a;
         public static final int logo=0x7f02001b;
-        public static final int side_navigation_shadow_left=0x7f02001c;
-        public static final int side_navigation_shadow_right=0x7f02001d;
-        public static final int star=0x7f02001e;
-        public static final int thumbsdown=0x7f02001f;
-        public static final int thumbsdownselected=0x7f020020;
-        public static final int thumbsup=0x7f020021;
-        public static final int thumbsupselected=0x7f020022;
+        public static final int pleasewait_background=0x7f02001c;
+        public static final int side_navigation_shadow_left=0x7f02001d;
+        public static final int side_navigation_shadow_right=0x7f02001e;
+        public static final int star=0x7f02001f;
+        public static final int thumbsdown=0x7f020020;
+        public static final int thumbsdownselected=0x7f020021;
+        public static final int thumbsup=0x7f020022;
+        public static final int thumbsupselected=0x7f020023;
     }
     public static final class id {
         public static final int btn_base=0x7f0a0006;

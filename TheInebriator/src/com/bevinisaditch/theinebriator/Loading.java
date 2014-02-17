@@ -46,7 +46,7 @@ public class Loading extends Activity {
 					        {
 					        	if(counter == 0)
 					            {
-					        		header.setText("Please wait");
+					        		header.setText("Please wait ");
 					            }
 					            if(counter == 1)
 					            {
