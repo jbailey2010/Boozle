@@ -32,6 +32,22 @@ public class ScrapingUtils {
 	}
 	
 	/**
+	 * This will print the number of results a query would have, for debugging purposes
+	 */
+	public static void printQueryResultSize(String url, String params) throws IOException
+	{
+		System.out.println("Results had a size of " + handleQuery(url, params).size());
+	}
+	
+	/**
+	 * This will print the source of a query, for debugging purposes
+	 */
+	public static void printQuerySource(String url) throws IOException
+	{
+		System.out.println(Jsoup.connect(url).get().html());
+	}
+	
+	/**
 	 * Just in case the web site doesn't like using the chrome user agent/timeout being infinite is bad, this will work generically
 	 */
 	public static List<String> handleQueryNoUA(String url, String params) throws IOException
