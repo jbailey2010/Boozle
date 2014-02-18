@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <item
-        android:id="@+id/menu_1"
-        android:title="Sample option 1"/>
+        android:id="@+id/menu_search"
+        android:title="Search"/>
     <item
-        android:id="@+id/menu_2"
-        android:title="Sample option 2"/>
+        android:id="@+id/menu_random"
+        android:title="I'm feeling hammered"/>
+    <item
+        android:id="@+id/menu_create"
+        android:title="Add a Drink"/>
+    <item
+        android:id="@+id/menu_added"
+        android:title="Added Drinks"/>
+    <item
+        android:id="@+id/menu_liked"
+        android:title="Liked Drinks"/>
+    <item
+        android:id="@+id/menu_disliked"
+        android:title="Disliked Drinks"/>
+        
 
 </menu>
