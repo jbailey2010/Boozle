@@ -9,6 +9,9 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import android.content.Context;
+import android.widget.Toast;
+
 public class ScrapingUtils {
 	public static String ua = "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.2 Safari/537.36"; 
 
@@ -34,9 +37,14 @@ public class ScrapingUtils {
 	/**
 	 * This will print the number of results a query would have, for debugging purposes
 	 */
-	public static void printQueryResultSize(String url, String params) throws IOException
+	public static void printQueryResultSize(String url, String params, boolean toastToggle, Context cont) throws IOException
 	{
-		System.out.println("Results had a size of " + handleQuery(url, params).size());
+		int size = handleQuery(url, params).size();
+		System.out.println("Results had a size of " + size);
+		if(toastToggle)
+		{
+			Toast.makeText(cont, "Results had a size of " + size, Toast.LENGTH_LONG).show();
+		}
 	}
 	
 	/**

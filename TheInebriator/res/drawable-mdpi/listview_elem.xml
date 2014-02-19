@@ -7,7 +7,6 @@
                 android:startColor="#FAFAFA"
                 android:endColor="#CDCDCD"
                 android:angle="270" />
-             <stroke android:width="1dip" android:color="#666666"/>
         </shape>
     </item>
 </selector>

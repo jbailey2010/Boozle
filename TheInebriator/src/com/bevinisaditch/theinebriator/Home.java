@@ -85,12 +85,24 @@ public class Home extends Activity {
 		    @Override
 		    public void onSideNavigationItemClick(int itemId) {
 		    	switch (itemId) {
-	            case R.id.menu_1:
+	            case R.id.menu_search:
 	            	
 	                break;
-	            case R.id.menu_2:
+	            case R.id.menu_random:
 	            	
 	                break;
+	            case R.id.menu_create:
+	            	
+	            	break;
+	            case R.id.menu_added:
+	            	
+	            	break;
+	            case R.id.menu_liked:
+	            	
+	            	break;
+	            case R.id.menu_disliked:
+	            	
+	            	break;
 	            default:
 	                return;
 		    	}
@@ -124,13 +136,15 @@ public class Home extends Activity {
 			HashMap<String, String> datum = new HashMap<String, String>();
 			datum.put("name", "Sample Drink " + (i+1));
 			datum.put("info", "List of ingredints, list of ingredients, list of ingredients, list of ingredients, list of ingredients");
+			//ADD LOGIC HERE WHEN THE TIME COMES
+			datum.put("img", Integer.toString(R.drawable.thumbsup));
 			dataSet.add(datum);
 		}
 		final SimpleAdapter adapter = new SimpleAdapter(cont, dataSet, 
 	    		R.layout.two_line_listview_elem, 
-	    		new String[] {"name", "info"}, 
+	    		new String[] {"name", "info", "img"}, 
 	    		new int[] {R.id.text1, 
-	    			R.id.text2});
+	    			R.id.text2, R.id.imageView1});
 	    list.setAdapter(adapter);
 	    
 	    list.setOnItemClickListener(new OnItemClickListener(){
