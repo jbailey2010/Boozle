@@ -15,10 +15,12 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.bevinisaditch.theinebriator.Home"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.bevinisaditch.theinebriator.Loading"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_loading" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
