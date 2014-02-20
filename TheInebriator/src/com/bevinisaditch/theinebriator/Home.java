@@ -124,7 +124,7 @@ public class Home extends Activity {
 		if(sideNavigationView.isShown())
 		{
 			sideNavigationView.toggleMenu();
-		}
+		} 
 	}
 	
 	public void listviewInit()
