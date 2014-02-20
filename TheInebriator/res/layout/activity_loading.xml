@@ -9,19 +9,21 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5">
+        android:layout_weight="6">
 	     <ImageView
 		     android:id="@+id/logo_loading"
 		     android:layout_width="wrap_content"
-		     android:layout_centerHorizontal="true"
+		     android:layout_centerInParent="true"
 		     android:layout_height="wrap_content"
+		     android:scaleX = "1.2"
+		     android:scaleY="1.2"
 		     android:src="@drawable/boozle_logo" />
      </RelativeLayout>
  
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="7">
+        android:layout_weight="6">
 		<ImageView
 		    android:id="@+id/loading_gif"
 		    android:layout_width="match_parent"
