@@ -68,6 +68,9 @@ public class Home extends Activity {
 			case android.R.id.home:
 		        toggleMenu();
 		        return true;
+			case R.id.menu_search:
+				
+				return true;
 			default:
 				return super.onOptionsItemSelected(item);
 		}
@@ -85,9 +88,6 @@ public class Home extends Activity {
 		    @Override
 		    public void onSideNavigationItemClick(int itemId) {
 		    	switch (itemId) {
-	            case R.id.menu_search:
-	            	
-	                break;
 	            case R.id.menu_random:
 	            	
 	                break;

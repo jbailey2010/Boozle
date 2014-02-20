@@ -89,6 +89,9 @@ public class Loading extends Activity {
 		return true;
 	}
 	
+	/**
+	 * Transition function that will transition loading screen to home screen
+	 */
 	private void sendToHome()
 	{
 		header.setText("Stop waiting");
