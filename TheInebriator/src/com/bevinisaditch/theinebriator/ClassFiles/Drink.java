@@ -13,6 +13,7 @@ public class Drink {
 	private ArrayList<Ingredient> ingredients;
 	private boolean isFavorited;
 	private String name;
+	private String instructions;
 	
 	public Drink(String name)
 	{
@@ -65,5 +66,15 @@ public class Drink {
 	public String getName()
 	{
 		return name;
+	}
+	
+	public void setInstructions(String instructions)
+	{
+		this.instructions = instructions;
+	}
+	
+	public String getInstructions()
+	{
+		return instructions;
 	}
 }
