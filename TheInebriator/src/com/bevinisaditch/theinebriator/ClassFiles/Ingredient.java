@@ -8,14 +8,18 @@ package com.bevinisaditch.theinebriator.ClassFiles;
 public class Ingredient {
 
 	private String name;
+	private String quantity;
+	private String units;
 	
-	public Ingredient(String name)
+	public Ingredient(String name, String quantity, String units)
 	{
 		this.name = name;
+		this.quantity = quantity;
+		this.units = units;
 	}
 	
-	public String getName()
+	public String toString()
 	{
-		return name;
+		return name + " (" + quantity + " " + units + ")";
 	}
 }

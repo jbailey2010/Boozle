@@ -20,55 +20,16 @@ import com.devingotaswitch.theinebriator.R;
 
 public class Loading extends Activity {
 	public Context cont;
-	private TextView header;
-	public int counter = 0;
-	private Thread t;
 	private ImageView img;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_loading);
-		header = (TextView)findViewById(R.id.loading_header);
 		ActionBar ab = getActionBar();
 		cont = this;
 		ab.setDisplayShowTitleEnabled(false);
 		handleInitialLoad();
-		t = new Thread() {
-			@Override
-			public void run() {
-				try {
-					while (!isInterrupted()) {
-						Thread.sleep(500);
-						runOnUiThread(new Runnable() {
-					        @Override
-					        public void run() 
-					        {
-					        	if(counter == 0)
-					            {
-					        		header.setText("Please wait ");
-					            }
-					            if(counter == 1)
-					            {
-					            	header.setText("Please wait.");
-					            }
-					            else if(counter == 2)
-					            {
-					            	header.setText("Please wait..");
-					            }
-					            else if(counter == 3)
-					            {
-					            	counter = -1;
-					                header.setText("Please wait...");
-					            }
-					            counter++;
-					        }
-						});
-					}
-				} catch (InterruptedException e) {    }
-			}
-		};
-		t.start();
 		
 		//DELETE THIS LATER
 		img.setOnClickListener(new OnClickListener(){
@@ -94,8 +55,6 @@ public class Loading extends Activity {
 	 */
 	private void sendToHome()
 	{
-		header.setText("Stop waiting");
-		t.interrupt();
 		Intent i2 = new Intent(Loading.this, Home.class);
 		startActivity(i2);
 		overridePendingTransition( R.anim.slide_in_up, R.anim.slide_out_up );
