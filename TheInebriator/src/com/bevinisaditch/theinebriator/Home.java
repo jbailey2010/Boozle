@@ -35,7 +35,8 @@ public class Home extends Activity {
 	private BounceListView list;
 	SideNavigationView sideNavigationView;
 	private ListView sideListView; 
-	
+	public static SimpleAdapter adapter;
+	public static List<HashMap<String, String>> dataSet;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -130,7 +131,7 @@ public class Home extends Activity {
 	public void listviewInit()
 	{
 		list = (BounceListView)findViewById(R.id.listview_rankings);
-		List<HashMap<String, String>> dataSet = new ArrayList<HashMap<String, String>>();
+		dataSet = new ArrayList<HashMap<String, String>>();
 		for(int i = 0; i < 50; i++)
 		{
 			HashMap<String, String> datum = new HashMap<String, String>();
@@ -140,7 +141,7 @@ public class Home extends Activity {
 			datum.put("img", Integer.toString(R.drawable.thumbsup));
 			dataSet.add(datum);
 		}
-		final SimpleAdapter adapter = new SimpleAdapter(cont, dataSet, 
+		adapter = new SimpleAdapter(cont, dataSet, 
 	    		R.layout.two_line_listview_elem, 
 	    		new String[] {"name", "info", "img"}, 
 	    		new int[] {R.id.text1, 
@@ -156,5 +157,37 @@ public class Home extends Activity {
 				DrinkPopup.drinkPopUpInit(cont, name, ingredients);
 			}
 	    });
+	}
+	
+	/**
+	 * Sets the thumbs up image in an input textview
+	 */
+	public static void thumbsUpView(RelativeLayout view)
+	{
+		String name = ((TextView)(view.findViewById(R.id.text1))).getText().toString();
+		String info = ((TextView)(view.findViewById(R.id.text2))).getText().toString();
+		for(HashMap<String, String> datum : dataSet)
+		{
+			if(datum.get("name").equals(name) && datum.get("info").equals(info))
+			{
+				datum.put("img", Integer.toString(R.drawable.thumbsup));
+			}
+		}
+	}
+	
+	/**
+	 * Sets the thumbs down image in an input textview
+	 */
+	public static void thumbsDownView(RelativeLayout view)
+	{
+		String name = ((TextView)(view.findViewById(R.id.text1))).getText().toString();
+		String info = ((TextView)(view.findViewById(R.id.text2))).getText().toString();
+		for(HashMap<String, String> datum : dataSet)
+		{
+			if(datum.get("name").equals(name) && datum.get("info").equals(info))
+			{
+				datum.put("img", Integer.toString(R.drawable.thumbsdown));
+			}
+		}
 	}
 }
