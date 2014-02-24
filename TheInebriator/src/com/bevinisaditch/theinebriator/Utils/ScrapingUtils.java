@@ -15,6 +15,14 @@ import android.widget.Toast;
 public class ScrapingUtils {
 	public static String ua = "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.2 Safari/537.36"; 
 
+	
+	/*method to make a connection to the url*/
+	public static Document makeConnection(String url) throws IOException {
+		Document doc = Jsoup.connect(url).userAgent(ua).timeout(0).get();
+		return doc;	
+	}
+	
+	
 	/**
 	 * This is the query function for a list
 	 * @param url the url to be parsed

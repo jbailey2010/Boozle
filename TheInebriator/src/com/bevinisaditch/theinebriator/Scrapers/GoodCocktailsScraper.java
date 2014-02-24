@@ -15,10 +15,12 @@ public class GoodCocktailsScraper {
 	}
 
 	public static void scrapeDrinks() throws IOException {
-		List<String> links = new ArrayList<String>();
+		List<String> drinkLinks = new ArrayList<String>();
 		
 		/*need to decide what param to give here*/
-		links = ScrapingUtils.handleQuery("http://www.goodcocktails.com/recipes/browse_drinks.php?letter=ALL", "");
+		drinkLinks = ScrapingUtils.handleQuery("http://www.goodcocktails.com/recipes/browse_drinks.php?letter=ALL", "div#browse-drinks");
+		
+		//ScrapingUtils.printQueryResultSize("http://www.goodcocktails.com/recipes/browse_drinks.php?letter=ALL", "a[href^=mixed_drink.php?drinkID=]", false, null);
 		
 		
 		
