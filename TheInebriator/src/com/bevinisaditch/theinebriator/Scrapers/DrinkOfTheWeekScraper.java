@@ -10,7 +10,12 @@ import org.jsoup.select.Elements;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 
 
-
+/**
+ * Scraper for DrinkOfTheWeek.com
+ * 
+ * @author michael
+ *
+ */
 public class DrinkOfTheWeekScraper {
 
 	public static void main(String[] args) {
@@ -59,6 +64,14 @@ public class DrinkOfTheWeekScraper {
 		System.out.println("Connecting to: " + url);
 		Document drinkPage = connectToWebsite(url);
 		//TODO: Continue from here
+		String title = drinkPage.getElementsByClass("pagetitle").first().html();
+		System.out.println(title);
+		Elements ingredients = drinkPage.select("ul.ingredients li");
+		for (Element ingredient : ingredients) {
+			String textIngredients = ingredient.text();
+			System.out.println(textIngredients);
+		}
+		
 		
 		return new Drink("test");
 	}
@@ -75,7 +88,7 @@ public class DrinkOfTheWeekScraper {
 				.data("query", "Java")
 				.userAgent("Mozilla")
 				.cookie("auth", "token")
-				.timeout(3000)
+				.timeout(0)
 				.post();
 		
 		return doc;
