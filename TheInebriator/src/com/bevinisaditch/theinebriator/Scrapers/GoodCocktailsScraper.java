@@ -54,15 +54,17 @@ public class GoodCocktailsScraper {
 		
 		Document doc = ScrapingUtils.makeConnection(url);
 		
-		//Obtaining Drink Name
-		Element drinkName = doc.select("div#drinkRecipe h2").first();
+		//Obtaining info div
+		Elements infoDiv = doc.select("div#drinkRecipe");
 		
 		//String manipulation to extract drink name from tag
-		String name = drinkName.toString();		
-		name = name.substring(name.indexOf(">") + 1, name.lastIndexOf("<"));
+		String drinkName = infoDiv.select("h2").first().toString();		
+		drinkName = drinkName.substring(drinkName.indexOf(">") + 1, drinkName.lastIndexOf("<"));
+		
+//		Elements ingredients = doc.select("div#drinkRecipe").select("ul li");
 		
 		//Creating a new drink and setting its name (for now)
-		Drink drink = new Drink(name);
+		Drink drink = new Drink(drinkName);
 		
 		//Adding it to the list of drinks
 		drinks.add(drink);
