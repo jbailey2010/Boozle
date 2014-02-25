@@ -78,6 +78,10 @@ public class GoodCocktailsScraper {
 		
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public static List<Drink> returnScrapedDrinks() {
 		return drinks;	
 	}
