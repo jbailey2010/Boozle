@@ -1,6 +1,7 @@
 package com.bevinisaditch.theinebriator.Utils;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,7 +17,9 @@ public class ScrapingUtils {
 	public static String ua = "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.2 Safari/537.36"; 
 
 	
-	/*method to make a connection to the url*/
+	/**
+	 * Gets the document containing the source of the page to be queried.
+	 */
 	public static Document makeConnection(String url) throws IOException {
 		Document doc = Jsoup.connect(url).userAgent(ua).timeout(0).get();
 		return doc;	
@@ -43,9 +46,24 @@ public class ScrapingUtils {
 	}
 	
 	/**
+	 * Gets a list of links given an identifier, as opposed to a list of text results
+	 */
+	public static List<String> getLinks(String url, String params) throws IOException
+	{
+		Document doc = Jsoup.connect(url).userAgent(ua).timeout(0).get();
+		List<String> results = new ArrayList<String>();
+		Elements links = doc.select(params);
+		for(Element element : links)
+		{
+			results.add(element.attr("href"));
+		}
+		return results;
+	}
+	
+	/**
 	 * This will print the number of results a query would have, for debugging purposes
 	 */
-	public static void printQueryResultSize(String url, String params, boolean toastToggle, Context cont) throws IOException
+	public static int printQueryResultSize(String url, String params, boolean toastToggle, Context cont) throws IOException
 	{
 		int size = handleQuery(url, params).size();
 		System.out.println("Results had a size of " + size);
@@ -53,6 +71,7 @@ public class ScrapingUtils {
 		{
 			Toast.makeText(cont, "Results had a size of " + size, Toast.LENGTH_LONG).show();
 		}
+		return size;
 	}
 	
 	/**

@@ -137,15 +137,16 @@ public class Home extends Activity {
 			HashMap<String, String> datum = new HashMap<String, String>();
 			datum.put("name", "Sample Drink " + (i+1));
 			datum.put("info", "List of ingredints, list of ingredients, list of ingredients, list of ingredients, list of ingredients");
+			datum.put("ingr", "Instructions to make this drink");
 			//ADD LOGIC HERE WHEN THE TIME COMES
 			datum.put("img", Integer.toString(R.drawable.thumbsup));
 			dataSet.add(datum);
 		}
 		adapter = new SimpleAdapter(cont, dataSet, 
 	    		R.layout.two_line_listview_elem, 
-	    		new String[] {"name", "info", "img"}, 
+	    		new String[] {"name", "info", "ingr", "img"}, 
 	    		new int[] {R.id.text1, 
-	    			R.id.text2, R.id.imageView1});
+	    			R.id.text2, R.id.text3, R.id.imageView1});
 	    list.setAdapter(adapter);
 	    
 	    list.setOnItemClickListener(new OnItemClickListener(){
@@ -154,7 +155,8 @@ public class Home extends Activity {
 					long arg3) {
 				String name = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text1)).getText().toString();
 				String ingredients = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text2)).getText().toString();
-				DrinkPopup.drinkPopUpInit(cont, name, ingredients);
+				String instr = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text3)).getText().toString();
+				DrinkPopup.drinkPopUpInit(cont, name, ingredients, instr);
 			}
 	    });
 	}

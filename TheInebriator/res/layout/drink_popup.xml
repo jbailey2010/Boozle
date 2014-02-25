@@ -48,8 +48,7 @@
 	            android:text="blah 2"
 	            android:layout_marginLeft="8dp"
 	            android:layout_below="@+id/ingredients_view"
-	            android:layout_marginTop="20dp"
-	            android:visibility="gone"/>
+	            android:layout_marginTop="20dp"/>
 	    </RelativeLayout>
     </ScrollView>
 
