@@ -42,8 +42,6 @@ public class DrinkOfTheWeekScraper {
 					scrapeIndividualDrink(url);
 					
 				}
-				
-				
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -60,6 +58,7 @@ public class DrinkOfTheWeekScraper {
 	public static Drink scrapeIndividualDrink(String url) throws IOException {
 		System.out.println("Connecting to: " + url);
 		Document drinkPage = connectToWebsite(url);
+		//TODO: Continue from here
 		
 		return new Drink("test");
 	}
