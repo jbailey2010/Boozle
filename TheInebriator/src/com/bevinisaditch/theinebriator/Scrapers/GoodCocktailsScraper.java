@@ -9,6 +9,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import com.bevinisaditch.theinebriator.Utils.ScrapingUtils;
+import com.bevinisaditch.theinebriator.ClassFiles.*;
 
 public class GoodCocktailsScraper {
 
@@ -40,12 +41,25 @@ public class GoodCocktailsScraper {
 		for(int i = 0; i < drinkLinks.size(); i++) {
 			String url = "http://www.goodcocktails.com/recipes/" + drinkLinks.get(i);
 			scrapeIndividualDrink(url);
+			break; //just making sure that only one drink is being scraped for the time being
 		}
 		
 	}
 	
-	public static void scrapeIndividualDrunk(String url) {
+	public static void scrapeIndividualDrink(String url) throws IOException {
 		
+		Document doc = ScrapingUtils.makeConnection(url);
+		
+		//Obtaining Drink Name
+		Element drinkName = doc.select("div#drinkRecipe h2").first();
+		
+		//String manipulation to extract drink name from tag
+		String name = drinkName.toString();		
+		name = name.substring(name.indexOf(">") + 1, name.lastIndexOf("<"));
+		
+		Drink drink = new Drink(name);
+		
+		return;
 	}
 	
 }
