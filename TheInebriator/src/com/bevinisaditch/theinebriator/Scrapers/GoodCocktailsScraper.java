@@ -39,10 +39,11 @@ public class GoodCocktailsScraper {
 			String url = "http://www.goodcocktails.com/recipes/" + drinkLinks.get(i);
 			scrapeIndividualDrink(url);
 			
-			if(i==1) 
+			if(i==10) 
 				break; //just making sure that only two drinks are being scraped for the time being
 		}
 		
+		System.out.println("");
 	}
 	
 	/**
@@ -61,10 +62,13 @@ public class GoodCocktailsScraper {
 		String drinkName = infoDiv.select("h2").first().toString();		
 		drinkName = drinkName.substring(drinkName.indexOf(">") + 1, drinkName.lastIndexOf("<"));
 		
-//		Elements ingredients = doc.select("div#drinkRecipe").select("ul li");
+		//String manipulation to extract instructions from tag
+		String instructions  = infoDiv.select("p").get(1).toString();
+		instructions = instructions.substring(instructions.indexOf(">") + 1, instructions.lastIndexOf("<"));
 		
-		//Creating a new drink and setting its name (for now)
+		//Creating a new drink with extracted information
 		Drink drink = new Drink(drinkName);
+		drink.setInstructions(instructions);
 		
 		//Adding it to the list of drinks
 		drinks.add(drink);
