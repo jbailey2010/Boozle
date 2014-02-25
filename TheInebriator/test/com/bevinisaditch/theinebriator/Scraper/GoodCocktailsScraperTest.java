@@ -11,9 +11,14 @@ import com.bevinisaditch.theinebriator.Scrapers.GoodCocktailsScraper;
 public class GoodCocktailsScraperTest {
 
 	@Test
-	public void test() throws IOException {
+	public void testScrapedDrinks() throws IOException {
+	
+		String drinkName1 = "007";
+		String drinkName2 = "24 Karat Nightmare";
+		
 		GoodCocktailsScraper.scrapeDrinks();
-		fail("Not yet implemented");
+		
+		assertEquals("007 scraped successfuly", GoodCocktailsScraper.returnScrapedDrinks().get(0).getName(), drinkName1);
+		assertEquals("24 Karat Nightmare scraped successfuly", GoodCocktailsScraper.returnScrapedDrinks().get(1).getName(), drinkName2);
 	}
-
 }

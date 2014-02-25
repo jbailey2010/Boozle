@@ -12,22 +12,28 @@ import com.bevinisaditch.theinebriator.Utils.ScrapingUtils;
 import com.bevinisaditch.theinebriator.ClassFiles.*;
 
 public class GoodCocktailsScraper {
+	
+	private static List<Drink> drinks = new ArrayList<Drink>();
 
+	/**
+	 * 
+	 * @param args
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		scrapeDrinks();
 
 	}
 
+	/**
+	 * 
+	 * @throws IOException
+	 */
 	public static void scrapeDrinks() throws IOException {
 		
-		//making connection to the website
+		//making connection to the web site
 		Document doc = ScrapingUtils.makeConnection("http://www.goodcocktails.com/recipes/browse_drinks.php?letter=ALL");
-		
-		/*need to decide what param to give here*/
-		//drinkLinks = ScrapingUtils.handleQuery("http://www.goodcocktails.com/recipes/browse_drinks.php?letter=ALL", "div#browse-drinks");
-		
-		//ScrapingUtils.printQueryResultSize("http://www.goodcocktails.com/recipes/browse_drinks.php?letter=ALL", "a[href^=mixed_drink.php?drinkID=]", false, null);
 		
 		//Finding all the drinks
 		Elements elements = doc.select("a[href^=mixed_drink.php?drinkID=]");
@@ -38,14 +44,22 @@ public class GoodCocktailsScraper {
 			drinkLinks.add(element.attr("href").toString());
 		}
 		
+		//Running loop to run scraper for individual drinks
 		for(int i = 0; i < drinkLinks.size(); i++) {
 			String url = "http://www.goodcocktails.com/recipes/" + drinkLinks.get(i);
 			scrapeIndividualDrink(url);
-			break; //just making sure that only one drink is being scraped for the time being
+			
+			if(i==1) 
+				break; //just making sure that only two drinks are being scraped for the time being
 		}
 		
 	}
 	
+	/**
+	 * 
+	 * @param url
+	 * @throws IOException
+	 */
 	public static void scrapeIndividualDrink(String url) throws IOException {
 		
 		Document doc = ScrapingUtils.makeConnection(url);
@@ -57,9 +71,15 @@ public class GoodCocktailsScraper {
 		String name = drinkName.toString();		
 		name = name.substring(name.indexOf(">") + 1, name.lastIndexOf("<"));
 		
+		//Creating a new drink and setting its name (for now)
 		Drink drink = new Drink(name);
 		
-		return;
+		drinks.add(drink);
+		
+	}
+	
+	public static List<Drink> returnScrapedDrinks() {
+		return drinks;	
 	}
 	
 }
