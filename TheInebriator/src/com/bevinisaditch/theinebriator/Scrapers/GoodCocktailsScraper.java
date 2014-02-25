@@ -32,18 +32,8 @@ public class GoodCocktailsScraper {
 	 */
 	public static void scrapeDrinks() throws IOException {
 		
-		//making connection to the web site
-		Document doc = ScrapingUtils.makeConnection("http://www.goodcocktails.com/recipes/browse_drinks.php?letter=ALL");
-		
-		//Finding all the drinks
-		Elements elements = doc.select("a[href^=mixed_drink.php?drinkID=]");
-		List<String> drinkLinks = new ArrayList<String>();
-		
-		//Extracting the links for each drink
-		for(Element element : elements) {
-			drinkLinks.add(element.attr("href").toString());
-		}
-		
+		List<String> drinkLinks = ScrapingUtils.getLinks("http://www.goodcocktails.com/recipes/browse_drinks.php?letter=ALL", "a[href^=mixed_drink.php?drinkID=]");
+			
 		//Running loop to run scraper for individual drinks
 		for(int i = 0; i < drinkLinks.size(); i++) {
 			String url = "http://www.goodcocktails.com/recipes/" + drinkLinks.get(i);
