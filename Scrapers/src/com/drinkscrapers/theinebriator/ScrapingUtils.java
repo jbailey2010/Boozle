@@ -1,4 +1,4 @@
-package com.bevinisaditch.theinebriator.Utils;
+package com.drinkscrapers.theinebriator;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -9,20 +9,12 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import android.content.Context;
-import android.widget.Toast;
+//import android.content.Context;
+//import android.widget.Toast;
 
 public class ScrapingUtils {
 	public static String ua = "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.2 Safari/537.36"; 
 
-	
-	/*method to make a connection to the url*/
-	public static Document makeConnection(String url) throws IOException {
-		Document doc = Jsoup.connect(url).userAgent(ua).timeout(0).get();
-		return doc;	
-	}
-	
-	
 	/**
 	 * This is the query function for a list
 	 * @param url the url to be parsed
@@ -45,7 +37,7 @@ public class ScrapingUtils {
 	/**
 	 * This will print the number of results a query would have, for debugging purposes
 	 */
-	public static void printQueryResultSize(String url, String params, boolean toastToggle, Context cont) throws IOException
+	/*public static void printQueryResultSize(String url, String params, boolean toastToggle, Context cont) throws IOException
 	{
 		int size = handleQuery(url, params).size();
 		System.out.println("Results had a size of " + size);
@@ -53,7 +45,7 @@ public class ScrapingUtils {
 		{
 			Toast.makeText(cont, "Results had a size of " + size, Toast.LENGTH_LONG).show();
 		}
-	}
+	}*/
 	
 	/**
 	 * This will print the source of a query, for debugging purposes
