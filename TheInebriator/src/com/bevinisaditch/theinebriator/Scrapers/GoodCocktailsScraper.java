@@ -74,6 +74,7 @@ public class GoodCocktailsScraper {
 		//Creating a new drink and setting its name (for now)
 		Drink drink = new Drink(name);
 		
+		//Adding it to the list of drinks
 		drinks.add(drink);
 		
 	}
