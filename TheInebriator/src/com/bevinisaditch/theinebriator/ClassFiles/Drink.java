@@ -77,4 +77,60 @@ public class Drink {
 	{
 		return instructions;
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Drink [rating=" + rating + ", ingredients=" + ingredients
+				+ ", isFavorited=" + isFavorited + ", name=" + name
+				+ ", instructions=" + instructions + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((ingredients == null) ? 0 : ingredients.hashCode());
+		result = prime * result
+				+ ((instructions == null) ? 0 : instructions.hashCode());
+		result = prime * result + (isFavorited ? 1231 : 1237);
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((rating == null) ? 0 : rating.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Drink other = (Drink) obj;
+		if (ingredients == null) {
+			if (other.ingredients != null)
+				return false;
+		} else if (!ingredients.equals(other.ingredients))
+			return false;
+		if (instructions == null) {
+			if (other.instructions != null)
+				return false;
+		} else if (!instructions.equals(other.instructions))
+			return false;
+		if (isFavorited != other.isFavorited)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (rating != other.rating)
+			return false;
+		return true;
+	}
+	
+	
 }

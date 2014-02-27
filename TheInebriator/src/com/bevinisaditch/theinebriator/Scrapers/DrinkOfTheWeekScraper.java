@@ -1,6 +1,7 @@
 package com.bevinisaditch.theinebriator.Scrapers;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.jsoup.*;
 import org.jsoup.nodes.Document;
@@ -8,6 +9,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
+import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
 
 
 /**
@@ -19,15 +21,17 @@ import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 public class DrinkOfTheWeekScraper {
 
 	public static void main(String[] args) {
-		scrapeDrinks();
+		ArrayList<Drink> drinks = scrapeDrinks();
+		System.out.println(drinks.size());
 
 	}
 	
 	/**
 	 * Scrapes drinks from drinkoftheweek.com
 	 */
-	public static void scrapeDrinks() {
+	public static ArrayList<Drink> scrapeDrinks() {
 		try {
+			ArrayList<Drink> drinksList = new ArrayList<Drink>();
 			
 			//Connect to the website
 			Document mainWebsite = connectToWebsite("http://www.drinkoftheweek.com/list-drinks-a-z/");
@@ -44,13 +48,15 @@ public class DrinkOfTheWeekScraper {
 				//Get URL from href tag
 				for (Element urlTag : urls) {
 					String url = urlTag.attr("href");
-					scrapeIndividualDrink(url);
-					
+					drinksList.add(scrapeIndividualDrink(url));
 				}
 			}
+			
+			return drinksList;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return null;
 		}
 	}
 	
@@ -63,17 +69,30 @@ public class DrinkOfTheWeekScraper {
 	public static Drink scrapeIndividualDrink(String url) throws IOException {
 		System.out.println("Connecting to: " + url);
 		Document drinkPage = connectToWebsite(url);
-		//TODO: Continue from here
+		
 		String title = drinkPage.getElementsByClass("pagetitle").first().html();
 		System.out.println(title);
+		Drink drink = new Drink(title);
+		
 		Elements ingredients = drinkPage.select("ul.ingredients li");
+		ArrayList<Ingredient> ingredientList = new ArrayList<Ingredient>(); 
+		
 		for (Element ingredient : ingredients) {
-			String textIngredients = ingredient.text();
-			System.out.println(textIngredients);
+			System.out.println(ingredient.text());
+			Ingredient ingredientToAdd = new Ingredient(ingredient.text(), null, null);
+			ingredientList.add(ingredientToAdd);
+			
 		}
 		
+		drink.setIngredients(ingredientList);
 		
-		return new Drink("test");
+		String instructions = drinkPage.getElementsByClass("entry").select("div").get(3).select("p").text();
+		System.out.println(instructions);
+		
+		drink.setInstructions(instructions);
+		
+		
+		return drink;
 	}
 	
 	/**
