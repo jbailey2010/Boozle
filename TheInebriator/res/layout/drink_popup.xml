@@ -46,9 +46,10 @@
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:text="blah 2"
+	            android:padding="15dp"
 	            android:layout_marginLeft="8dp"
 	            android:layout_below="@+id/ingredients_view"
-	            android:layout_marginTop="20dp"/>
+	            android:layout_marginTop="15dp"/>
 	    </RelativeLayout>
     </ScrollView>
 

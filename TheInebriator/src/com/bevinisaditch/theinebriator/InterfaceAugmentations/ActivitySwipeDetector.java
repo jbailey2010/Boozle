@@ -1,6 +1,7 @@
 package com.bevinisaditch.theinebriator.InterfaceAugmentations;
 import com.bevinisaditch.theinebriator.Home;
 
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -24,10 +25,10 @@ public class ActivitySwipeDetector implements View.OnTouchListener {
 	
 	 public void onLeftToRightSwipe(){
 	  	((Home)activity).toggleMenu();
-	 }
+	 } 
 	 
-	 public void onRightToLeftSwipe(){
-
+	 public void onTopTouch(){
+		 
 	 }
 
 	 public boolean onTouch(View v, MotionEvent event) {
@@ -35,12 +36,10 @@ public class ActivitySwipeDetector implements View.OnTouchListener {
 		 switch(event.getAction()){
 			  case MotionEvent.ACTION_DOWN: {
 				   downX = event.getX();
-				   if(downX < 10.0)
-				   {
-					   isFarLeft = true;
+				   if(downX < 10.0) {
+					   isFarLeft = true; 
 				   }
-				   else
-				   {
+				   else {
 					   isFarLeft = false;
 				   }
 				   return false;
@@ -49,12 +48,12 @@ public class ActivitySwipeDetector implements View.OnTouchListener {
 				   upX = event.getX();
 				   deltaX = downX - upX;
 				   if(Math.abs(deltaX) > MIN_DISTANCE){
-					   if(deltaX < 0 && isFarLeft) 
-					   { 
+					   if(deltaX < 0 && isFarLeft) { 
 						   this.onLeftToRightSwipe(); 
 						   return false; 
 					   }
 				   } 
+				   
 			  }
 		 }
 		 return false;
