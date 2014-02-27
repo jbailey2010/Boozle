@@ -43,13 +43,17 @@ public class ActivitySwipeDetector implements View.OnTouchListener {
 				   {
 					   isFarLeft = false;
 				   }
-				   return true;
+				   return false;
 			  }
 			  case MotionEvent.ACTION_UP: {
 				   upX = event.getX();
 				   deltaX = downX - upX;
 				   if(Math.abs(deltaX) > MIN_DISTANCE){
-					   if(deltaX < 0 && isFarLeft) { this.onLeftToRightSwipe(); return true; }
+					   if(deltaX < 0 && isFarLeft) 
+					   { 
+						   this.onLeftToRightSwipe(); 
+						   return false; 
+					   }
 				   } 
 			  }
 		 }
