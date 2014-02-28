@@ -18,6 +18,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
@@ -37,18 +38,21 @@ public class Home extends Activity {
 	private ListView sideListView; 
 	public static SimpleAdapter adapter;
 	public static List<HashMap<String, String>> dataSet;
+	public LinearLayout ll;
+	//Remove this later
+	public boolean lastList = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		ActionBar ab = getActionBar();
-		cont = this;
+		cont = this; 
 		ab.setDisplayShowTitleEnabled(false);
-		list = (BounceListView)findViewById(R.id.listview_rankings);
-		list.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
-		menuInit();
-		listviewInit();
+		ll = (LinearLayout)findViewById(R.id.home_base);
+		ll.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
+		//Remove this later
+		setNoResults();
 	}
 
 	@Override
@@ -57,7 +61,7 @@ public class Home extends Activity {
 		getMenuInflater().inflate(R.menu.home, menu);
 		return true;
 	}
-	
+	 
 	/**
 	 * Runs the on selection part of the menu
 	 */
@@ -68,9 +72,17 @@ public class Home extends Activity {
 		{
 			case android.R.id.home:
 		        toggleMenu();
-		        return true;
+		        return true; 
 			case R.id.menu_search:
-				
+				//Remove this later
+				if(lastList)
+				{   
+					setNoResults();
+				}
+				else 
+				{
+					listviewInit();  
+				}
 				return true;
 			default:
 				return super.onOptionsItemSelected(item);
@@ -84,7 +96,7 @@ public class Home extends Activity {
 	public void onBackPressed() {
 	}
 	
-	public void menuInit(){
+	public void menuInit(View v){
 		ISideNavigationCallback sideNavigationCallback = new ISideNavigationCallback() {
 		    @Override
 		    public void onSideNavigationItemClick(int itemId) {
@@ -109,7 +121,7 @@ public class Home extends Activity {
 		    	}
 		    }
 		};
-		sideNavigationView = (SideNavigationView) findViewById(R.id.side_navigation_view);
+		sideNavigationView = (SideNavigationView) v.findViewById(R.id.side_navigation_view);
 	    sideNavigationView.setMenuItems(R.menu.side_menu_options);
 	    sideNavigationView.setMenuClickCallback(sideNavigationCallback);
 	    getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -128,9 +140,23 @@ public class Home extends Activity {
 		} 
 	}
 	
+	public void setNoResults()
+	{
+		lastList = false;
+		View res = ((Activity) cont).getLayoutInflater().inflate(R.layout.no_results, ll, false);
+		menuInit(res);
+		res.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
+		ll.removeAllViews();
+		ll.addView(res);
+	}
+	
 	public void listviewInit()
 	{
-		list = (BounceListView)findViewById(R.id.listview_rankings);
+		lastList = true;
+		View res = ((Activity) cont).getLayoutInflater().inflate(R.layout.list_results, ll, false);
+		menuInit(res);
+		list = (BounceListView)res.findViewById(R.id.listview_rankings);
+		list.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
 		dataSet = new ArrayList<HashMap<String, String>>();
 		for(int i = 0; i < 50; i++)
 		{
@@ -159,6 +185,8 @@ public class Home extends Activity {
 				DrinkPopup.drinkPopUpInit(cont, name, ingredients, instr);
 			}
 	    });
+	    ll.removeAllViews();
+	    ll.addView(res);
 	}
 	
 	/**

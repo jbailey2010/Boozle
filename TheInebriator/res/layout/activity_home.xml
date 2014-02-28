@@ -1,21 +1,12 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:clickable="true"
+	android:focusable="true"
+	android:focusableInTouchMode="true"
+    android:id="@+id/home_base"
     tools:context=".Home" >
 
-    <com.bevinisaditch.theinebriator.InterfaceAugmentations.BounceListView
-	        
-	        android:id="@+id/listview_rankings"
-	        android:layout_width="match_parent"
-	        android:layout_height="match_parent"
-	        android:divider="#AAAAAA"
-	        android:background="#AAAAAA"
-	        android:clickable="true"> 
-	    </com.bevinisaditch.theinebriator.InterfaceAugmentations.BounceListView>
-	    <com.devspark.sidenavigation.SideNavigationView
-        android:id="@+id/side_navigation_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-</RelativeLayout>
+</LinearLayout>
