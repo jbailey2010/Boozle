@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
@@ -39,6 +41,8 @@ public class Home extends Activity {
 	public static SimpleAdapter adapter;
 	public static List<HashMap<String, String>> dataSet;
 	public LinearLayout ll;
+	public Menu menuObj;
+	public MenuItem scrollUp;
 	//Remove this later
 	public boolean lastList = false;
 	
@@ -59,6 +63,8 @@ public class Home extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.home, menu);
+		menuObj = menu;
+		scrollUp = (MenuItem)menuObj.findItem(R.id.menu_scroll_up);
 		return true;
 	}
 	 
@@ -71,7 +77,7 @@ public class Home extends Activity {
 		switch (item.getItemId()) 
 		{
 			case android.R.id.home:
-		        toggleMenu();
+		        toggleMenu(); 
 		        return true; 
 			case R.id.menu_search:
 				//Remove this later
@@ -83,6 +89,9 @@ public class Home extends Activity {
 				{
 					listviewInit();  
 				}
+				return true;
+			case R.id.menu_scroll_up:
+				list.smoothScrollToPosition(0);
 				return true;
 			default:
 				return super.onOptionsItemSelected(item);
@@ -174,19 +183,47 @@ public class Home extends Activity {
 	    		new int[] {R.id.text1, 
 	    			R.id.text2, R.id.text3, R.id.imageView1});
 	    list.setAdapter(adapter);
-	    
-	    list.setOnItemClickListener(new OnItemClickListener(){
+	    configListResults();
+	    ll.removeAllViews();
+	    ll.addView(res);
+	}
+	 
+	/**
+	 * Configures the drink pop up on click and the enabling of the scroll menu option on scroll
+	 */
+	public void configListResults()
+	{
+		list.setOnItemClickListener(new OnItemClickListener(){
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
 				String name = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text1)).getText().toString();
 				String ingredients = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text2)).getText().toString();
 				String instr = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text3)).getText().toString();
+				list.setSelection(arg2);
 				DrinkPopup.drinkPopUpInit(cont, name, ingredients, instr);
 			}
 	    });
-	    ll.removeAllViews();
-	    ll.addView(res);
+	    list.setOnScrollListener(new OnScrollListener(){
+			@Override
+			public void onScroll(AbsListView arg0, int arg1, int arg2, int arg3) {
+				if(arg1 > 3)
+				{
+					scrollUp.setVisible(true);
+					scrollUp.setEnabled(true);
+				}
+				else
+				{
+					scrollUp.setVisible(false);
+					scrollUp.setEnabled(false);
+				}
+			}
+
+			@Override
+			public void onScrollStateChanged(AbsListView arg0, int arg1) {
+				//Sincerely don't care
+			}
+	    });
 	}
 	
 	/**
