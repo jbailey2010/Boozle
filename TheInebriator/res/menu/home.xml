@@ -1,5 +1,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <item
+        android:id="@+id/menu_clear_results"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/clear"
+        android:enabled="false"
+        android:visible="false"/>
+    <item
 	    android:id="@+id/menu_scroll_up"
 	    android:orderInCategory="100"
 	    android:showAsAction = "ifRoom"

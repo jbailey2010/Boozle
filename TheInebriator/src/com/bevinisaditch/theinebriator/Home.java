@@ -27,6 +27,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.bevinisaditch.theinebriator.ClassFiles.DrinkPopup;
+import com.bevinisaditch.theinebriator.ClassFiles.SearchManagement;
 import com.bevinisaditch.theinebriator.InterfaceAugmentations.ActivitySwipeDetector;
 import com.bevinisaditch.theinebriator.InterfaceAugmentations.BounceListView;
 import com.devingotaswitch.theinebriator.R;
@@ -43,8 +44,7 @@ public class Home extends Activity {
 	public LinearLayout ll;
 	public Menu menuObj;
 	public MenuItem scrollUp;
-	//Remove this later
-	public boolean lastList = false;
+	public MenuItem clearRes;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +55,6 @@ public class Home extends Activity {
 		ab.setDisplayShowTitleEnabled(false);
 		ll = (LinearLayout)findViewById(R.id.home_base);
 		ll.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
-		//Remove this later
 		setNoResults();
 	}
 
@@ -65,6 +64,7 @@ public class Home extends Activity {
 		getMenuInflater().inflate(R.menu.home, menu);
 		menuObj = menu;
 		scrollUp = (MenuItem)menuObj.findItem(R.id.menu_scroll_up);
+		clearRes = (MenuItem)menuObj.findItem(R.id.menu_clear_results);
 		return true;
 	}
 	 
@@ -80,18 +80,13 @@ public class Home extends Activity {
 		        toggleMenu(); 
 		        return true; 
 			case R.id.menu_search:
-				//Remove this later
-				if(lastList)
-				{   
-					setNoResults();
-				}
-				else 
-				{
-					listviewInit();  
-				}
+				SearchManagement.getSearchType(cont);
 				return true;
 			case R.id.menu_scroll_up:
 				list.smoothScrollToPosition(0);
+				return true;
+			case R.id.menu_clear_results:
+				confirmClear();
 				return true;
 			default:
 				return super.onOptionsItemSelected(item);
@@ -105,6 +100,10 @@ public class Home extends Activity {
 	public void onBackPressed() {
 	}
 	
+	/**
+	 * Sets up the various onclicks and configurations for the side menu
+	 * and it's respective options
+	 */
 	public void menuInit(View v){
 		ISideNavigationCallback sideNavigationCallback = new ISideNavigationCallback() {
 		    @Override
@@ -136,22 +135,53 @@ public class Home extends Activity {
 	    getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 
+	/**
+	 * If the menu is gone, show it, if visible, hide it, and make sure the ontouchlistener remains valid
+	 */
 	public void toggleMenu() {
 		sideNavigationView.toggleMenu();
 		sideListView = (ListView) sideNavigationView.findViewById(R.id.side_navigation_listview);
 		sideListView.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
 	}
+
 	
-	public void hideMenu(){
-		if(sideNavigationView.isShown())
-		{
-			sideNavigationView.toggleMenu();
-		} 
+	/**
+	 * Makes a popup to make sure the user meant to clear results
+	 */
+	public void confirmClear()
+	{
+		final Dialog dialog = new Dialog(cont, R.style.DialogBackground);
+		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		dialog.setContentView(R.layout.confirm_clear_popup);
+		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+	    lp.copyFrom(dialog.getWindow().getAttributes());
+	    lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+	    dialog.getWindow().setAttributes(lp);
+	    dialog.show();
+	    TextView close = (TextView)dialog.findViewById(R.id.close);
+	    close.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				dialog.dismiss();
+			}
+	    });
+	    Button confirm = (Button)dialog.findViewById(R.id.clear_confirm);
+	    confirm.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				dataSet.clear();
+				setNoResults();
+			}
+	    });
 	}
 	
+	/**
+	 * Sets the display to be the no results screen, prompting the user to do stuff
+	 */
 	public void setNoResults()
 	{
-		lastList = false;
+		clearRes.setVisible(false);
+		clearRes.setEnabled(false);
 		View res = ((Activity) cont).getLayoutInflater().inflate(R.layout.no_results, ll, false);
 		menuInit(res);
 		res.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
@@ -159,9 +189,13 @@ public class Home extends Activity {
 		ll.addView(res);
 	}
 	
+	/**
+	 * Sets up the listview to display the appropriate data in the activity
+	 */
 	public void listviewInit()
 	{
-		lastList = true;
+		clearRes.setVisible(true);
+		clearRes.setEnabled(true);
 		View res = ((Activity) cont).getLayoutInflater().inflate(R.layout.list_results, ll, false);
 		menuInit(res);
 		list = (BounceListView)res.findViewById(R.id.listview_rankings);
