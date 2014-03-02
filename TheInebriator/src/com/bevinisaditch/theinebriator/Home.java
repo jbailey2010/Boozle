@@ -174,7 +174,7 @@ public class Home extends Activity {
 			datum.put("info", "List of ingredints, list of ingredients, list of ingredients, list of ingredients, list of ingredients");
 			datum.put("ingr", "Instructions to make this drink");
 			//ADD LOGIC HERE WHEN THE TIME COMES
-			datum.put("img", Integer.toString(R.drawable.thumbsup));
+			datum.put("img", "");
 			dataSet.add(datum);
 		}
 		adapter = new SimpleAdapter(cont, dataSet, 
