@@ -180,8 +180,11 @@ public class Home extends Activity {
 	 */
 	public void setNoResults()
 	{
-		clearRes.setVisible(false);
-		clearRes.setEnabled(false);
+		if(clearRes != null)
+		{
+			clearRes.setVisible(false);
+			clearRes.setEnabled(false);
+		}
 		View res = ((Activity) cont).getLayoutInflater().inflate(R.layout.no_results, ll, false);
 		menuInit(res);
 		res.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));

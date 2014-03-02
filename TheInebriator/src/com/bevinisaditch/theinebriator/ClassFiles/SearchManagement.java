@@ -65,10 +65,38 @@ public class SearchManagement {
 	}
 
 	public static void searchByName(Context c) {
-		
+		final Dialog dialog = new Dialog(c, R.style.DialogBackground);
+		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		dialog.setContentView(R.layout.search_name_popup);
+		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+	    lp.copyFrom(dialog.getWindow().getAttributes());
+	    lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+	    dialog.getWindow().setAttributes(lp);
+	    dialog.show();
+	    TextView close = (TextView)dialog.findViewById(R.id.close);
+	    close.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				dialog.dismiss();
+			}
+	    });
 	}
 	
 	public static void searchByIngredients(Context c) {
-		
+		final Dialog dialog = new Dialog(c, R.style.DialogBackground);
+		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		dialog.setContentView(R.layout.search_ingredients_popup);
+		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+	    lp.copyFrom(dialog.getWindow().getAttributes());
+	    lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+	    dialog.getWindow().setAttributes(lp);
+	    dialog.show();
+	    TextView close = (TextView)dialog.findViewById(R.id.close);
+	    close.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				dialog.dismiss();
+			}
+	    });
 	}
 }

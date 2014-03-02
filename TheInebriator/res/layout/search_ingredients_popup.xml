@@ -2,6 +2,141 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
+    <TextView
+        android:id="@+id/close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:padding="10dp"
+        android:text="X"
+        android:textColor="#FF0000"
+        android:textSize="30sp"
+        android:textStyle="bold" />
     
+    <TextView
+        android:id="@+id/clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:padding="5dp"
+        android:text="Clear"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/close"
+        android:layout_centerHorizontal="true"
+        android:text="Enter ingredients below"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:text="Press add to add the searched ingredient, use the toggle to determine if it's optional or required"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+    
+    <AutoCompleteTextView
+        android:id="@+id/search_input_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:background="@drawable/input_well"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_input_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text=" " />
+
+    <ScrollView
+        android:id="@+id/search_list_scrollview"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_alignRight="@+id/search_input_view"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_toRightOf="@+id/textView3"
+        android:background="@drawable/search_well" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+	        <TextView
+	            android:id="@+id/optional_ingredients"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:visibility="invisible"
+	            android:textSize="14sp"
+	            android:text = "Optional:"/>
+	        
+	        <TextView
+	            android:id="@+id/required_ingredients"
+	            android:layout_below="@id/optional_ingredients"
+	            android:layout_marginTop="10dp"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:visibility="invisible"
+	            android:textSize="14sp"
+	            android:text = "Required:"/>
+	    </RelativeLayout>
+    </ScrollView>
+    
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_alignLeft="@+id/search_input_view"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_toLeftOf="@+id/textView3">
+
+        <ToggleButton
+            android:id="@+id/toggle_req_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textOn="Required"
+            android:textOff="Optional"
+            android:textColor="#eeeeee" />
+        
+    </RelativeLayout>
+        
+
+    <Button
+        android:id="@+id/search_submit"
+        style="@style/ButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/search_input_view"
+        android:layout_below="@+id/search_list_scrollview"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/btn_blue"
+        android:text="Search" />
+    
+    <Button
+        android:id="@+id/search_add"
+        style="@style/ButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/search_input_view"
+        android:layout_below="@+id/search_list_scrollview"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/btn_blue"
+        android:text="Add" />
 
 </RelativeLayout>
