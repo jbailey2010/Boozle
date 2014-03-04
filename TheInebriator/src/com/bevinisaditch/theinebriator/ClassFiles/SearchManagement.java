@@ -1,10 +1,14 @@
 package com.bevinisaditch.theinebriator.ClassFiles;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import com.bevinisaditch.theinebriator.Home;
 import com.devingotaswitch.theinebriator.R;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.view.View;
@@ -12,7 +16,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -64,7 +70,8 @@ public class SearchManagement {
 		});
 	}
 
-	public static void searchByName(Context c) {
+	public static void searchByName(final Context c) {
+		List<String> drinkNames = Home.getDrinkNames();
 		final Dialog dialog = new Dialog(c, R.style.DialogBackground);
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		dialog.setContentView(R.layout.search_name_popup);
@@ -78,11 +85,19 @@ public class SearchManagement {
 			@Override
 			public void onClick(View arg0) {
 				dialog.dismiss();
+				//Remove this
+				((Home)((Activity)c)).listviewInit();
 			}
 	    });
+	    AutoCompleteTextView input = (AutoCompleteTextView)dialog.findViewById(R.id.search_input_view);
+	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(c,
+                android.R.layout.simple_dropdown_item_1line, drinkNames);    
+	    input.setThreshold(2);
+	    input.setAdapter(adapter);
 	}
 	
-	public static void searchByIngredients(Context c) {
+	public static void searchByIngredients(final Context c) {
+		List<String> drinkNames = Home.getIngredients();
 		final Dialog dialog = new Dialog(c, R.style.DialogBackground);
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		dialog.setContentView(R.layout.search_ingredients_popup);
@@ -96,7 +111,14 @@ public class SearchManagement {
 			@Override
 			public void onClick(View arg0) {
 				dialog.dismiss();
+				//Remove this
+				((Home)((Activity)c)).listviewInit();
 			}
 	    });
+	    AutoCompleteTextView input = (AutoCompleteTextView)dialog.findViewById(R.id.search_input_view);
+	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(c,
+                android.R.layout.simple_dropdown_item_1line, drinkNames);    
+	    input.setThreshold(2);
+	    input.setAdapter(adapter);
 	}
 }
