@@ -20,6 +20,12 @@ import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
  */
 public class DrinkOfTheWeekScraper {
 
+	private static final String[] POSSIBLE_UNITS = {"oz", "dash", "tsp", "tbsp", "pony", "jigger", "cup",
+	         "pt", "qt", "gal", "splash", "dashes", "splashes", "float", "part",
+	         "tablespoon", "teaspoon", "ponies", "gallon", "quart",
+	         "ounce", "slice", "scoop"};
+	
+	
 	public static void main(String[] args) {
 		ArrayList<Drink> drinks = scrapeDrinks();
 		System.out.println(drinks.size());
@@ -77,6 +83,8 @@ public class DrinkOfTheWeekScraper {
 		Elements ingredients = drinkPage.select("ul.ingredients li");
 		ArrayList<Ingredient> ingredientList = new ArrayList<Ingredient>(); 
 		
+		
+		
 		for (Element ingredient : ingredients) {
 			System.out.println(ingredient.text());
 			Ingredient ingredientToAdd = new Ingredient(ingredient.text(), null, null);
@@ -93,6 +101,37 @@ public class DrinkOfTheWeekScraper {
 		
 		
 		return drink;
+	}
+	
+	public static Ingredient parseIngredient(String line)
+	{
+		String name;
+		String qty;
+		String units;
+		
+		for (String possibleUnit : POSSIBLE_UNITS)
+		{
+			int index = line.indexOf(possibleUnit);
+			if (index >= 0)
+			{
+				qty = line.substring(0, index).trim();
+				int unitStrLen = possibleUnit.length();
+				if (line.length() > index + unitStrLen)
+				{
+					char after = line.charAt(index + unitStrLen);
+					if (after == '.' || after == 's')
+					{
+						unitStrLen++;
+					}
+				}
+				units = line.substring(index, index + unitStrLen).trim();
+				name = line.substring(index + unitStrLen).trim();
+				return new Ingredient(name, qty, units);
+			}
+		}
+		
+		return new Ingredient("", "", line);
+		
 	}
 	
 	/**

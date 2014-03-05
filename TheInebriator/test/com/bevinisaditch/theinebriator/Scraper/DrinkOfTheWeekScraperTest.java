@@ -35,5 +35,28 @@ public class DrinkOfTheWeekScraperTest {
 		Drink armarettoSour = DrinkOfTheWeekScraper.scrapeIndividualDrink("http://www.drinkoftheweek.com/drink_recipes/amaretto-sour/#axzz2tpUGWLYA");
 		assertEquals(armarettoSour, armSour);
 	}
+	
+	@Test
+	public void testScrapeIngredient()
+	{
+		String line = "12 oz thing";
+		Ingredient result = DrinkOfTheWeekScraper.parseIngredient(line);
+		assertTrue(result.equals(new Ingredient("thing", "12", "oz")));
+		result = DrinkOfTheWeekScraper.parseIngredient("12 oz. thing");
+		assertTrue(result.equals(new Ingredient("thing", "12", "oz.")));
+		result = DrinkOfTheWeekScraper.parseIngredient("12 ounce thing");
+		assertTrue(result.equals(new Ingredient("thing", "12", "ounce")));
+		result = DrinkOfTheWeekScraper.parseIngredient("12 ounces of thing");
+		assertTrue(result.equals(new Ingredient("of thing", "12", "ounces")));
+		result = DrinkOfTheWeekScraper.parseIngredient("12 oz");
+		assertTrue(result.equals(new Ingredient("", "12", "oz")));
+		result = DrinkOfTheWeekScraper.parseIngredient("12 oz.");
+		assertTrue(result.equals(new Ingredient("", "12", "oz.")));
+		result = DrinkOfTheWeekScraper.parseIngredient("52 thimbles wine");
+		assertTrue(result.equals(new Ingredient("", "", "52 thimbles wine")));
+		result = DrinkOfTheWeekScraper.parseIngredient("oz thing");
+		assertTrue(result.equals(new Ingredient("thing", "", "oz")));
+		
+	}
 
 }
