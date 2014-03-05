@@ -3,6 +3,7 @@ package com.bevinisaditch.theinebriator;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import android.os.Bundle;
 import android.app.ActionBar;
@@ -169,6 +170,7 @@ public class Home extends Activity {
 	    confirm.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
+				dialog.dismiss();
 				dataSet.clear();
 				setNoResults();
 			}
@@ -184,6 +186,11 @@ public class Home extends Activity {
 		{
 			clearRes.setVisible(false);
 			clearRes.setEnabled(false);
+		}
+		if(scrollUp != null)
+		{
+			scrollUp.setVisible(false);
+			scrollUp.setEnabled(false);
 		}
 		View res = ((Activity) cont).getLayoutInflater().inflate(R.layout.no_results, ll, false);
 		menuInit(res);
@@ -293,5 +300,25 @@ public class Home extends Activity {
 				datum.put("img", Integer.toString(R.drawable.thumbsdown));
 			}
 		}
+	}
+	
+	public static List<String> getDrinkNames()
+	{
+		List<String> drinkNames = new ArrayList<String>();
+		for(int i = 0; i < 20000; i++)
+		{
+			drinkNames.add("Drink " + (i+1));
+		}
+		return drinkNames;
+	}
+	
+	public static List<String> getIngredients()
+	{
+		List<String> drinkNames = new ArrayList<String>();
+		for(int i = 0; i < 20000; i++)
+		{
+			drinkNames.add("Ingredient " + (i+1));
+		}
+		return drinkNames;
 	}
 }
