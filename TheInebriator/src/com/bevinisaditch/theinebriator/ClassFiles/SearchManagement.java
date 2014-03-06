@@ -167,7 +167,12 @@ public class SearchManagement {
 			@Override
 			public void onClick(View v) {
 				String name = input.getText().toString();
-				if(drinkNames.contains(name))
+				if(reqIngredients.contains(name) || optIngredients.contains(name))
+				{
+					Toast.makeText(c, "That ingredient is already added", Toast.LENGTH_SHORT).show();
+					input.setText("");
+				}
+				else if(drinkNames.contains(name))
 				{
 					if(reqRadio.isChecked())
 					{
@@ -191,9 +196,12 @@ public class SearchManagement {
 	    submit.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				dialog.dismiss();
-				//Replace this with logic to use the two listviews in the search
-				((Home)((Activity)c)).listviewInit();
+				if(optIngredients.size() > 0 || reqIngredients.size() > 0)
+				{
+					dialog.dismiss();
+					//Replace this with logic to use the two listviews in the search
+					((Home)((Activity)c)).listviewInit();
+				}
 			}
 	    });
 	}
