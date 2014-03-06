@@ -20,7 +20,7 @@ public class DrinkOfTheWeekScraperTest {
 		armSour = new Drink("Amaretto Sour");
 		Ingredient ing1 = new Ingredient("amaretto bitters", "1", "oz");
 		Ingredient ing2 = new Ingredient("lemon juice or sweet & sour", "2", "oz");
-		Ingredient ing3 = new Ingredient("Orange slice", null, null);
+		Ingredient ing3 = new Ingredient("", "Orange", "slice");
 		ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
 		ingredients.add(ing1);
 		ingredients.add(ing2);

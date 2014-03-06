@@ -18,10 +18,13 @@ public class Ingredient {
 		this.units = units;
 	}
 	
-	public String toString()
-	{
-		return name + " (" + quantity + " " + units + ")";
+
+	@Override
+	public String toString() {
+		return "Ingredient [name=" + name + ", quantity=" + quantity
+				+ ", units=" + units + "]";
 	}
+
 
 	@Override
 	public int hashCode() {

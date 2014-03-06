@@ -91,8 +91,10 @@ public class Drink {
 	public String toString() {
 		return "Drink [rating=" + rating + ", ingredients=" + ingredients
 				+ ", isFavorited=" + isFavorited + ", name=" + name
-				+ ", instructions=" + instructions + "]";
+				+ ", instructions=" + instructions + ", url=" + url + "]";
 	}
+	
+	
 
 	@Override
 	public int hashCode() {
