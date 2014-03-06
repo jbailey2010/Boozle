@@ -245,7 +245,8 @@ public class Home extends Activity {
 				String ingredients = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text2)).getText().toString();
 				String instr = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text3)).getText().toString();
 				list.setSelection(arg2);
-				DrinkPopup.drinkPopUpInit(cont, name, ingredients, instr);
+				//ITERATE ON DRINKS HERE TO GET URL
+				DrinkPopup.drinkPopUpInit(cont, name, ingredients, instr, "google.com");
 			}
 	    });
 	    list.setOnScrollListener(new OnScrollListener(){
@@ -304,6 +305,7 @@ public class Home extends Activity {
 	
 	public static List<String> getDrinkNames()
 	{
+		//REPLACE THE FOR LOOP WITH LOOPING TO GET DRINK NAMES
 		List<String> drinkNames = new ArrayList<String>();
 		for(int i = 0; i < 20000; i++)
 		{
@@ -314,6 +316,7 @@ public class Home extends Activity {
 	
 	public static List<String> getIngredients()
 	{
+		//REPLACE THE FOR LOOP WITH LOOPING TO GET INGREDIENTS
 		List<String> drinkNames = new ArrayList<String>();
 		for(int i = 0; i < 20000; i++)
 		{

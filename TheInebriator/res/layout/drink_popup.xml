@@ -77,4 +77,14 @@
 	        android:layout_height="50dp"
 	        android:src="@drawable/thumbsup" />
 	</RelativeLayout>
+
+    <ImageView
+        android:id="@+id/twitter_logo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/twitter" />
+
 </RelativeLayout>

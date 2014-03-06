@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -13,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bevinisaditch.theinebriator.Home;
+import com.bevinisaditch.theinebriator.TwitterInteraction;
 import com.devingotaswitch.theinebriator.R;
 
 public class DrinkPopup {
@@ -29,7 +32,7 @@ public class DrinkPopup {
 	 * Configures the initial pop up to appropriately handle input and
 	 * display the data from the clicked element itself
 	 */
-	public static void drinkPopUpInit(Context c, String name, String ingredients, String instr)
+	public static void drinkPopUpInit(final Context c, final String name, String ingredients, String instr, final String url)
 	{
 		nameDrink = name;
 		ingrDrink = ingredients;
@@ -54,8 +57,25 @@ public class DrinkPopup {
 	    ingredientsView.setText(ingredients);
 	    TextView nameView = (TextView)dialog.findViewById(R.id.drink_name);
 	    nameView.setText(name);
+	    nameView.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View arg0) {
+				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+				c.startActivity(browserIntent);
+			}
+	    	
+	    });
 	    TextView instrView = (TextView)dialog.findViewById(R.id.instructions_view);
 	    instrView.setText(instr);
+	    ImageView twitter = (ImageView)dialog.findViewById(R.id.twitter_logo);
+	    twitter.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				TwitterInteraction obj = new TwitterInteraction();
+				obj.twitterInitial(cont, name);
+			}
+	    });
 	    tu = (ImageView)dialog.findViewById(R.id.thumbs_up_img);
 	    td = (ImageView)dialog.findViewById(R.id.thumbs_down_img);
 	    tu.setOnClickListener(new OnClickListener(){
