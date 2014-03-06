@@ -74,6 +74,10 @@ public class SearchManagement {
 		});
 	}
 
+	/**
+	 * Handles the configuring of the searching by name popup
+	 * @param c
+	 */
 	public static void searchByName(final Context c) {
 		final List<String> drinkNames = Home.getDrinkNames();
 		final Dialog dialog = new Dialog(c, R.style.DialogBackground);
@@ -117,6 +121,10 @@ public class SearchManagement {
 	    });
 	}
 	
+	/**
+	 * Handles the configuring of the searching by ingredients popup
+	 * @param c
+	 */
 	public static void searchByIngredients(final Context c) {
 		final List<String> drinkNames = Home.getIngredients();
 		final List<String> optIngredients = new ArrayList<String>();
@@ -190,6 +198,9 @@ public class SearchManagement {
 	    });
 	}
 	
+	/**
+	 * Updates the ingredient list as things are changed
+	 */
 	public static void updateTextViews(TextView view, List<String>ingrList, String header)
 	{
 		StringBuilder ingrBuilder = new StringBuilder(100);
