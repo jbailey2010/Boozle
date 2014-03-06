@@ -14,6 +14,7 @@ public class Drink {
 	private boolean isFavorited;
 	private String name;
 	private String instructions;
+	private String url;
 	
 	public Drink(String name)
 	{
@@ -77,8 +78,14 @@ public class Drink {
 	{
 		return instructions;
 	}
-	
-	
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
 
 	@Override
 	public String toString() {

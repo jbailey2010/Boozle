@@ -18,8 +18,8 @@ public class DrinkOfTheWeekScraperTest {
 	@BeforeClass
 	public static void setUpTestDrinks() {
 		armSour = new Drink("Amaretto Sour");
-		Ingredient ing1 = new Ingredient("1 oz amaretto bitters", null, null);
-		Ingredient ing2 = new Ingredient("2 oz lemon juice or sweet & sour", null, null);
+		Ingredient ing1 = new Ingredient("amaretto bitters", "1", "oz");
+		Ingredient ing2 = new Ingredient("lemon juice or sweet & sour", "2", "oz");
 		Ingredient ing3 = new Ingredient("Orange slice", null, null);
 		ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
 		ingredients.add(ing1);
@@ -27,6 +27,7 @@ public class DrinkOfTheWeekScraperTest {
 		ingredients.add(ing3);
 		armSour.setIngredients(ingredients);
 		armSour.setInstructions("Combine all the ingredients in a shaker filled with ice, and strain into a chilled sour glass. Garnish with the orange slice.");
+		armSour.setUrl("http://www.drinkoftheweek.com/drink_recipes/amaretto-sour/#axzz2tpUGWLYA");
 		
 	}
 

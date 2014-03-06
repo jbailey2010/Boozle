@@ -80,6 +80,8 @@ public class DrinkOfTheWeekScraper {
 		System.out.println(title);
 		Drink drink = new Drink(title);
 		
+		drink.setUrl(url);
+		
 		Elements ingredients = drinkPage.select("ul.ingredients li");
 		ArrayList<Ingredient> ingredientList = new ArrayList<Ingredient>(); 
 		
@@ -87,7 +89,7 @@ public class DrinkOfTheWeekScraper {
 		
 		for (Element ingredient : ingredients) {
 			System.out.println(ingredient.text());
-			Ingredient ingredientToAdd = new Ingredient(ingredient.text(), null, null);
+			Ingredient ingredientToAdd = parseIngredient(ingredient.text());
 			ingredientList.add(ingredientToAdd);
 			
 		}
