@@ -13,7 +13,7 @@ import com.bevinisaditch.theinebriator.ClassFiles.*;
 
 public class GoodCocktailsScraper {
 
-	private static List<Drink> drinks = new ArrayList<Drink>();
+	private static ArrayList<Drink> drinks = new ArrayList<Drink>();
 
 	/**
 	 * 
@@ -138,8 +138,10 @@ public class GoodCocktailsScraper {
 	/**
 	 * 
 	 * @return
+	 * @throws IOException 
 	 */
-	public static List<Drink> returnScrapedDrinks() {
+	public static ArrayList<Drink> returnScrapedDrinks() throws IOException {
+		scrapeDrinks();
 		return drinks;
 	}
 
