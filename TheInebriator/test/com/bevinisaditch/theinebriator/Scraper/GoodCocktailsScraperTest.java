@@ -20,14 +20,9 @@ public class GoodCocktailsScraperTest {
 
 		String instructions1 = "Pour the orange vodka into a glass with ice. Fill it with half orange juice and half lemon-lime soda.";
 		String instructions2 = "Combine both ingredients into shot glass.";
-		ArrayList<Ingredient> ing = GoodCocktailsScraper.returnScrapedDrinks().get(5).getIngredients();
-		int count = 0;
-		for(Ingredient s: ing){
-			count++;
-			System.out.println(s.getName());
-			System.out.println(count);
 		
-
+		
+		
 		GoodCocktailsScraper.scrapeDrinks();
 
 		// Testing names
@@ -46,7 +41,7 @@ public class GoodCocktailsScraperTest {
 						.getInstructions(), instructions2);
 		}
 
-	}
+	
 	
 	@Test
 	public void testIngredients() throws IOException{
@@ -73,13 +68,17 @@ public class GoodCocktailsScraperTest {
 			 
 	}
 	
-		
-		
-		
+	@Test
+	public void testIngredientsNum() throws IOException{
+		GoodCocktailsScraper.scrapeDrinks();
+		ArrayList<Ingredient> ing = GoodCocktailsScraper.returnScrapedDrinks().get(1).getIngredients();
+		int i = ing.size();
+		assertEquals(2, i);
 		
 			
 			
-			
+	
+	}
 			
 		}
 		
