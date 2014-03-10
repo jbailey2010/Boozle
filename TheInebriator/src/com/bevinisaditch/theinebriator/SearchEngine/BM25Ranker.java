@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.TreeMap;
 
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
@@ -42,7 +43,7 @@ public class BM25Ranker extends Ranker {
 				double totalFreq = 0.0;
 				double docFreq = 0.0;
 				for (Ingredient ingredient : drink.getIngredients()) {
-					if (ingredient.getName().toLowerCase().contains(term.toLowerCase())) {
+					if ((ingredient.getName().toLowerCase()).contains(term.toLowerCase())) {
 						docFreq += 1.0;
 					}
 					totalFreq += 1.0;
@@ -59,9 +60,9 @@ public class BM25Ranker extends Ranker {
 			unsortedDrinks.put(drink, score);
 		}
 		
-		TreeMap<Drink, Double> sortedDrinks = sortDrinks(unsortedDrinks);
+		ArrayList<Drink> sortedDrinks = sortDrinks(unsortedDrinks);
 		
-		return null;
+		return sortedDrinks;
 	}
 	
 	/**
@@ -69,10 +70,22 @@ public class BM25Ranker extends Ranker {
 	 * @param unsortedDrinks - A Hashmap of Key=Drink, Value=Double (the score)
 	 * @return sorted TreeMap of Drinks based on their score
 	 */
-	public TreeMap<Drink, Double> sortDrinks(HashMap<Drink, Double> unsortedDrinks) {
+	public ArrayList<Drink> sortDrinks(HashMap<Drink, Double> unsortedDrinks) {
+		System.out.println("unsortedDrinks size: " + unsortedDrinks.size());
 		DrinkComparator comparator = new DrinkComparator(unsortedDrinks);
 		TreeMap<Drink, Double> sortedDrinks = new TreeMap<Drink, Double>(comparator);
-		return sortedDrinks;
+		sortedDrinks.putAll(unsortedDrinks);
+		System.out.println("SortedDrinks size: " + sortedDrinks.size());
+		
+		ArrayList<Drink> returnedDrinks = new ArrayList<Drink>();
+		Entry<Drink, Double> currentEntry = sortedDrinks.pollFirstEntry();
+		while (currentEntry != null) {
+			Drink currentDrink = currentEntry.getKey();
+			returnedDrinks.add(currentDrink);
+			currentEntry = sortedDrinks.pollFirstEntry();
+		}
+		
+		return returnedDrinks;
 	}
 	
 	/**
@@ -121,7 +134,7 @@ class DrinkComparator implements Comparator<Drink> {
 	
 	@Override
 	public int compare(Drink a, Drink b) {
-		if (drinks.get(a) < drinks.get(b)) {
+		if (drinks.get(a) >= drinks.get(b)) {
             return -1;
         } else {
             return 1;

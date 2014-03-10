@@ -13,14 +13,17 @@ import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
 import com.bevinisaditch.theinebriator.SearchEngine.BM25Ranker;
 
 public class BM25RankerTest {
+	private Drink drink1;
+	private Drink drink2;
+	private Drink drink3;
 	private ArrayList<Drink> drinks = new ArrayList<Drink>();
 	private BM25Ranker ranker = new BM25Ranker();
 
 	@Before
 	public void setUpDrinkList() throws Exception {
-		Drink drink1 = new Drink("rum and coke");
-		Drink drink2 = new Drink("vodka and coke");
-		Drink drink3 = new Drink("whiskey and coke");
+		drink1 = new Drink("rum and coke");
+		drink2 = new Drink("vodka and coke");
+		drink3 = new Drink("whiskey and coke");
 		drink1.addIngredient(new Ingredient("rum", "1", "oz"));
 		drink1.addIngredient(new Ingredient("coke", "1", "oz"));
 		drink2.addIngredient(new Ingredient("vodka", "1", "oz"));
@@ -53,7 +56,8 @@ public class BM25RankerTest {
 	
 	@Test
 	public void testRank_IngredientName() {
-		Drink drink4 = new Drink("rum and coke");
+		Drink drink4 = new Drink("double rum and coke");
+		drink4.addIngredient(new Ingredient("rum", "1", "oz"));
 		drink4.addIngredient(new Ingredient("rum", "1", "oz"));
 		drinks.add(drink4);
 		
@@ -62,7 +66,7 @@ public class BM25RankerTest {
 		
 		ArrayList<Drink> sortedDrinks = ranker.rank(terms, drinks);
 		
-		assertEquals(drinks.get(2), sortedDrinks.get(0));
+		assertEquals(drinks.get(3), sortedDrinks.get(0));
 		assertEquals(drinks.get(0), sortedDrinks.get(1));
 	}
 	
@@ -92,6 +96,14 @@ public class BM25RankerTest {
 	@Test
 	public void testSortDrinks() {
 		HashMap<Drink, Double> unsortedDrinks = new HashMap<Drink, Double>();
+		unsortedDrinks.put(drink1, 1.0);
+		unsortedDrinks.put(drink2, 2.0);
+		unsortedDrinks.put(drink3, 3.0);
+		
+		ArrayList<Drink> sortedDrinks = ranker.sortDrinks(unsortedDrinks);
+		assertEquals(drink1, sortedDrinks.get(2));
+		assertEquals(drink2, sortedDrinks.get(1));
+		assertEquals(drink3, sortedDrinks.get(0));
 		
 	}
 
