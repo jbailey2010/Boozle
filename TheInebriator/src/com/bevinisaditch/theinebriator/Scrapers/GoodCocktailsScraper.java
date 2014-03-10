@@ -44,8 +44,8 @@ public class GoodCocktailsScraper {
 						+ drinkLinks.get(i);
 				scrapeIndividualDrink(url);
 
-				// if (i == 30)
-				// break; // just making sure that only two drinks are being
+				if (i == 5)
+				break; // just making sure that only two drinks are being
 				// scraped for the time being
 			}
 		} catch (IOException e) {
