@@ -1,7 +1,13 @@
 package com.bevinisaditch.theinebriator.SearchEngine;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.TreeMap;
 
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
@@ -15,6 +21,8 @@ public class BM25Ranker extends Ranker {
 	@Override
 	public ArrayList<Drink> rank(ArrayList<String> terms,
 			ArrayList<Drink> drinks) {
+		
+		HashMap<Drink, Double> unsortedDrinks = new HashMap<Drink, Double>();
 		
 		ArrayList<String> individualTerms = parseTerms(terms);
 
@@ -35,7 +43,7 @@ public class BM25Ranker extends Ranker {
 				double totalFreq = 0.0;
 				double docFreq = 0.0;
 				for (Ingredient ingredient : drink.getIngredients()) {
-					if (ingredient.getName().toLowerCase().contains(term.toLowerCase())) {
+					if ((ingredient.getName().toLowerCase()).contains(term.toLowerCase())) {
 						docFreq += 1.0;
 					}
 					totalFreq += 1.0;
@@ -48,11 +56,37 @@ public class BM25Ranker extends Ranker {
 					score += numerator/denominator;
 				}
 			}
+			
+			unsortedDrinks.put(drink, score);
 		}
 		
-		return null;
+		ArrayList<Drink> sortedDrinks = sortDrinks(unsortedDrinks);
+		
+		return sortedDrinks;
 	}
 	
+	/**
+	 * Sort a hashmap of drinks based on their score
+	 * @param unsortedDrinks - A Hashmap of Key=Drink, Value=Double (the score)
+	 * @return sorted TreeMap of Drinks based on their score
+	 */
+	public ArrayList<Drink> sortDrinks(HashMap<Drink, Double> unsortedDrinks) {
+		System.out.println("unsortedDrinks size: " + unsortedDrinks.size());
+		DrinkComparator comparator = new DrinkComparator(unsortedDrinks);
+		TreeMap<Drink, Double> sortedDrinks = new TreeMap<Drink, Double>(comparator);
+		sortedDrinks.putAll(unsortedDrinks);
+		System.out.println("SortedDrinks size: " + sortedDrinks.size());
+		
+		ArrayList<Drink> returnedDrinks = new ArrayList<Drink>();
+		Entry<Drink, Double> currentEntry = sortedDrinks.pollFirstEntry();
+		while (currentEntry != null) {
+			Drink currentDrink = currentEntry.getKey();
+			returnedDrinks.add(currentDrink);
+			currentEntry = sortedDrinks.pollFirstEntry();
+		}
+		
+		return returnedDrinks;
+	}
 	
 	/**
 	 * Takes in a list of search terms and parses them by all white space.
@@ -84,4 +118,28 @@ public class BM25Ranker extends Ranker {
 	}
 	
 
+}
+
+/**
+ * Used for sorting drinks in a map based on their score.
+ * 
+ * @author michael
+ */
+class DrinkComparator implements Comparator<Drink> {
+	Map<Drink, Double> drinks;
+	
+	public DrinkComparator(Map<Drink, Double> drinks) {
+		this.drinks = drinks;
+	}
+	
+	@Override
+	public int compare(Drink a, Drink b) {
+		if (drinks.get(a) >= drinks.get(b)) {
+            return -1;
+        } else {
+            return 1;
+        } 
+		
+	}	
+	
 }
