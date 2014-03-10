@@ -3,9 +3,11 @@ package com.bevinisaditch.theinebriator.Scraper;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.junit.Test;
 
+import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
 import com.bevinisaditch.theinebriator.Scrapers.GoodCocktailsScraper;
 
 public class GoodCocktailsScraperTest {
@@ -18,6 +20,13 @@ public class GoodCocktailsScraperTest {
 
 		String instructions1 = "Pour the orange vodka into a glass with ice. Fill it with half orange juice and half lemon-lime soda.";
 		String instructions2 = "Combine both ingredients into shot glass.";
+		ArrayList<Ingredient> ing = GoodCocktailsScraper.returnScrapedDrinks().get(5).getIngredients();
+		int count = 0;
+		for(Ingredient s: ing){
+			count++;
+			System.out.println(s.getName());
+			System.out.println(count);
+		
 
 		GoodCocktailsScraper.scrapeDrinks();
 
@@ -35,7 +44,46 @@ public class GoodCocktailsScraperTest {
 		assertEquals("24 Karat Nightmare instruction scrape unsuccessful",
 				GoodCocktailsScraper.returnScrapedDrinks().get(1)
 						.getInstructions(), instructions2);
+		}
 
 	}
+	
+	@Test
+	public void testIngredients() throws IOException{
+		GoodCocktailsScraper.scrapeDrinks();
+		ArrayList<Ingredient> ing = GoodCocktailsScraper.returnScrapedDrinks().get(5).getIngredients();
+		ArrayList<String> ingNames = new ArrayList<String>();
+		String[] ingredArr = new String[ingNames.size()];
+		for(Ingredient s: ing){
+			
+			ingNames.add(s.getName());
+			
+		}
+		
+		ingredArr = ingNames.toArray(ingredArr);
 
-}
+
+			assertEquals("Coffee Liqueur",
+					ingredArr[0]);
+			
+			assertEquals("Hazelnut Liqueur", ingredArr[1]);
+			assertEquals("Irish Cream", ingredArr[2]);
+			
+			
+			 
+	}
+	
+		
+		
+		
+		
+			
+			
+			
+			
+		}
+		
+		
+
+
+
