@@ -57,6 +57,11 @@ public class DrinkOfTheWeekScraperTest {
 		assertTrue(result.equals(new Ingredient("", "", "52 thimbles wine")));
 		result = DrinkOfTheWeekScraper.parseIngredient("oz thing");
 		assertTrue(result.equals(new Ingredient("thing", "", "oz")));
+		result = DrinkOfTheWeekScraper.parseIngredient("25 tsp. such");
+		assertTrue(result.equals(new Ingredient("such", "25", "tsp.")));
+		result = DrinkOfTheWeekScraper.parseIngredient("9 ponies and all");
+		assertTrue(result.equals(new Ingredient("and all", "9", "ponies")));
+		
 		
 	}
 

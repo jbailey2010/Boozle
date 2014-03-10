@@ -10,6 +10,7 @@ public class DataBaseReader {
 		{
 			System.out.print("Drink #" + currDrink.getId());
 			System.out.println("\t\t\tName: " + currDrink.getName());
+			System.out.println("Instructions: " + currDrink.getInstructions());
 			for (Ingredient currIngredient : currDrink.getIngredients())
 			{
 				System.out.println(currIngredient.toString());
