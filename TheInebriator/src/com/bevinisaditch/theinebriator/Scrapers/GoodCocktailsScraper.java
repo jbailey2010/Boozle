@@ -43,8 +43,8 @@ public class GoodCocktailsScraper {
 					+ drinkLinks.get(i);
 			scrapeIndividualDrink(url);
 
-			if (i == 30)
-				break; // just making sure that only two drinks are being
+			//if (i == 30)
+			//	break; // just making sure that only two drinks are being
 						// scraped for the time being
 		}
 
@@ -71,7 +71,7 @@ public class GoodCocktailsScraper {
 		//Creating a new drink object and setting its name
 		Drink drink = new Drink(drinkName); 
 
-		System.out.println(drinkName); //Debugging
+		//System.out.println(drinkName); //Debugging
 		
 		// Extraction of ingredients list
 		Elements ingredients = infoDiv.select("ul").first().children();
@@ -116,7 +116,7 @@ public class GoodCocktailsScraper {
 			//Adding the new ingredient to the drink
 			drink.addIngredient(ingredient);
 			
-			System.out.println(ingredient.toString()); //Debugging
+			//System.out.println(ingredient.toString()); //Debugging
 
 		}
 
@@ -127,8 +127,11 @@ public class GoodCocktailsScraper {
 
 		// Setting the instructions of the drink
 		drink.setInstructions(instructions);
+		
+		//Setting the url of the drink
+		drink.setUrl(url);
 
-		System.out.println(instructions + "\n"); //Debugging
+		//System.out.println(instructions + "\n"); //Debugging
 		
 		// Adding it to the list of drinks
 		drinks.add(drink);
