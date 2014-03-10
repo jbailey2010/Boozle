@@ -32,11 +32,7 @@ public class SQLite {
 				COLUMN_INGREDIENTS += ", ingredient_" + i + ", quantity_" + i + ", unit_" + i;
 			}
 			
-
-		    Class.forName("org.sqlite.JDBC");
-		    Connection c = DriverManager.getConnection("jdbc:sqlite:drinks.db");
-			
-		} catch (IOException | ClassNotFoundException | SQLException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println("Could not scrape all the websites");
 			return;

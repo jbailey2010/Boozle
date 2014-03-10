@@ -85,7 +85,7 @@ public class DrinkMixerScraper {
 			}
 		}
 		
-		return new Ingredient("", "", line);
+		return new Ingredient(line, "", "");
 		
 	}
 }
