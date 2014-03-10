@@ -2,6 +2,7 @@
 
 import java.util.ArrayList;
 
+
 /**
  * Basic drink object. Has list of ingredients and whether it is thumbsed up/down/favorited.
  * @author Jason
@@ -14,6 +15,17 @@ public class Drink {
 	private boolean isFavorited;
 	private String name;
 	private String instructions;
+	private String url;
+	private int id;
+	
+	public Drink(String name, Rating rating, ArrayList<Ingredient> ingredients, String instructions, int id)
+	{
+		this.name = name;
+		this.rating = rating;
+		this.ingredients = ingredients;
+		this.instructions = instructions;
+		this.id = id;
+	}
 	
 	public Drink(String name)
 	{
@@ -21,6 +33,11 @@ public class Drink {
 		ingredients = new ArrayList<Ingredient>();
 		isFavorited = false;
 		this.name = name;
+	}
+	
+	public int getId()
+	{
+		return id;
 	}
 	
 	public Rating getRating()
@@ -77,15 +94,23 @@ public class Drink {
 	{
 		return instructions;
 	}
-	
-	
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
 
 	@Override
 	public String toString() {
 		return "Drink [rating=" + rating + ", ingredients=" + ingredients
 				+ ", isFavorited=" + isFavorited + ", name=" + name
-				+ ", instructions=" + instructions + "]";
+				+ ", instructions=" + instructions + ", url=" + url + "]";
 	}
+	
+	
 
 	@Override
 	public int hashCode() {

@@ -18,29 +18,31 @@ public class DrinkMixerScraper {
         "ounce", "slice", "scoop"};
 	
 	public static void main(String[] args) {
-		try {
 			scrapeDrinks();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 	/**
 	 * Scrapes drinks from drinkoftheweek.com
 	 * @throws IOException 
 	 */
-	public static ArrayList<Drink> scrapeDrinks() throws IOException {
+	public static ArrayList<Drink> scrapeDrinks() {
 		// For each drink group (a, b, c, d, ... z)
 		int max = 0;
 		ArrayList<Drink> dranks = new ArrayList<Drink>();
 		for (int i = 0; i < 12128; i++) {
-			String url = "http://www.drinksmixer.com/drink" + i + ".html";
-			Document doc = ScrapingUtils.makeConnection(url);
-			Drink temp = new Drink(ScrapingUtils.handleQueryMulti(doc, url, "span.item").get(0).split(" recipe")[0]);
-			temp.setIngredients(convertToIngredients(ScrapingUtils.handleQueryMulti(doc, url, "span.ingredient")));
-			temp.setInstructions(ScrapingUtils.handleQueryMulti(doc, url, "div.RecipeDirections").get(0));
-			dranks.add(i, temp);
+			try
+			{
+				String url = "http://www.drinksmixer.com/drink" + i + ".html";
+				Document doc = ScrapingUtils.makeConnection(url);
+				Drink temp = new Drink(ScrapingUtils.handleQueryMulti(doc, url, "span.item").get(0).split(" recipe")[0]);
+				temp.setIngredients(convertToIngredients(ScrapingUtils.handleQueryMulti(doc, url, "span.ingredient")));
+				temp.setInstructions(ScrapingUtils.handleQueryMulti(doc, url, "div.RecipeDirections").get(0));
+				dranks.add(i, temp);
+			}
+			catch (IOException| ArrayIndexOutOfBoundsException e)
+			{
+				e.printStackTrace();
+			}
 		}
 		return dranks;
 	}

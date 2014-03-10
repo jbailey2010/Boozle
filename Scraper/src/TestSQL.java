@@ -11,6 +11,7 @@ import com.almworks.sqlite4java.SQLiteException;
 
 public class TestSQL {
 
+	static int id = 0;
 	public static void main( String args[] )
 	{
 		Connection c = null;
@@ -18,30 +19,9 @@ public class TestSQL {
 
 		try {   
 
-			ArrayList<Drink> dranks_1 = DrinkOfTheWeekScraper.scrapeDrinks();
-			ArrayList<Drink> dranks_2 = DrinkMixerScraper.scrapeDrinks();
-			ArrayList<Drink> dranks_3 = GoodCocktailsScraper.returnScrapedDrinks();
-			ArrayList<ArrayList<Drink>> listOfLists = new ArrayList<ArrayList<Drink>>();
-			listOfLists.add(dranks_1);
-			listOfLists.add(dranks_2);
-			listOfLists.add(dranks_3);
-			int max = 0;
-			for(int i = 0; i < dranks_1.size(); i++) {
-				if(dranks_1.get(i).getIngredients().size() > max) {
-					max = dranks_1.get(i).getIngredients().size();
-				}
-			}
-			for(int i = 0; i < dranks_2.size(); i++) {
-				if(dranks_2.get(i).getIngredients().size() > max) {
-					max = dranks_2.get(i).getIngredients().size();
-				}
-			}
-			for(int i = 0; i < dranks_3.size(); i++) {
-				if(dranks_3.get(i).getIngredients().size() > max) {
-					max = dranks_3.get(i).getIngredients().size();
-				}
-			}
-			String COLUMN_INGREDIENTS = "ingredient_0 TEXT NOT NULL, quantity_0 TEXT, unit_0 TEXT";
+			int max = 20;
+			
+			String COLUMN_INGREDIENTS = "ingredient_0 TEXT, quantity_0 TEXT, unit_0 TEXT";
 			for(int i = 1; i < max; i++) {
 				COLUMN_INGREDIENTS += ", ingredient_" + i + " TEXT, quantity_" + i + " TEXT, unit_" + i + " TEXT";
 			}
@@ -59,27 +39,18 @@ public class TestSQL {
 			stmt.executeUpdate(command);
 			stmt.close();
 			
-			int id = 0;
-
-			for (ArrayList<Drink> currList : listOfLists)
-			{
-				for (Drink currDrink : currList)
-				{
-					stmt = c.createStatement();
-					String insertCommand = "INSERT INTO DRINKS" +
-							" VALUES(" + id + ", '" + currDrink.getName() + "', " + ratingToInt(currDrink.getRating()) + ", '" + currDrink.getInstructions() + "'";
-					for (Ingredient currIngredient : currDrink.getIngredients())
-					{
-						insertCommand += ", '" + currIngredient.getName() + "', '" + currIngredient.getQuantity() + "', '" + currIngredient.getUnits() + "'";
-					}
-					insertCommand += ")";
-					stmt.executeUpdate(insertCommand);
-					stmt.close();
-					id++;
-				}
-			}
-
-
+			
+			ArrayList<Drink> dranks_1 = DrinkOfTheWeekScraper.scrapeDrinks();
+			System.out.println("COMPLETED SCRAPING DrinkOfTheWeek");
+			insertListToDB(c, dranks_1);
+			ArrayList<Drink> dranks_2 = DrinkMixerScraper.scrapeDrinks();
+			System.out.println("COMPLETED SCRAPING DrinkMixer");
+			insertListToDB(c, dranks_2);
+			ArrayList<Drink> dranks_3 = GoodCocktailsScraper.returnScrapedDrinks();
+			System.out.println("COMPLETED SCRAPING GoodCocktails");
+			insertListToDB(c, dranks_3);
+			
+			
 
 			c.close();
 		} catch ( Exception e ) {
@@ -87,6 +58,40 @@ public class TestSQL {
 			System.exit(0);
 		}
 		System.out.println("Opened database successfully");
+	}
+
+	private static void insertListToDB(Connection c, ArrayList<Drink> currList)
+	{
+		Statement stmt;
+		for (Drink currDrink : currList)
+		{
+			try
+			{
+				stmt = c.createStatement();
+				String insertCommand = "INSERT INTO DRINKS" +
+						" VALUES(" + id + ", '" + currDrink.getName() + "', " + ratingToInt(currDrink.getRating()) + ", '" + currDrink.getInstructions() + "'";
+				int numColumnsRemaining = 60;
+				for (Ingredient currIngredient : currDrink.getIngredients())
+				{
+					insertCommand += ", '" + currIngredient.getName() + "', '" + currIngredient.getQuantity() + "', '" + currIngredient.getUnits() + "'";
+					numColumnsRemaining -= 3;
+				}
+				while (numColumnsRemaining > 0)
+				{
+					insertCommand += ", null";
+					numColumnsRemaining--;
+				}
+				insertCommand += ")";
+				stmt.executeUpdate(insertCommand);
+				stmt.close();
+				id++;
+				System.out.println("ID: " + id + "\t\t");
+			}
+			catch (SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	private static int ratingToInt(Drink.Rating rating)

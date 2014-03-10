@@ -52,7 +52,13 @@ public class DrinkOfTheWeekScraper {
 				//Get URL from href tag
 				for (Element urlTag : urls) {
 					String url = urlTag.attr("href");
-					drinksList.add(scrapeIndividualDrink(url));
+					try {
+						drinksList.add(scrapeIndividualDrink(url));
+					}
+					catch (IOException e)
+					{
+						e.printStackTrace();
+					}
 				}
 			}
 			
