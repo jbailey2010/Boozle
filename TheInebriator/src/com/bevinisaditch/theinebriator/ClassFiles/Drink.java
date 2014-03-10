@@ -1,6 +1,11 @@
 package com.bevinisaditch.theinebriator.ClassFiles;
 
+//import Drink;
+//import Ingredient;
+
 import java.util.ArrayList;
+
+//import Drink.Rating;
 
 /**
  * Basic drink object. Has list of ingredients and whether it is thumbsed up/down/favorited.
@@ -15,6 +20,16 @@ public class Drink {
 	private String name;
 	private String instructions;
 	private String url;
+	private int id;
+	
+	public Drink(String name, Rating rating, ArrayList<Ingredient> ingredients, String instructions, int id)
+	{
+		this.name = name;
+		this.rating = rating;
+		this.ingredients = ingredients;
+		this.instructions = instructions;
+		this.id = id;
+	}
 	
 	public Drink(String name)
 	{
@@ -22,6 +37,11 @@ public class Drink {
 		ingredients = new ArrayList<Ingredient>();
 		isFavorited = false;
 		this.name = name;
+	}
+	
+	public int getId()
+	{
+		return id;
 	}
 	
 	public Rating getRating()
