@@ -1,4 +1,4 @@
-package com.bevinisaditch.theinebriator.Scrapers;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,10 +8,6 @@ import org.jsoup.*;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
-import com.bevinisaditch.theinebriator.ClassFiles.Drink;
-import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
-import com.bevinisaditch.theinebriator.Utils.ScrapingUtils;
 
 
 public class DrinkMixerScraper {
@@ -89,7 +85,7 @@ public class DrinkMixerScraper {
 			}
 		}
 		
-		return new Ingredient("", "", line);
+		return new Ingredient(line, "", "");
 		
 	}
 }

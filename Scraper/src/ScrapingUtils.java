@@ -1,6 +1,7 @@
-package com.drinkscrapers.theinebriator;
+
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -9,12 +10,21 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-//import android.content.Context;
-//import android.widget.Toast;
+
 
 public class ScrapingUtils {
 	public static String ua = "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.2 Safari/537.36"; 
 
+	
+	/**
+	 * Gets the document containing the source of the page to be queried.
+	 */
+	public static Document makeConnection(String url) throws IOException {
+		Document doc = Jsoup.connect(url).userAgent(ua).timeout(0).get();
+		return doc;	
+	}
+	
+	
 	/**
 	 * This is the query function for a list
 	 * @param url the url to be parsed
@@ -35,9 +45,24 @@ public class ScrapingUtils {
 	}
 	
 	/**
-	 * This will print the number of results a query would have, for debugging purposes
+	 * Gets a list of links given an identifier, as opposed to a list of text results
 	 */
-	/*public static void printQueryResultSize(String url, String params, boolean toastToggle, Context cont) throws IOException
+	public static List<String> getLinks(String url, String params) throws IOException
+	{
+		Document doc = Jsoup.connect(url).userAgent(ua).timeout(0).get();
+		List<String> results = new ArrayList<String>();
+		Elements links = doc.select(params);
+		for(Element element : links)
+		{
+			results.add(element.attr("href"));
+		}
+		return results;
+	}
+	
+	/**
+	 * This will print the number of results a query would have, for debugging purposes
+	 
+	public static int printQueryResultSize(String url, String params, boolean toastToggle, Context cont) throws IOException
 	{
 		int size = handleQuery(url, params).size();
 		System.out.println("Results had a size of " + size);
@@ -45,7 +70,8 @@ public class ScrapingUtils {
 		{
 			Toast.makeText(cont, "Results had a size of " + size, Toast.LENGTH_LONG).show();
 		}
-	}*/
+		return size;
+	}
 	
 	/**
 	 * This will print the source of a query, for debugging purposes
