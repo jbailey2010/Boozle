@@ -1,7 +1,12 @@
 package com.bevinisaditch.theinebriator.SearchEngine;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
@@ -15,6 +20,8 @@ public class BM25Ranker extends Ranker {
 	@Override
 	public ArrayList<Drink> rank(ArrayList<String> terms,
 			ArrayList<Drink> drinks) {
+		
+		HashMap<Drink, Double> unsortedDrinks = new HashMap<Drink, Double>();
 		
 		ArrayList<String> individualTerms = parseTerms(terms);
 
@@ -48,11 +55,25 @@ public class BM25Ranker extends Ranker {
 					score += numerator/denominator;
 				}
 			}
+			
+			unsortedDrinks.put(drink, score);
 		}
+		
+		TreeMap<Drink, Double> sortedDrinks = sortDrinks(unsortedDrinks);
 		
 		return null;
 	}
 	
+	/**
+	 * Sort a hashmap of drinks based on their score
+	 * @param unsortedDrinks - A Hashmap of Key=Drink, Value=Double (the score)
+	 * @return sorted TreeMap of Drinks based on their score
+	 */
+	public TreeMap<Drink, Double> sortDrinks(HashMap<Drink, Double> unsortedDrinks) {
+		DrinkComparator comparator = new DrinkComparator(unsortedDrinks);
+		TreeMap<Drink, Double> sortedDrinks = new TreeMap<Drink, Double>(comparator);
+		return sortedDrinks;
+	}
 	
 	/**
 	 * Takes in a list of search terms and parses them by all white space.
@@ -84,4 +105,28 @@ public class BM25Ranker extends Ranker {
 	}
 	
 
+}
+
+/**
+ * Used for sorting drinks in a map based on their score.
+ * 
+ * @author michael
+ */
+class DrinkComparator implements Comparator<Drink> {
+	Map<Drink, Double> drinks;
+	
+	public DrinkComparator(Map<Drink, Double> drinks) {
+		this.drinks = drinks;
+	}
+	
+	@Override
+	public int compare(Drink a, Drink b) {
+		if (drinks.get(a) < drinks.get(b)) {
+            return -1;
+        } else {
+            return 1;
+        } 
+		
+	}	
+	
 }

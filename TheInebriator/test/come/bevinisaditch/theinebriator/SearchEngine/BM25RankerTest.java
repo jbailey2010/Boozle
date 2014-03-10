@@ -3,6 +3,7 @@ package come.bevinisaditch.theinebriator.SearchEngine;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -86,6 +87,12 @@ public class BM25RankerTest {
 		int avgLength = ranker.getAvgLengthOfDrinks(drinks);
 		int expectedAvgLength = 3;
 		assertEquals(expectedAvgLength, avgLength);
+	}
+	
+	@Test
+	public void testSortDrinks() {
+		HashMap<Drink, Double> unsortedDrinks = new HashMap<Drink, Double>();
+		
 	}
 
 }
