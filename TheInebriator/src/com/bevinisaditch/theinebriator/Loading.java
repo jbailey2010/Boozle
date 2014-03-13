@@ -1,9 +1,10 @@
 package com.bevinisaditch.theinebriator;
 
+import java.util.ArrayList;
 import java.util.Timer;
-
 import java.util.TimerTask;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
@@ -16,12 +17,14 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bevinisaditch.theinebriator.ClassFiles.DataBaseReader;
+import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.devingotaswitch.theinebriator.R;
 
 public class Loading extends Activity {
 	public Context cont;
 	private ImageView img;
-	
+	public static ArrayList<Drink> drinks;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -30,14 +33,8 @@ public class Loading extends Activity {
 		cont = this;
 		ab.setDisplayShowTitleEnabled(false);
 		handleInitialLoad();
-		
-		//DELETE THIS LATER
-		img.setOnClickListener(new OnClickListener(){
-			@Override
-			public void onClick(View arg0) {
-				((Loading) cont).sendToHome();
-			}
-		});
+		AsyncLoader loader = new AsyncLoader();
+		loader.execute(this);
 	}
 
 	/**
@@ -70,5 +67,21 @@ public class Loading extends Activity {
 		AnimationDrawable frameAnimation = (AnimationDrawable) img.getBackground();
 		frameAnimation.start();
 	}
+	
+	private class AsyncLoader extends AsyncTask<Activity, Void, ArrayList<Drink>> {
+		Activity act;
+        @Override
+        protected ArrayList<Drink> doInBackground(Activity... params) {
+        	act = (Activity)params[0];
+            return DataBaseReader.getAllDrinks();
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<Drink> result) {
+            drinks = result;
+            Intent intent = new Intent(act, Home.class);
+            startActivity(intent);
+        }
+    }
 
 }

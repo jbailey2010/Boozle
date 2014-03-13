@@ -27,6 +27,7 @@ import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.DrinkPopup;
 import com.bevinisaditch.theinebriator.ClassFiles.SearchManagement;
 import com.bevinisaditch.theinebriator.InterfaceAugmentations.ActivitySwipeDetector;
@@ -46,6 +47,7 @@ public class Home extends Activity {
 	public Menu menuObj;
 	public MenuItem scrollUp;
 	public MenuItem clearRes;
+	public static ArrayList<Drink> drinks;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +58,7 @@ public class Home extends Activity {
 		ab.setDisplayShowTitleEnabled(false);
 		ll = (LinearLayout)findViewById(R.id.home_base);
 		ll.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
+		drinks = Loading.drinks;
 		setNoResults();
 	}
 
@@ -305,11 +308,10 @@ public class Home extends Activity {
 	
 	public static List<String> getDrinkNames()
 	{
-		//REPLACE THE FOR LOOP WITH LOOPING TO GET DRINK NAMES
 		List<String> drinkNames = new ArrayList<String>();
-		for(int i = 0; i < 20000; i++)
+		for(Drink drink : drinks)
 		{
-			drinkNames.add("Drink " + (i+1));
+			drinkNames.add(drink.getName());
 		}
 		return drinkNames;
 	}

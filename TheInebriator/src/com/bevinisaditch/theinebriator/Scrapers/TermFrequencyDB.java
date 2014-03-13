@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
+import com.bevinisaditch.theinebriator.ClassFiles.TermFrequency;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -49,5 +50,24 @@ public class TermFrequencyDB extends SQLiteOpenHelper {
         onCreate(db);
 		
 	}
+	
+	/**
+	// Adding new contact
+	public void addContact(TermFrequency termFreq) {}
+	 
+	// Getting single contact
+	public TermFrequency getContact(int id) {}
+	 
+	// Getting All Contacts
+	public List<TermFrequency> getAllContacts() {}
+	 
+	// Getting contacts Count
+	public int getContactsCount() {}
+	// Updating single contact
+	public int updateContact(TermFrequency contact) {}
+	 
+	// Deleting single contact
+	public void deleteContact(TermFrequency contact) {}
+	**/
 	
 }
