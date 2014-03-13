@@ -5,8 +5,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.almworks.sqlite4java.SQLiteConnection;
-import com.almworks.sqlite4java.SQLiteException;
 
 
 public class TestSQL {
