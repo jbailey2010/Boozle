@@ -1,4 +1,4 @@
-package come.bevinisaditch.theinebriator.SearchEngine;
+package com.bevinisaditch.theinebriator.SearchEngine;
 
 import static org.junit.Assert.*;
 
