@@ -54,6 +54,24 @@ public class DataBaseReader {
 		return allDrinks;
 	}
 	
+	public static void toggleThumbs(int drink_id, Drink.Rating thumb) {
+		String command = "UPDATE DRINKS SET RATING="+ratingToInt(thumb)+" WHERE ID=" + drink_id;
+		Connection c = null;
+		Statement stmt = null;
+		try {
+			Class.forName("org.sqlite.JDBC");
+			c = DriverManager.getConnection("jdbc:sqlite:drinks.db");
+			c.setAutoCommit(false);
+			System.out.println("Opened database successfully");
+			stmt = c.createStatement();
+			stmt.executeUpdate(command);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return;
+		}
+		
+	}
+	
 	private static Drink.Rating intToRating(int n)
 	{
 		if (n == -1)
@@ -62,5 +80,36 @@ public class DataBaseReader {
 			return Drink.Rating.THUMBSNULL;
 		else
 			return Drink.Rating.THUMBSUP;
+	}
+	private static int ratingToInt(Drink.Rating thumb) {
+		switch(thumb) {
+			case THUMBSDOWN:
+				return -1;
+			case THUMBSUP:
+				return 1;
+			default:
+				return 0;
+		}
+				
+	}
+	public static int idFromNameAndInst(String name, String instructions) {
+		String command = "SELECT ID FROM DRINKS WHERE NAME='"+name+"', INSTRUCTIONS='"+instructions;
+		Connection c = null;
+		Statement stmt = null;
+		try {
+			Class.forName("org.sqlite.JDBC");
+			c = DriverManager.getConnection("jdbc:sqlite:drinks.db");
+			c.setAutoCommit(false);
+			System.out.println("Opened database successfully");
+			stmt = c.createStatement();
+			ResultSet results = stmt.executeQuery(command);
+			while(results.next()) {
+				return results.getInt("ID");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		}
+		return -1;
 	}
 }
