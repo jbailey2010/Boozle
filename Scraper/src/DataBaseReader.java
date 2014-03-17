@@ -71,7 +71,11 @@ public class DataBaseReader {
 		}
 		
 	}
-	
+	/**
+	 * 
+	 * @param n
+	 * @return
+	 */
 	private static Drink.Rating intToRating(int n)
 	{
 		if (n == -1)
@@ -81,6 +85,11 @@ public class DataBaseReader {
 		else
 			return Drink.Rating.THUMBSUP;
 	}
+	/**
+	 * 
+	 * @param thumb
+	 * @return
+	 */
 	private static int ratingToInt(Drink.Rating thumb) {
 		switch(thumb) {
 			case THUMBSDOWN:
@@ -92,6 +101,12 @@ public class DataBaseReader {
 		}
 				
 	}
+	/**
+	 * 
+	 * @param name
+	 * @param instructions
+	 * @return
+	 */
 	public static int idFromNameAndInst(String name, String instructions) {
 		String command = "SELECT ID FROM DRINKS WHERE NAME='"+name+"', INSTRUCTIONS='"+instructions;
 		Connection c = null;

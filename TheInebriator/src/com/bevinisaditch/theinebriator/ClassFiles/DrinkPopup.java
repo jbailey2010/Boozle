@@ -32,7 +32,7 @@ public class DrinkPopup {
 	 * Configures the initial pop up to appropriately handle input and
 	 * display the data from the clicked element itself
 	 */
-	public static void drinkPopUpInit(final Context c, final String name, String ingredients, String instr, final String url)
+	public static void drinkPopUpInit(final Context c, final String name, String ingredients, final String instr, final String url)
 	{
 		nameDrink = name;
 		ingrDrink = ingredients;
@@ -84,10 +84,12 @@ public class DrinkPopup {
 				if(isThumbsDown || (!isThumbsUp && !isThumbsDown))
 				{
 					toggleThumbsUp();
+					DataBaseReader.toggleThumbs(DataBaseReader.idFromNameAndInst(name, instr), Drink.Rating.THUMBSUP);
 				}
 				else if(isThumbsUp)
 				{
 					neutralizeThumbs();
+					DataBaseReader.toggleThumbs(DataBaseReader.idFromNameAndInst(name, instr), Drink.Rating.THUMBSNULL);
 				}
 			}
 	    });
@@ -97,10 +99,12 @@ public class DrinkPopup {
 				if(isThumbsUp || (!isThumbsUp && !isThumbsDown))
 				{
 					toggleThumbsDown();
+					DataBaseReader.toggleThumbs(DataBaseReader.idFromNameAndInst(name, instr), Drink.Rating.THUMBSDOWN);
 				}
 				else if(isThumbsDown)
 				{
 					neutralizeThumbs();
+					DataBaseReader.toggleThumbs(DataBaseReader.idFromNameAndInst(name, instr), Drink.Rating.THUMBSNULL);
 				}
 			}
 	    });
