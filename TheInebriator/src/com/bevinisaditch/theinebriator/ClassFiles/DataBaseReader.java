@@ -19,6 +19,35 @@ public class DataBaseReader {
 		}
 	}
 	
+	public static ArrayList<Ingredient> getIngredients(int drinkId) {
+		return null;
+		/** TODO
+		 * return an arraylist of ingredients
+		 */
+	}
+
+	public static Drink getDrink(int id)
+	{
+		String command = "SELECT * FROM DRINKS WHERE ID="+id;
+		Connection c = null;
+		Statement stmt = null;
+		try {
+			Class.forName("org.sqlite.JDBC");
+			c = DriverManager.getConnection("jdbc:sqlite:drinks.db");
+			c.setAutoCommit(false);
+			System.out.println("Opened database successfully");
+			stmt = c.createStatement();
+			ResultSet results = stmt.executeQuery(command);
+			Drink retDrink = new Drink(results.getString("NAME"));
+			retDrink.setInstructions(results.getString("INSTRUCTIONS"));
+			retDrink.setRating(intToRating(results.getInt("RATING")));
+			retDrink.setIngredients(getIngredients(results.getInt("ID")));
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		return null;
+	}
 	public static ArrayList<Drink> getAllDrinks()
 	{
 		ArrayList<Drink> allDrinks = new ArrayList<Drink>();
@@ -123,13 +152,10 @@ public class DataBaseReader {
 			System.out.println("Opened database successfully");
 			stmt = c.createStatement();
 			ResultSet results = stmt.executeQuery(command);
-			while(results.next()) {
 				return results.getInt("ID");
-			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			return -1;
 		}
-		return -1;
 	}
 }

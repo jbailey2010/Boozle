@@ -214,12 +214,12 @@ public class Home extends Activity {
 		list = (BounceListView)res.findViewById(R.id.listview_rankings);
 		list.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
 		dataSet = new ArrayList<HashMap<String, String>>();
-		for(int i = 0; i < 50; i++)
+		for(Drink curr: drinks)
 		{
 			HashMap<String, String> datum = new HashMap<String, String>();
-			datum.put("name", "Sample Drink " + (i+1));
-			datum.put("info", "List of ingredints, list of ingredients, list of ingredients, list of ingredients, list of ingredients");
-			datum.put("ingr", "Instructions to make this drink");
+			datum.put("name", curr.getName());
+			datum.put("info", curr.getIngredients().toString());
+			datum.put("ingr", curr.getInstructions());
 			//ADD LOGIC HERE WHEN THE TIME COMES
 			datum.put("img", "");
 			dataSet.add(datum);
