@@ -2,18 +2,250 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.sql.*;
 
+
 public class DataBaseReader {
 	
-	public static void main(String[] args)
+
+	private static Connection c = null;
+	
+	public static void main(String[] args) throws Exception
 	{
+		//transformDataBase();
+		
+	}
+	
+	static ArrayList<Drink> allDrinks = new ArrayList<Drink>();
+	static ArrayList<Matching> allMatches = new ArrayList<Matching>();
+	static ArrayList<IngredientIDPair> allPairs = new ArrayList<IngredientIDPair>();
+	public static ArrayList<Drink> getAllDrinksTwo()
+	{
+		c = null;
+		Statement stmt = null;
+		try {
+			Class.forName("org.sqlite.JDBC");
+			c = DriverManager.getConnection("jdbc:sqlite:drinksAndIngredientsFour.db");
+			c.setAutoCommit(false);
+			stmt = c.createStatement();
+			ResultSet rs2 = stmt.executeQuery( "SELECT * FROM MATCHINGS");
+			while (rs2.next())
+			{
+				int matchid = rs2.getInt("id");
+				int drinkid = rs2.getInt("drinkid");
+				int ingredientid = rs2.getInt("ingredientid");
+				String quantity = rs2.getString("quantity");
+				String units = rs2.getString("units");
+				Matching currMatch = new Matching(drinkid, ingredientid, matchid, quantity, units);
+				allMatches.add(currMatch);
+			}
+			stmt.close();
+			stmt = c.createStatement();
+			ResultSet rs3 = stmt.executeQuery("SELECT * FROM INGREDIENTS");
+			while (rs3.next())
+			{
+				int id = rs3.getInt("id");
+				String name = rs3.getString("name");
+				IngredientIDPair pair = new IngredientIDPair(id, name);
+				allPairs.add(pair);
+			}
+			stmt.close();
+			stmt = c.createStatement();
+			ResultSet rs = stmt.executeQuery( "SELECT * FROM DRINKS;" );
+			while ( rs.next() ) 
+			{
+				int id = rs.getInt("id");
+				String name = rs.getString("name");
+				Drink.Rating rating =  intToRating(rs.getInt("rating"));
+				String instructions = rs.getString("instructions");
+				//stmt.close();
+				ArrayList<Ingredient> ingredients = getIngredientsForDrinkID(id);
+				
+				Drink currDrink = new Drink(name, rating, ingredients, instructions, id);
+				//System.out.println("Adding " + currDrink);
+				allDrinks.add(currDrink);
+			}
+			stmt.close();
+			c.close();
+		} catch (SQLException|ClassNotFoundException e) {
+			e.printStackTrace();
+			return null;
+		}
+		return allDrinks;
+	}
+	
+	private static ArrayList<Ingredient> getIngredientsForDrinkID(int drinkID)
+	{
+		ArrayList<Ingredient> ingList = new ArrayList<Ingredient>();
+		for (Matching currMatch : allMatches)
+		{
+			if (currMatch.drinkID == drinkID)
+			{
+				Ingredient currIngredient = new Ingredient();
+				int ingredientID = currMatch.ingredientID;
+				for (IngredientIDPair pair : allPairs)
+				{
+					if (pair.id == ingredientID)
+					{
+						currIngredient.setName(pair.name);
+					}
+				}
+				currIngredient.setQuantity(currMatch.quantity);
+				currIngredient.setUnits(currMatch.units);
+			}
+		}
+		return ingList;
+	}
+	
+	public static void transformDataBase() throws Exception
+	{
+		ArrayList<String> allIngredientNames = new ArrayList<String>();
+		ArrayList<DBDrink> allDBDrinks = new ArrayList<DBDrink>();
 		for (Drink currDrink : getAllDrinks())
 		{
-			System.out.print("Drink #" + currDrink.getId());
-			System.out.println("\t\t\tName: " + currDrink.getName());
-			System.out.println("Instructions: " + currDrink.getInstructions());
+			DBDrink dataBaseDrink = new DBDrink(currDrink);
+			//printDrink(currDrink);
 			for (Ingredient currIngredient : currDrink.getIngredients())
 			{
-				System.out.println(currIngredient.toString());
+				int id = allIngredientNames.size();
+				String currName = currIngredient.getName();
+				boolean nameAlreadyExists = false;
+				
+				for (int i = 0; i < allIngredientNames.size(); i++)
+				{
+					String str = allIngredientNames.get(i);
+					if (str.equals(currName))
+					{
+						nameAlreadyExists = true;
+						id = i;
+						break;
+					}
+				}
+				if (!nameAlreadyExists)
+				{
+					allIngredientNames.add(currName);
+				}
+				DBIngredient dataBaseIngredient = new DBIngredient(id, currIngredient.getQuantity(), currIngredient.getUnits());
+				dataBaseDrink.ingredients.add(dataBaseIngredient);
+			}
+			allDBDrinks.add(dataBaseDrink);
+		}
+		Class.forName("org.sqlite.JDBC");
+		c = DriverManager.getConnection("jdbc:sqlite:drinksAndIngredientsFour.db");
+		createDrinksTable();
+		//checkFoDup(allDBDrinks);
+		insertDrinkListToDB(allDBDrinks);
+		createIngredientsTable();
+		insertIngredientListToDB(allIngredientNames);
+		createMatchingTable();
+		insertMatchingsToDB(allDBDrinks);
+		c.close();
+	}
+
+	private static void checkFoDup(ArrayList<DBDrink> allDrinks)
+	{
+		for (DBDrink curr : allDrinks)
+		{
+			for (DBDrink other : allDrinks)
+			{
+				if (curr != other)
+				{
+					if (curr.id == other.id)
+					{
+						System.out.println("ERR===========" + curr.id);
+					}
+				}
+			}
+		}
+	}
+	
+	private static void createMatchingTable() throws Exception {
+		Statement stmt = null;
+		stmt = c.createStatement();
+		String command= "CREATE TABLE MATCHINGS" +
+				"(ID INT PRIMARY KEY       NOT NULL," +
+				"DRINKID        INT        NOT NULL," +
+				"INGREDIENTID   INT        NOT NULL," +
+				"QUANTITY       TEXT," +
+				"UNITS          TEXT)";
+		stmt.executeUpdate(command);
+		stmt.close();
+	}
+	private static void createIngredientsTable() throws Exception {
+		Statement stmt = null;
+		stmt = c.createStatement();
+		String command = "CREATE TABLE INGREDIENTS" + 
+				"(ID INT PRIMARY KEY      NOT NULL," +
+				"NAME           TEXT      NOT NULL)";
+		stmt.executeUpdate(command);
+		stmt.close();
+	}
+	private static void createDrinksTable() throws Exception {
+		Statement stmt = null;
+		stmt = c.createStatement();
+		String command = "CREATE TABLE DRINKS" +
+				"(ID INT PRIMARY KEY       NOT NULL," +
+				"NAME           TEXT       NOT NULL," +
+				"RATING         INT        NOT NULL," +
+				"INSTRUCTIONS   TEXT       NOT NULL)" ;
+		stmt.executeUpdate(command);
+		stmt.close();
+	}
+	private static void insertDrinkListToDB(ArrayList<DBDrink> currList)
+	{
+		System.out.println("Begin insertDrinkListToDB");
+		Statement stmt;
+		for (DBDrink currDrink : currList)
+		{
+			//System.out.println(currDrink.id);
+			try
+			{
+				stmt = c.createStatement();
+				String insertCommand = "INSERT INTO DRINKS" +
+						" VALUES(" + currDrink.id + ", '" + currDrink.name + "', " + ratingToInt(currDrink.rating) + ", '" + currDrink.instructions + "')";
+				//System.out.println(insertCommand);
+				stmt.executeUpdate(insertCommand);
+				stmt.close();
+			}
+			catch (SQLException e)
+			{
+				//System.out.println(currDrink.id);
+				e.printStackTrace();
+			}
+		}
+	}
+	private static void insertIngredientListToDB(ArrayList<String> names)
+	{
+		int id = 0;
+		Statement stmt;
+		for (String str : names)
+		{
+			try
+			{
+				stmt = c.createStatement();
+				String insertCommand = "INSERT INTO INGREDIENTS" +
+						" VALUES(" + id + ", '" + str + "')";
+				id++;
+				stmt.executeUpdate(insertCommand);
+				stmt.close();
+			} catch (SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+	private static void insertMatchingsToDB(ArrayList<DBDrink> drinks) throws SQLException
+	{
+		int id = 0;
+		Statement stmt;
+		for (DBDrink currDrink : drinks)
+		{
+			for (DBIngredient currIngredient : currDrink.ingredients)
+			{
+				stmt = c.createStatement();
+				String insertCommand = "INSERT INTO MATCHINGS" +
+						" VALUES(" + id + ", " + currDrink.id + ", " + currIngredient.nameID + ", '" + currIngredient.qty + "', '" + currIngredient.units + "')";
+				id++;
+				stmt.executeUpdate(insertCommand);
+				stmt.close();
 			}
 		}
 	}
@@ -47,6 +279,7 @@ public class DataBaseReader {
 				Drink currDrink = new Drink(name, rating, ingredients, instructions, id);
 				allDrinks.add(currDrink);
 			}
+			c.close();
 		} catch (SQLException|ClassNotFoundException e) {
 			e.printStackTrace();
 			return null;
@@ -62,5 +295,15 @@ public class DataBaseReader {
 			return Drink.Rating.THUMBSNULL;
 		else
 			return Drink.Rating.THUMBSUP;
+	}
+	
+	private static int ratingToInt(Drink.Rating rating)
+	{
+		if (rating == Drink.Rating.THUMBSDOWN)
+			return -1;
+		else if (rating == Drink.Rating.THUMBSNULL)
+			return 0;
+		else
+			return 1;
 	}
 }
