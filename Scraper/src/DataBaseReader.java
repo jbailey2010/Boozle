@@ -6,6 +6,7 @@ import java.sql.*;
 public class DataBaseReader {
 
 
+	private static final String CLASS_NAME = "org.sqlite.JDBC";
 	private static Connection c = null;
 
 	public static void main(String[] args) throws Exception
@@ -22,7 +23,7 @@ public class DataBaseReader {
 		c = null;
 		Statement stmt = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
+			Class.forName(CLASS_NAME);
 			c = DriverManager.getConnection("jdbc:sqlite:drinksAndIngredientsFour.db");
 			c.setAutoCommit(false);
 			stmt = c.createStatement();
@@ -128,7 +129,7 @@ public class DataBaseReader {
 			}
 			allDBDrinks.add(dataBaseDrink);
 		}
-		Class.forName("org.sqlite.JDBC");
+		Class.forName(CLASS_NAME);
 		c = DriverManager.getConnection("jdbc:sqlite:drinksAndIngredientsFour.db");
 		createDrinksTable();
 		//checkFoDup(allDBDrinks);
@@ -255,7 +256,7 @@ public class DataBaseReader {
 		Connection c = null;
 		Statement stmt = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
+			Class.forName(CLASS_NAME);
 			c = DriverManager.getConnection("jdbc:sqlite:drinks.db");
 			c.setAutoCommit(false);
 			System.out.println("Opened database successfully");
@@ -291,7 +292,7 @@ public class DataBaseReader {
 		Connection c = null;
 		Statement stmt = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
+			Class.forName(CLASS_NAME);
 			c = DriverManager.getConnection("jdbc:sqlite:drinks.db");
 			c.setAutoCommit(false);
 			System.out.println("Opened database successfully");
@@ -345,7 +346,7 @@ public class DataBaseReader {
 		Connection c = null;
 		Statement stmt = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
+			Class.forName(CLASS_NAME);
 			c = DriverManager.getConnection("jdbc:sqlite:drinks.db");
 			c.setAutoCommit(false);
 			System.out.println("Opened database successfully");
