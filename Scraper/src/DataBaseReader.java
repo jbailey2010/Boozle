@@ -359,14 +359,5 @@ public class DataBaseReader {
 			return -1;
 		}
 		return -1;
-
-	private static int ratingToInt(Drink.Rating rating)
-	{
-		if (rating == Drink.Rating.THUMBSDOWN)
-			return -1;
-		else if (rating == Drink.Rating.THUMBSNULL)
-			return 0;
-		else
-			return 1;
 	}
 }
