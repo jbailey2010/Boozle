@@ -24,7 +24,6 @@ proguard/
 SideNavigation-master/sample.net/Properties/.project
 
 TheInebriatorTestTest/bin/resources.ap_
-Scraper/.classpath
 Scraper/drinksAndIngredients.db
 Scraper/drinksAndIngredientsFour.db
 TheInebriator/hs_err_pid17952.log
