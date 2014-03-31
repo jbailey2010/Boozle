@@ -1,0 +1,916 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Advanced Facebook &mdash; Socialize Android SDK v2.9.7 documentation</title>
+    
+    <link rel="stylesheet" href="static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     'v2.9.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="static/jquery.js"></script>
+    <script type="text/javascript" src="static/underscore.js"></script>
+    <script type="text/javascript" src="static/doctools.js"></script>
+    <link rel="shortcut icon" href="static/favicon.ico"/>
+    <link rel="top" title="Socialize Android SDK v2.9.7 documentation" href="index.html?v=v2.9.7" />
+    <link rel="next" title="Advanced Twitter" href="twitter_adv.html?v=v2.9.7" />
+    <link rel="prev" title="Sharing to Pinterest" href="pinterest.html?v=v2.9.7" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="twitter_adv.html?v=v2.9.7" title="Advanced Twitter"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="pinterest.html?v=v2.9.7" title="Sharing to Pinterest"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html?v=v2.9.7">Socialize Android SDK v2.9.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+      <META HTTP-EQUIV="Pragma" CONTENT="no-cache"/>
+    <META HTTP-EQUIV="Expires" CONTENT="-1"/>
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-9835027-5']);
+    _gaq.push(['_setDomainName', '.getsocialize.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+    <script type="text/javascript" charset="utf-8">
+      var is_ssl = ("https:" == document.location.protocol);
+      var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+      document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+
+    <script type="text/javascript" charset="utf-8">
+      var feedback_widget_options = {};
+      feedback_widget_options.display = "overlay";
+      feedback_widget_options.company = "socialize";
+      feedback_widget_options.placement = "right";
+      feedback_widget_options.color = "#222";
+      feedback_widget_options.style = "question";
+      feedback_widget_options.product = "socialize_android_sdk";
+      feedback_widget_options.limit = "3";
+      GSFN.feedback_widget.prototype.local_base_url = "http://support.getsocialize.com";
+      GSFN.feedback_widget.prototype.local_ssl_base_url = "http://support.getsocialize.com";
+      var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+    </script><div class="section" id="advanced-facebook">
+<h1>Advanced Facebook<a class="headerlink" href="#advanced-facebook" title="Permalink to this headline">¶</a></h1>
+<div style="background-color:#ffe2a4;border-style:solid;border-color:#5e0000;border-width:1px;">
+
+<table border="0">
+	<tr>
+		<td>
+			<img src="static/flag.png"/>
+		</td>
+		<td>
+			<div style="font-size:1.2em;font-weight:bold;padding:8px;color:#5e0000;padding-left:0px;">
+			Advanced Use
+			</div>
+		</td>
+	</tr>
+</table>
+
+
+<div style="font-size:0.9em;font-weight:normal;padding:8px;color:#5e0000;">
+The following section is not required if you are simply using the <b>Action Bar</b>
+</div>
+</div><div class="section" id="linking-users-with-facebook">
+<h2>Linking Users with Facebook<a class="headerlink" href="#linking-users-with-facebook" title="Permalink to this headline">¶</a></h2>
+<p>When connecting users in your app to their Facebook account it is important to understand the distinction between READ permissions and WRITE permissions.</p>
+<p>Facebook makes a clear distinction between those operations required READ access and those requiring WRITE (publish) access.</p>
+<p>It is important to observe the following policy conventions from Facebook:</p>
+<ul class="simple">
+<li>READ permissions must be requested <strong>BEFORE</strong> WRITE permissions</li>
+<li>It is invalid to request READ permissions at the same time as WRITE permissions (this will cause an error)</li>
+</ul>
+<p>The default behavior of the Socialize Action Bar means that Facebook permissions are requested in the correct order so you should not
+need to worry if you are simply using the Action Bar, however if you want to perform any direct interaction with Facebook you will need to be mindful
+of these rules.</p>
+<p>By default Socialize requests no additional permissions for READ access, and requests the following permissions for WRITE access:</p>
+<blockquote>
+<div>&#8220;publish_stream&#8221;, &#8220;publish_actions&#8221;</div></blockquote>
+<p>When performing a direct Facebook operation you must first check to see whether the appropriate permissions have been linked:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="c1">// The &quot;this&quot; argument refers to the current Activity	</span>
+<span class="k">if</span><span class="o">(</span><span class="n">FacebookUtils</span><span class="o">.</span><span class="na">isLinkedForWrite</span><span class="o">(</span><span class="k">this</span><span class="o">))</span> <span class="o">{</span>
+	<span class="c1">// Perform direct Facebook operation.</span>
+<span class="o">}</span> 
+<span class="k">else</span> <span class="o">{</span>
+	<span class="c1">// Request write access</span>
+	<span class="n">FacebookUtils</span><span class="o">.</span><span class="na">linkForWrite</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="k">new</span> <span class="n">SocializeAuthListener</span><span class="o">()</span> <span class="o">{</span>
+	
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCancel</span><span class="o">()</span> <span class="o">{</span>
+			<span class="c1">// The user cancelled the operation.</span>
+		<span class="o">}</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAuthSuccess</span><span class="o">(</span><span class="n">SocializeSession</span> <span class="n">session</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// Perform direct Facebook operation.</span>
+		<span class="o">}</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAuthFail</span><span class="o">(</span><span class="n">SocializeException</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// Handle error</span>
+		<span class="o">}</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">SocializeException</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// Handle error</span>
+		<span class="o">}</span>
+	<span class="o">});</span>	
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>If you want to include additional permissions not included in the default list you can just specify these as additional
+parameters to the <strong>isLinked</strong> and <strong>link</strong> methods</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="c1">// The &quot;this&quot; argument refers to the current Activity	</span>
+<span class="k">if</span><span class="o">(</span><span class="n">FacebookUtils</span><span class="o">.</span><span class="na">isLinkedForWrite</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="s">&quot;publish_stream&quot;</span><span class="o">,</span> <span class="s">&quot;create_event&quot;</span><span class="o">))</span> <span class="o">{</span>
+	<span class="c1">// Perform direct Facebook operation.</span>
+<span class="o">}</span> 
+<span class="k">else</span> <span class="o">{</span>
+	<span class="c1">// Request write access</span>
+	<span class="n">FacebookUtils</span><span class="o">.</span><span class="na">linkForWrite</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="k">new</span> <span class="n">SocializeAuthListener</span><span class="o">()</span> <span class="o">{</span>
+	
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCancel</span><span class="o">()</span> <span class="o">{</span>
+			<span class="c1">// The user cancelled the operation.</span>
+		<span class="o">}</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAuthSuccess</span><span class="o">(</span><span class="n">SocializeSession</span> <span class="n">session</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// Perform direct Facebook operation.</span>
+		<span class="o">}</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAuthFail</span><span class="o">(</span><span class="n">SocializeException</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// Handle error</span>
+		<span class="o">}</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">SocializeException</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// Handle error</span>
+		<span class="o">}</span>
+	<span class="o">},</span> <span class="s">&quot;publish_stream&quot;</span><span class="o">,</span> <span class="s">&quot;create_event&quot;</span><span class="o">);</span>	
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>If you already have Facebook integration in your app and do not wish to replace this with the Socialize implementation you
+can still link the user to Facebook within Socialize by providing the user&#8217;s Facebook auth token</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="c1">// The user&#39;s Facebook auth token</span>
+<span class="n">String</span> <span class="n">fbToken</span> <span class="o">=</span> <span class="s">&quot;ABCDEF...GHIJKL&quot;</span><span class="o">;</span>
+
+<span class="c1">// The &quot;this&quot; argument refers to the current Activity</span>
+<span class="c1">// Specify &quot;true&quot; to verify that the permissions on this token are correct</span>
+<span class="n">FacebookUtils</span><span class="o">.</span><span class="na">linkForRead</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">fbToken</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="k">new</span> <span class="n">SocializeAuthListener</span><span class="o">()</span> <span class="o">{</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCancel</span><span class="o">()</span> <span class="o">{</span>
+		<span class="c1">// The user cancelled the operation.</span>
+	<span class="o">}</span>
+	
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAuthSuccess</span><span class="o">(</span><span class="n">SocializeSession</span> <span class="n">session</span><span class="o">)</span> <span class="o">{</span>
+		<span class="c1">// User was authed.</span>
+	<span class="o">}</span>
+	
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAuthFail</span><span class="o">(</span><span class="n">SocializeException</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+		<span class="c1">// Handle error</span>
+	<span class="o">}</span>
+	
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">SocializeException</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+		<span class="c1">// Handle error</span>
+	<span class="o">}</span>
+<span class="o">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="unlinking-users-from-facebook">
+<h2>Unlinking Users from Facebook<a class="headerlink" href="#unlinking-users-from-facebook" title="Permalink to this headline">¶</a></h2>
+<p>To unlink a user from their Facebook account simple call <strong>unlink</strong>.  This call executes synchronously.</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="c1">// Disconnect the user from their Facebook account</span>
+<span class="c1">// The &quot;this&quot; argument refers to the current Activity</span>
+<span class="n">FacebookUtils</span><span class="o">.</span><span class="na">unlink</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>	
+</pre></div>
+</div>
+</div>
+<div class="section" id="posting-to-facebook">
+<h2>Posting to Facebook<a class="headerlink" href="#posting-to-facebook" title="Permalink to this headline">¶</a></h2>
+<p>By default all actions created using the SDK will provide the end user with the opportunity to share their
+action with Facebook (if Facebook has been configured) however it is also possible to manually post content to a user&#8217;s
+Facebook wall.</p>
+<div class="section" id="posting-socialize-entities-to-facebook">
+<h3>Posting Socialize Entities to Facebook<a class="headerlink" href="#posting-socialize-entities-to-facebook" title="Permalink to this headline">¶</a></h3>
+<p>The simplest and most effective use of Facebook within Socialize is to post entities.  This approach takes full advantage of
+Socialize SmartDownloads as well as automatically supporting Facebook Open Graph which helps maximize the effectiveness of your social strategy.</p>
+<p>To post an entity to a user&#8217;s Facebook timeline simply call the <strong>postEntity</strong> method.</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="k">if</span><span class="o">(</span><span class="n">FacebookUtils</span><span class="o">.</span><span class="na">isLinkedForWrite</span><span class="o">(</span><span class="k">this</span><span class="o">))</span> <span class="o">{</span>
+	<span class="n">Entity</span> <span class="n">entity</span> <span class="o">=</span> <span class="n">Entity</span><span class="o">.</span><span class="na">newInstance</span><span class="o">(</span><span class="s">&quot;http://myentity.com&quot;</span><span class="o">,</span> <span class="s">&quot;My Name&quot;</span><span class="o">);</span>
+	
+	<span class="c1">// The &quot;this&quot; argument refers to the current Activity</span>
+	<span class="n">FacebookUtils</span><span class="o">.</span><span class="na">postEntity</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">entity</span><span class="o">,</span> <span class="s">&quot;Text to be posted&quot;</span><span class="o">,</span> <span class="k">new</span> <span class="n">SocialNetworkShareListener</span><span class="o">()</span> <span class="o">{</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onNetworkError</span><span class="o">(</span><span class="n">Activity</span> <span class="n">context</span><span class="o">,</span> <span class="n">SocialNetwork</span> <span class="n">network</span><span class="o">,</span> <span class="n">Exception</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// Handle error</span>
+		<span class="o">}</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCancel</span><span class="o">()</span> <span class="o">{</span>
+			<span class="c1">// The user cancelled the operation.</span>
+		<span class="o">}</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAfterPost</span><span class="o">(</span><span class="n">Activity</span> <span class="n">parent</span><span class="o">,</span> <span class="n">SocialNetwork</span> <span class="n">socialNetwork</span><span class="o">,</span> <span class="n">JSONObject</span> <span class="n">responseObject</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// Called after the post returned from Facebook.</span>
+			<span class="c1">// responseObject contains the raw JSON response from Facebook.</span>
+		<span class="o">}</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onBeforePost</span><span class="o">(</span><span class="n">Activity</span> <span class="n">parent</span><span class="o">,</span> <span class="n">SocialNetwork</span> <span class="n">socialNetwork</span><span class="o">,</span> <span class="n">PostData</span> <span class="n">postData</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// Called just prior to the post.</span>
+			<span class="c1">// postData contains the dictionary (map) of data to be posted.  </span>
+			<span class="c1">// You can change this here to customize the post.</span>
+			<span class="c1">// Return true to prevent the post from occurring.</span>
+			<span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">});</span>
+<span class="o">}</span>
+<span class="k">else</span> <span class="o">{</span>
+	<span class="c1">// Handle non-linked case</span>
+<span class="o">}</span>	
+</pre></div>
+</div>
+</div>
+<div class="section" id="posting-directly-to-facebook">
+<h3>Posting Directly to Facebook<a class="headerlink" href="#posting-directly-to-facebook" title="Permalink to this headline">¶</a></h3>
+<p>If you want complete control over what is posted to Facebook, Socialize provides a simple interface to the Facebook Graph API.</p>
+<p>Refer to the Facebook Graph API documentation for more specific implementation information</p>
+<p><a class="reference external" href="http://developers.facebook.com/docs/reference/api/">http://developers.facebook.com/docs/reference/api/</a></p>
+<p>Executing a <strong>POST</strong></p>
+<div class="highlight-java"><div class="highlight"><pre><span class="k">if</span><span class="o">(</span><span class="n">FacebookUtils</span><span class="o">.</span><span class="na">isLinkedForWrite</span><span class="o">(</span><span class="k">this</span><span class="o">))</span> <span class="o">{</span>
+	<span class="c1">// The graph API path to be called</span>
+	<span class="n">String</span> <span class="n">graphPath</span> <span class="o">=</span> <span class="s">&quot;me/links&quot;</span><span class="o">;</span>
+
+	<span class="c1">// The data to be posted. This is based on the graphPath</span>
+	<span class="c1">// See http://developers.facebook.com/docs/reference/api/</span>
+	<span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">postData</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;();</span>
+	<span class="n">postData</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;message&quot;</span><span class="o">,</span> <span class="s">&quot;A message to post&quot;</span><span class="o">);</span>
+	<span class="n">postData</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;link&quot;</span><span class="o">,</span> <span class="s">&quot;http://getsocialize.com&quot;</span><span class="o">);</span>
+	<span class="n">postData</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;Socialize SDK!&quot;</span><span class="o">);</span>
+		
+	<span class="c1">// Execute a POST on facebook</span>
+	<span class="c1">// The &quot;this&quot; argument refers to the current Activity</span>
+	<span class="n">FacebookUtils</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">graphPath</span><span class="o">,</span> <span class="n">postData</span><span class="o">,</span> <span class="k">new</span> <span class="n">SocialNetworkPostListener</span><span class="o">()</span> <span class="o">{</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onNetworkError</span><span class="o">(</span><span class="n">Activity</span> <span class="n">context</span><span class="o">,</span> <span class="n">SocialNetwork</span> <span class="n">network</span><span class="o">,</span> <span class="n">Exception</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// Handle error</span>
+		<span class="o">}</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCancel</span><span class="o">()</span> <span class="o">{</span>
+			<span class="c1">// The user cancelled the operation.</span>
+		<span class="o">}</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAfterPost</span><span class="o">(</span><span class="n">Activity</span> <span class="n">parent</span><span class="o">,</span> <span class="n">SocialNetwork</span> <span class="n">socialNetwork</span><span class="o">,</span> <span class="n">JSONObject</span> <span class="n">responseObject</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// Called after the post returned from Facebook.</span>
+			<span class="c1">// responseObject contains the raw JSON response from Facebook.</span>
+		<span class="o">}</span>
+	<span class="o">});</span>
+<span class="o">}</span>
+<span class="k">else</span> <span class="o">{</span>
+	<span class="c1">// Handle non-linked case</span>
+<span class="o">}</span>	
+</pre></div>
+</div>
+<p>If you want to take full advantage of Socialize SmartDownloads and post the auto-generated SmartDownload urls for your entity or app you can
+do this by creating a simple share object without propagation first.</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="k">if</span><span class="o">(</span><span class="n">FacebookUtils</span><span class="o">.</span><span class="na">isLinkedForWrite</span><span class="o">(</span><span class="k">this</span><span class="o">))</span> <span class="o">{</span>
+	<span class="c1">// Create a simple share object to get the propagation data</span>
+	<span class="kd">final</span> <span class="n">Entity</span> <span class="n">entity</span> <span class="o">=</span> <span class="n">Entity</span><span class="o">.</span><span class="na">newInstance</span><span class="o">(</span><span class="s">&quot;http://myentity.com&quot;</span><span class="o">,</span> <span class="s">&quot;My Name&quot;</span><span class="o">);</span>
+
+	<span class="n">ShareOptions</span> <span class="n">options</span> <span class="o">=</span> <span class="n">ShareUtils</span><span class="o">.</span><span class="na">getUserShareOptions</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+
+	<span class="c1">// The &quot;this&quot; argument refers to the current Activity</span>
+	<span class="n">ShareUtils</span><span class="o">.</span><span class="na">registerShare</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">entity</span><span class="o">,</span> <span class="n">options</span><span class="o">,</span> <span class="k">new</span> <span class="n">ShareAddListener</span><span class="o">()</span> <span class="o">{</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">SocializeException</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// Handle error</span>
+		<span class="o">}</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Share</span> <span class="n">share</span><span class="o">)</span> <span class="o">{</span>
+			
+			<span class="c1">// Get the propagation info from the result</span>
+			<span class="n">PropagationInfoResponse</span> <span class="n">propagationInfoResponse</span> <span class="o">=</span> <span class="n">share</span><span class="o">.</span><span class="na">getPropagationInfoResponse</span><span class="o">();</span>
+			
+			<span class="n">PropagationInfo</span> <span class="n">propagationInfo</span> <span class="o">=</span> <span class="n">propagationInfoResponse</span><span class="o">.</span><span class="na">getPropagationInfo</span><span class="o">(</span><span class="n">SocialNetwork</span><span class="o">.</span><span class="na">FACEBOOK</span><span class="o">);</span>
+			
+			<span class="c1">// The graph API path to be called</span>
+			<span class="n">String</span> <span class="n">graphPath</span> <span class="o">=</span> <span class="s">&quot;me/links&quot;</span><span class="o">;</span>
+
+			<span class="c1">// The data to be posted. This is based on the graphPath</span>
+			<span class="c1">// See http://developers.facebook.com/docs/reference/api/</span>
+			<span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">postData</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;();</span>
+			<span class="n">postData</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;message&quot;</span><span class="o">,</span> <span class="s">&quot;A message to post&quot;</span><span class="o">);</span>
+			<span class="n">postData</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;link&quot;</span><span class="o">,</span> <span class="n">propagationInfo</span><span class="o">.</span><span class="na">getEntityUrl</span><span class="o">());</span> <span class="c1">// Use the SmartDownload URL</span>
+			<span class="n">postData</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="n">entity</span><span class="o">.</span><span class="na">getDisplayName</span><span class="o">());</span>
+				
+			<span class="c1">// Execute a POST on facebook</span>
+			<span class="n">FacebookUtils</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">graphPath</span><span class="o">,</span> <span class="n">postData</span><span class="o">,</span> <span class="k">new</span> <span class="n">SocialNetworkListener</span><span class="o">()</span> <span class="o">{</span>
+				
+				<span class="nd">@Override</span>
+				<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onNetworkError</span><span class="o">(</span><span class="n">Activity</span> <span class="n">context</span><span class="o">,</span> <span class="n">SocialNetwork</span> <span class="n">network</span><span class="o">,</span> <span class="n">Exception</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+					<span class="c1">// Handle error</span>
+				<span class="o">}</span>
+				
+				<span class="nd">@Override</span>
+				<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCancel</span><span class="o">()</span> <span class="o">{</span>
+					<span class="c1">// The user cancelled the operation.</span>
+				<span class="o">}</span>
+				
+				<span class="nd">@Override</span>
+				<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAfterPost</span><span class="o">(</span><span class="n">Activity</span> <span class="n">parent</span><span class="o">,</span> <span class="n">SocialNetwork</span> <span class="n">socialNetwork</span><span class="o">,</span> <span class="n">JSONObject</span> <span class="n">responseObject</span><span class="o">)</span> <span class="o">{</span>
+					<span class="c1">// Called after the post returned from Facebook.</span>
+					<span class="c1">// responseObject contains the raw JSON response from Facebook.</span>
+				<span class="o">}</span>
+				
+				<span class="nd">@Override</span>
+				<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onBeforePost</span><span class="o">(</span><span class="n">Activity</span> <span class="n">parent</span><span class="o">,</span> <span class="n">SocialNetwork</span> <span class="n">socialNetwork</span><span class="o">,</span> <span class="n">PostData</span> <span class="n">postData</span><span class="o">)</span> <span class="o">{</span>
+					<span class="c1">// Called before the post to the given network is made</span>
+					<span class="c1">// Return true to prevent the post from occurring</span>
+					<span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">});</span>		
+		<span class="o">}</span>
+	<span class="o">},</span> <span class="n">SocialNetwork</span><span class="o">.</span><span class="na">FACEBOOK</span><span class="o">);</span>	
+<span class="o">}</span>
+<span class="k">else</span> <span class="o">{</span>
+	<span class="c1">// Handle non-linked case</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Executing a <strong>GET</strong></p>
+<div class="highlight-java"><div class="highlight"><pre><span class="c1">// The graph API path to be called</span>
+<span class="n">String</span> <span class="n">graphPath</span> <span class="o">=</span> <span class="s">&quot;me/links&quot;</span><span class="o">;</span>
+
+<span class="c1">// Execute a GET on facebook</span>
+<span class="c1">// The &quot;this&quot; argument refers to the current Activity</span>
+<span class="n">FacebookUtils</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">graphPath</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="k">new</span> <span class="n">SocialNetworkPostListener</span><span class="o">()</span> <span class="o">{</span>
+	
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onNetworkError</span><span class="o">(</span><span class="n">Activity</span> <span class="n">context</span><span class="o">,</span> <span class="n">SocialNetwork</span> <span class="n">network</span><span class="o">,</span> <span class="n">Exception</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+		<span class="c1">// Handle error</span>
+	<span class="o">}</span>
+	
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCancel</span><span class="o">()</span> <span class="o">{</span>
+		<span class="c1">// The user cancelled the operation.</span>
+	<span class="o">}</span>
+	
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAfterPost</span><span class="o">(</span><span class="n">Activity</span> <span class="n">parent</span><span class="o">,</span> <span class="n">SocialNetwork</span> <span class="n">socialNetwork</span><span class="o">,</span> <span class="n">JSONObject</span> <span class="n">responseObject</span><span class="o">)</span> <span class="o">{</span>
+		<span class="c1">// Called after the post returned from Facebook.</span>
+		<span class="c1">// responseObject contains the raw JSON response from Facebook.</span>
+	<span class="o">}</span>
+<span class="o">});</span>
+</pre></div>
+</div>
+<p>Executing a <strong>DELETE</strong></p>
+<div class="highlight-java"><div class="highlight"><pre><span class="k">if</span><span class="o">(</span><span class="n">FacebookUtils</span><span class="o">.</span><span class="na">isLinkedForWrite</span><span class="o">(</span><span class="k">this</span><span class="o">))</span> <span class="o">{</span>
+	
+	<span class="c1">// The graph API path to be called</span>
+	<span class="n">String</span> <span class="n">graphPath</span> <span class="o">=</span> <span class="s">&quot;me/links/1234&quot;</span><span class="o">;</span>
+
+	<span class="c1">// Execute a DELETE on facebook</span>
+	<span class="c1">// The &quot;this&quot; argument refers to the current Activity</span>
+	<span class="n">FacebookUtils</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">graphPath</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="k">new</span> <span class="n">SocialNetworkListener</span><span class="o">()</span> <span class="o">{</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onNetworkError</span><span class="o">(</span><span class="n">Activity</span> <span class="n">context</span><span class="o">,</span> <span class="n">SocialNetwork</span> <span class="n">network</span><span class="o">,</span> <span class="n">Exception</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// Handle error</span>
+		<span class="o">}</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCancel</span><span class="o">()</span> <span class="o">{</span>
+			<span class="c1">// The user cancelled the operation.</span>
+		<span class="o">}</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAfterPost</span><span class="o">(</span><span class="n">Activity</span> <span class="n">parent</span><span class="o">,</span> <span class="n">SocialNetwork</span> <span class="n">socialNetwork</span><span class="o">,</span> <span class="n">JSONObject</span> <span class="n">responseObject</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// Called after the post returned from Facebook.</span>
+			<span class="c1">// responseObject contains the raw JSON response from Facebook.</span>
+		<span class="o">}</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onBeforePost</span><span class="o">(</span><span class="n">Activity</span> <span class="n">parent</span><span class="o">,</span> <span class="n">SocialNetwork</span> <span class="n">socialNetwork</span><span class="o">,</span> <span class="n">PostData</span> <span class="n">postData</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// Called before the post to the given network is made</span>
+			<span class="c1">// Return true to prevent the post from occurring</span>
+			<span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">});</span>
+<span class="o">}</span>
+<span class="k">else</span> <span class="o">{</span>
+	<span class="c1">// Handle non-linked case</span>
+<span class="o">}</span>	
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="using-facebook-open-graph">
+<span id="open-graph"></span><h2>Using Facebook Open Graph<a class="headerlink" href="#using-facebook-open-graph" title="Permalink to this headline">¶</a></h2>
+<p>From v2.3 onwards Socialize supports Facebook &#8220;like&#8221; Open Graph actions.  This means that when a user executes a &#8220;like&#8221; on Socialize and elects to
+share this on Facebook it can be posted as an &#8220;Open Graph Like&#8221; in the user&#8217;s Facebook Activity stream.</p>
+<p>This behavior can be enabled via configuration in your <strong>socialize.properties</strong> file</p>
+<div style="background-color:#cce3ff;border-style:solid;border-color:#0051b6;border-width:1px;">
+<table border="0">
+	<tr>
+		<td>
+			<img src="static/info.png"/>
+		</td>
+		<td>
+			<div style="font-size:1.2em;font-weight:bold;padding:8px;color:#0051b6;padding-left:0px;">
+			&nbsp;Please Note
+			</div>
+		</td>
+	</tr>
+</table>
+<div style="font-size:0.9em;font-weight:normal;padding:8px;color:#0051b6;">
+Setting this configuration option will force ALL likes within Socialize to use the Open Graph.  Aside from the Facebook setup steps 
+described below no other changes are required.
+</div>
+</div><div class="highlight-properties"><div class="highlight"><pre><span class="c"># Enable/Disable Open Graph calls for &quot;like&quot;</span>
+<span class="na">facebook.og.like.enabled</span><span class="o">=</span><span class="s">true</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are not already familiar with the Facebook Open Graph we recommend reviewing the <a class="reference external" href="https://developers.facebook.com/docs/opengraph/">Facebook Documentation</a> first</p>
+</div>
+<div class="section" id="configuring-your-facebook-app-for-open-graph">
+<h3>Configuring your Facebook App for Open Graph<a class="headerlink" href="#configuring-your-facebook-app-for-open-graph" title="Permalink to this headline">¶</a></h3>
+<p>Before you are able to utilize Open Graph calls such as &#8220;like&#8221; you must first follow the Facebook Guidelines for approval of Open Graph actions.</p>
+<p>This is detailed on the Facebook website here:</p>
+<p><a class="reference external" href="http://developers.facebook.com/docs/opengraph/opengraph-approval/">Open Graph Approval Process</a></p>
+<p>The following steps apply to seeking approval for the in-built &#8220;like&#8221; action however the same approach can be followed for all Open Graph Actions.</p>
+<div class="section" id="adding-an-open-graph-action-to-your-app">
+<h4>Adding an Open Graph Action to your App<a class="headerlink" href="#adding-an-open-graph-action-to-your-app" title="Permalink to this headline">¶</a></h4>
+<p>In your app settings on Facebook, access the Open Graph section:</p>
+<img alt="images/fb_og_menu.png" src="images/fb_og_menu.png" />
+<p>You will be presented with the default configuration screen for Open Graph.  Click the <strong>Create New Action Type</strong> button and select the action to be added</p>
+<img alt="images/fb_og_page1.png" src="images/fb_og_page1.png" />
+<p>You will then be presented with a dialog in which your action can be selected.  Choose an appropriate action and click <strong>Submit</strong></p>
+<img alt="images/fb_og_select_action.png" src="images/fb_og_select_action.png" />
+<p>Once your action has been added you are ready to submit it for approval.  Click the <strong>Submit</strong> link.</p>
+<img alt="images/fb_og_page2.png" src="images/fb_og_page2.png" />
+<p>At this point you may encounter some validation errors.  The most common of which are:</p>
+<img alt="images/fb_og_error1.png" src="images/fb_og_error1.png" />
+<p>The <strong>Publish Action</strong> requirement is most easily satisfied by simply executing the same <em>curl</em> command provided by Facebook.</p>
+<p>Click on the <strong>Get Code</strong> link next to your action and run the <em>curl</em> command you are provided from your terminal (command line) interface</p>
+<img alt="images/fb_og_curl.png" src="images/fb_og_curl.png" />
+<p>The final step in the approval process requires you to clarify with Facebook the exact purpose for your OG action.</p>
+<img alt="images/fb_og_error2.png" src="images/fb_og_error2.png" />
+<p>Socialize has prepared a standard response for you to use in this situation.  If you are using the Socialize UI features &#8220;out-of-the-box&#8221; (that is, without modification) then you
+can simply refer to the content we have provided for you at:</p>
+<p><a class="reference external" href="http://blog.getsocialize.com/facebook-open-graph-review">http://blog.getsocialize.com/facebook-open-graph-review</a></p>
+<p>If you have implemented your own UI and/or are calling the Socialize SDK directly through any other means we recommend you follow the guidelines established by Facebook for the approval of
+Open Graph actions.</p>
+<p><a class="reference external" href="https://developers.facebook.com/docs/opengraph/checklist/">https://developers.facebook.com/docs/opengraph/checklist/</a></p>
+</div>
+</div>
+<div class="section" id="using-in-built-open-graph-actions">
+<h3>Using In Built Open Graph Actions<a class="headerlink" href="#using-in-built-open-graph-actions" title="Permalink to this headline">¶</a></h3>
+<p>The in built OG actions provided by Facebook <strong>require approval by Facebook</strong> and there is a limited set of actions available and a corresponding limited set of object types.</p>
+<p>The actions supported and the corresponding object types are as follows</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="31%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Action</th>
+<th class="head">Path</th>
+<th class="head">Object Types</th>
+<th class="head">Parameter</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>like</td>
+<td>me/og.likes</td>
+<td>object</td>
+<td>object</td>
+</tr>
+<tr class="row-odd"><td>follow</td>
+<td>me/og.follows</td>
+<td>profile</td>
+<td>profile</td>
+</tr>
+<tr class="row-even"><td>publish</td>
+<td>me/news.publishes</td>
+<td>article</td>
+<td>article</td>
+</tr>
+<tr class="row-odd"><td>read</td>
+<td>me/news.reads</td>
+<td>article</td>
+<td>article</td>
+</tr>
+<tr class="row-even"><td>watch</td>
+<td>me/video.watches</td>
+<td>video.movie</td>
+<td>movie</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>video.episode</td>
+<td>movie</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>video.tv_show</td>
+<td>movie</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>video.other</td>
+<td>movie</td>
+</tr>
+</tbody>
+</table>
+<p>The Object Types specified in the Open Graph call <strong>MUST</strong> correspond to a valid <em>og:type</em> meta element in the HTML page that represents the object.</p>
+<p>For example:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="o">&lt;</span><span class="n">meta</span> <span class="n">property</span><span class="o">=</span><span class="s">&quot;og:type&quot;</span> <span class="n">content</span><span class="o">=</span><span class="s">&quot;video.movie&quot;</span> <span class="o">/&gt;</span>
+</pre></div>
+</div>
+<p>Fortunately Socialize will <strong>automatically generate OG tags</strong> on your entity page, but you must specify the correct type on the entity object itself.</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">Entity</span> <span class="n">entity</span> <span class="o">=</span> <span class="n">Entity</span><span class="o">.</span><span class="na">newInstance</span><span class="o">(</span><span class="s">&quot;http://myentity.com&quot;</span><span class="o">,</span> <span class="s">&quot;My Name&quot;</span><span class="o">);</span>
+
+<span class="c1">// MUST be a valid OG type</span>
+<span class="n">entity</span><span class="o">.</span><span class="na">setType</span><span class="o">(</span><span class="s">&quot;video.movie&quot;</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>Once you have setup your Entity with the correct type you can force an Open Graph post by changing the PostData in the SocialNetworkListener.
+Here&#8217;s a complete example</p>
+<div class="highlight-java"><div class="highlight"><pre>	
+<span class="k">if</span><span class="o">(</span><span class="n">FacebookUtils</span><span class="o">.</span><span class="na">isLinkedForWrite</span><span class="o">(</span><span class="k">this</span><span class="o">))</span> <span class="o">{</span>
+	<span class="n">Entity</span> <span class="n">entity</span> <span class="o">=</span> <span class="n">Entity</span><span class="o">.</span><span class="na">newInstance</span><span class="o">(</span><span class="s">&quot;http://myentity.com&quot;</span><span class="o">,</span> <span class="s">&quot;My Entity Name&quot;</span><span class="o">);</span>
+
+	<span class="c1">// MUST be a valid OG type</span>
+	<span class="n">entity</span><span class="o">.</span><span class="na">setType</span><span class="o">(</span><span class="s">&quot;video.movie&quot;</span><span class="o">);</span>
+
+	<span class="n">ShareOptions</span> <span class="n">options</span> <span class="o">=</span> <span class="n">ShareUtils</span><span class="o">.</span><span class="na">getUserShareOptions</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+	<span class="n">options</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">&quot;Text to be posted&quot;</span><span class="o">);</span>
+
+	<span class="c1">// The &quot;this&quot; argument refers to the current Activity</span>
+	<span class="n">ShareUtils</span><span class="o">.</span><span class="na">shareViaSocialNetworks</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">entity</span><span class="o">,</span> <span class="n">options</span><span class="o">,</span> <span class="k">new</span> <span class="n">SocialNetworkShareListener</span><span class="o">()</span> <span class="o">{</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onBeforePost</span><span class="o">(</span><span class="n">Activity</span> <span class="n">parent</span><span class="o">,</span> <span class="n">SocialNetwork</span> <span class="n">socialNetwork</span><span class="o">,</span> <span class="n">PostData</span> <span class="n">postData</span><span class="o">)</span> <span class="o">{</span>
+			
+			<span class="k">if</span><span class="o">(</span><span class="n">socialNetwork</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">SocialNetwork</span><span class="o">.</span><span class="na">FACEBOOK</span><span class="o">))</span> <span class="o">{</span>
+				<span class="c1">// Change the post data to force an Open Graph call</span>
+				<span class="n">postData</span><span class="o">.</span><span class="na">setPath</span><span class="o">(</span><span class="s">&quot;me/video.watches&quot;</span><span class="o">);</span>
+				
+				<span class="c1">// me/video.watches requires a movie object type</span>
+				<span class="n">postData</span><span class="o">.</span><span class="na">getPostValues</span><span class="o">().</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;movie&quot;</span><span class="o">,</span> <span class="n">postData</span><span class="o">.</span><span class="na">getPropagationInfo</span><span class="o">().</span><span class="na">getEntityUrl</span><span class="o">());</span>
+			<span class="o">}</span>
+			
+			<span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+		<span class="o">}</span>	
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onNetworkError</span><span class="o">(</span><span class="n">Activity</span> <span class="n">context</span><span class="o">,</span> <span class="n">SocialNetwork</span> <span class="n">network</span><span class="o">,</span> <span class="n">Exception</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// Handle error</span>
+		<span class="o">}</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCancel</span><span class="o">()</span> <span class="o">{</span>
+			<span class="c1">// The user cancelled the operation.</span>
+		<span class="o">}</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAfterPost</span><span class="o">(</span><span class="n">Activity</span> <span class="n">parent</span><span class="o">,</span> <span class="n">SocialNetwork</span> <span class="n">socialNetwork</span><span class="o">,</span> <span class="n">JSONObject</span> <span class="n">responseObject</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// Called after the post returned from Facebook.</span>
+			<span class="c1">// responseObject contains the raw JSON response from Facebook.</span>
+		<span class="o">}</span>
+
+	<span class="o">},</span> <span class="n">SocialNetwork</span><span class="o">.</span><span class="na">FACEBOOK</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="k">else</span> <span class="o">{</span>
+	<span class="c1">// Handle non-linked case</span>
+<span class="o">}</span>		
+</pre></div>
+</div>
+<p>The corresponding entity page on Socialize will automatically populate the required OG meta tags:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="o">&lt;</span><span class="n">meta</span> <span class="n">property</span><span class="o">=</span><span class="s">&quot;og:title&quot;</span> <span class="n">content</span><span class="o">=</span><span class="s">&quot;My Entity Name&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">meta</span> <span class="n">property</span><span class="o">=</span><span class="s">&quot;og:description&quot;</span> <span class="n">content</span><span class="o">=</span><span class="s">&quot;...parsed from your URL...&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">meta</span> <span class="n">property</span><span class="o">=</span><span class="s">&quot;og:image&quot;</span> <span class="n">content</span><span class="o">=</span><span class="s">&quot;...parsed from your URL...&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">meta</span> <span class="n">property</span><span class="o">=</span><span class="s">&quot;og:type&quot;</span> <span class="n">content</span><span class="o">=</span><span class="s">&quot;video.movie&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">meta</span> <span class="n">property</span><span class="o">=</span><span class="s">&quot;og:url&quot;</span> <span class="n">content</span><span class="o">=</span><span class="s">&quot;...the URL of this page...&quot;</span> <span class="o">/&gt;</span>
+</pre></div>
+</div>
+<div style="background-color:#cce3ff;border-style:solid;border-color:#0051b6;border-width:1px;">
+
+<table border="0">
+	<tr>
+		<td>
+			<img src="static/info.png"/>
+		</td>
+		<td>
+			<div style="font-size:1.2em;font-weight:bold;padding:8px;color:#0051b6;padding-left:0px;">
+			&nbsp;Please Note
+			</div>
+		</td>
+	</tr>
+</table>
+
+
+<div style="font-size:0.9em;font-weight:normal;padding:8px;color:#0051b6;">
+If you have configured Socialize (via your dashboard) to skip the Socialize entity page and go straight to your entity URL for all links, 
+you MUST add the Facebook OG meta tags to your entity page manually.  If the final page referenced in a Facebook OG post does not contain the correct 
+meta tags the post to Facebook may fail.
+</div>
+</div><p>If you don&#8217;t have an actual URL for your entity you can setup the correct description, image etc by changing the meta data on your entity.</p>
+<p>Refer to <a class="reference internal" href="entities.html?v=v2.9.7#entity-no-url"><em>Entities Without URLs</em></a> for more details on customizing the entity page.</p>
+<div class="section" id="using-custom-open-graph-actions">
+<h4>Using Custom Open Graph Actions<a class="headerlink" href="#using-custom-open-graph-actions" title="Permalink to this headline">¶</a></h4>
+<p>In addition to using the built-in Open Graph actions, you can also define your own.</p>
+<p>For example an app that reviews restaurants may want to post the fact that a user &#8220;ate&#8221; a &#8220;meal&#8221; rather than simply saying a user &#8220;shared&#8221; a &#8220;link&#8221;.</p>
+<p>There is however a fairly lengthy setup process to correctly configure your application to handle custom OG actions.</p>
+<p>We recommend reviewing the <a class="reference external" href="http://developers.facebook.com/docs/opengraph/tutorial/">Open Graph Tutorial</a> to understand how to configure your app for custom Open Graph actions.</p>
+<div class="section" id="configuring-custom-open-graph-actions">
+<h5>Configuring Custom Open Graph Actions<a class="headerlink" href="#configuring-custom-open-graph-actions" title="Permalink to this headline">¶</a></h5>
+<p>Facebook Open Graph implements several security systems to ensure that owners of content are verified.  One such security measure ensures that websites housing information about custom OG types are registered
+against the Facebook App to guarantee that 3rd party users cannot fraudulently represent custom types on external pages.</p>
+<p>If you want to utilize custom open graph actions in your Socialize enabled app you must first configure your Facebook application to expect posts that refer to websites hosted by Socialize.</p>
+<p>This consists of 3 simple steps:</p>
+<ol class="arabic simple">
+<li>Obtain your Socialize App Url from your dashboard at www.getsocialize.com</li>
+<li>Nominate the Socialize App Url as your &#8220;Site URL&#8221; on Facebook</li>
+<li>Add the <strong>getsocialize.com</strong> domain to your list of App Domains on Facebook.</li>
+</ol>
+<img alt="images/fb_og_config.png" src="images/fb_og_config.png" />
+<p>You can obtain your Socialize App Url from the &#8220;SmartDownloads&#8221; section accessed from your dashboard at www.getsocialize.com</p>
+<img alt="images/app_url.png" src="images/app_url.png" />
+<p>Once you have configured your application to accept custom Open Graph actions you can post these actions to Facebook by changing the PostData in the SocialNetworkListener.</p>
+<div class="highlight-java"><div class="highlight"><pre>	
+<span class="k">if</span><span class="o">(</span><span class="n">FacebookUtils</span><span class="o">.</span><span class="na">isLinkedForWrite</span><span class="o">(</span><span class="k">this</span><span class="o">))</span> <span class="o">{</span>
+	<span class="n">Entity</span> <span class="n">entity</span> <span class="o">=</span> <span class="n">Entity</span><span class="o">.</span><span class="na">newInstance</span><span class="o">(</span><span class="s">&quot;http://myentity.com&quot;</span><span class="o">,</span> <span class="s">&quot;My Entity Name&quot;</span><span class="o">);</span>
+
+	<span class="c1">// Set the type of the entity to include the namespace.</span>
+	<span class="n">entity</span><span class="o">.</span><span class="na">setType</span><span class="o">(</span><span class="s">&quot;yournamespace:yourtype&quot;</span><span class="o">);</span>
+		
+	<span class="n">ShareOptions</span> <span class="n">options</span> <span class="o">=</span> <span class="n">ShareUtils</span><span class="o">.</span><span class="na">getUserShareOptions</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+	<span class="n">options</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">&quot;Text to be posted&quot;</span><span class="o">);</span>
+
+	<span class="c1">// The &quot;this&quot; argument refers to the current Activity</span>
+	<span class="n">ShareUtils</span><span class="o">.</span><span class="na">shareViaSocialNetworks</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">entity</span><span class="o">,</span> <span class="n">options</span><span class="o">,</span> <span class="k">new</span> <span class="n">SocialNetworkShareListener</span><span class="o">()</span> <span class="o">{</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onBeforePost</span><span class="o">(</span><span class="n">Activity</span> <span class="n">parent</span><span class="o">,</span> <span class="n">SocialNetwork</span> <span class="n">socialNetwork</span><span class="o">,</span> <span class="n">PostData</span> <span class="n">postData</span><span class="o">)</span> <span class="o">{</span>
+			
+			<span class="k">if</span><span class="o">(</span><span class="n">socialNetwork</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">SocialNetwork</span><span class="o">.</span><span class="na">FACEBOOK</span><span class="o">))</span> <span class="o">{</span>
+				<span class="c1">// Change the post data to force an Open Graph call</span>
+				<span class="n">postData</span><span class="o">.</span><span class="na">setPath</span><span class="o">(</span><span class="s">&quot;me/yournamespace:youraction&quot;</span><span class="o">);</span>
+				
+				<span class="c1">// Set the type to be the entity URL</span>
+				<span class="n">postData</span><span class="o">.</span><span class="na">getPostValues</span><span class="o">().</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;yourtype&quot;</span><span class="o">,</span> <span class="n">postData</span><span class="o">.</span><span class="na">getPropagationInfo</span><span class="o">().</span><span class="na">getEntityUrl</span><span class="o">());</span>
+			<span class="o">}</span>
+			
+			<span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+		<span class="o">}</span>	
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onNetworkError</span><span class="o">(</span><span class="n">Activity</span> <span class="n">context</span><span class="o">,</span> <span class="n">SocialNetwork</span> <span class="n">network</span><span class="o">,</span> <span class="n">Exception</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// Handle error</span>
+		<span class="o">}</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCancel</span><span class="o">()</span> <span class="o">{</span>
+			<span class="c1">// The user cancelled the operation.</span>
+		<span class="o">}</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAfterPost</span><span class="o">(</span><span class="n">Activity</span> <span class="n">parent</span><span class="o">,</span> <span class="n">SocialNetwork</span> <span class="n">socialNetwork</span><span class="o">,</span> <span class="n">JSONObject</span> <span class="n">responseObject</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// Called after the post returned from Facebook.</span>
+			<span class="c1">// responseObject contains the raw JSON response from Facebook.</span>
+		<span class="o">}</span>
+
+	<span class="o">},</span> <span class="n">SocialNetwork</span><span class="o">.</span><span class="na">FACEBOOK</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="k">else</span> <span class="o">{</span>
+	<span class="c1">// Handle non-linked case</span>
+<span class="o">}</span>		
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="posting-photos-to-facebook">
+<h2>Posting Photos to Facebook<a class="headerlink" href="#posting-photos-to-facebook" title="Permalink to this headline">¶</a></h2>
+<p>You can easily post photos to a user&#8217;s Facebook Photo Album using the <strong>post</strong> method on <strong>FacebookUtils</strong></p>
+<div class="highlight-java"><div class="highlight"><pre><span class="c1">//The &quot;this&quot; argument refers to the current Activity</span>
+<span class="kd">final</span> <span class="n">Activity</span> <span class="n">context</span> <span class="o">=</span> <span class="k">this</span><span class="o">;</span>
+
+<span class="k">if</span><span class="o">(</span><span class="n">FacebookUtils</span><span class="o">.</span><span class="na">isLinkedForWrite</span><span class="o">(</span><span class="k">this</span><span class="o">))</span> <span class="o">{</span>
+	<span class="kd">final</span> <span class="n">Entity</span> <span class="n">entity</span> <span class="o">=</span> <span class="n">Entity</span><span class="o">.</span><span class="na">newInstance</span><span class="o">(</span><span class="s">&quot;http://myentity.com&quot;</span><span class="o">,</span> <span class="s">&quot;My Name&quot;</span><span class="o">);</span>	
+	
+	<span class="c1">// First create a Socialize share object so we get the correct URLs</span>
+	<span class="n">ShareOptions</span> <span class="n">options</span> <span class="o">=</span> <span class="n">ShareUtils</span><span class="o">.</span><span class="na">getUserShareOptions</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+
+	<span class="n">ShareUtils</span><span class="o">.</span><span class="na">registerShare</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">entity</span><span class="o">,</span> <span class="n">options</span><span class="o">,</span> <span class="k">new</span> <span class="n">ShareAddListener</span><span class="o">()</span> <span class="o">{</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">SocializeException</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// Handle error</span>
+		<span class="o">}</span>
+		
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Share</span> <span class="n">result</span><span class="o">)</span> <span class="o">{</span>
+			
+			<span class="c1">// We have the result, use the URLs to add to the post</span>
+			<span class="n">PropagationInfo</span> <span class="n">propagationInfo</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="na">getPropagationInfoResponse</span><span class="o">().</span><span class="na">getPropagationInfo</span><span class="o">(</span><span class="n">ShareType</span><span class="o">.</span><span class="na">FACEBOOK</span><span class="o">);</span>
+			<span class="n">String</span> <span class="n">link</span> <span class="o">=</span> <span class="n">propagationInfo</span><span class="o">.</span><span class="na">getEntityUrl</span><span class="o">();</span>
+
+			<span class="c1">// Now post to Facebook.</span>
+			<span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">postData</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;();</span>
+			
+			<span class="c1">// TODO: Get the URI of your image from the local device.</span>
+			<span class="c1">// TODO: ***** DON&#39;T FORGET TO USE YOUR OWN IMAGE HERE (See the sample app for a working example) ****</span>
+			<span class="n">Uri</span> <span class="n">photoUri</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+			
+			<span class="k">try</span> <span class="o">{</span>
+				
+				<span class="c1">// Format the picture for Facebook</span>
+				<span class="kt">byte</span><span class="o">[]</span> <span class="n">imageData</span> <span class="o">=</span> <span class="n">FacebookUtils</span><span class="o">.</span><span class="na">getImageForPost</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">photoUri</span><span class="o">);</span>
+				
+				<span class="c1">// Add the photo to the post</span>
+				<span class="n">postData</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;photo&quot;</span><span class="o">,</span> <span class="n">imageData</span><span class="o">);</span>
+				
+				<span class="c1">// Add the link returned from Socialize to use SmartDownloads</span>
+				<span class="n">postData</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;caption&quot;</span><span class="o">,</span> <span class="s">&quot;A test photo of something &quot;</span> <span class="o">+</span> <span class="n">link</span><span class="o">);</span>
+				
+				<span class="c1">// Add other fields to postData as necessary</span>
+				
+				<span class="c1">// Post to me/photos</span>
+				<span class="n">FacebookUtils</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="s">&quot;me/photos&quot;</span><span class="o">,</span> <span class="n">postData</span><span class="o">,</span> <span class="k">new</span> <span class="n">SocialNetworkPostListener</span><span class="o">()</span> <span class="o">{</span>
+					
+					<span class="nd">@Override</span>
+					<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onNetworkError</span><span class="o">(</span><span class="n">Activity</span> <span class="n">context</span><span class="o">,</span> <span class="n">SocialNetwork</span> <span class="n">network</span><span class="o">,</span> <span class="n">Exception</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+						<span class="c1">// Handle error</span>
+					<span class="o">}</span>
+					
+					<span class="nd">@Override</span>
+					<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCancel</span><span class="o">()</span> <span class="o">{</span>
+						<span class="c1">// The user cancelled the auth process</span>
+					<span class="o">}</span>
+					
+					<span class="nd">@Override</span>
+					<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAfterPost</span><span class="o">(</span><span class="n">Activity</span> <span class="n">parent</span><span class="o">,</span> <span class="n">SocialNetwork</span> <span class="n">socialNetwork</span><span class="o">,</span> <span class="n">JSONObject</span> <span class="n">responseObject</span><span class="o">)</span> <span class="o">{</span>
+						<span class="c1">// The post was successful</span>
+					<span class="o">}</span>
+				<span class="o">});</span>			
+			<span class="o">}</span>
+			<span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+				<span class="c1">// Handle error</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">},</span> <span class="n">SocialNetwork</span><span class="o">.</span><span class="na">FACEBOOK</span><span class="o">);</span> <span class="c1">// This is a Facebook-only share</span>
+<span class="o">}</span>
+<span class="k">else</span> <span class="o">{</span>
+	<span class="c1">// Handle non-linked case</span>
+<span class="o">}</span>
+	
+</pre></div>
+</div>
+</div>
+<div class="section" id="facebook-single-sign-on-sso">
+<h2>Facebook Single Sign On (SSO)<a class="headerlink" href="#facebook-single-sign-on-sso" title="Permalink to this headline">¶</a></h2>
+<p>Some users have reported having problems with the Single Sign On implementation in the Facebook SDK.</p>
+<p>If you have experienced problems with this (e.g. the &#8220;invalid_key&#8221; error), you can easily disable this feature in your <strong>socialize.properties</strong> file</p>
+<div class="highlight-properties"><div class="highlight"><pre><span class="c"># Enable/Disable Single Sign On for Facebook</span>
+<span class="c"># Disable ONLY if you experience problems</span>
+<span class="na">facebook.sso.enabled</span><span class="o">=</span><span class="s">false</span>
+</pre></div>
+</div>
+<p>Or in code at runtime:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="c1">// Disable ONLY if you experience problems</span>
+<span class="c1">// The &quot;this&quot; argument refers to the current Activity</span>
+<span class="n">ConfigUtils</span><span class="o">.</span><span class="na">getConfig</span><span class="o">(</span><span class="k">this</span><span class="o">).</span><span class="na">setFacebookSingleSignOnEnabled</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>	
+</pre></div>
+</div>
+<script type="text/javascript">
+</script></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html?v=v2.9.7" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+<h3><a href="index.html?v=v2.9.7">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="whats_new.html?v=v2.9.7">What&#8217;s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html?v=v2.9.7">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html?v=v2.9.7">Socialize Lifecycle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html?v=v2.9.7">Socialize Demo App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="action_bar.html?v=v2.9.7">Socialize Action Bar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entities.html?v=v2.9.7">Socialize Entities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="like_button.html?v=v2.9.7">Custom Like Buttons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="facebook.html?v=v2.9.7">Facebook Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="twitter.html?v=v2.9.7">Twitter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pinterest.html?v=v2.9.7">Sharing to Pinterest</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Advanced Facebook</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#linking-users-with-facebook">Linking Users with Facebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unlinking-users-from-facebook">Unlinking Users from Facebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#posting-to-facebook">Posting to Facebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-facebook-open-graph">Using Facebook Open Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#posting-photos-to-facebook">Posting Photos to Facebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#facebook-single-sign-on-sso">Facebook Single Sign On (SSO)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="twitter_adv.html?v=v2.9.7">Advanced Twitter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="push_notifications.html?v=v2.9.7">SmartAlerts (Push Notifications)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entity_loader.html?v=v2.9.7">Entity Loaders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_linking.html?v=v2.9.7">Deep Linking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localization.html?v=v2.9.7">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdk_user_guide.html?v=v2.9.7">Socialize Core SDK Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="best_practice.html?v=v2.9.7">Extending Socialize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html?v=v2.9.7">Configuration Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amazon.html?v=v2.9.7">Amazon AppStore URLs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proguard.html?v=v2.9.7">ProGuard Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html?v=v2.9.7">Troubleshooting &amp; Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="change_log.html?v=v2.9.7">Change Log</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="twitter_adv.html?v=v2.9.7" title="Advanced Twitter"
+             >next</a></li>
+        <li class="right" >
+          <a href="pinterest.html?v=v2.9.7" title="Sharing to Pinterest"
+             >previous</a> |</li>
+        <li><a href="index.html?v=v2.9.7">Socialize Android SDK v2.9.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Socialize Inc.
+    </div>
+  </body>
+</html>

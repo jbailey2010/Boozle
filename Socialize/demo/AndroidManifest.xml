@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.socialize.demo"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17" />
+    
+    <uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" /> 
+	
+	<!-- Required for ActionBarWithMonitor -->
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> 
+	
+	<!-- Permissions required for Push Notifications -->
+	<permission android:name="com.socialize.demo.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+	 
+	<uses-permission android:name="com.socialize.demo.permission.C2D_MESSAGE" />
+	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />    
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name">
+        <activity
+            android:name=".Main"
+            android:label="@string/app_name" 
+            android:configChanges="keyboardHidden|orientation|keyboard"
+            android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <!--****************************************************************-->   
+        <!--************** STANDARD SOCIALIZE CONFIGURATION ****************-->
+        <!--****************************************************************-->   
+        
+       	<!-- Base Activities Required by Socialize UI -->
+       	<activity android:name="com.socialize.ui.comment.CommentActivity" android:configChanges="orientation|keyboardHidden"/>
+       	<activity android:name="com.socialize.ui.action.ActionDetailActivity"/>
+       	<activity android:name="com.socialize.ui.profile.ProfileActivity"/>
+       	<activity android:name="com.socialize.auth.facebook.FacebookActivity" android:theme="@android:style/Theme.NoDisplay"/> 
+       	<activity android:name="com.socialize.ui.SocializeLaunchActivity" android:noHistory="true"/>
+
+        
+        <!--****************************************************************-->   
+        <!--************ END STANDARD SOCIALIZE CONFIGURATION **************-->
+        <!--****************************************************************-->  
+        
+        
+        <!--****************************************************************-->   
+        <!--**************** SOCIALIZE DEMO CONFIGURATION ******************-->
+        <!--****************************************************************-->  
+ 
+        <!-- GCM Config
+        <service android:name=".GCMIntentService" />
+
+		<receiver android:name="com.google.android.gcm.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND" >
+		  <intent-filter>
+		    <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+		    <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+		    <category android:name="com.socialize.demo" />
+		  </intent-filter>
+		</receiver>
+
+        -->
+
+        <service android:name="com.socialize.notifications.SocializeC2DMReceiver"/>
+
+        <receiver
+                android:name="com.socialize.notifications.SocializeBroadcastReceiver"
+                android:permission="com.google.android.c2dm.permission.SEND">
+
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.socialize.demo" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <category android:name="com.socialize.demo" />
+            </intent-filter>
+
+        </receiver>
+
+
+        <activity android:name=".DemoList"/>
+        <activity android:name=".InitActivity"/>
+        <activity android:name=".implementations.tools.ToolsActivity"/>
+        
+        <!-- Comment -->
+        <activity android:name=".implementations.comment.CommentActivity"/>
+        <activity android:name=".implementations.comment.AddCommentActivity"/>
+        <activity android:name=".implementations.comment.AddCommentWithoutShareActivity"/>
+        <activity android:name=".implementations.comment.GetCommentsByEntityActivity"/>
+        <activity android:name=".implementations.comment.GetCommentsByUserActivity"/>
+        <activity android:name=".implementations.comment.GetCommentsByIDActivity"/>
+        <activity android:name=".implementations.comment.CommentViewEmbeddedActivity"/>
+        <activity android:name=".implementations.comment.CommentViewCustomHeaderActivity"/>
+        
+        <!-- Share -->
+        <activity android:name=".implementations.share.ShareActivity"/>
+        <activity android:name=".implementations.share.GetSharesByEntityActivity"/>
+        <activity android:name=".implementations.share.GetSharesByUserActivity"/>
+        <activity android:name=".implementations.share.GetSharesByIDActivity"/>
+        <activity android:name=".implementations.share.ShareButtonsActivity"/>
+        <activity android:name=".implementations.pinterest.PinterestShareActivity"/>
+
+        
+        <!-- Entity -->
+        <activity android:name=".implementations.entity.EntityActivity"/>
+        <activity android:name=".implementations.entity.AddEntityActivity"/>
+        <activity android:name=".implementations.entity.GetEntityByKeyActivity"/>
+        <activity android:name=".implementations.entity.GetPopularEntitiesActivity"/>
+        <activity android:name=".implementations.entity.GetAllEntitiesActivity"/>
+        
+        <!-- View -->
+        <activity android:name=".implementations.view.ViewActivity"/>
+        <activity android:name=".implementations.view.AddViewActivity"/>
+
+        <!-- Like -->
+        <activity android:name=".implementations.like.LikeActivity"/>
+        <activity android:name=".implementations.like.LikeButtonsActivity"/>
+        <activity android:name=".implementations.like.GetLikesByEntityActivity"/>
+        <activity android:name=".implementations.like.GetLikesByUserActivity"/>      
+        
+        <!-- ActionBar -->
+        <activity android:name=".implementations.actionbar.ActionBarActivity"/>
+        <activity android:name=".implementations.actionbar.DefaultActionBarActivity"/>
+        <activity android:name=".implementations.actionbar.CustomActionBarActivity"/>
+        <activity android:name=".implementations.actionbar.MultiActionBarActivity"/>
+        <activity android:name=".implementations.actionbar.AutumnActionBarActivity"/>
+        <activity android:name=".implementations.actionbar.RedActionBarActivity"/>
+        <activity android:name=".implementations.actionbar.TopActionBarActivity"/>
+        <activity android:name=".implementations.actionbar.WebViewActionBarActivity"/>
+        <activity android:name=".implementations.actionbar.PhotoActionBarActivity"/>
+        <activity android:name=".implementations.actionbar.ActionBarWithButtonActivity"/>
+        <activity android:name=".implementations.actionbar.ActionBarAfterButtonActivity"/>
+        <activity android:name=".implementations.actionbar.ActionBarWithMonitorActivity"/>
+        <activity android:name=".implementations.actionbar.ActionBarWithCustomUserProfileActivity"/>
+        <activity android:name=".implementations.actionbar.ActionBarFragmentActivity" android:screenOrientation="landscape" android:configChanges="orientation|keyboardHidden"/>
+        <activity android:name=".implementations.actionbar.ActionBarFragmentManualActivity" android:screenOrientation="landscape" android:configChanges="orientation|keyboardHidden"/>
+
+        <!-- User Activity -->
+        <activity android:name=".implementations.action.ActionActivity"/>
+        <activity android:name=".implementations.action.GetActionsByEntityActivity"/>
+        <activity android:name=".implementations.action.GetActionsByUserActivity"/>    
+        <activity android:name=".implementations.action.GetActionsByUserEntityActivity"/>
+        <activity android:name=".implementations.action.GetActionsByApplicationActivity"/>
+        <!--  Subscription -->
+        <activity android:name=".implementations.subscribe.SubscriptionActivity"/>
+        <activity android:name=".implementations.subscribe.SubscriptionButtonsActivity"/>
+        
+        <!-- Location -->
+        <activity android:name=".implementations.location.LocationActivity"/>  
+        
+        <!-- Auth -->
+        <activity android:name=".implementations.auth.AuthButtonsActivity"/>  
+        
+        <!-- Facebook -->
+        <activity android:name=".implementations.facebook.FacebookActivity"/> 
+        <activity android:name=".implementations.facebook.ListFriendsActivity"/> 
+        <activity android:name=".implementations.facebook.ListCheckinsActivity"/> 
+        <activity android:name=".implementations.facebook.PostToWallActivity"/> 
+        <activity android:name=".implementations.facebook.PostPhotoActivity"/> 
+        <activity android:name=".implementations.facebook.PostPhotoToFanPageActivity"/> 
+        <activity android:name=".implementations.facebook.GetTokenActivity"/> 
+        <activity android:name=".implementations.facebook.GetPermissionsActivity"/> 
+        <activity android:name=".implementations.facebook.OpenGraphActivity"/>
+        <activity android:name=".implementations.facebook.GetEmailActivity"/>
+        
+        <!-- Twitter -->
+        <activity android:name=".implementations.twitter.TwitterActivity"/> 
+        <activity android:name=".implementations.twitter.TweetActivity"/> 
+        <activity android:name=".implementations.twitter.ListFollowersActivity"/> 
+        <activity android:name=".implementations.twitter.GetTokenActivity"/>
+        <activity android:name=".implementations.twitter.TweetPhotoActivity"/>
+        <activity android:name=".implementations.twitter.ListTweetsActivity"/>
+        <activity android:name=".implementations.twitter.UserTimelineActivity"/>
+
+        <!-- User -->
+        <activity android:name=".implementations.user.UserActivity"/>
+
+        <!-- Custom User Profile View -->
+        <activity android:name=".CustomProfileViewActivity"/>
+
+        <!-- Entity Loader -->
+        <activity android:name=".EntityLoaderActivity"/> 
+        
+        <!-- Deep Link Loader -->
+        <activity android:name=".DeepLinkActivity">
+			<intent-filter>
+	            <action android:name="android.intent.action.VIEW" />
+	            <category android:name="android.intent.category.DEFAULT" />
+	            <category android:name="android.intent.category.BROWSABLE" />
+	            <data android:scheme="socialize"/>
+	        </intent-filter>             
+        </activity>
+        
+        <!--****************************************************************-->   
+        <!--************** END SOCIALIZE DEMO CONFIGURATION ****************-->
+        <!--****************************************************************-->
+        
+       	<activity android:name="com.facebook.LoginActivity"/> 
+       	
+    </application>
+
+</manifest>

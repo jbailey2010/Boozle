@@ -2,9 +2,11 @@ package com.bevinisaditch.theinebriator.ClassFiles;
 
 import java.util.HashMap;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.view.View;
 import android.view.Window;
@@ -17,6 +19,9 @@ import android.widget.TextView;
 import com.bevinisaditch.theinebriator.Home;
 import com.bevinisaditch.theinebriator.TwitterInteraction;
 import com.devingotaswitch.theinebriator.R;
+import com.socialize.ActionBarUtils;
+import com.socialize.entity.Entity;
+import com.socialize.ui.actionbar.ActionBarOptions;
 
 public class DrinkPopup {
 	public static Context cont;
@@ -45,6 +50,18 @@ public class DrinkPopup {
 	    lp.copyFrom(dialog.getWindow().getAttributes());
 	    lp.width = WindowManager.LayoutParams.MATCH_PARENT;
 	    dialog.getWindow().setAttributes(lp);
+	    // Your entity key. May be passed as a Bundle parameter to your activity
+	 	String entityKey = "http://www.boozle.com/" + name;
+	 	Entity entity = Entity.newInstance(entityKey, name);
+	 	ActionBarOptions options = new ActionBarOptions();
+	 	options.setHideShare(true);
+	 	options.setFillColor(Color.parseColor("#272727"));
+	 	options.setBackgroundColor(Color.parseColor("#191919"));
+	 	options.setAccentColor(Color.parseColor("#ff0000"));
+	 	View actionBarWrapped = ActionBarUtils.showActionBar((Activity) cont, R.layout.drink_popup, entity, options);
+	 	// Now set the view for your activity to be the wrapped view.
+	 	dialog.setContentView(actionBarWrapped);
+	 	dialog.show();
 	    dialog.show();
 	    TextView close = (TextView)dialog.findViewById(R.id.close);
 	    close.setOnClickListener(new OnClickListener(){

@@ -15,6 +15,9 @@
     <item
         android:id="@+id/menu_disliked"
         android:title="Disliked Drinks"/>
+    <item
+        android:id="@+id/menu_popularity"
+        android:title="Most Popular"/>
         
 
 </menu>
