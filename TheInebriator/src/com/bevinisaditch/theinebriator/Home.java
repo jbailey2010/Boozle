@@ -26,6 +26,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.DrinkInfo;
@@ -115,7 +116,14 @@ public class Home extends Activity {
 		    public void onSideNavigationItemClick(int itemId) {
 		    	switch (itemId) {
 	            case R.id.menu_random:
-	            	
+	            	if(dataSet.size() > 0)
+	            	{
+	            		showRandomDrink();
+	            	}
+	            	else
+	            	{
+	            		Toast.makeText(cont, "This requires you to search first", Toast.LENGTH_SHORT).show();
+	            	}
 	                break;
 	            case R.id.menu_create:
 	            	
@@ -252,8 +260,7 @@ public class Home extends Activity {
 				String ingredients = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text2)).getText().toString();
 				String instr = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text3)).getText().toString();
 				list.setSelection(arg2);
-				//ITERATE ON DRINKS HERE TO GET URL
-				DrinkPopup.drinkPopUpInit(cont, name, ingredients, instr, "google.com");
+				DrinkPopup.drinkPopUpInit(cont, name, ingredients, instr, getDrinkUrl(name, instr, ingredients));
 			}
 	    });
 	    list.setOnScrollListener(new OnScrollListener(){
@@ -276,6 +283,35 @@ public class Home extends Activity {
 				//Sincerely don't care
 			}
 	    });
+	}
+	
+	/**
+	 * Gets the random drink from the search results and displays it
+	 */
+	public void showRandomDrink()
+	{
+		int randIndex = (int) (Math.random() * dataSet.size());
+		HashMap<String, String> drinkMap = dataSet.get(randIndex);
+		String name = drinkMap.get("name");
+		String ingr = drinkMap.get("info");
+		String instr = drinkMap.get("ingr");
+		DrinkPopup.drinkPopUpInit(cont, name, ingr, instr, getDrinkUrl(name, instr, ingr));
+		list.setSelection(randIndex);
+	}
+	
+	/**
+	 * Iterates over drinks to get the url of a drink
+	 */
+	public String getDrinkUrl(String name, String instr, String ingr)
+	{
+		for(Drink dr : drinks)
+		{
+			if(dr.getName().equals(name) && dr.getInstructions().equals(instr) && dr.getIngredients().toString().equals(ingr))
+			{
+				return dr.getUrl();
+			}
+		}
+		return "";
 	}
 	
 	/**
