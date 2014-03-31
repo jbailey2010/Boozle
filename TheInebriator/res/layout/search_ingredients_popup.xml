@@ -126,7 +126,7 @@
         android:layout_alignRight="@+id/search_input_view"
         android:layout_below="@+id/search_list_scrollview"
         android:layout_marginTop="26dp"
-        android:background="@drawable/btn_blue"
+        android:background="@drawable/btn_grey"
         android:text="Search" />
 
     <Button

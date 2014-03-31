@@ -149,6 +149,7 @@ public class SearchManagement {
                 android.R.layout.simple_dropdown_item_1line, drinkNames);    
 	    input.setThreshold(2);
 	    input.setAdapter(adapter);
+	    final Button add = (Button)dialog.findViewById(R.id.search_add);
 	    final TextView optional = (TextView)dialog.findViewById(R.id.optional_ingredients);
 	    final TextView required = (TextView)dialog.findViewById(R.id.required_ingredients);
 	    TextView clear = (TextView)dialog.findViewById(R.id.clear);
@@ -158,11 +159,11 @@ public class SearchManagement {
 				optIngredients.clear();
 				reqIngredients.clear();
 				optional.setText(" ");
+				add.setBackground(c.getResources().getDrawable(R.drawable.btn_grey));
 				required.setText(" ");
 			}
 	    });
 	    final RadioButton reqRadio = (RadioButton)dialog.findViewById(R.id.radio_required);
-	    Button add = (Button)dialog.findViewById(R.id.search_add);
 	    add.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
@@ -174,6 +175,10 @@ public class SearchManagement {
 				}
 				else if(drinkNames.contains(name))
 				{
+					if(reqIngredients.size() == 0 && optIngredients.size() == 0)
+					{
+						add.setBackground(c.getResources().getDrawable(R.drawable.btn_blue));
+					}
 					if(reqRadio.isChecked())
 					{
 						reqIngredients.add(name);
