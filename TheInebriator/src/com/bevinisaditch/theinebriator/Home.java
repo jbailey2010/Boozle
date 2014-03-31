@@ -28,6 +28,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
+import com.bevinisaditch.theinebriator.ClassFiles.DrinkInfo;
 import com.bevinisaditch.theinebriator.ClassFiles.DrinkPopup;
 import com.bevinisaditch.theinebriator.ClassFiles.SearchManagement;
 import com.bevinisaditch.theinebriator.InterfaceAugmentations.ActivitySwipeDetector;
@@ -127,6 +128,9 @@ public class Home extends Activity {
 	            	break;
 	            case R.id.menu_disliked:
 	            	
+	            	break;
+	            case R.id.menu_popularity:
+	            	DrinkInfo.displayStats(cont);
 	            	break;
 	            default:
 	                return;
