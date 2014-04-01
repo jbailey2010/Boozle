@@ -28,6 +28,8 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class SearchManagement {
+	public static List<String> reqIngredients;
+	public static List<String> optIngredients;
 	/**
 	 * Creates the pop up that will get input from the user to decide what type of search
 	 * is to be done
@@ -127,8 +129,6 @@ public class SearchManagement {
 	 */
 	public static void searchByIngredients(final Context c) {
 		final List<String> drinkNames = Home.getIngredients();
-		final List<String> optIngredients = new ArrayList<String>();
-		final List<String> reqIngredients = new ArrayList<String>();
 		final Dialog dialog = new Dialog(c, R.style.DialogBackground);
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		dialog.setContentView(R.layout.search_ingredients_popup);
@@ -209,6 +209,16 @@ public class SearchManagement {
 				}
 			}
 	    });
+	    if(optIngredients.size() == 0 && reqIngredients.size() == 0)
+	    {
+		    optIngredients = new ArrayList<String>();
+			reqIngredients = new ArrayList<String>();
+	    }
+	    else
+	    {
+	    	updateTextViews(required, reqIngredients, "Required Ingredients:");
+			updateTextViews(optional, optIngredients, "Optional Ingredients:");
+	    }
 	}
 	
 	/**
