@@ -4,23 +4,28 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.concurrent.ExecutionException;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import android.test.AndroidTestCase;
+import android.test.RenamingDelegatingContext;
 
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
 import com.bevinisaditch.theinebriator.SearchEngine.BM25Ranker;
 
-public class BM25RankerTest {
+public class BM25RankerTest extends AndroidTestCase {
 	private Drink drink1;
 	private Drink drink2;
 	private Drink drink3;
 	private ArrayList<Drink> drinks = new ArrayList<Drink>();
-	private BM25Ranker ranker = new BM25Ranker();
+	private BM25Ranker ranker;
+	RenamingDelegatingContext context;
 
-	@Before
-	public void setUpDrinkList() throws Exception {
+	public void setUp() throws Exception {
+		context  = new RenamingDelegatingContext(getContext(), "test_");
 		drink1 = new Drink("rum and coke");
 		drink2 = new Drink("vodka and coke");
 		drink3 = new Drink("whiskey and coke");
@@ -37,12 +42,13 @@ public class BM25RankerTest {
 		
 	}
 
-	@Test
-	public void testRank_DrinkName() {
+	public void testRank_DrinkName() throws InterruptedException, ExecutionException {
 		ArrayList<String> terms = new ArrayList<String>();
 		terms.add("rum");
 		
-		ArrayList<Drink> sortedDrinks = ranker.rank(terms, drinks);
+		ranker = new BM25Ranker(context, terms, drinks);
+		ranker.execute();
+		ArrayList<Drink> sortedDrinks = ranker.get();
 		
 		assertEquals(drinks.get(0), sortedDrinks.get(0));
 		
@@ -54,8 +60,7 @@ public class BM25RankerTest {
 		assertEquals(drinks.get(2), sortedDrinks.get(0));
 	}
 	
-	@Test
-	public void testRank_IngredientName() {
+	public void testRank_IngredientName() throws InterruptedException, ExecutionException {
 		Drink drink4 = new Drink("double rum and coke");
 		drink4.addIngredient(new Ingredient("rum", "1", "oz"));
 		drink4.addIngredient(new Ingredient("rum", "1", "oz"));
@@ -64,13 +69,14 @@ public class BM25RankerTest {
 		ArrayList<String> terms = new ArrayList<String>();
 		terms.add("rum");
 		
-		ArrayList<Drink> sortedDrinks = ranker.rank(terms, drinks);
+		ranker = new BM25Ranker(context, terms, drinks);
+		ranker.execute();
+		ArrayList<Drink> sortedDrinks = ranker.get();
 		
 		assertEquals(drinks.get(3), sortedDrinks.get(0));
 		assertEquals(drinks.get(0), sortedDrinks.get(1));
 	}
 	
-	@Test
 	public void testParseTerms() {
 		ArrayList<String> terms = new ArrayList<String>();
 		terms.add("Orange Juice");
@@ -83,23 +89,25 @@ public class BM25RankerTest {
 		expectedParse.add("and");
 		expectedParse.add("Coke");
 		
+		ranker = new BM25Ranker(context, terms, drinks);
+		
 		assertEquals(expectedParse, ranker.parseTerms(terms));
 	}
 	
-	@Test
 	public void testGetAvgLength() {
+		ranker = new BM25Ranker(context, null, drinks);
 		int avgLength = ranker.getAvgLengthOfDrinks(drinks);
 		int expectedAvgLength = 3;
 		assertEquals(expectedAvgLength, avgLength);
 	}
 	
-	@Test
 	public void testSortDrinks() {
 		HashMap<Drink, Double> unsortedDrinks = new HashMap<Drink, Double>();
 		unsortedDrinks.put(drink1, 1.0);
 		unsortedDrinks.put(drink2, 2.0);
 		unsortedDrinks.put(drink3, 3.0);
 		
+		ranker = new BM25Ranker(context, null, drinks);
 		ArrayList<Drink> sortedDrinks = ranker.sortDrinks(unsortedDrinks);
 		assertEquals(drink1, sortedDrinks.get(2));
 		assertEquals(drink2, sortedDrinks.get(1));

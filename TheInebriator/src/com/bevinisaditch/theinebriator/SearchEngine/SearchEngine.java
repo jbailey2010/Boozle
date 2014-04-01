@@ -1,15 +1,18 @@
 package com.bevinisaditch.theinebriator.SearchEngine;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+
+import android.content.Context;
 
 import com.bevinisaditch.theinebriator.ClassFiles.DataBaseReader;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 
 public class SearchEngine {
-	Ranker ranker;
+	Context context;
 	
-	public SearchEngine() {
-		ranker = new BM25Ranker();
+	public SearchEngine(Context context) {
+		this.context = context;
 	}
 	
 	public ArrayList<Drink> searchByName(String name) {
@@ -20,18 +23,42 @@ public class SearchEngine {
 		//TODO: Fix this
 		ArrayList<Drink> relevantDrinks = DataBaseReader.getAllDrinks();
 		
-		ArrayList<Drink> sortedDrinks = ranker.rank(terms, relevantDrinks);
+		BM25Ranker ranker = new BM25Ranker(context, terms, relevantDrinks);
+		ranker.execute();
+		
+		ArrayList<Drink> sortedDrinks;
+		try {
+			sortedDrinks = ranker.get();
+		} catch (InterruptedException e) {
+			sortedDrinks = null;
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			sortedDrinks = null;
+			e.printStackTrace();
+		}
 		
 		return sortedDrinks;
 		
 	}
 	
-	public ArrayList<Drink> searchByIngredient(ArrayList<String> ingredientNames) {
+	public ArrayList<Drink> searchByIngredient(ArrayList<String> optIngredients, ArrayList<String> reqIngredients) {
 		
 		//TODO: Fix this
 		ArrayList<Drink> relevantDrinks = DataBaseReader.getAllDrinks();
 				
-		ArrayList<Drink> sortedDrinks = ranker.rank(ingredientNames, relevantDrinks);
+		BM25Ranker ranker = new BM25Ranker(context, optIngredients, relevantDrinks);
+		ranker.execute();
+		
+		ArrayList<Drink> sortedDrinks;
+		try {
+			sortedDrinks = ranker.get();
+		} catch (InterruptedException e) {
+			sortedDrinks = null;
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			sortedDrinks = null;
+			e.printStackTrace();
+		}
 		
 		return sortedDrinks;
 	}

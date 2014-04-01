@@ -1,15 +1,26 @@
 package com.bevinisaditch.theinebriator.Database;
 
 import java.util.ArrayList;
-
+import java.util.HashMap;
+import java.util.Map.Entry;
+import com.bevinisaditch.theinebriator.ClassFiles.DataBaseReader;
+import com.bevinisaditch.theinebriator.ClassFiles.Drink;
+import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
 import com.bevinisaditch.theinebriator.ClassFiles.TermFrequency;
-
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+/**
+ * This class handles the database operations for term frequency, which is used in the search engine.
+ * 
+ * @author michael
+ *
+ */
+@SuppressLint("DefaultLocale")
 public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
 
 	// All Static variables
@@ -37,7 +48,53 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_TERM + " TEXT,"
                 + KEY_FREQ + " REAL" + ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
+        
+        /**
+         
+        // Populate Database
+        
+        // Sum up drink name count
+        HashMap<String, Float> termFreq = new HashMap<String, Float>();
+        ArrayList<Drink> allDrinks = DataBaseReader.getAllDrinks();
+        
+        Integer totalTermCount = 0;
+        for (Drink drink : allDrinks) {
+        	String name = drink.getName().toLowerCase();
+        	Float count = termFreq.get(name);
+        	if (count != null) {
+        		termFreq.put(name, count + 1);
+        	} else {
+        		termFreq.put(name, 1f);
+        	}
+        	totalTermCount += 1;
+        	
+        	// Sum up ingredient name count
+        	for (Ingredient ingredient : drink.getIngredients()) {
+        		name = ingredient.getName().toLowerCase();
+        		count = termFreq.get(name);
+            	if (count != null) {
+            		termFreq.put(name, count + 1);
+            	} else {
+            		termFreq.put(name, 1f);
+            	}
+            	totalTermCount += 1;
+        	}
+        	
+        }
+        
+        //Calculate the frequency for term
+        for (Entry<String, Float> entry : termFreq.entrySet()) {
+        	termFreq.put(entry.getKey(), entry.getValue()/totalTermCount);
+        }
 		
+        
+        //Add each entry to the database
+        for (Entry<String, Float> entry : termFreq.entrySet()) {
+        	System.out.println("Entry: " + entry.getKey() + " // Value: " + entry.getValue());
+        	TermFrequency dbEntry = new TermFrequency(entry.getKey(), entry.getValue());
+        	addTermFreq(dbEntry);
+        }
+        **/
 	}
 
 	@Override
@@ -61,12 +118,11 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
 		SQLiteDatabase db = this.getWritableDatabase();
 		 
 	    ContentValues values = new ContentValues();
-	    values.put(KEY_TERM, termFreq.getTerm()); // Contact Name
-	    values.put(KEY_FREQ, termFreq.getFrequency()); // Contact Phone Number
+	    values.put(KEY_TERM, termFreq.getTerm());
+	    values.put(KEY_FREQ, termFreq.getFrequency());
 	 
-	    // Inserting Row
 	    long id = db.insert(TABLE_TERM_FREQ, null, values);
-	    db.close(); // Closing database connection
+	    db.close();
 	    return id;
 	}
 	 
@@ -149,12 +205,11 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
 	            termFreq.setID(cursor.getLong(0));
 	            termFreq.setTerm(cursor.getString(1));
 	            termFreq.setFrequency(cursor.getFloat(2));
-	            // Adding contact to list
+	            
 	            termFreqList.add(termFreq);
 	        } while (cursor.moveToNext());
 	    }
 	 
-	    // return term freq list
 	    return termFreqList;
 		
 	}
@@ -171,7 +226,6 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
         Integer count = cursor.getCount();
         cursor.close();
  
-        // return count
         return count;
 	}
 	
@@ -181,7 +235,7 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
 	 * @param termFreq - Term frqeuency you want to update
 	 * @return The number of rows that were updated
 	 */
-	public int updateContact(TermFrequency termFreq) {
+	public int updateTermFreq(TermFrequency termFreq) {
 		SQLiteDatabase db = this.getWritableDatabase();
 		 
 	    ContentValues values = new ContentValues();
@@ -199,7 +253,7 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
 	 * 
 	 * @param termFreq
 	 */
-	public void deleteContact(TermFrequency termFreq) {
+	public void deleteTermFreq(TermFrequency termFreq) {
 	    SQLiteDatabase db = this.getWritableDatabase();
 	    db.delete(TABLE_TERM_FREQ, KEY_ID + " = ?",
 	            new String[] { String.valueOf(termFreq.getID()) });

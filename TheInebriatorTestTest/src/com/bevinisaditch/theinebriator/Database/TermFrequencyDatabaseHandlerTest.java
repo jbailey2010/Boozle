@@ -97,7 +97,7 @@ public class TermFrequencyDatabaseHandlerTest extends AndroidTestCase {
 		termFreq2.setID(id);
 		
 		termFreq1.setTerm("TERMFREQ1");
-		int count = handler.updateContact(termFreq1);
+		int count = handler.updateTermFreq(termFreq1);
 		
 		assertEquals(1, count);
 		assertEquals(termFreq1.getTerm(), "TERMFREQ1");
@@ -108,7 +108,7 @@ public class TermFrequencyDatabaseHandlerTest extends AndroidTestCase {
 		termFreq1.setID(id);
 		
 		termFreq2.setTerm("TERMFREQ1");
-		int count = handler.updateContact(termFreq2);
+		int count = handler.updateTermFreq(termFreq2);
 		
 		assertEquals(0, count);
 	}
@@ -117,7 +117,7 @@ public class TermFrequencyDatabaseHandlerTest extends AndroidTestCase {
 		Long id = handler.addTermFreq(termFreq1);
 		termFreq1.setID(id);
 		
-		handler.deleteContact(termFreq1);
+		handler.deleteTermFreq(termFreq1);
 		
 		assertEquals(0, handler.getTermFreqCount().intValue());
 		
@@ -127,7 +127,7 @@ public class TermFrequencyDatabaseHandlerTest extends AndroidTestCase {
 		Long id = handler.addTermFreq(termFreq1);
 		termFreq1.setID(id);
 		
-		handler.deleteContact(termFreq2);
+		handler.deleteTermFreq(termFreq2);
 		
 		assertEquals(1, handler.getTermFreqCount().intValue());
 		

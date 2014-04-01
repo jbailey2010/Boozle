@@ -1,6 +1,5 @@
 package com.bevinisaditch.theinebriator.SearchEngine;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -9,18 +8,43 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
+import com.bevinisaditch.theinebriator.ClassFiles.TermFrequency;
+import com.bevinisaditch.theinebriator.Database.TermFrequencyDatabaseHandler;
 
+@SuppressLint("DefaultLocale")
 public class BM25Ranker extends Ranker {
+	Context context;
+	ArrayList<Drink> relevantDrinks;
+	ArrayList<String> searchTerms;
+	TermFrequencyDatabaseHandler handler;
 	
 	//Constants used in BM25
 	private double b = .75;
 	private double k = 1.2;
+	
+	public BM25Ranker(Context context, ArrayList<String> terms,
+			ArrayList<Drink> drinks) {
+		this.context = context;
+		this.relevantDrinks = drinks;
+		this.searchTerms = terms;
+		handler = new TermFrequencyDatabaseHandler(context);
+		
+	}
+	
+	@Override
+	protected ArrayList<Drink> doInBackground(Void... params) {
+		
+		return rank(searchTerms, relevantDrinks);
+	}
+	
 
 	@Override
-	public ArrayList<Drink> rank(ArrayList<String> terms,
-			ArrayList<Drink> drinks) {
+	public ArrayList<Drink> rank(ArrayList<String> terms, ArrayList<Drink> drinks) {
 		
 		HashMap<Drink, Double> unsortedDrinks = new HashMap<Drink, Double>();
 		
@@ -34,11 +58,16 @@ public class BM25Ranker extends Ranker {
 			
 			//Sum up all terms to get score
 			for (String term : individualTerms) {
-				double termFreq = 0.0;
+				TermFrequency termFreq = handler.getTermFrequency(term);
 				
-				//TODO: Get term frequency by querying DB
+				float freq;
+				if (termFreq != null) {
+					freq = termFreq.getFrequency();
+				} else {
+					freq = 0f;
+				}
 				
-				double invDocFreq = Math.log((drinks.size()-termFreq+.5)/(termFreq + .5))/Math.log(2);
+				double invDocFreq = Math.log((drinks.size()-freq+.5)/(freq + .5))/Math.log(2);
 				
 				double totalFreq = 0.0;
 				double docFreq = 0.0;
@@ -114,10 +143,13 @@ public class BM25Ranker extends Ranker {
 			averageLength += 1;
 			averageLength += drink.getIngredients().size();			
 		}
+		
+		if (drinks.size() == 0) {
+			return 0;
+		}
+		
 		return averageLength/drinks.size();
 	}
-	
-
 }
 
 /**

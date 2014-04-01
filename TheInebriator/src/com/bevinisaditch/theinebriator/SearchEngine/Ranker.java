@@ -2,9 +2,11 @@ package com.bevinisaditch.theinebriator.SearchEngine;
 
 import java.util.ArrayList;
 
+import android.os.AsyncTask;
+
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 
-public abstract class Ranker {
+public abstract class Ranker extends AsyncTask<Void, Void, ArrayList<Drink>> {
 	
 	/**
 	 * Takes in a list of drinks and ranks them, returning a sorted
