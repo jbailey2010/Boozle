@@ -29,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
+import com.bevinisaditch.theinebriator.ClassFiles.Drink.Rating;
 import com.bevinisaditch.theinebriator.ClassFiles.DrinkInfo;
 import com.bevinisaditch.theinebriator.ClassFiles.DrinkPopup;
 import com.bevinisaditch.theinebriator.ClassFiles.SearchManagement;
@@ -232,8 +233,18 @@ public class Home extends Activity {
 			datum.put("name", curr.getName());
 			datum.put("info", curr.getIngredients().toString());
 			datum.put("ingr", curr.getInstructions());
-			//ADD LOGIC HERE WHEN THE TIME COMES
-			datum.put("img", "");
+			if(curr.getRating() == Rating.THUMBSUP)
+			{
+				datum.put("img", Integer.toString(R.drawable.thumbsup));
+			}
+			else if(curr.getRating() == Rating.THUMBSDOWN)
+			{
+				datum.put("img", Integer.toString(R.drawable.thumbsdown));
+			}
+			else
+			{
+				datum.put("img", "");
+			}
 			dataSet.add(datum);
 		}
 		adapter = new SimpleAdapter(cont, dataSet, 
