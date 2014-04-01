@@ -28,6 +28,8 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class SearchManagement {
+	public static List<String> reqIngredients;
+	public static List<String> optIngredients;
 	/**
 	 * Creates the pop up that will get input from the user to decide what type of search
 	 * is to be done
@@ -94,7 +96,7 @@ public class SearchManagement {
 			public void onClick(View arg0) {
 				dialog.dismiss();
 				//Remove this
-				((Home)((Activity)c)).listviewInit();
+				//((Home)((Activity)c)).listviewInit();
 			}
 	    });
 	    final AutoCompleteTextView input = (AutoCompleteTextView)dialog.findViewById(R.id.search_input_view);
@@ -110,7 +112,7 @@ public class SearchManagement {
 				if(drinkNames.contains(possName))
 				{
 					//Add logic here instead of this dummy call to handle the search!
-					((Home)((Activity)c)).listviewInit();
+					//((Home)((Activity)c)).listviewInit();
 					dialog.dismiss();
 				}
 				else
@@ -127,8 +129,6 @@ public class SearchManagement {
 	 */
 	public static void searchByIngredients(final Context c) {
 		final List<String> drinkNames = Home.getIngredients();
-		final List<String> optIngredients = new ArrayList<String>();
-		final List<String> reqIngredients = new ArrayList<String>();
 		final Dialog dialog = new Dialog(c, R.style.DialogBackground);
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		dialog.setContentView(R.layout.search_ingredients_popup);
@@ -149,6 +149,7 @@ public class SearchManagement {
                 android.R.layout.simple_dropdown_item_1line, drinkNames);    
 	    input.setThreshold(2);
 	    input.setAdapter(adapter);
+	    final Button add = (Button)dialog.findViewById(R.id.search_add);
 	    final TextView optional = (TextView)dialog.findViewById(R.id.optional_ingredients);
 	    final TextView required = (TextView)dialog.findViewById(R.id.required_ingredients);
 	    TextView clear = (TextView)dialog.findViewById(R.id.clear);
@@ -158,11 +159,11 @@ public class SearchManagement {
 				optIngredients.clear();
 				reqIngredients.clear();
 				optional.setText(" ");
+				add.setBackground(c.getResources().getDrawable(R.drawable.btn_grey));
 				required.setText(" ");
 			}
 	    });
 	    final RadioButton reqRadio = (RadioButton)dialog.findViewById(R.id.radio_required);
-	    Button add = (Button)dialog.findViewById(R.id.search_add);
 	    add.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
@@ -174,6 +175,10 @@ public class SearchManagement {
 				}
 				else if(drinkNames.contains(name))
 				{
+					if(reqIngredients.size() == 0 && optIngredients.size() == 0)
+					{
+						add.setBackground(c.getResources().getDrawable(R.drawable.btn_blue));
+					}
 					if(reqRadio.isChecked())
 					{
 						reqIngredients.add(name);
@@ -200,10 +205,20 @@ public class SearchManagement {
 				{
 					dialog.dismiss();
 					//Replace this with logic to use the two listviews in the search
-					((Home)((Activity)c)).listviewInit();
+					//((Home)((Activity)c)).listviewInit();
 				}
 			}
 	    });
+	    if(optIngredients.size() == 0 && reqIngredients.size() == 0)
+	    {
+		    optIngredients = new ArrayList<String>();
+			reqIngredients = new ArrayList<String>();
+	    }
+	    else
+	    {
+	    	updateTextViews(required, reqIngredients, "Required Ingredients:");
+			updateTextViews(optional, optIngredients, "Optional Ingredients:");
+	    }
 	}
 	
 	/**

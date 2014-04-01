@@ -26,8 +26,10 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
+import com.bevinisaditch.theinebriator.ClassFiles.Drink.Rating;
 import com.bevinisaditch.theinebriator.ClassFiles.DrinkInfo;
 import com.bevinisaditch.theinebriator.ClassFiles.DrinkPopup;
 import com.bevinisaditch.theinebriator.ClassFiles.SearchManagement;
@@ -115,7 +117,14 @@ public class Home extends Activity {
 		    public void onSideNavigationItemClick(int itemId) {
 		    	switch (itemId) {
 	            case R.id.menu_random:
-	            	
+	            	if(dataSet.size() > 0)
+	            	{
+	            		showRandomDrink();
+	            	}
+	            	else
+	            	{
+	            		Toast.makeText(cont, "This requires you to search first", Toast.LENGTH_SHORT).show();
+	            	}
 	                break;
 	            case R.id.menu_create:
 	            	
@@ -124,10 +133,10 @@ public class Home extends Activity {
 	            	
 	            	break;
 	            case R.id.menu_liked:
-	            	
+	            	listRatingDrinks(Rating.THUMBSUP);
 	            	break;
 	            case R.id.menu_disliked:
-	            	
+	            	listRatingDrinks(Rating.THUMBSDOWN);
 	            	break;
 	            case R.id.menu_popularity:
 	            	DrinkInfo.displayStats(cont);
@@ -207,9 +216,32 @@ public class Home extends Activity {
 	}
 	
 	/**
+	 * Displays the thumbs up/down-ed drinks 
+	 */
+	public void listRatingDrinks(Rating thumbStatus)
+	{
+		List<Drink> results = new ArrayList<Drink>();
+		for(Drink drink : drinks)
+		{
+			if(drink.getRating() == thumbStatus)
+			{
+				results.add(drink);
+			}
+		}
+		if(results.size() == 0)
+		{
+			Toast.makeText(cont, "You have to thumbs up/down a drink to see it here", Toast.LENGTH_LONG).show();
+		}
+		else
+		{
+			listviewInit(results);
+		}
+	}
+	
+	/**
 	 * Sets up the listview to display the appropriate data in the activity
 	 */
-	public void listviewInit()
+	public void listviewInit(List<Drink> results)
 	{
 		clearRes.setVisible(true);
 		clearRes.setEnabled(true);
@@ -218,14 +250,24 @@ public class Home extends Activity {
 		list = (BounceListView)res.findViewById(R.id.listview_rankings);
 		list.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
 		dataSet = new ArrayList<HashMap<String, String>>();
-		for(Drink curr: drinks)
+		for(Drink curr: results)
 		{
 			HashMap<String, String> datum = new HashMap<String, String>();
 			datum.put("name", curr.getName());
 			datum.put("info", curr.getIngredients().toString());
 			datum.put("ingr", curr.getInstructions());
-			//ADD LOGIC HERE WHEN THE TIME COMES
-			datum.put("img", "");
+			if(curr.getRating() == Rating.THUMBSUP)
+			{
+				datum.put("img", Integer.toString(R.drawable.thumbsup));
+			}
+			else if(curr.getRating() == Rating.THUMBSDOWN)
+			{
+				datum.put("img", Integer.toString(R.drawable.thumbsdown));
+			}
+			else
+			{
+				datum.put("img", "");
+			}
 			dataSet.add(datum);
 		}
 		adapter = new SimpleAdapter(cont, dataSet, 
@@ -252,8 +294,7 @@ public class Home extends Activity {
 				String ingredients = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text2)).getText().toString();
 				String instr = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text3)).getText().toString();
 				list.setSelection(arg2);
-				//ITERATE ON DRINKS HERE TO GET URL
-				DrinkPopup.drinkPopUpInit(cont, name, ingredients, instr, "google.com");
+				DrinkPopup.drinkPopUpInit(cont, name, ingredients, instr, getDrinkUrl(name, instr, ingredients));
 			}
 	    });
 	    list.setOnScrollListener(new OnScrollListener(){
@@ -276,6 +317,35 @@ public class Home extends Activity {
 				//Sincerely don't care
 			}
 	    });
+	}
+	
+	/**
+	 * Gets the random drink from the search results and displays it
+	 */
+	public void showRandomDrink()
+	{
+		int randIndex = (int) (Math.random() * dataSet.size());
+		HashMap<String, String> drinkMap = dataSet.get(randIndex);
+		String name = drinkMap.get("name");
+		String ingr = drinkMap.get("info");
+		String instr = drinkMap.get("ingr");
+		DrinkPopup.drinkPopUpInit(cont, name, ingr, instr, getDrinkUrl(name, instr, ingr));
+		list.setSelection(randIndex);
+	}
+	
+	/**
+	 * Iterates over drinks to get the url of a drink
+	 */
+	public String getDrinkUrl(String name, String instr, String ingr)
+	{
+		for(Drink dr : drinks)
+		{
+			if(dr.getName().equals(name) && dr.getInstructions().equals(instr) && dr.getIngredients().toString().equals(ingr))
+			{
+				return dr.getUrl();
+			}
+		}
+		return "";
 	}
 	
 	/**

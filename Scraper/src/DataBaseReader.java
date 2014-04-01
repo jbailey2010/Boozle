@@ -91,6 +91,7 @@ public class DataBaseReader {
 				}
 				currIngredient.setQuantity(currMatch.quantity);
 				currIngredient.setUnits(currMatch.units);
+				ingList.add(currIngredient);
 			}
 		}
 		return ingList;
