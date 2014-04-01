@@ -6,6 +6,12 @@ public class Matching {
 	public int matchID;
 	public String quantity;
 	public String units;
+	
+	public Matching()
+	{
+		
+	}
+	
 	public Matching(int drink, int ing, int match, String qty, String units)
 	{
 		drinkID = drink;

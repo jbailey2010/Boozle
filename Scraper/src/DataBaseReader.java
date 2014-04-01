@@ -26,29 +26,8 @@ public class DataBaseReader {
 			Class.forName(CLASS_NAME);
 			c = DriverManager.getConnection("jdbc:sqlite:drinksAndIngredientsFour.db");
 			c.setAutoCommit(false);
-			stmt = c.createStatement();
-			ResultSet rs2 = stmt.executeQuery( "SELECT * FROM MATCHINGS");
-			while (rs2.next())
-			{
-				int matchid = rs2.getInt("id");
-				int drinkid = rs2.getInt("drinkid");
-				int ingredientid = rs2.getInt("ingredientid");
-				String quantity = rs2.getString("quantity");
-				String units = rs2.getString("units");
-				Matching currMatch = new Matching(drinkid, ingredientid, matchid, quantity, units);
-				allMatches.add(currMatch);
-			}
-			stmt.close();
-			stmt = c.createStatement();
-			ResultSet rs3 = stmt.executeQuery("SELECT * FROM INGREDIENTS");
-			while (rs3.next())
-			{
-				int id = rs3.getInt("id");
-				String name = rs3.getString("name");
-				IngredientIDPair pair = new IngredientIDPair(id, name);
-				allPairs.add(pair);
-			}
-			stmt.close();
+			allMatches = getMatches();
+			allPairs = getPairs();
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery( "SELECT * FROM DRINKS;" );
 			while ( rs.next() )
@@ -71,6 +50,60 @@ public class DataBaseReader {
 			return null;
 		}
 		return allDrinks;
+	}
+
+	private static ArrayList<Drink> getDrinks() throws SQLException {
+		ArrayList<Drink> drinks = new ArrayList<Drink>();
+		Statement stmt = c.createStatement();
+		ResultSet rs = stmt.executeQuery( "SELECT * FROM DRINKS;" );
+		while ( rs.next() )
+		{
+			int id = rs.getInt("id");
+			String name = rs.getString("name");
+			Drink.Rating rating =  intToRating(rs.getInt("rating"));
+			String instructions = rs.getString("instructions");
+			ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
+
+			Drink currDrink = new Drink(name, rating, ingredients, instructions, id);
+			drinks.add(currDrink);
+		}
+		stmt.close();
+		return drinks;
+	}
+	
+	private static ArrayList<IngredientIDPair> getPairs() throws SQLException {
+		ArrayList<IngredientIDPair> pairs = new ArrayList<IngredientIDPair>();
+		Statement stmt;
+		stmt = c.createStatement();
+		ResultSet rs3 = stmt.executeQuery("SELECT * FROM INGREDIENTS");
+		while (rs3.next())
+		{
+			int id = rs3.getInt("id");
+			String name = rs3.getString("name");
+			IngredientIDPair pair = new IngredientIDPair(id, name);
+			pairs.add(pair);
+		}
+		stmt.close();
+		return pairs;
+	}
+
+	private static ArrayList<Matching> getMatches() throws SQLException {
+		ArrayList<Matching> matchings = new ArrayList<Matching>();
+		Statement stmt;
+		stmt = c.createStatement();
+		ResultSet rs2 = stmt.executeQuery( "SELECT * FROM MATCHINGS");
+		while (rs2.next())
+		{
+			int matchid = rs2.getInt("id");
+			int drinkid = rs2.getInt("drinkid");
+			int ingredientid = rs2.getInt("ingredientid");
+			String quantity = rs2.getString("quantity");
+			String units = rs2.getString("units");
+			Matching currMatch = new Matching(drinkid, ingredientid, matchid, quantity, units);
+			matchings.add(currMatch);
+		}
+		stmt.close();
+		return matchings;
 	}
 
 	private static ArrayList<Ingredient> getIngredientsForDrinkID(int drinkID)
