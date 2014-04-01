@@ -10,6 +10,9 @@ public class DataBaseReader {
 	static ArrayList<Matching> allMatches = new ArrayList<Matching>();
 	static ArrayList<IngredientIDPair> allPairs = new ArrayList<IngredientIDPair>();
 	private static Connection c = null;
+	//"org.sqlite.JDBC"
+	//"SQLite.JDBCDRIVER"
+	private static final String DRIVER = "org.sqlite.JDBC";
 
 	private static void printDrink(Drink currDrink) {
 		System.out.print("Drink #" + currDrink.getId());
@@ -33,7 +36,7 @@ public class DataBaseReader {
 		Connection c = null;
 		Statement stmt = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
+			Class.forName(DRIVER);
 			c = DriverManager.getConnection("jdbc:sqlite:drinks.db");
 			c.setAutoCommit(false);
 			System.out.println("Opened database successfully");
@@ -63,7 +66,7 @@ public class DataBaseReader {
 		c = null;
 		Statement stmt = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
+			Class.forName(DRIVER);
 			c = DriverManager.getConnection("jdbc:sqlite:drinksAndIngredientsFour.db");
 			c.setAutoCommit(false);
 			stmt = c.createStatement();
@@ -88,6 +91,16 @@ public class DataBaseReader {
 				IngredientIDPair pair = new IngredientIDPair(id, name);
 				allPairs.add(pair);
 			}
+			
+			/*for (Matching match : allMatches)
+			{
+				System.out.println("Match: " + match.drinkID + ", " + match.ingredientID);
+			}
+			for (IngredientIDPair pr : allPairs)
+			{
+				System.out.println("Pair: " + pr.id + ", " + pr.name);
+			}*/
+			
 			stmt.close();
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery( "SELECT * FROM DRINKS;" );
@@ -118,7 +131,7 @@ public class DataBaseReader {
 		Connection c = null;
 		Statement stmt = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
+			Class.forName(DRIVER);
 			c = DriverManager.getConnection("jdbc:sqlite:drinks.db");
 			c.setAutoCommit(false);
 			System.out.println("Opened database successfully");
@@ -153,6 +166,7 @@ public class DataBaseReader {
 				}
 				currIngredient.setQuantity(currMatch.quantity);
 				currIngredient.setUnits(currMatch.units);
+				ingList.add(currIngredient);
 			}
 		}
 		return ingList;
@@ -194,7 +208,7 @@ public class DataBaseReader {
 		Connection c = null;
 		Statement stmt = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
+			Class.forName(DRIVER);
 			c = DriverManager.getConnection("jdbc:sqlite:drinks.db");
 			c.setAutoCommit(false);
 			System.out.println("Opened database successfully");
