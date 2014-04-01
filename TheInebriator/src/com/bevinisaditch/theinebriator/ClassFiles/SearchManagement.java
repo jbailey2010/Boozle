@@ -94,7 +94,7 @@ public class SearchManagement {
 			public void onClick(View arg0) {
 				dialog.dismiss();
 				//Remove this
-				((Home)((Activity)c)).listviewInit();
+				//((Home)((Activity)c)).listviewInit();
 			}
 	    });
 	    final AutoCompleteTextView input = (AutoCompleteTextView)dialog.findViewById(R.id.search_input_view);
@@ -110,7 +110,7 @@ public class SearchManagement {
 				if(drinkNames.contains(possName))
 				{
 					//Add logic here instead of this dummy call to handle the search!
-					((Home)((Activity)c)).listviewInit();
+					//((Home)((Activity)c)).listviewInit();
 					dialog.dismiss();
 				}
 				else
@@ -205,7 +205,7 @@ public class SearchManagement {
 				{
 					dialog.dismiss();
 					//Replace this with logic to use the two listviews in the search
-					((Home)((Activity)c)).listviewInit();
+					//((Home)((Activity)c)).listviewInit();
 				}
 			}
 	    });
