@@ -133,10 +133,10 @@ public class Home extends Activity {
 	            	
 	            	break;
 	            case R.id.menu_liked:
-	            	
+	            	listRatingDrinks(Rating.THUMBSUP);
 	            	break;
 	            case R.id.menu_disliked:
-	            	
+	            	listRatingDrinks(Rating.THUMBSDOWN);
 	            	break;
 	            case R.id.menu_popularity:
 	            	DrinkInfo.displayStats(cont);
@@ -216,9 +216,32 @@ public class Home extends Activity {
 	}
 	
 	/**
+	 * Displays the thumbs up/down-ed drinks 
+	 */
+	public void listRatingDrinks(Rating thumbStatus)
+	{
+		List<Drink> results = new ArrayList<Drink>();
+		for(Drink drink : drinks)
+		{
+			if(drink.getRating() == thumbStatus)
+			{
+				results.add(drink);
+			}
+		}
+		if(results.size() == 0)
+		{
+			Toast.makeText(cont, "You have to thumbs up/down a drink to see it here", Toast.LENGTH_LONG).show();
+		}
+		else
+		{
+			listviewInit(results);
+		}
+	}
+	
+	/**
 	 * Sets up the listview to display the appropriate data in the activity
 	 */
-	public void listviewInit()
+	public void listviewInit(List<Drink> results)
 	{
 		clearRes.setVisible(true);
 		clearRes.setEnabled(true);
@@ -227,7 +250,7 @@ public class Home extends Activity {
 		list = (BounceListView)res.findViewById(R.id.listview_rankings);
 		list.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
 		dataSet = new ArrayList<HashMap<String, String>>();
-		for(Drink curr: drinks)
+		for(Drink curr: results)
 		{
 			HashMap<String, String> datum = new HashMap<String, String>();
 			datum.put("name", curr.getName());
