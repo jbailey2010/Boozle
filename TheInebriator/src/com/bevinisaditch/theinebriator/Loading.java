@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.bevinisaditch.theinebriator.ClassFiles.DataBaseReader;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
+import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;
 import com.devingotaswitch.theinebriator.R;
 
 public class Loading extends Activity {
@@ -73,7 +74,8 @@ public class Loading extends Activity {
         @Override
         protected ArrayList<Drink> doInBackground(Activity... params) {
         	act = (Activity)params[0];
-            return DataBaseReader.getAllDrinks();
+        	DrinkDatabaseHandler drinkHandler = new DrinkDatabaseHandler(cont);
+            return drinkHandler.getAllDrinks();
         }
 
         @Override
