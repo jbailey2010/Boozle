@@ -13,14 +13,13 @@ import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
 import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;
 
-public class DataBaseReaderTest {
+public class DataBaseReaderTest extends AndroidTestCase {
 	
 	ArrayList<Drink> allDrinks;
 
-	@Test
 	public void testReadDatabase()
 	{
-		DrinkDatabaseHandler handler = new DrinkDatabaseHandler(null);
+		DrinkDatabaseHandler handler = new DrinkDatabaseHandler(this.getContext());
 		allDrinks = handler.getAllDrinks();
 		ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
 		ingredients.add(new Ingredient("Brandy or Rum (Light)", "1 1/2", "oz."));
