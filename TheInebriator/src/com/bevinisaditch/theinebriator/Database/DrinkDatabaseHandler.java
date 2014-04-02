@@ -1,6 +1,7 @@
 package com.bevinisaditch.theinebriator.Database;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import com.socialize.util.JSONParser;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -34,10 +36,12 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	 
 	    // Database Name
 	    private static final String DATABASE_NAME = "DrinksAndIngredients";
+	    
+	    private Context con;
 	 	 
 	    public DrinkDatabaseHandler(Context context) {
 	        super(context, DATABASE_NAME, null, DATABASE_VERSION);
-	        readJSONFiles();
+	        con = context;
 	    }
 	 
 	    // Creating Tables
@@ -60,83 +64,55 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 					"QUANTITY       TEXT," +
 					"UNITS          TEXT)";
 	        db.execSQL(CREATE_MATCHINGS_TABLE);
-
-
-	       // readJSONFiles();
+	        readJSONFiles();
 	    }
 
+	    /**
+	     * Reads JSON files and populates database
+	     */
 		private void readJSONFiles() {
 			
-			String current;
-			try {
-			current = new java.io.File( "." ).getCanonicalPath(); } catch (Exception e) { }
-	        String currentDir = System.getProperty("user.dir");
-	        System.out.println("Current dir using System:" +currentDir);
 			
-			ArrayList<Drink> drinkList = new ArrayList<Drink>();
-	        ArrayList<Matching> matchingList = new ArrayList<Matching>();
-	        ArrayList<IngredientIDPair> pairList = new ArrayList<IngredientIDPair>();
 	        //2. Convert JSON to Java object
 	        try {
 	        	JSONParser parser = new JSONParser();
-	        	String drinks = readFile("/drinks.json");
-	        	String matches = readFile("/matches.json");
-	        	String pairs = readFile("/pairs.json");
-
-	        	JSONArray a = (JSONArray) parser.parseArray(drinks);
+	        	JSONArray a = null;
+	        	String drinks = readFile("drinks.json");
+	        	System.out.println("drinks read");
+	        	
+	        	a = (JSONArray) parser.parseArray(drinks);
+	        	System.out.println("drinks parsed");
 	        	for (int i = 0; i < a.length(); i++)
 	        	{
 	        		JSONObject currDrink = a.getJSONObject(i);
-	        		Drink drink = new Drink(currDrink.getString("name"), intToRating(currDrink.getInt("rating")), new ArrayList<Ingredient>(), currDrink.getString("instructions"),  currDrink.getInt("id"));
-	        		drinkList.add(drink);
+	        		Drink drink = new Drink(currDrink.getString("name"), stringToRating(currDrink.getString("rating")), new ArrayList<Ingredient>(), currDrink.getString("instructions"),  currDrink.getInt("id"));
+	        		addDrinkWithoutIngredients(drink);
 	        	}
+	        	String matches = readFile("matches.json");
+	        	System.out.println("matches read");
 	        	a = (JSONArray) parser.parseArray(matches);
+	        	System.out.println("matches parsed");
 	        	for (int i = 0; i < a.length(); i++)
 	        	{
 	        		JSONObject currMatching = a.getJSONObject(i);
 	        		Matching match = new Matching(currMatching.getInt("drinkID"), currMatching.getInt("ingredientID"), currMatching.getInt("matchID"), currMatching.getString("quantity"), currMatching.getString("units"));
-	        		matchingList.add(match);
+	        		addMatching(match);
 	        	}
+	        	String pairs = readFile("pairs.json");
 	        	a = (JSONArray) parser.parseArray(pairs);
+	        	System.out.println("pairs parsed");
 	        	for (int i = 0; i < a.length(); i++)
 	        	{
 	        		JSONObject currPair = a.getJSONObject(i);
 	        		IngredientIDPair pr = new IngredientIDPair(currPair.getInt("id"), currPair.getString("name"));
-	        		pairList.add(pr);
+	        		addPair(pr);
 	        	}
 	        }
 	        catch (Exception e)
 	        {
-
+	        	e.printStackTrace();
+	        	System.out.println(e);
 	        }
-	        /*ObjectMapper mapper = new ObjectMapper();
-			ArrayList<Drink> drinks = new ArrayList<Drink>();
-			ArrayList<Matching> matchings = new ArrayList<Matching>();
-			ArrayList<IngredientIDPair> pairs = new ArrayList<IngredientIDPair>();
-			try {
-				drinks = mapper.readValue(new File("drinks.json"), new TypeReference<ArrayList<Drink>>() { });
-				matchings = mapper.readValue(new File("matches.json"), new TypeReference<ArrayList<Matching>>() { });
-				pairs = mapper.readValue(new File("pairs.json"), new TypeReference<ArrayList<IngredientIDPair>>() { });
-			} catch (JsonParseException e) {
-				e.printStackTrace();
-			} catch (JsonMappingException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}*/
-			
-			for (IngredientIDPair currPair : pairList)
-			{
-				addPair(currPair);
-			}
-			for (Matching currMatch : matchingList)
-			{
-				addMatching(currMatch);
-			}
-			for (Drink currDrink : drinkList)
-			{
-				addDrinkWithoutIngredients(currDrink);
-			}
 		}
 	 
 	    // Upgrading database
@@ -151,6 +127,10 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	        onCreate(db);
 	    }
 	    
+	    /**
+	     * Adds a drink to the database, ignoring its ingredients.
+	     * @param drink
+	     */
 	    public void addDrinkWithoutIngredients(Drink drink)
 	    {
 	    	SQLiteDatabase db = this.getWritableDatabase();
@@ -163,9 +143,12 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     
 	        // Inserting Row
 	        db.insert("DRINKS", null, values);
-	        db.close(); // Closing database connection
 	    }
 	    
+	    /**
+	     * Adds an IngredientIDPair to the database.
+	     * @param pair
+	     */
 	    public void addPair(IngredientIDPair pair)
 	    {
 	    	SQLiteDatabase db = this.getWritableDatabase();
@@ -176,6 +159,10 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	db.insert("INGREDIENTS", null, values);
 	    }
 	    
+	    /**
+	     * Adds a matching to the database.
+	     * @param match
+	     */
 	    public void addMatching(Matching match)
 	    {
 	    	SQLiteDatabase db = this.getWritableDatabase();
@@ -198,6 +185,22 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    		return -1;
 	    }
 	    
+	    private Rating stringToRating(String str)
+	    {
+	    	if (str.equals("THUMBSNULL"))
+	    		return Rating.THUMBSNULL;
+	    	else if (str.equals("THUMBSUP"))
+	    		return Rating.THUMBSUP;
+	    	else if (str.equals("THUMBSDOWN"))
+	    		return Rating.THUMBSDOWN;
+	    	else
+	    		return Rating.THUMBSNULL;
+	    }
+	    
+	    /**
+	     * Gets all matchings in the database
+	     * @return
+	     */
 	    public ArrayList<Matching> getAllMatchings()
 	    {
 	    	ArrayList<Matching> matchings = new ArrayList<Matching>();
@@ -223,6 +226,10 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	        return matchings;
 	    }
 	    
+	    /**
+	     * Gets all IngredientIDPairs in the database
+	     * @return
+	     */
 	    public ArrayList<IngredientIDPair> getAllPairs()
 	    {
 	    	ArrayList<IngredientIDPair> pairs = new ArrayList<IngredientIDPair>();
@@ -243,6 +250,10 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	        return pairs;
 	    }
 	    
+	    /**
+	     * Gets all drinks in the database with ingredients
+	     * @return
+	     */
 	    public ArrayList<Drink> getAllDrinks()
 	    {
 	    	ArrayList<Drink> drinks = new ArrayList<Drink>();
@@ -271,6 +282,13 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 			return drinks;
 	    }
 	    
+	    /**
+	     * Gets all ingredients for a given drink ID
+	     * @param drinkID
+	     * @param allMatches
+	     * @param allPairs
+	     * @return
+	     */
 	    private static ArrayList<Ingredient> getIngredientsForDrinkID(int drinkID, ArrayList<Matching> allMatches, ArrayList<IngredientIDPair> allPairs)
 		{
 			ArrayList<Ingredient> ingList = new ArrayList<Ingredient>();
@@ -295,6 +313,11 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 			return ingList;
 		}
 	    
+	    /**
+	     * Converts an int to a rating
+	     * @param i
+	     * @return
+	     */
 	    private Rating intToRating(int i)
 	    {
 	    	if (i == 1)
@@ -305,29 +328,43 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    		return Rating.THUMBSNULL;
 	    }
 	    
+	    /**
+	     * 
+	     * @param filename path to the file
+	     * @return A string containing the content of the file found at filename
+	     */
 	    private String readFile(String filename)
 	    {
-	    	BufferedReader br = null;
-	    	String all = "";
-			try {
-	 
-				String sCurrentLine;
-	 
-				br = new BufferedReader(new FileReader(filename));
-	 
-				while ((sCurrentLine = br.readLine()) != null) {
-					all += sCurrentLine;
-				}
-	 
-			} catch (IOException e) {
-				e.printStackTrace();
-			} finally {
-				try {
-					if (br != null)br.close();
-				} catch (IOException ex) {
-					ex.printStackTrace();
-				}
-			}
-			return all;
+	    	String ret = null;
+	    	try {
+	    		AssetManager assets = con.getResources().getAssets();
+	    		InputStream is = assets.open(filename);
+	    		BufferedReader br = null;
+	    		StringBuilder sb = new StringBuilder();
+
+	    		String line;
+	    		try {
+
+	    			br = new BufferedReader(new InputStreamReader(is));
+	    			while ((line = br.readLine()) != null) {
+	    				sb.append(line);
+	    			}
+
+	    		} catch (IOException e) {
+	    			e.printStackTrace();
+	    		} finally {
+	    			if (br != null) {
+	    				try {
+	    					br.close();
+	    				} catch (IOException e) {
+	    					e.printStackTrace();
+	    				}
+	    			}
+	    		}
+	    		ret = sb.toString();
+	    	} catch (Exception e) {
+	    		e.printStackTrace();
+	    	}
+	    	return ret;
 	    }
 }
