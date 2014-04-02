@@ -116,8 +116,7 @@ public class SearchManagement {
 					//((Home)((Activity)c)).listviewInit();
 					//dialog.dismiss();
 					SearchEngine search = new SearchEngine(c);
-					ArrayList<String> drinks = new ArrayList<String>(drinkNames);
-					search.searchByName(drinks.get(0));
+					search.searchByName(possName);
 				}
 				else
 				{
