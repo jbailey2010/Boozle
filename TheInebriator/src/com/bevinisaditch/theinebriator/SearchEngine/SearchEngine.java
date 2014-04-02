@@ -5,14 +5,16 @@ import java.util.concurrent.ExecutionException;
 
 import android.content.Context;
 
-import com.bevinisaditch.theinebriator.ClassFiles.DataBaseReader;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
+import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;
 
 public class SearchEngine {
 	Context context;
+	DrinkDatabaseHandler drinkHandler;
 	
 	public SearchEngine(Context context) {
 		this.context = context;
+		drinkHandler = new DrinkDatabaseHandler(context);
 	}
 	
 	public ArrayList<Drink> searchByName(String name) {
@@ -21,7 +23,7 @@ public class SearchEngine {
 		terms.add(name);
 		
 		//TODO: Fix this
-		ArrayList<Drink> relevantDrinks = DataBaseReader.getAllDrinks();
+		ArrayList<Drink> relevantDrinks = drinkHandler.getAllDrinks();
 		
 		BM25Ranker ranker = new BM25Ranker(context, terms, relevantDrinks);
 		ranker.execute();
@@ -44,9 +46,13 @@ public class SearchEngine {
 	public ArrayList<Drink> searchByIngredient(ArrayList<String> optIngredients, ArrayList<String> reqIngredients) {
 		
 		//TODO: Fix this
-		ArrayList<Drink> relevantDrinks = DataBaseReader.getAllDrinks();
+		ArrayList<Drink> relevantDrinks = drinkHandler.getAllDrinks();
+		
+		ArrayList<String> searchTerms = new ArrayList<String>();
+		searchTerms.addAll(optIngredients);
+		searchTerms.addAll(reqIngredients);
 				
-		BM25Ranker ranker = new BM25Ranker(context, optIngredients, relevantDrinks);
+		BM25Ranker ranker = new BM25Ranker(context, searchTerms, relevantDrinks);
 		ranker.execute();
 		
 		ArrayList<Drink> sortedDrinks;

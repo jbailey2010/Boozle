@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.bevinisaditch.theinebriator.Home;
+import com.bevinisaditch.theinebriator.SearchEngine.SearchEngine;
 import com.devingotaswitch.theinebriator.R;
 
 import android.app.Activity;
@@ -113,7 +114,10 @@ public class SearchManagement {
 				{
 					//Add logic here instead of this dummy call to handle the search!
 					//((Home)((Activity)c)).listviewInit();
-					dialog.dismiss();
+					//dialog.dismiss();
+					SearchEngine search = new SearchEngine(c);
+					ArrayList<String> drinks = new ArrayList<String>(drinkNames);
+					search.searchByName(drinks.get(0));
 				}
 				else
 				{
