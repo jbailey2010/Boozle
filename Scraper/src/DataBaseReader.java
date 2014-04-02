@@ -1,3 +1,6 @@
+import java.io.File;
+import org.codehaus.jackson.map.ObjectMapper;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.sql.*;
@@ -11,8 +14,24 @@ public class DataBaseReader {
 
 	public static void main(String[] args) throws Exception
 	{
-		//transformDataBase();
-
+		c = DriverManager.getConnection("jdbc:sqlite:drinksAndIngredientsFour.db");
+		c.setAutoCommit(false);
+		ArrayList<Drink> drinks;
+		ArrayList<Matching> matchings;
+		ArrayList<IngredientIDPair> pairs;
+		matchings = getMatches();
+		pairs = getPairs();
+		drinks = getDrinks();
+		c.close();
+		
+		//1. Convert Java object to JSON format
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.writeValue(new File("drinks.json"), drinks);
+		mapper.writeValue(new File("matches.json"), matchings);
+		mapper.writeValue(new File("pairs.json"), pairs);
+		//2. Convert JSON to Java object
+		//ObjectMapper mapper = new ObjectMapper();
+		//User user = mapper.readValue(new File("c:\\user.json"), User.class);
 	}
 
 	static ArrayList<Drink> allDrinks = new ArrayList<Drink>();

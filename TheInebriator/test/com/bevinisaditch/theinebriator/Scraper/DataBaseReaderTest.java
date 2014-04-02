@@ -11,6 +11,7 @@ import android.test.AndroidTestCase;
 import com.bevinisaditch.theinebriator.ClassFiles.DataBaseReader;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
+import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;
 
 public class DataBaseReaderTest {
 	
@@ -19,7 +20,8 @@ public class DataBaseReaderTest {
 	@Test
 	public void testReadDatabase()
 	{
-		allDrinks = DataBaseReader.getAllDrinks();
+		DrinkDatabaseHandler handler = new DrinkDatabaseHandler(null);
+		allDrinks = handler.getAllDrinks();
 		ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
 		ingredients.add(new Ingredient("Brandy or Rum (Light)", "1 1/2", "oz."));
 		ingredients.add(new Ingredient("Cream / Half & Half", "1/2", "oz."));
