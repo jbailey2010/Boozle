@@ -43,6 +43,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    // Creating Tables
 	    @Override
 	    public void onCreate(SQLiteDatabase db) {
+	    	deleteTablesIfExist(db);
 	        String CREATE_DRINKS_TABLE = "CREATE TABLE DRINKS" +
 	        		"(ID INT PRIMARY KEY       NOT NULL," +
 					"NAME           TEXT       NOT NULL," +
@@ -115,13 +116,17 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    @Override
 	    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 	        // Drop older table if existed
-	        db.execSQL("DROP TABLE IF EXISTS DRINKS");
-	        db.execSQL("DROP TABLE IF EXISTS INGREDIENTS");
-	        db.execSQL("DROP TABLE IF EXISTS MATCHINGS");
+	        deleteTablesIfExist(db);
 	 
 	        // Create tables again
 	        onCreate(db);
 	    }
+
+		private void deleteTablesIfExist(SQLiteDatabase db) {
+			db.execSQL("DROP TABLE IF EXISTS DRINKS");
+	        db.execSQL("DROP TABLE IF EXISTS INGREDIENTS");
+	        db.execSQL("DROP TABLE IF EXISTS MATCHINGS");
+		}
 	    
 	    /**
 	     * Adds a drink to the database, ignoring its ingredients.
