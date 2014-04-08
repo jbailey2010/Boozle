@@ -1,4 +1,4 @@
-package com.bevinisaditch.theinebriator.Scraper;
+package com.bevinisaditch.theinebriator.Database;
 
 import static org.junit.Assert.*;
 

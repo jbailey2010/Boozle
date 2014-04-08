@@ -1,15 +1,12 @@
-package com.devingotaswitch.theinebriator.test;
+package com.bevinisaditch.theinebriator.ClassFiles;
 
-import org.junit.Test;
+import android.test.AndroidTestCase;
 
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
 
-import junit.framework.TestCase;
+public class DrinkTest extends AndroidTestCase {
 
-public class DrinkTest extends TestCase {
-
-	@Test
 	public void testConstructor()
 	{
 		Drink drank = new Drink("drank");
@@ -20,7 +17,6 @@ public class DrinkTest extends TestCase {
 		assertTrue(drank.getRating() == Drink.Rating.THUMBSNULL);
 	}
 	
-	@Test
 	public void testRating()
 	{
 		Drink drank = new Drink("sample");
@@ -31,7 +27,6 @@ public class DrinkTest extends TestCase {
 		assertTrue(drank.getRating() == Drink.Rating.THUMBSUP);
 	}
 	
-	@Test
 	public void testFavorite()
 	{
 		Drink drank = new Drink("sample");
@@ -42,7 +37,6 @@ public class DrinkTest extends TestCase {
 		assertFalse(drank.isFavorited());
 	}
 	
-	@Test
 	public void testAddIngredient()
 	{
 		Drink drank = new Drink("sample");
