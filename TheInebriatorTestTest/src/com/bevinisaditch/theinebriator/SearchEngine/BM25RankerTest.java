@@ -1,19 +1,15 @@
 package com.bevinisaditch.theinebriator.SearchEngine;
 
-import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
-
-import org.junit.Before;
-import org.junit.Test;
 
 import android.test.AndroidTestCase;
 import android.test.RenamingDelegatingContext;
 
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
+import com.bevinisaditch.theinebriator.ClassFiles.TermFrequency;
 import com.bevinisaditch.theinebriator.SearchEngine.BM25Ranker;
 
 public class BM25RankerTest extends AndroidTestCase {
@@ -22,7 +18,8 @@ public class BM25RankerTest extends AndroidTestCase {
 	private Drink drink3;
 	private ArrayList<Drink> drinks = new ArrayList<Drink>();
 	private BM25Ranker ranker;
-	RenamingDelegatingContext context;
+	private ArrayList<String> terms;
+	private RenamingDelegatingContext context;
 
 	public void setUp() throws Exception {
 		context  = new RenamingDelegatingContext(getContext(), "test_");
@@ -39,11 +36,11 @@ public class BM25RankerTest extends AndroidTestCase {
 		drinks.add(drink1);
 		drinks.add(drink2);
 		drinks.add(drink3);
+		terms = new ArrayList<String>();
 		
 	}
 
 	public void testRank_DrinkName() throws InterruptedException, ExecutionException {
-		ArrayList<String> terms = new ArrayList<String>();
 		terms.add("rum");
 		
 		ranker = new BM25Ranker(context, terms, drinks);
@@ -66,7 +63,6 @@ public class BM25RankerTest extends AndroidTestCase {
 		drink4.addIngredient(new Ingredient("rum", "1", "oz"));
 		drinks.add(drink4);
 		
-		ArrayList<String> terms = new ArrayList<String>();
 		terms.add("rum");
 		
 		ranker = new BM25Ranker(context, terms, drinks);
@@ -78,7 +74,6 @@ public class BM25RankerTest extends AndroidTestCase {
 	}
 	
 	public void testParseTerms() {
-		ArrayList<String> terms = new ArrayList<String>();
 		terms.add("Orange Juice");
 		terms.add("Rum and Coke");
 		
@@ -112,6 +107,34 @@ public class BM25RankerTest extends AndroidTestCase {
 		assertEquals(drink1, sortedDrinks.get(2));
 		assertEquals(drink2, sortedDrinks.get(1));
 		assertEquals(drink3, sortedDrinks.get(0));
+		
+	}
+	
+	public void testTermFrequency() {
+		drinks.clear();
+		drinks.add(new Drink("test1"));
+		drinks.add(new Drink("test2"));
+		drinks.add(new Drink("test3"));
+		
+		terms.clear();
+		terms.add("test1");
+		terms.add("test2");
+		terms.add("test3");
+		
+		ranker = new BM25Ranker(context, terms, drinks);
+		
+		TermFrequency termFreq1 = new TermFrequency("test1", .5f);
+		TermFrequency termFreq2 = new TermFrequency("test2", .375f);
+		TermFrequency termFreq3 = new TermFrequency("test3", .125f);
+		ranker.handler.addTermFreq(termFreq1);
+		ranker.handler.addTermFreq(termFreq2);
+		ranker.handler.addTermFreq(termFreq3);
+		
+		ArrayList<Drink> sortedDrinks = ranker.rank(terms, drinks);
+		
+		assertEquals(drinks.get(2), sortedDrinks.get(0));
+		assertEquals(drinks.get(1), sortedDrinks.get(1));
+		assertEquals(drinks.get(0), sortedDrinks.get(2));
 		
 	}
 

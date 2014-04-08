@@ -10,6 +10,7 @@ import java.util.TreeMap;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
@@ -65,12 +66,20 @@ public class BM25Ranker extends Ranker {
 					freq = termFreq.getFrequency();
 				} else {
 					freq = 0f;
+					Log.d("BM25Ranker", "No matching term freq for " + term);
 				}
 				
 				double invDocFreq = Math.log((drinks.size()-freq+.5)/(freq + .5))/Math.log(2);
+				Log.d("BM25Ranker", "InvDocFreq for " + term + " is " + invDocFreq);
 				
 				double totalFreq = 0.0;
 				double docFreq = 0.0;
+				
+				if (drink.getName().toLowerCase().contains(term.toLowerCase())) {
+					docFreq += 1.0;
+				}
+				totalFreq += 1.0;
+				
 				for (Ingredient ingredient : drink.getIngredients()) {
 					if ((ingredient.getName().toLowerCase()).contains(term.toLowerCase())) {
 						docFreq += 1.0;
@@ -79,13 +88,14 @@ public class BM25Ranker extends Ranker {
 				
 					docFreq /= totalFreq;
 					
-					double numerator = docFreq*(k+1)*invDocFreq;
-					double denominator = docFreq + k*(1-b+ b*(totalFreq/averageLength));
-					
-					score += numerator/denominator;
 				}
+				
+				double numerator = docFreq*(k+1)*invDocFreq;
+				double denominator = docFreq + k*(1-b+ b*(totalFreq/averageLength));
+				
+				score += numerator/denominator;
 			}
-			
+			Log.d("BM25Ranker", "Score for " + drink.getName() + " is " + score);
 			unsortedDrinks.put(drink, score);
 		}
 		

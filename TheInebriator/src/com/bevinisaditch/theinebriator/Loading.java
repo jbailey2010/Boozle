@@ -35,7 +35,6 @@ public class Loading extends Activity {
 		cont = this;
 		ab.setDisplayShowTitleEnabled(false);
 		handleInitialLoad();
-		Log.d("MICHAEL", "Starting Loading");
 		AsyncLoader loader = new AsyncLoader();
 		loader.execute(this);
 	}
