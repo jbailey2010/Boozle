@@ -1,7 +1,11 @@
 package com.bevinisaditch.theinebriator.Database;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import com.bevinisaditch.theinebriator.ClassFiles.Drink;
+import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
 import com.bevinisaditch.theinebriator.ClassFiles.TermFrequency;
 
 import android.test.AndroidTestCase;
@@ -131,6 +135,40 @@ public class TermFrequencyDatabaseHandlerTest extends AndroidTestCase {
 		
 		assertEquals(1, handler.getTermFreqCount().intValue());
 		
+	}
+	
+	/**
+	 * Total words: 11
+	 * rum: 3
+	 * and: 3
+	 * coke: 2
+	 * orange: 1
+	 * test1: 1
+	 * test2: 1
+	 */
+	public void testPopulateDB() {
+		Ingredient ing1 = new Ingredient("rum and coke", "1", "oz");
+		Ingredient ing2 = new Ingredient("rum and orange", "1", "oz");
+		Drink drink1 = new Drink("test1");
+		Drink drink2 = new Drink("test2");
+		drink1.addIngredient(ing1);
+		drink1.addIngredient(ing2);
+		drink2.addIngredient(ing1);
+		
+		ArrayList<Drink> allDrinks = new ArrayList<Drink>();
+		allDrinks.add(drink1);
+		allDrinks.add(drink2);
+		handler.populateDatabase(allDrinks);
+		
+		DecimalFormat df = new DecimalFormat("###.#######");
+		df.setRoundingMode(RoundingMode.FLOOR);
+		
+		assertEquals(df.format(1.0/11.0), df.format(handler.getTermFrequency("test1").getFrequency()));
+		assertEquals(df.format(1.0/11.0), df.format(handler.getTermFrequency("test2").getFrequency()));
+		assertEquals(df.format(1.0/11.0), df.format(handler.getTermFrequency("orange").getFrequency()));
+		assertEquals(df.format(3.0/11.0), df.format(handler.getTermFrequency("rum").getFrequency()));
+		assertEquals(df.format(3.0/11.0), df.format(handler.getTermFrequency("and").getFrequency()));
+		assertEquals(df.format(2.0/11.0), df.format(handler.getTermFrequency("coke").getFrequency()));
 	}
 
 }

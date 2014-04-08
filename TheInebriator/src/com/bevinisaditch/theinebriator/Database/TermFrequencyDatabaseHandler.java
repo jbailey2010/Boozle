@@ -50,34 +50,52 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
         db.execSQL(CREATE_CONTACTS_TABLE);
         
         /**
-         
-        // Populate Database
+        // Populate DB
         
-        // Sum up drink name count
-        HashMap<String, Float> termFreq = new HashMap<String, Float>();
         ArrayList<Drink> allDrinks = DataBaseReader.getAllDrinks();
+        populateDatabase(allDrinks);
         
+        **/
+	}
+	
+	
+	/**
+	 * Takes a list of drinks and calculates the frequencies for each term.
+	 * Then inserts in to the database.
+	 * 
+	 * @param allDrinks - ArrayList of drinks to break down into terms
+	 */
+	public void populateDatabase(ArrayList<Drink> allDrinks) {
+		HashMap<String, Float> termFreq = new HashMap<String, Float>();
         Integer totalTermCount = 0;
         for (Drink drink : allDrinks) {
         	String name = drink.getName().toLowerCase();
-        	Float count = termFreq.get(name);
-        	if (count != null) {
-        		termFreq.put(name, count + 1);
-        	} else {
-        		termFreq.put(name, 1f);
+        	String[] terms = name.split("\\s+");
+        	Float count;
+        	for (String term : terms) {
+	        	count = termFreq.get(term);
+	        	if (count != null) {
+	        		termFreq.put(term, count + 1);
+	        	} else {
+	        		termFreq.put(term, 1f);
+	        	}
+	        	totalTermCount += 1;
         	}
-        	totalTermCount += 1;
         	
         	// Sum up ingredient name count
         	for (Ingredient ingredient : drink.getIngredients()) {
         		name = ingredient.getName().toLowerCase();
-        		count = termFreq.get(name);
-            	if (count != null) {
-            		termFreq.put(name, count + 1);
-            	} else {
-            		termFreq.put(name, 1f);
-            	}
-            	totalTermCount += 1;
+        		
+        		terms = name.split("\\s+");
+        		for (String term : terms) {
+	        		count = termFreq.get(term);
+	            	if (count != null) {
+	            		termFreq.put(term, count + 1);
+	            	} else {
+	            		termFreq.put(term, 1f);
+	            	}
+	            	totalTermCount += 1;
+        		}
         	}
         	
         }
@@ -94,7 +112,6 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
         	TermFrequency dbEntry = new TermFrequency(entry.getKey(), entry.getValue());
         	addTermFreq(dbEntry);
         }
-        **/
 	}
 
 	@Override
