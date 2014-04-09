@@ -1,9 +1,9 @@
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.sql.*;
-
-import com.fasterxml.jackson.databind	.ObjectMapper;
 
 
 public class DataBaseReader {
@@ -23,17 +23,113 @@ public class DataBaseReader {
 		pairs = getPairs();
 		drinks = getDrinks();
 		c.close();
+		writeDrinks(drinks);
+		writeMatchings(matchings);
+		writePairs(pairs);
 		
-		//1. Convert Java object to JSON format
-		ObjectMapper mapper = new ObjectMapper();
-		mapper.writeValue(new File("drinks.json"), drinks);
-		mapper.writeValue(new File("matches.json"), matchings);
-		mapper.writeValue(new File("pairs.json"), pairs);
-		//2. Convert JSON to Java object
-		//ObjectMapper mapper = new ObjectMapper();
-		//User user = mapper.readValue(new File("c:\\user.json"), User.class);
+		
 	}
 
+	private static void writeDrinks(ArrayList<Drink> drinks)
+	{
+		try {
+ 
+			File file = new File("drinkData.txt");
+ 
+			// if file doesnt exists, then create it
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+			else
+			{
+				System.out.println("problem");
+				return;
+			}
+ 
+			FileWriter fw = new FileWriter(file.getAbsoluteFile());
+			BufferedWriter bw = new BufferedWriter(fw);
+			//--
+			//ID
+			//Name
+			//Rating
+			//Instructions
+			for (Drink currDrink : drinks)
+			{
+				String line = "--\n" + currDrink.getId() + "\n" + currDrink.getName() + "\n" + currDrink.getRating() + "\n" + currDrink.getInstructions() + "\n";
+				bw.write(line);
+			}
+			bw.close();
+ 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private static void writeMatchings(ArrayList<Matching> matches)
+	{
+		try {
+			 
+			File file = new File("matchData.txt");
+			// if file doesnt exists, then create it
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+			else
+			{
+				System.out.println("problem");
+				return;
+			}
+			FileWriter fw = new FileWriter(file.getAbsoluteFile());
+			BufferedWriter bw = new BufferedWriter(fw);
+			//--
+			//ID
+			//DrinkID
+			//IngredientID
+			//Quantity
+			//Units
+			for (Matching currMatch : matches)
+			{
+				String line = "--\n" + currMatch.matchID + "\n" + currMatch.drinkID + "\n" + currMatch.ingredientID + "\n" + currMatch.quantity + "\n" + currMatch.units + "\n";
+				bw.write(line);
+			}
+			bw.close();
+ 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private static void writePairs(ArrayList<IngredientIDPair> pairs)
+	{
+		try {
+			 
+			File file = new File("pairData.txt");
+			// if file doesnt exists, then create it
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+			else
+			{
+				System.out.println("problem");
+				return;
+			}
+			FileWriter fw = new FileWriter(file.getAbsoluteFile());
+			BufferedWriter bw = new BufferedWriter(fw);
+			//--
+			//ID
+			//Name
+			for (IngredientIDPair currPair : pairs)
+			{
+				String line = "--\n" + currPair.id + "\n" + currPair.name + "\n";
+				bw.write(line);
+			}
+			bw.close();
+ 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	static ArrayList<Drink> allDrinks = new ArrayList<Drink>();
 	static ArrayList<Matching> allMatches = new ArrayList<Matching>();
 	static ArrayList<IngredientIDPair> allPairs = new ArrayList<IngredientIDPair>();
