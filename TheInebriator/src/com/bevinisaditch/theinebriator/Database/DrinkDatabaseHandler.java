@@ -35,6 +35,9 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    
 	    private Context con;
 	    private int numDrinksRead = 0;
+	    private static final String DRINK_FILE_NAME = "drinkDataShort.txt";
+	    private static final String MATCH_FILE_NAME = "matchDataShort.txt";
+	    private static final String PAIR_FILE_NAME = "pairDataShort.txt";
 	 	 
 	    public DrinkDatabaseHandler(Context context) {
 	        super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -315,7 +318,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    {
 	    	try {
 	    		AssetManager assets = con.getResources().getAssets();
-	    		InputStream is = assets.open("drinkData.txt");
+	    		InputStream is = assets.open(DRINK_FILE_NAME);
 	    		BufferedReader br = null;
 
 	    		String line;
@@ -361,7 +364,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    {
 	    	try {
 	    		AssetManager assets = con.getResources().getAssets();
-	    		InputStream is = assets.open("matchData.txt");
+	    		InputStream is = assets.open(MATCH_FILE_NAME);
 	    		BufferedReader br = null;
 	    		//id
 	    		//drink
@@ -381,7 +384,11 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    				int drinkID = Integer.parseInt(br.readLine());
 	    				int ingredientID = Integer.parseInt(br.readLine());
 	    				String quantity = br.readLine();
+	    				if (quantity.equals("null"))
+	    					quantity = "";
 	    				String units = br.readLine();
+	    				if (units.equals("null"))
+	    					units = "";
 	    				Matching match = new Matching(drinkID, ingredientID, id, quantity, units);
 	    				addMatching(match);
 	    			}
@@ -406,7 +413,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    {
 	    	try {
 	    		AssetManager assets = con.getResources().getAssets();
-	    		InputStream is = assets.open("pairData.txt");
+	    		InputStream is = assets.open(PAIR_FILE_NAME);
 	    		BufferedReader br = null;
 	    		//id
 	    		//name
