@@ -209,7 +209,7 @@ public class Home extends Activity {
 			scrollUp.setEnabled(false);
 		}
 		View res = ((Activity) cont).getLayoutInflater().inflate(R.layout.no_results, ll, false);
-		menuInit(res);
+		//menuInit(res);
 		res.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
 		ll.removeAllViews();
 		ll.addView(res);

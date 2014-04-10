@@ -4,43 +4,111 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Home" >
+<LinearLayout 
+    android:weightSum="5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="19dp"
-        android:text="Press the search icon above to begin a search"
-        android:textStyle="bold"
-        android:textColor="#002800"
-		android:textSize="28sp"/>
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
-        android:text="Additional options are available in the side menu"
-        android:textColor="#003200"
-        android:textSize="22sp"/>
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp"
-        android:src="@drawable/logo" />
-    
-    <com.devspark.sidenavigation.SideNavigationView
-        android:id="@+id/side_navigation_view"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-    
+        android:layout_height="0dip"
+        android:layout_weight="2" >
+		<RelativeLayout
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_centerInParent="true">
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="-50dp"
+            android:text="Press the search icon above to begin a search"
+            android:textColor="#002800"
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView1"
+            android:layout_centerHorizontal="true"
+            android:text="Additional options are available below"
+            android:textColor="#003200"
+            android:textSize="22sp" />
+    </RelativeLayout>
+    </RelativeLayout>
+    
+	<RelativeLayout
+	    android:id="@+id/button_list"
+	    android:layout_width="match_parent"
+	    android:layout_height="0dip"
+	    android:background="@drawable/logo"
+	    android:layout_weight="3">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="6"
+        android:orientation="vertical" >
+
+    
+     <Button
+        android:id="@+id/menu_random"
+        style="@style/ButtonText"
+        android:text="I'm Feeling Hammered"
+        android:title="I'm feeling hammered"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:background="@drawable/btn_blue_semi_trans"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/menu_create"
+        style="@style/ButtonText"
+        android:text="Create a Drink"
+        android:title="Add a Drink"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_blue_semi_trans"/>
+    <Button
+        android:id="@+id/menu_added"
+        style="@style/ButtonText"
+        android:text="Custom Drinks"
+        android:title="Added Drinks"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_blue_semi_trans"/>
+    <Button
+        android:id="@+id/menu_liked"
+        style="@style/ButtonText"
+        android:text="Liked Drinks"
+        android:title="Liked Drinks"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_blue_semi_trans"/>
+    <Button
+        android:id="@+id/menu_disliked"
+        style="@style/ButtonText"
+        android:text="Disliked Drinks"
+        android:title="Disliked Drinks"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_blue_semi_trans"/>
+    <Button
+        android:id="@+id/menu_popularity"
+        style="@style/ButtonText"
+        android:text="Most Popular Drinks"
+        android:title="Most Popular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/btn_blue_semi_trans"/>
+	</LinearLayout>
+	</RelativeLayout>
+	</LinearLayout>
 </RelativeLayout>
