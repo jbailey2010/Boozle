@@ -213,6 +213,7 @@ public class Home extends Activity {
 		res.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
 		ll.removeAllViews();
 		ll.addView(res);
+		instantiateButtons(res);
 	}
 	
 	/**
@@ -333,6 +334,17 @@ public class Home extends Activity {
 		list.setSelection(randIndex);
 	}
 	
+	public void showAllRandomDrink(){
+		int randIndex = (int) (Math.random() * drinks.size());
+		Drink drink = drinks.get(randIndex);
+		String name = drink.getName();
+		String ingr = drink.getIngredients().toString();
+		String instr = drink.getInstructions();
+		DrinkPopup.drinkPopUpInit(cont, name, ingr, instr, getDrinkUrl(name, instr, ingr));
+		list.setSelection(randIndex);
+		
+	}
+	
 	/**
 	 * Iterates over drinks to get the url of a drink
 	 */
@@ -399,5 +411,62 @@ public class Home extends Activity {
 			drinkNames.add("Ingredient " + (i+1));
 		}
 		return drinkNames;
+	}
+	public void instantiateButtons(View res)
+	{
+		Button random = (Button)res.findViewById(R.id.menu_random);
+		random.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View arg0) {
+            		showAllRandomDrink();		
+			}
+			
+		});
+		Button create = (Button)res.findViewById(R.id.menu_create);
+		random.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View arg0) {
+            		showAllRandomDrink();		
+			}
+			
+		});
+		Button added = (Button)res.findViewById(R.id.menu_added);
+		random.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View arg0) {
+            		showAllRandomDrink();		
+			}
+			
+		});
+		Button liked = (Button)res.findViewById(R.id.menu_liked);
+		random.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View arg0) {
+            	listRatingDrinks(Rating.THUMBSUP);	
+			}
+			
+		});
+		Button disliked = (Button)res.findViewById(R.id.menu_disliked);
+		random.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View arg0) {
+            	listRatingDrinks(Rating.THUMBSDOWN);		
+			}
+			
+		});
+		Button popularity = (Button)res.findViewById(R.id.menu_popularity);
+		random.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View arg0) {
+				DrinkInfo.displayStats(cont);		
+			}
+			
+		});
 	}
 }
