@@ -97,6 +97,27 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	        db.execSQL("DROP TABLE IF EXISTS MATCHINGS");
 		}
 	    
+		public void thumbsUpDrink(int drinkID)
+		{
+			SQLiteDatabase db = this.getWritableDatabase();
+			String updateText = "UPDATE DRINKS " + "SET RATING = 1 " + "WHERE ID = " + drinkID;
+			db.execSQL(updateText);
+		}
+		
+		public void thumbsNullDrink(int drinkID)
+		{
+			SQLiteDatabase db = this.getWritableDatabase();
+			String updateText = "UPDATE DRINKS " + "SET RATING = 0 " + "WHERE ID = " + drinkID;
+			db.execSQL(updateText);
+		}
+		
+		public void thumbsDownDrink(int drinkID)
+		{
+			SQLiteDatabase db = this.getWritableDatabase();
+			String updateText = "UPDATE DRINKS " + "SET RATING = -1 " + "WHERE ID = " + drinkID;
+			db.execSQL(updateText);
+		}
+		
 	    /**
 	     * Adds a drink to the database, ignoring its ingredients.
 	     * @param drink
