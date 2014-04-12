@@ -97,6 +97,10 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	        db.execSQL("DROP TABLE IF EXISTS MATCHINGS");
 		}
 	    
+		/**
+		 * Thumbs up the drink with given ID
+		 * @param drinkID
+		 */
 		public void thumbsUpDrink(int drinkID)
 		{
 			SQLiteDatabase db = this.getWritableDatabase();
@@ -104,6 +108,10 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 			db.execSQL(updateText);
 		}
 		
+		/**
+		 * Sets the rating to no thumbs up nor thumbs down for the drink with the given id
+		 * @param drinkID
+		 */
 		public void thumbsNullDrink(int drinkID)
 		{
 			SQLiteDatabase db = this.getWritableDatabase();
@@ -111,6 +119,10 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 			db.execSQL(updateText);
 		}
 		
+		/**
+		 * Thumbs down the drink with given ID
+		 * @param drinkID
+		 */
 		public void thumbsDownDrink(int drinkID)
 		{
 			SQLiteDatabase db = this.getWritableDatabase();
