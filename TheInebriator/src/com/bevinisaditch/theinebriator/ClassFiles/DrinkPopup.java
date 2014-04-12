@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.bevinisaditch.theinebriator.Home;
 import com.bevinisaditch.theinebriator.TwitterInteraction;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink.Rating;
+import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;
 import com.devingotaswitch.theinebriator.R;
 import com.socialize.ActionBarUtils;
 import com.socialize.entity.Entity;
@@ -184,6 +185,9 @@ public class DrinkPopup {
 			if(drink.getName().equals(name) && drink.getIngredients().toString().equals(ingr) && drink.getInstructions().equals(instr))
 			{
 				drink.setRating(rating);
+				int id = drink.getId();
+				DrinkDatabaseHandler db = new DrinkDatabaseHandler(cont);
+				db.setDrinkRating(id, rating);
 				break;
 			}
 		}

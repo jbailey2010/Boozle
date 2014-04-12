@@ -130,6 +130,16 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 			db.execSQL(updateText);
 		}
 		
+		public void setDrinkRating(int drinkID, Rating rating)
+		{
+			if (rating == Rating.THUMBSUP)
+				thumbsUpDrink(drinkID);
+			else if (rating == Rating.THUMBSDOWN)
+				thumbsDownDrink(drinkID);
+			else
+				thumbsNullDrink(drinkID);
+		}
+		
 	    /**
 	     * Adds a drink to the database, ignoring its ingredients.
 	     * @param drink
