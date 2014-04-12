@@ -12,6 +12,7 @@ import com.devingotaswitch.theinebriator.R;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -114,7 +115,7 @@ public class SearchManagement {
 				{
 					//Add logic here instead of this dummy call to handle the search!
 					//((Home)((Activity)c)).listviewInit();
-					//dialog.dismiss();
+					dialog.dismiss();
 					SearchEngine search = new SearchEngine(c);
 					search.searchByName(possName);
 				}
@@ -133,6 +134,18 @@ public class SearchManagement {
 	public static void searchByIngredients(final Context c) {
 		final List<String> drinkNames = Home.getIngredients();
 		final Dialog dialog = new Dialog(c, R.style.DialogBackground);
+		
+		Log.d("MICHAEL", "" + drinkNames.size());
+		
+		if (optIngredients == null) {
+			optIngredients = new ArrayList<String>();
+		}
+		
+		if (reqIngredients == null)
+		{
+			reqIngredients = new ArrayList<String>();
+		}
+		
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		dialog.setContentView(R.layout.search_ingredients_popup);
 		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
@@ -207,6 +220,8 @@ public class SearchManagement {
 				if(optIngredients.size() > 0 || reqIngredients.size() > 0)
 				{
 					dialog.dismiss();
+					SearchEngine search = new SearchEngine(c);
+					search.searchByIngredient((ArrayList<String>) optIngredients, (ArrayList<String>) reqIngredients);
 					//Replace this with logic to use the two listviews in the search
 					//((Home)((Activity)c)).listviewInit();
 				}

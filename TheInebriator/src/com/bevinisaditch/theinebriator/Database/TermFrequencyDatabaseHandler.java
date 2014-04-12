@@ -162,12 +162,15 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
 	    }
 	    
 	    if (cursor.getCount() == 0) {
+	    	cursor.close();
 	    	return null;
 	    }
-	 
+	    
 	    //Term into data class
 	    TermFrequency termFreq = new TermFrequency(cursor.getLong(0),
 	            cursor.getString(1), cursor.getFloat(2));
+	    
+	    cursor.close();
 	    
 	    return termFreq;
 	}
@@ -191,12 +194,15 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
 	    }
 	    
 	    if (cursor.getCount() == 0) {
+	    	cursor.close();
 	    	return null;
 	    }
 	 
 	    //Term into data class
 	    TermFrequency termFreq = new TermFrequency(cursor.getLong(0),
 	            cursor.getString(1), cursor.getFloat(2));
+	    
+	    cursor.close();
 	    
 	    return termFreq;
 	}
@@ -227,6 +233,8 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
 	        } while (cursor.moveToNext());
 	    }
 	 
+	    cursor.close();
+	    
 	    return termFreqList;
 		
 	}

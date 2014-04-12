@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.bevinisaditch.theinebriator.Home;
 import com.bevinisaditch.theinebriator.TwitterInteraction;
+import com.bevinisaditch.theinebriator.ClassFiles.Drink.Rating;
 import com.devingotaswitch.theinebriator.R;
 import com.socialize.ActionBarUtils;
 import com.socialize.entity.Entity;
@@ -45,12 +46,13 @@ public class DrinkPopup {
 		cont = c;
 		final Dialog dialog = new Dialog(cont, R.style.DialogBackground);
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-		dialog.setContentView(R.layout.drink_popup);
+		//dialog.setContentView(R.layout.drink_popup);
 		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
 	    lp.copyFrom(dialog.getWindow().getAttributes());
 	    lp.width = WindowManager.LayoutParams.MATCH_PARENT;
 	    dialog.getWindow().setAttributes(lp);
 	    // Your entity key. May be passed as a Bundle parameter to your activity
+	    
 	 	String entityKey = "http://www.boozle.com/" + name;
 	 	Entity entity = Entity.newInstance(entityKey, name);
 	 	ActionBarOptions options = new ActionBarOptions();
@@ -61,7 +63,6 @@ public class DrinkPopup {
 	 	View actionBarWrapped = ActionBarUtils.showActionBar((Activity) cont, R.layout.drink_popup, entity, options);
 	 	// Now set the view for your activity to be the wrapped view.
 	 	dialog.setContentView(actionBarWrapped);
-	 	dialog.show();
 	    dialog.show();
 	    TextView close = (TextView)dialog.findViewById(R.id.close);
 	    close.setOnClickListener(new OnClickListener(){
@@ -135,7 +136,7 @@ public class DrinkPopup {
 		td.setImageResource(R.drawable.thumbsdown);
 		isThumbsUp = true;
 		isThumbsDown = false;
-		setThumbs(Integer.toString(R.drawable.thumbsup));
+		setThumbs(Integer.toString(R.drawable.thumbsup), Drink.Rating.THUMBSUP);
 	}
 	
 	/**
@@ -146,7 +147,7 @@ public class DrinkPopup {
 		td.setImageResource(R.drawable.thumbsdownselected);
 		isThumbsUp = false;
 		isThumbsDown = true;
-		setThumbs(Integer.toString(R.drawable.thumbsdown));
+		setThumbs(Integer.toString(R.drawable.thumbsdown), Drink.Rating.THUMBSDOWN);
 	}
 	
 	/**
@@ -157,20 +158,33 @@ public class DrinkPopup {
 		td.setImageResource(R.drawable.thumbsdown);
 		isThumbsUp = false;
 		isThumbsDown = false;
-		setThumbs("");
+		setThumbs("", Drink.Rating.THUMBSNULL);
 	}
 	
 	/**
 	 * Finds the element in the original dataset and adjusts the image shown as such
 	 * NOTE: THIS DOES NOT SAVE THE ADJUSTED SELECTION!
 	 */
-	public static void setThumbs(String status) {
+	public static void setThumbs(String status, Rating rating) {
 		for(HashMap<String, String> datum : Home.dataSet)
 		{
 			if(datum.get("name").equals(nameDrink) && datum.get("info").equals(ingrDrink) && datum.get("ingr").equals(instrDrink))
 			{
 				datum.put("img", status);
 				Home.adapter.notifyDataSetChanged();
+				updateDrinkState(nameDrink, ingrDrink, instrDrink, rating);
+				break;
+			}
+		}
+	}
+	
+	public static void updateDrinkState(String name, String ingr, String instr, Rating rating){
+		for(Drink drink : Home.drinks)
+		{
+			if(drink.getName().equals(name) && drink.getIngredients().toString().equals(ingr) && drink.getInstructions().equals(instr))
+			{
+				drink.setRating(rating);
+				break;
 			}
 		}
 	}

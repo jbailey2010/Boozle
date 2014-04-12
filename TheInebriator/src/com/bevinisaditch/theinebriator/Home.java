@@ -10,6 +10,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,6 +33,7 @@ import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink.Rating;
 import com.bevinisaditch.theinebriator.ClassFiles.DrinkInfo;
 import com.bevinisaditch.theinebriator.ClassFiles.DrinkPopup;
+import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
 import com.bevinisaditch.theinebriator.ClassFiles.SearchManagement;
 import com.bevinisaditch.theinebriator.InterfaceAugmentations.ActivitySwipeDetector;
 import com.bevinisaditch.theinebriator.InterfaceAugmentations.BounceListView;
@@ -294,6 +296,7 @@ public class Home extends Activity {
 				String name = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text1)).getText().toString();
 				String ingredients = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text2)).getText().toString();
 				String instr = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text3)).getText().toString();
+				Log.d("MICHAEL", "Name: " + name + "  Ingredients: " + ingredients + "  instr: " + instr);
 				list.setSelection(arg2);
 				DrinkPopup.drinkPopUpInit(cont, name, ingredients, instr, getDrinkUrl(name, instr, ingredients));
 			}
@@ -404,12 +407,13 @@ public class Home extends Activity {
 	
 	public static List<String> getIngredients()
 	{
-		//REPLACE THE FOR LOOP WITH LOOPING TO GET INGREDIENTS
 		List<String> drinkNames = new ArrayList<String>();
-		for(int i = 0; i < 20000; i++)
-		{
-			drinkNames.add("Ingredient " + (i+1));
+		for (Drink drink : drinks) {
+			for (Ingredient ingr : drink.getIngredients()) {
+				drinkNames.add(ingr.getName());
+			}
 		}
+		
 		return drinkNames;
 	}
 	public void instantiateButtons(View res)

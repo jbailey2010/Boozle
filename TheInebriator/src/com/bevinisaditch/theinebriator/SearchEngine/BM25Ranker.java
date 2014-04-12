@@ -9,9 +9,13 @@ import java.util.Map.Entry;
 import java.util.TreeMap;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 
+import com.bevinisaditch.theinebriator.Home;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
 import com.bevinisaditch.theinebriator.ClassFiles.TermFrequency;
@@ -19,7 +23,8 @@ import com.bevinisaditch.theinebriator.Database.TermFrequencyDatabaseHandler;
 
 @SuppressLint("DefaultLocale")
 public class BM25Ranker extends Ranker {
-	Context context;
+	public Context context;
+	public ProgressDialog loginDialog;
 	ArrayList<Drink> relevantDrinks;
 	ArrayList<String> searchTerms;
 	TermFrequencyDatabaseHandler handler;
@@ -31,17 +36,32 @@ public class BM25Ranker extends Ranker {
 	public BM25Ranker(Context context, ArrayList<String> terms,
 			ArrayList<Drink> drinks) {
 		this.context = context;
+		this.loginDialog = new ProgressDialog(context);
 		this.relevantDrinks = drinks;
 		this.searchTerms = terms;
 		handler = new TermFrequencyDatabaseHandler(context);
 		
 	}
 	
+	
+    protected void onPreExecute() {
+    	super.onPreExecute();
+    	loginDialog.setMessage("Please wait... Searching");
+    	loginDialog.setCancelable(false);
+        loginDialog.show();  
+    }
+	
 	@Override
 	protected ArrayList<Drink> doInBackground(Void... params) {
 		
 		return rank(searchTerms, relevantDrinks);
 	}
+	
+	@Override
+    protected void onPostExecute(ArrayList<Drink> result) {
+		((Home) context).listviewInit(result);
+		loginDialog.dismiss();
+    }
 	
 
 	@Override
