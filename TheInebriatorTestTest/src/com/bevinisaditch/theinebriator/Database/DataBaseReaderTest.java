@@ -1,4 +1,4 @@
-package com.devingotaswitch.theinebriator.test;
+package com.bevinisaditch.theinebriator.Database;
 
 import static org.junit.Assert.*;
 
