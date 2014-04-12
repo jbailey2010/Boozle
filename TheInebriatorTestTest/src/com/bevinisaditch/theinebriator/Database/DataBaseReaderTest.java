@@ -20,7 +20,7 @@ public class DataBaseReaderTest extends AndroidTestCase {
 	public void testReadDatabase()
 	{
 		DrinkDatabaseHandler handler = new DrinkDatabaseHandler(this.getContext());
-		handler.reCreateTables();
+		//handler.reCreateTables();
 		allDrinks = handler.getAllDrinks();
 		ArrayList<Ingredient> ingredients;
 		Drink sampleDrink;
