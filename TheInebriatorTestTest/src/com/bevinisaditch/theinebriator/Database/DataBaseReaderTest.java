@@ -1,14 +1,9 @@
-package com.devingotaswitch.theinebriator.test;
-
-import static org.junit.Assert.*;
+package com.bevinisaditch.theinebriator.Database;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
-
 import android.test.AndroidTestCase;
 
-import com.bevinisaditch.theinebriator.ClassFiles.DataBaseReader;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
 import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;

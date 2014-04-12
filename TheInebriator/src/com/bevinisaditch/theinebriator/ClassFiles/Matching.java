@@ -1,11 +1,11 @@
 package com.bevinisaditch.theinebriator.ClassFiles;
 
 public class Matching {
-	public int drinkID;
-	public int ingredientID;
-	public int matchID;
-	public String quantity;
-	public String units;
+	public int drinkID = -1;
+	public int ingredientID = -1;
+	public int matchID = -1;
+	public String quantity = null;
+	public String units = null;
 	
 	public Matching()
 	{
