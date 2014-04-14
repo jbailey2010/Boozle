@@ -46,6 +46,15 @@ public class Ingredient {
 		this.units = units;
 	}
 
+	public String toPrettyString()
+	{
+		if (quantity == null || quantity.isEmpty() || units == null || units.isEmpty())
+		{
+			return name;
+		}
+		return quantity + " " + units + " " + name;
+	}
+	
 	@Override
 	public String toString() {
 		return "Ingredient [name=" + name + ", quantity=" + quantity

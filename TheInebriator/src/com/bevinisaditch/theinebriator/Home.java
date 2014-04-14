@@ -257,7 +257,9 @@ public class Home extends Activity {
 		{
 			HashMap<String, String> datum = new HashMap<String, String>();
 			datum.put("name", curr.getName());
-			datum.put("info", curr.getIngredients().toString());
+			List<Ingredient> ingr = curr.getIngredients();
+			String ingrStr = makeIngredientsBetter(ingr);
+			datum.put("info", ingrStr);
 			datum.put("ingr", curr.getInstructions());
 			if(curr.getRating() == Rating.THUMBSUP)
 			{
@@ -355,7 +357,7 @@ public class Home extends Activity {
 	{
 		for(Drink dr : drinks)
 		{
-			if(dr.getName().equals(name) && dr.getInstructions().equals(instr) && dr.getIngredients().toString().equals(ingr))
+			if(dr.getName().equals(name) && dr.getInstructions().equals(instr) && makeIngredientsBetter(dr.getIngredients()).equals(ingr))
 			{
 				return dr.getUrl();
 			}
@@ -472,5 +474,14 @@ public class Home extends Activity {
 			}
 			
 		});
+	}
+	
+	public String makeIngredientsBetter(List<Ingredient> ingrList)
+	{
+		StringBuilder ingrStr = new StringBuilder(100);
+		for(Ingredient iter : ingrList){
+			ingrStr.append(iter.toPrettyString() + "\n");
+		}
+		return ingrStr.toString();
 	}
 }

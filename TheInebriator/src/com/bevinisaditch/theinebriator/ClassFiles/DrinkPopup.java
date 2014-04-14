@@ -180,9 +180,10 @@ public class DrinkPopup {
 	}
 	
 	public static void updateDrinkState(String name, String ingr, String instr, Rating rating){
+		Home dummy = new Home();
 		for(Drink drink : Home.drinks)
 		{
-			if(drink.getName().equals(name) && drink.getIngredients().toString().equals(ingr) && drink.getInstructions().equals(instr))
+			if(drink.getName().equals(name) && dummy.makeIngredientsBetter(drink.getIngredients()).equals(ingr) && drink.getInstructions().equals(instr))
 			{
 				drink.setRating(rating);
 				int id = drink.getId();
