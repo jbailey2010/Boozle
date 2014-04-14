@@ -52,8 +52,11 @@ public class DrinkPopup {
 	    lp.copyFrom(dialog.getWindow().getAttributes());
 	    lp.width = WindowManager.LayoutParams.MATCH_PARENT;
 	    dialog.getWindow().setAttributes(lp);
+	    //Remove this once Socialize is less broked
+	    dialog.setContentView(R.layout.drink_popup);
 	    // Your entity key. May be passed as a Bundle parameter to your activity
 	    
+	    /**
 	 	String entityKey = "http://www.boozle.com/" + name;
 	 	Entity entity = Entity.newInstance(entityKey, name);
 	 	ActionBarOptions options = new ActionBarOptions();
@@ -64,6 +67,7 @@ public class DrinkPopup {
 	 	View actionBarWrapped = ActionBarUtils.showActionBar((Activity) cont, R.layout.drink_popup, entity, options);
 	 	// Now set the view for your activity to be the wrapped view.
 	 	dialog.setContentView(actionBarWrapped);
+	 	**/
 	    dialog.show();
 	    TextView close = (TextView)dialog.findViewById(R.id.close);
 	    close.setOnClickListener(new OnClickListener(){

@@ -141,7 +141,7 @@ public class Home extends Activity {
 	            	listRatingDrinks(Rating.THUMBSDOWN);
 	            	break;
 	            case R.id.menu_popularity:
-	            	DrinkInfo.displayStats(cont);
+	            	//DrinkInfo.displayStats(cont);
 	            	break;
 	            default:
 	                return;
@@ -343,10 +343,10 @@ public class Home extends Activity {
 		int randIndex = (int) (Math.random() * drinks.size());
 		Drink drink = drinks.get(randIndex);
 		String name = drink.getName();
-		String ingr = drink.getIngredients().toString();
+		String ingr = makeIngredientsBetter(drink.getIngredients());
 		String instr = drink.getInstructions();
 		DrinkPopup.drinkPopUpInit(cont, name, ingr, instr, getDrinkUrl(name, instr, ingr));
-		list.setSelection(randIndex);
+		//list.setSelection(randIndex);
 		
 	}
 	
@@ -430,25 +430,25 @@ public class Home extends Activity {
 			
 		});
 		Button create = (Button)res.findViewById(R.id.menu_create);
-		random.setOnClickListener(new OnClickListener(){
+		create.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View arg0) {
-            		showAllRandomDrink();		
+				
 			}
 			
 		});
 		Button added = (Button)res.findViewById(R.id.menu_added);
-		random.setOnClickListener(new OnClickListener(){
+		added.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View arg0) {
-            		showAllRandomDrink();		
+            				
 			}
 			
 		});
 		Button liked = (Button)res.findViewById(R.id.menu_liked);
-		random.setOnClickListener(new OnClickListener(){
+		liked.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View arg0) {
@@ -457,7 +457,7 @@ public class Home extends Activity {
 			
 		});
 		Button disliked = (Button)res.findViewById(R.id.menu_disliked);
-		random.setOnClickListener(new OnClickListener(){
+		disliked.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View arg0) {
@@ -466,11 +466,11 @@ public class Home extends Activity {
 			
 		});
 		Button popularity = (Button)res.findViewById(R.id.menu_popularity);
-		random.setOnClickListener(new OnClickListener(){
+		popularity.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View arg0) {
-				DrinkInfo.displayStats(cont);		
+				//DrinkInfo.displayStats(cont);		
 			}
 			
 		});
