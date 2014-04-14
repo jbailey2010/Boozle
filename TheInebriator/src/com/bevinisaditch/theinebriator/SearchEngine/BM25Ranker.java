@@ -24,7 +24,7 @@ import com.bevinisaditch.theinebriator.Database.TermFrequencyDatabaseHandler;
 @SuppressLint("DefaultLocale")
 public class BM25Ranker extends Ranker {
 	public Context context;
-	public ProgressDialog loginDialog;
+	//public ProgressDialog loginDialog;
 	ArrayList<Drink> relevantDrinks;
 	ArrayList<String> searchTerms;
 	TermFrequencyDatabaseHandler handler;
@@ -36,7 +36,7 @@ public class BM25Ranker extends Ranker {
 	public BM25Ranker(Context context, ArrayList<String> terms,
 			ArrayList<Drink> drinks) {
 		this.context = context;
-		this.loginDialog = new ProgressDialog(context);
+		//this.loginDialog = new ProgressDialog(context);
 		this.relevantDrinks = drinks;
 		this.searchTerms = terms;
 		handler = new TermFrequencyDatabaseHandler(context);
@@ -46,9 +46,11 @@ public class BM25Ranker extends Ranker {
 	
     protected void onPreExecute() {
     	super.onPreExecute();
+    	/**
     	loginDialog.setMessage("Please wait... Searching");
     	loginDialog.setCancelable(false);
-        loginDialog.show();  
+        loginDialog.show();
+        **/  
     }
 	
 	@Override
@@ -60,7 +62,7 @@ public class BM25Ranker extends Ranker {
 	@Override
     protected void onPostExecute(ArrayList<Drink> result) {
 		((Home) context).listviewInit(result);
-		loginDialog.dismiss();
+		//loginDialog.dismiss();
     }
 	
 
