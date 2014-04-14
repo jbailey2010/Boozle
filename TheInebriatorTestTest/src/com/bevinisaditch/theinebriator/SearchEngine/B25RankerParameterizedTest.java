@@ -3,17 +3,12 @@ package com.bevinisaditch.theinebriator.SearchEngine;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
 
 import android.test.AndroidTestCase;
 import android.test.RenamingDelegatingContext;
-import android.util.Log;
 
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 
