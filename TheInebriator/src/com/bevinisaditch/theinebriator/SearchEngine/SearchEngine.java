@@ -11,12 +11,30 @@ import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;
 public class SearchEngine {
 	Context context;
 	DrinkDatabaseHandler drinkHandler;
+	BM25Ranker ranker = null;
 	
 	public SearchEngine(Context context) {
 		this.context = context;
 		drinkHandler = new DrinkDatabaseHandler(context);
 	}
 	
+	/**
+	 * Used for testing purposes
+	 * @param context
+	 * @param ranker
+	 * @param drinkHandler
+	 */
+	public SearchEngine(Context context, BM25Ranker ranker, DrinkDatabaseHandler drinkHandler) {
+		this.context = context;
+		this.ranker = ranker;
+		this.drinkHandler = drinkHandler;
+	}
+	
+	/**
+	 * Takes a name to search for and returns the sorted drinks
+	 * @param name - name of drink you wish to search for
+	 * @return - ArrayList<Drink> of sorted drinks
+	 */
 	public ArrayList<Drink> searchByName(String name) {
 		
 		ArrayList<String> terms = new ArrayList<String>();
@@ -25,8 +43,10 @@ public class SearchEngine {
 		//TODO: Fix this
 		ArrayList<Drink> relevantDrinks = drinkHandler.getAllDrinks();
 		
-		BM25Ranker ranker = new BM25Ranker(context, terms, relevantDrinks);
-		ranker.execute();
+		if (ranker == null) {
+			ranker = new BM25Ranker(context, terms, relevantDrinks);
+		} 
+		this.ranker.execute();
 		
 		ArrayList<Drink> sortedDrinks;
 		try {
@@ -43,6 +63,12 @@ public class SearchEngine {
 		
 	}
 	
+	/**
+	 * Takes optional and required ingredients and returns a list of sorted drinks
+	 * @param optIngredients - optional ingredients
+	 * @param reqIngredients - required ingredients
+	 * @return sorted drinks
+	 */
 	public ArrayList<Drink> searchByIngredient(ArrayList<String> optIngredients, ArrayList<String> reqIngredients) {
 		
 		//TODO: Fix this
@@ -51,8 +77,10 @@ public class SearchEngine {
 		ArrayList<String> searchTerms = new ArrayList<String>();
 		searchTerms.addAll(optIngredients);
 		searchTerms.addAll(reqIngredients);
-				
-		BM25Ranker ranker = new BM25Ranker(context, searchTerms, relevantDrinks);
+		
+		if (ranker == null) {
+			ranker = new BM25Ranker(context, searchTerms, relevantDrinks);
+		}
 		ranker.execute();
 		
 		ArrayList<Drink> sortedDrinks;
