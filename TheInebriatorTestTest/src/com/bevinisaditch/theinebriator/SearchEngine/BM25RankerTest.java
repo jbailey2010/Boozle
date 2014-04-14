@@ -21,9 +21,10 @@ public class BM25RankerTest extends AndroidTestCase {
 	private ArrayList<Drink> drinks = new ArrayList<Drink>();
 	private BM25Ranker ranker;
 	private ArrayList<String> terms;
-	private Home home = new Home();
+	private RenamingDelegatingContext context;
 
 	public void setUp() throws Exception {
+		context = new RenamingDelegatingContext(getContext(), "test_");
 		drink1 = new Drink("rum and coke");
 		drink2 = new Drink("vodka and coke");
 		drink3 = new Drink("whiskey and coke");
@@ -44,7 +45,7 @@ public class BM25RankerTest extends AndroidTestCase {
 	public void testRank_DrinkName() throws InterruptedException, ExecutionException {
 		terms.add("rum");
 		
-		ranker = new BM25Ranker(home, terms, drinks);
+		ranker = new BM25Ranker(context, terms, drinks);
 		ranker.execute();
 		ArrayList<Drink> sortedDrinks = ranker.get();
 		
@@ -66,7 +67,7 @@ public class BM25RankerTest extends AndroidTestCase {
 		
 		terms.add("rum");
 		
-		ranker = new BM25Ranker(home, terms, drinks);
+		ranker = new BM25Ranker(context, terms, drinks);
 		ranker.execute();
 		ArrayList<Drink> sortedDrinks = ranker.get();
 		
@@ -85,13 +86,13 @@ public class BM25RankerTest extends AndroidTestCase {
 		expectedParse.add("and");
 		expectedParse.add("Coke");
 		
-		ranker = new BM25Ranker(home, terms, drinks);
+		ranker = new BM25Ranker(context, terms, drinks);
 		
 		assertEquals(expectedParse, ranker.parseTerms(terms));
 	}
 	
 	public void testGetAvgLength() {
-		ranker = new BM25Ranker(home, null, drinks);
+		ranker = new BM25Ranker(context, null, drinks);
 		int avgLength = ranker.getAvgLengthOfDrinks(drinks);
 		int expectedAvgLength = 3;
 		assertEquals(expectedAvgLength, avgLength);
@@ -103,7 +104,7 @@ public class BM25RankerTest extends AndroidTestCase {
 		unsortedDrinks.put(drink2, 2.0);
 		unsortedDrinks.put(drink3, 3.0);
 		
-		ranker = new BM25Ranker(home, null, drinks);
+		ranker = new BM25Ranker(context, null, drinks);
 		ArrayList<Drink> sortedDrinks = ranker.sortDrinks(unsortedDrinks);
 		assertEquals(drink1, sortedDrinks.get(2));
 		assertEquals(drink2, sortedDrinks.get(1));
@@ -122,7 +123,7 @@ public class BM25RankerTest extends AndroidTestCase {
 		terms.add("test2");
 		terms.add("test3");
 		
-		ranker = new BM25Ranker(home, terms, drinks);
+		ranker = new BM25Ranker(context, terms, drinks);
 		
 		TermFrequency termFreq1 = new TermFrequency("test1", .5f);
 		TermFrequency termFreq2 = new TermFrequency("test2", .375f);
