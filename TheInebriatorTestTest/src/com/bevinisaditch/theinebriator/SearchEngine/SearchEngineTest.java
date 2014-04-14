@@ -68,6 +68,8 @@ public class SearchEngineTest extends AndroidTestCase {
 		
 		engine = new SearchEngine(context, mockedRanker, mockedDB);
 		assertEquals(expectedDrinks, engine.searchByName("drink2"));
+		verify(mockedDB).getAllDrinks();
+		verify(mockedRanker).doInBackground();
 		
 	}
 	
@@ -89,6 +91,8 @@ public class SearchEngineTest extends AndroidTestCase {
 		reqIngs.add("ing3");
 		
 		assertEquals(expectedDrinks, engine.searchByIngredient(optIngs, reqIngs));
+		verify(mockedDB).getAllDrinks();
+		verify(mockedRanker).doInBackground();
 	}
 
 }
