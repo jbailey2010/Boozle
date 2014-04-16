@@ -170,6 +170,7 @@ public class SearchManagement {
 	    final Button add = (Button)dialog.findViewById(R.id.search_add);
 	    final TextView optional = (TextView)dialog.findViewById(R.id.optional_ingredients);
 	    final TextView required = (TextView)dialog.findViewById(R.id.required_ingredients);
+	    final Button submit = (Button)dialog.findViewById(R.id.search_submit);
 	    TextView clear = (TextView)dialog.findViewById(R.id.clear);
 	    clear.setOnClickListener(new OnClickListener(){
 			@Override
@@ -177,7 +178,7 @@ public class SearchManagement {
 				optIngredients.clear();
 				reqIngredients.clear();
 				optional.setText(" ");
-				add.setBackground(c.getResources().getDrawable(R.drawable.btn_grey));
+				submit.setBackground(c.getResources().getDrawable(R.drawable.btn_grey));
 				required.setText(" ");
 			}
 	    });
@@ -195,7 +196,7 @@ public class SearchManagement {
 				{
 					if(reqIngredients.size() == 0 && optIngredients.size() == 0)
 					{
-						add.setBackground(c.getResources().getDrawable(R.drawable.btn_blue));
+						submit.setBackground(c.getResources().getDrawable(R.drawable.btn_blue));
 					}
 					if(reqRadio.isChecked())
 					{
@@ -215,7 +216,6 @@ public class SearchManagement {
 				}
 			}
 	    });
-	    Button submit = (Button)dialog.findViewById(R.id.search_submit);
 	    submit.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
