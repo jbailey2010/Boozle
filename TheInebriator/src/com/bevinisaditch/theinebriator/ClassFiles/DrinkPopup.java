@@ -1,5 +1,6 @@
 package com.bevinisaditch.theinebriator.ClassFiles;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.app.Activity;
@@ -17,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bevinisaditch.theinebriator.Home;
+import com.bevinisaditch.theinebriator.Loading;
 import com.bevinisaditch.theinebriator.TwitterInteraction;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink.Rating;
 import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;
@@ -39,7 +41,7 @@ public class DrinkPopup {
 	 * Configures the initial pop up to appropriately handle input and
 	 * display the data from the clicked element itself
 	 */
-	public static void drinkPopUpInit(final Context c, final String name, String ingredients, final String instr, final String url)
+	public static void drinkPopUpInit(final Context c, final String name, String ingredients, final String instr, final String url, final boolean update)
 	{
 		nameDrink = name;
 		ingrDrink = ingredients;
@@ -106,12 +108,12 @@ public class DrinkPopup {
 			public void onClick(View v) {
 				if(isThumbsDown || (!isThumbsUp && !isThumbsDown))
 				{
-					toggleThumbsUp();
+					toggleThumbsUp(update);
 					DataBaseReader.toggleThumbs(DataBaseReader.idFromNameAndInst(name, instr), Drink.Rating.THUMBSUP);
 				}
 				else if(isThumbsUp)
 				{
-					neutralizeThumbs();
+					neutralizeThumbs(update);
 					DataBaseReader.toggleThumbs(DataBaseReader.idFromNameAndInst(name, instr), Drink.Rating.THUMBSNULL);
 				}
 			}
@@ -121,12 +123,12 @@ public class DrinkPopup {
 			public void onClick(View v) {
 				if(isThumbsUp || (!isThumbsUp && !isThumbsDown))
 				{
-					toggleThumbsDown();
+					toggleThumbsDown(update);
 					DataBaseReader.toggleThumbs(DataBaseReader.idFromNameAndInst(name, instr), Drink.Rating.THUMBSDOWN);
 				}
 				else if(isThumbsDown)
 				{
-					neutralizeThumbs();
+					neutralizeThumbs(update);
 					DataBaseReader.toggleThumbs(DataBaseReader.idFromNameAndInst(name, instr), Drink.Rating.THUMBSNULL);
 				}
 			}
@@ -136,56 +138,64 @@ public class DrinkPopup {
 	/**
 	 * Sets the thumbs up icon to show and adjusts the original list
 	 */
-	public static void toggleThumbsUp(){
+	public static void toggleThumbsUp(boolean update){
 		tu.setImageResource(R.drawable.thumbsupselected);
 		td.setImageResource(R.drawable.thumbsdown);
 		isThumbsUp = true;
 		isThumbsDown = false;
-		setThumbs(Integer.toString(R.drawable.thumbsup), Drink.Rating.THUMBSUP);
+		setThumbs(Integer.toString(R.drawable.thumbsup), Drink.Rating.THUMBSUP, update);
 	}
 	
 	/**
 	 * Sets the thumbs up icon to show and adjusts the original list
 	 */
-	public static void toggleThumbsDown(){
+	public static void toggleThumbsDown(boolean update){
 		tu.setImageResource(R.drawable.thumbsup);
 		td.setImageResource(R.drawable.thumbsdownselected);
 		isThumbsUp = false;
 		isThumbsDown = true;
-		setThumbs(Integer.toString(R.drawable.thumbsdown), Drink.Rating.THUMBSDOWN);
+		setThumbs(Integer.toString(R.drawable.thumbsdown), Drink.Rating.THUMBSDOWN, update);
 	}
 	
 	/**
 	 * Sets no thumbs selections and adjusts the original list
 	 */
-	public static void neutralizeThumbs(){
+	public static void neutralizeThumbs(boolean update){
 		tu.setImageResource(R.drawable.thumbsup);
 		td.setImageResource(R.drawable.thumbsdown);
 		isThumbsUp = false;
 		isThumbsDown = false;
-		setThumbs("", Drink.Rating.THUMBSNULL);
+		setThumbs("", Drink.Rating.THUMBSNULL, update);
 	}
 	
 	/**
 	 * Finds the element in the original dataset and adjusts the image shown as such
 	 * NOTE: THIS DOES NOT SAVE THE ADJUSTED SELECTION!
 	 */
-	public static void setThumbs(String status, Rating rating) {
-		for(HashMap<String, String> datum : Home.dataSet)
+	public static void setThumbs(String status, Rating rating, boolean doUpdateThumbs) {
+		
+		if(doUpdateThumbs)
 		{
-			if(datum.get("name").equals(nameDrink) && datum.get("info").equals(ingrDrink) && datum.get("ingr").equals(instrDrink))
+			for(HashMap<String, String> datum : Home.dataSet)
 			{
-				datum.put("img", status);
-				Home.adapter.notifyDataSetChanged();
-				updateDrinkState(nameDrink, ingrDrink, instrDrink, rating);
-				break;
+				if(datum.get("name").equals(nameDrink) && datum.get("info").equals(ingrDrink) && datum.get("ingr").equals(instrDrink))
+				{
+					datum.put("img", status);
+					Home.adapter.notifyDataSetChanged();
+					break;
+				}
 			}
+			updateDrinkState(nameDrink, ingrDrink, instrDrink, rating, Home.drinks);
+		}
+		else
+		{
+			updateDrinkState(nameDrink, ingrDrink, instrDrink, rating, Loading.drinks);
 		}
 	}
 	
-	public static void updateDrinkState(String name, String ingr, String instr, Rating rating){
+	public static void updateDrinkState(String name, String ingr, String instr, Rating rating, ArrayList<Drink> drinks){
 		Home dummy = new Home();
-		for(Drink drink : Home.drinks)
+		for(Drink drink : drinks)
 		{
 			if(drink.getName().equals(name) && dummy.makeIngredientsBetter(drink.getIngredients()).equals(ingr) && drink.getInstructions().equals(instr))
 			{

@@ -300,7 +300,7 @@ public class Home extends Activity {
 				String instr = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text3)).getText().toString();
 				Log.d("MICHAEL", "Name: " + name + "  Ingredients: " + ingredients + "  instr: " + instr);
 				list.setSelection(arg2);
-				DrinkPopup.drinkPopUpInit(cont, name, ingredients, instr, getDrinkUrl(name, instr, ingredients));
+				DrinkPopup.drinkPopUpInit(cont, name, ingredients, instr, getDrinkUrl(name, instr, ingredients), true);
 			}
 	    });
 	    list.setOnScrollListener(new OnScrollListener(){
@@ -335,7 +335,7 @@ public class Home extends Activity {
 		String name = drinkMap.get("name");
 		String ingr = drinkMap.get("info");
 		String instr = drinkMap.get("ingr");
-		DrinkPopup.drinkPopUpInit(cont, name, ingr, instr, getDrinkUrl(name, instr, ingr));
+		DrinkPopup.drinkPopUpInit(cont, name, ingr, instr, getDrinkUrl(name, instr, ingr), true);
 		list.setSelection(randIndex);
 	}
 	
@@ -345,7 +345,7 @@ public class Home extends Activity {
 		String name = drink.getName();
 		String ingr = makeIngredientsBetter(drink.getIngredients());
 		String instr = drink.getInstructions();
-		DrinkPopup.drinkPopUpInit(cont, name, ingr, instr, getDrinkUrl(name, instr, ingr));
+		DrinkPopup.drinkPopUpInit(cont, name, ingr, instr, getDrinkUrl(name, instr, ingr), false);
 		//list.setSelection(randIndex);
 		
 	}
