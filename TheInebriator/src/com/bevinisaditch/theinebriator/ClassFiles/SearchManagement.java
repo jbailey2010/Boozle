@@ -32,6 +32,7 @@ import android.widget.ToggleButton;
 public class SearchManagement {
 	public static List<String> reqIngredients;
 	public static List<String> optIngredients;
+	public static String searchDrinkName = "";
 	/**
 	 * Creates the pop up that will get input from the user to decide what type of search
 	 * is to be done
@@ -97,8 +98,6 @@ public class SearchManagement {
 			@Override
 			public void onClick(View arg0) {
 				dialog.dismiss();
-				//Remove this
-				//((Home)((Activity)c)).listviewInit();
 			}
 	    });
 	    final AutoCompleteTextView input = (AutoCompleteTextView)dialog.findViewById(R.id.search_input_view);
@@ -106,6 +105,10 @@ public class SearchManagement {
                 android.R.layout.simple_dropdown_item_1line, drinkNames);    
 	    input.setThreshold(2);
 	    input.setAdapter(adapter);
+	    if(searchDrinkName.length() > 1)
+	    {
+	    	input.setText(searchDrinkName);
+	    }
 	    Button submit = (Button) dialog.findViewById(R.id.clear_confirm);
 	    submit.setOnClickListener(new OnClickListener(){
 			@Override
@@ -113,8 +116,7 @@ public class SearchManagement {
 				String possName = (String)input.getText().toString();
 				if(drinkNames.contains(possName))
 				{
-					//Add logic here instead of this dummy call to handle the search!
-					//((Home)((Activity)c)).listviewInit();
+					searchDrinkName = possName;
 					dialog.dismiss();
 					SearchEngine search = new SearchEngine(c);
 					search.searchByName(possName);
