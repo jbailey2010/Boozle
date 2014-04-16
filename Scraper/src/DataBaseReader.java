@@ -6,11 +6,14 @@ import java.util.ArrayList;
 import java.sql.*;
 
 
+
 public class DataBaseReader {
 
 
 	private static final String CLASS_NAME = "org.sqlite.JDBC";
 	private static Connection c = null;
+	private static ArrayList<Integer> ingredientIDs;
+	private static int maxIngredientID;
 
 	public static void main(String[] args) throws Exception
 	{
@@ -23,18 +26,58 @@ public class DataBaseReader {
 		pairs = getPairs();
 		drinks = getDrinks();
 		c.close();
-		writeDrinks(drinks);
-		writeMatchings(matchings);
-		writePairs(pairs);
+		//writeDrinks(drinks);
+		//writeMatchings(matchings);
+		//writePairs(pairs);
+		writeDrinkTest(10, getAllDrinksTwo());
 		
-		
+	}
+	
+	private static void writeDrinkTest(int numTests, ArrayList<Drink> drinks)
+	{
+		/*
+		ingredients = new ArrayList<Ingredient>();
+		ingredients.add(new Ingredient("1 part DeKuyper Pucker sour-apple schnapps", "", ""));
+		ingredients.add(new Ingredient("1 part Absolut vodka", "", ""));
+		Drink sampleDrink = new Drink("2-Point Play", Drink.Rating.THUMBSNULL, ingredients, "Pour ingredients into a cocktail shaker with ice. Shake and strain into a chilled martini glass. Garnish with an apple wedge.", 0);
+		assertDrinkFound(sampleDrink);
+		*/
+		for (int i = 0; i < numTests; i++)
+		{
+			Drink currDrink = drinks.get(i);
+			System.out.println("ingredients = new ArrayList<Ingredient>();");
+			for (Ingredient currIngredient : currDrink.getIngredients())
+			{
+				if (currIngredient.getQuantity() == null || currIngredient.getQuantity().equals("null"))
+					currIngredient.setQuantity("");
+				if (currIngredient.getUnits() == null || currIngredient.getUnits().equals("null"))
+					currIngredient.setUnits("");
+				System.out.println("ingredients.add(new Ingredient(\"" + currIngredient.getName() + "\", \"" + currIngredient.getQuantity() + "\", \"" + currIngredient.getUnits()+ "\"));");
+			}
+			System.out.println("sampleDrink = new Drink(\"" + currDrink.getName() + "\", " + ratingToString(currDrink.getRating()) + ", ingredients, \"" + currDrink.getInstructions() + "\", " + currDrink.getId() + ");");
+			System.out.println("assertDrinkFound(sampleDrink);");
+		}
+	}
+	
+	private static String ratingToString(Drink.Rating rating)
+	{
+		if (rating == Drink.Rating.THUMBSUP)
+		{
+			return "Drink.Rating.THUMBSUP";
+		}
+		else if (rating == Drink.Rating.THUMBSDOWN)
+		{
+			return "Drink.Rating.THUMBSDOWN";
+		}
+		else
+			return "Drink.Rating.THUMBSNULL";
 	}
 
 	private static void writeDrinks(ArrayList<Drink> drinks)
 	{
 		try {
  
-			File file = new File("drinkData.txt");
+			File file = new File("drinkDataShort.txt");
  
 			// if file doesnt exists, then create it
 			if (!file.exists()) {
@@ -42,8 +85,8 @@ public class DataBaseReader {
 			}
 			else
 			{
-				System.out.println("problem");
-				return;
+				file.delete();
+				file.createNewFile();
 			}
  
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
@@ -69,15 +112,15 @@ public class DataBaseReader {
 	{
 		try {
 			 
-			File file = new File("matchData.txt");
+			File file = new File("matchDataShort.txt");
 			// if file doesnt exists, then create it
 			if (!file.exists()) {
 				file.createNewFile();
 			}
 			else
 			{
-				System.out.println("problem");
-				return;
+				file.delete();
+				file.createNewFile();
 			}
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter bw = new BufferedWriter(fw);
@@ -103,15 +146,15 @@ public class DataBaseReader {
 	{
 		try {
 			 
-			File file = new File("pairData.txt");
+			File file = new File("pairDataShort.txt");
 			// if file doesnt exists, then create it
 			if (!file.exists()) {
 				file.createNewFile();
 			}
 			else
 			{
-				System.out.println("problem");
-				return;
+				file.delete();
+				file.createNewFile();
 			}
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter bw = new BufferedWriter(fw);
@@ -170,7 +213,7 @@ public class DataBaseReader {
 	private static ArrayList<Drink> getDrinks() throws SQLException {
 		ArrayList<Drink> drinks = new ArrayList<Drink>();
 		Statement stmt = c.createStatement();
-		ResultSet rs = stmt.executeQuery( "SELECT * FROM DRINKS;" );
+		ResultSet rs = stmt.executeQuery( "SELECT * FROM DRINKS WHERE ID <= 200;" );
 		while ( rs.next() )
 		{
 			int id = rs.getInt("id");
@@ -190,7 +233,8 @@ public class DataBaseReader {
 		ArrayList<IngredientIDPair> pairs = new ArrayList<IngredientIDPair>();
 		Statement stmt;
 		stmt = c.createStatement();
-		ResultSet rs3 = stmt.executeQuery("SELECT * FROM INGREDIENTS");
+		System.out.println("maxIngredientID: " + maxIngredientID);
+		ResultSet rs3 = stmt.executeQuery("SELECT * FROM INGREDIENTS WHERE ID <= " + maxIngredientID);
 		while (rs3.next())
 		{
 			int id = rs3.getInt("id");
@@ -206,19 +250,36 @@ public class DataBaseReader {
 		ArrayList<Matching> matchings = new ArrayList<Matching>();
 		Statement stmt;
 		stmt = c.createStatement();
-		ResultSet rs2 = stmt.executeQuery( "SELECT * FROM MATCHINGS");
+		ResultSet rs2 = stmt.executeQuery( "SELECT * FROM MATCHINGS WHERE DRINKID <= 200");
+		ingredientIDs = new ArrayList<Integer>();
 		while (rs2.next())
 		{
 			int matchid = rs2.getInt("id");
 			int drinkid = rs2.getInt("drinkid");
 			int ingredientid = rs2.getInt("ingredientid");
+			ingredientIDs.add(ingredientid);
 			String quantity = rs2.getString("quantity");
 			String units = rs2.getString("units");
 			Matching currMatch = new Matching(drinkid, ingredientid, matchid, quantity, units);
 			matchings.add(currMatch);
 		}
 		stmt.close();
+		maxIngredientID = getMaxIngredientID();
 		return matchings;
+	}
+	
+	private static int getMaxIngredientID()
+	{
+		int max = 0;
+		for (Integer curr : ingredientIDs)
+		{
+			System.out.println("Ingredient ID: " + curr);
+			if (curr > max)
+			{
+				max = curr;
+			}
+		}
+		return max;
 	}
 
 	private static ArrayList<Ingredient> getIngredientsForDrinkID(int drinkID)
