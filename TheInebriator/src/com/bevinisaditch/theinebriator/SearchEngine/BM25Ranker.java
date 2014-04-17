@@ -62,7 +62,9 @@ public class BM25Ranker extends Ranker {
 	@Override
     protected void onPostExecute(ArrayList<Drink> result) {
 		if (context instanceof Home) {
-			((Home) context).listviewInit(result);
+			Home.backToListResults = false;
+			Home.backToNoResults = true;
+			((Home) context).listviewInit(result, true);
 		}
 		//loginDialog.dismiss();
     }
