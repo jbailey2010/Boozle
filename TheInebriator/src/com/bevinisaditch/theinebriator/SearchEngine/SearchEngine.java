@@ -12,6 +12,8 @@ public class SearchEngine {
 	Context context;
 	DrinkDatabaseHandler drinkHandler;
 	BM25Ranker ranker = null;
+	public static final Integer SEARCH_NAME = 0;
+	public static final Integer SEARCH_INGREDIENT = 1;
 	
 	public SearchEngine(Context context) {
 		this.context = context;
@@ -44,7 +46,7 @@ public class SearchEngine {
 		ArrayList<Drink> relevantDrinks = drinkHandler.getAllDrinks();
 		
 		if (ranker == null) {
-			ranker = new BM25Ranker(context, terms, relevantDrinks);
+			ranker = new BM25Ranker(context, terms, relevantDrinks, SEARCH_NAME);
 		} 
 		this.ranker.execute();
 		
@@ -79,7 +81,7 @@ public class SearchEngine {
 		searchTerms.addAll(reqIngredients);
 		
 		if (ranker == null) {
-			ranker = new BM25Ranker(context, searchTerms, relevantDrinks);
+			ranker = new BM25Ranker(context, searchTerms, relevantDrinks, SEARCH_INGREDIENT);
 		}
 		ranker.execute();
 		

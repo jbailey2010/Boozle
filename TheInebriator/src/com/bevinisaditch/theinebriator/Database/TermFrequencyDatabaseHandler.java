@@ -3,16 +3,19 @@ package com.bevinisaditch.theinebriator.Database;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
-import com.bevinisaditch.theinebriator.ClassFiles.DataBaseReader;
+
+import com.bevinisaditch.theinebriator.Loading;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
 import com.bevinisaditch.theinebriator.ClassFiles.TermFrequency;
+
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * This class handles the database operations for term frequency, which is used in the search engine.
@@ -25,7 +28,7 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
 
 	// All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 3;
  
     // Database Name
     private static final String DATABASE_NAME = "termFrequency";
@@ -49,13 +52,13 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
                 + KEY_FREQ + " REAL" + ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
         
-        /**
+        Log.d("TermFrequencyDatabaseHandler", "Populating Term Frequency DB");
         // Populate DB
-        
-        ArrayList<Drink> allDrinks = DataBaseReader.getAllDrinks();
-        populateDatabase(allDrinks);
-        
-        **/
+        ArrayList<Drink> allDrinks = Loading.drinks;
+        if (allDrinks != null) {
+        	populateDatabase(db, allDrinks);
+        }
+        Log.d("TermFrequencyDatabaseHandler", "Finished populating Term Frequency DB");
 	}
 	
 	
@@ -65,14 +68,14 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
 	 * 
 	 * @param allDrinks - ArrayList of drinks to break down into terms
 	 */
-	public void populateDatabase(ArrayList<Drink> allDrinks) {
+	public void populateDatabase(SQLiteDatabase db, ArrayList<Drink> allDrinks) {
 		HashMap<String, Float> termFreq = new HashMap<String, Float>();
         Integer totalTermCount = 0;
         for (Drink drink : allDrinks) {
         	String name = drink.getName().toLowerCase();
         	String[] terms = name.split("\\s+");
         	Float count;
-        	for (String term : terms) {
+        	for (String term : terms) {        		
 	        	count = termFreq.get(term);
 	        	if (count != null) {
 	        		termFreq.put(term, count + 1);
@@ -100,18 +103,21 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
         	
         }
         
+        Log.d("TermFrequencyDatabaseHandler", "Calculating frequency for terms");
         //Calculate the frequency for term
         for (Entry<String, Float> entry : termFreq.entrySet()) {
         	termFreq.put(entry.getKey(), entry.getValue()/totalTermCount);
         }
 		
         
+        Log.d("TermFrequencyDatabaseHandler", "Adding terms to database");
         //Add each entry to the database
         for (Entry<String, Float> entry : termFreq.entrySet()) {
-        	System.out.println("Entry: " + entry.getKey() + " // Value: " + entry.getValue());
+        	Log.d("TermFrequencyDatabaseHandler", "Frequency for " + entry.getKey() + ": " + entry.getValue());
         	TermFrequency dbEntry = new TermFrequency(entry.getKey(), entry.getValue());
-        	addTermFreq(dbEntry);
+        	addTermFreq(db, dbEntry);
         }
+        Log.d("TermFrequencyDatabaseHandler", "Finished populating database");
 	}
 
 	@Override
@@ -140,6 +146,23 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
 	 
 	    long id = db.insert(TABLE_TERM_FREQ, null, values);
 	    db.close();
+	    return id;
+	}
+	
+	/**
+	 *  Add a term frequency instance to the database
+	 *  Overwritten for initial population of database
+	 * 
+	 * @param termFreq instance of term frequency
+	 * @return id of the row
+	 */
+	public Long addTermFreq(SQLiteDatabase db, TermFrequency termFreq) {
+		 
+	    ContentValues values = new ContentValues();
+	    values.put(KEY_TERM, termFreq.getTerm());
+	    values.put(KEY_FREQ, termFreq.getFrequency());
+	 
+	    long id = db.insert(TABLE_TERM_FREQ, null, values);
 	    return id;
 	}
 	 

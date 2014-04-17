@@ -1,5 +1,9 @@
 package com.bevinisaditch.theinebriator.SearchEngine;
 
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -11,6 +15,7 @@ import android.test.AndroidTestCase;
 import android.test.RenamingDelegatingContext;
 
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
+import com.bevinisaditch.theinebriator.Database.TermFrequencyDatabaseHandler;
 
 @RunWith(Parameterized.class)
 public class B25RankerParameterizedTest extends AndroidTestCase {
@@ -20,45 +25,8 @@ public class B25RankerParameterizedTest extends AndroidTestCase {
 	private ArrayList<Drink> drinks;
 	ArrayList<String> data;
 	
-	/**
-	public B25RankerParameterizedTest(String term, String drinkName) {
-		RenamingDelegatingContext context = new RenamingDelegatingContext(getContext(), "test_");
-		
-		terms = new ArrayList<String>();
-		terms.add(term);
-		
-		drink = new Drink(drinkName);
-		drinks = new ArrayList<Drink>();
-		drinks.add(drink);
-		
-		ranker = new BM25Ranker(context, terms, drinks);
-		
-	}
-	
-	public B25RankerParameterizedTest() {};
-	
-	@Parameters
-	public static Collection<String[]> data() {
-		 Collection<String[]> data = new ArrayList<String[]>();
-		 final Charset charset = Charset.forName("US-ASCII");
-		 
-		 for (int i = 0; i < 255; i++) {
-			 ByteBuffer bb = ByteBuffer.allocate(4);
-		     bb.putInt(i);
-		     String character = new String(bb.array(), charset).trim();
-		     if (character.length() != 0) {
-		   	     data.add(new String[] {character, character});
-		     }
-		 }
-		 
-		 return data;
-	}
-	
-	
-	
-	**/
-	
 	public void setUp() {
+		System.setProperty("dexmaker.dexcache", getContext().getCacheDir().toString());
 		data = new ArrayList<String>();
 		final Charset charset = Charset.forName("US-ASCII");
 		 
@@ -87,7 +55,12 @@ public class B25RankerParameterizedTest extends AndroidTestCase {
 			drinks = new ArrayList<Drink>();
 			drinks.add(drink);
 			
-			ranker = new BM25Ranker(context, terms, drinks);
+			ranker = new BM25Ranker(context, terms, drinks, SearchEngine.SEARCH_NAME);
+			
+			TermFrequencyDatabaseHandler mockedDB = mock(TermFrequencyDatabaseHandler.class);
+			when(mockedDB.getTermFrequency(any(String.class))).thenReturn(null);
+			
+			ranker.handler = mockedDB;
 		}
 		
 		assertEquals(drink, ranker.rank(terms, drinks).get(0));

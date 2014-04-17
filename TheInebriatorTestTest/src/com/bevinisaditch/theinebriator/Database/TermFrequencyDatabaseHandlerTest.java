@@ -158,7 +158,7 @@ public class TermFrequencyDatabaseHandlerTest extends AndroidTestCase {
 		ArrayList<Drink> allDrinks = new ArrayList<Drink>();
 		allDrinks.add(drink1);
 		allDrinks.add(drink2);
-		handler.populateDatabase(allDrinks);
+		handler.populateDatabase(handler.getWritableDatabase(), allDrinks);
 		
 		DecimalFormat df = new DecimalFormat("###.#######");
 		df.setRoundingMode(RoundingMode.FLOOR);

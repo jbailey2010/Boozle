@@ -9,10 +9,13 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
 import static org.mockito.Mockito.*;
+
 import org.mockito.MockitoAnnotations;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.modules.junit4.PowerMockRunner;
+
 import android.test.AndroidTestCase;
 import android.test.RenamingDelegatingContext;
 
@@ -63,7 +66,7 @@ public class SearchEngineTest extends AndroidTestCase {
 		ArrayList<String> terms = new ArrayList<String>();
 		terms.add("drink2");
 		
-		BM25Ranker mockedRanker = spy(new BM25Ranker(context, terms, drinks) );
+		BM25Ranker mockedRanker = spy(new BM25Ranker(context, terms, drinks, SearchEngine.SEARCH_NAME) );
 		when(mockedRanker.doInBackground()).thenReturn(expectedDrinks);
 		
 		engine = new SearchEngine(context, mockedRanker, mockedDB);
@@ -80,7 +83,7 @@ public class SearchEngineTest extends AndroidTestCase {
 		ArrayList<String> terms = new ArrayList<String>();
 		terms.add("ingr3");
 		
-		BM25Ranker mockedRanker = spy(new BM25Ranker(context, terms, drinks) );
+		BM25Ranker mockedRanker = spy(new BM25Ranker(context, terms, drinks, SearchEngine.SEARCH_INGREDIENT) );
 		when(mockedRanker.doInBackground()).thenReturn(expectedDrinks);
 		
 		engine = new SearchEngine(context, mockedRanker, mockedDB);

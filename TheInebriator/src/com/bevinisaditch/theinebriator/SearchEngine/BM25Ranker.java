@@ -9,10 +9,7 @@ import java.util.Map.Entry;
 import java.util.TreeMap;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 
 import com.bevinisaditch.theinebriator.Home;
@@ -28,18 +25,23 @@ public class BM25Ranker extends Ranker {
 	ArrayList<Drink> relevantDrinks;
 	ArrayList<String> searchTerms;
 	TermFrequencyDatabaseHandler handler;
+	Integer searchType;
 	
 	//Constants used in BM25
 	private double b = .75;
 	private double k = 1.2;
 	
-	public BM25Ranker(Context context, ArrayList<String> terms,
-			ArrayList<Drink> drinks) {
+	public BM25Ranker(
+			Context context,
+			ArrayList<String> terms,
+			ArrayList<Drink> drinks,
+			Integer searchType) {
 		this.context = context;
 		//this.loginDialog = new ProgressDialog(context);
 		this.relevantDrinks = drinks;
 		this.searchTerms = terms;
-		handler = new TermFrequencyDatabaseHandler(context);
+		this.handler = new TermFrequencyDatabaseHandler(context);
+		this.searchType = searchType;
 		
 	}
 	
@@ -81,9 +83,19 @@ public class BM25Ranker extends Ranker {
 		for (Drink drink : drinks) {
 			double score = 0.0;
 			
+			ArrayList<String> wordsInDrink = new ArrayList<String>();
+			wordsInDrink.add(drink.getName());
+			if (searchType == SearchEngine.SEARCH_INGREDIENT) {
+				for (Ingredient ing : drink.getIngredients()) {
+					wordsInDrink.add(ing.getName());
+				}
+			}
+			double totalFreq = parseTerms(wordsInDrink).size();
+			Log.d("BM25Ranker", "total frequency for " + drink.getName() + "is " + totalFreq);
+			
 			//Sum up all terms to get score
 			for (String term : individualTerms) {
-				TermFrequency termFreq = handler.getTermFrequency(term);
+				TermFrequency termFreq = handler.getTermFrequency(term.toLowerCase());
 				
 				float freq;
 				if (termFreq != null) {
@@ -96,23 +108,25 @@ public class BM25Ranker extends Ranker {
 				double invDocFreq = Math.log((drinks.size()-freq+.5)/(freq + .5))/Math.log(2);
 				Log.d("BM25Ranker", "InvDocFreq for " + term + " is " + invDocFreq);
 				
-				double totalFreq = 0.0;
+				
 				double docFreq = 0.0;
 				
 				if (drink.getName().toLowerCase().contains(term.toLowerCase())) {
 					docFreq += 1.0;
 				}
-				totalFreq += 1.0;
 				
-				for (Ingredient ingredient : drink.getIngredients()) {
-					if ((ingredient.getName().toLowerCase()).contains(term.toLowerCase())) {
-						docFreq += 1.0;
+				if (searchType == SearchEngine.SEARCH_INGREDIENT) {
+					for (Ingredient ingredient : drink.getIngredients()) {
+						if ((ingredient.getName().toLowerCase()).contains(term.toLowerCase())) {
+							docFreq += 1.0;
+						}
+						
 					}
-					totalFreq += 1.0;
-				
-					docFreq /= totalFreq;
-					
 				}
+				
+				docFreq /= totalFreq;
+				
+				Log.d("BM25Ranker", "docFreq for " + term + " in " + drink.getName() + " is " + docFreq);
 				
 				double numerator = docFreq*(k+1)*invDocFreq;
 				double denominator = docFreq + k*(1-b+ b*(totalFreq/averageLength));
@@ -175,7 +189,10 @@ public class BM25Ranker extends Ranker {
 		for (Drink drink : drinks){
 			//Add 1 for the name
 			averageLength += 1;
-			averageLength += drink.getIngredients().size();			
+			
+			if (searchType == SearchEngine.SEARCH_INGREDIENT) {
+				averageLength += drink.getIngredients().size();
+			}
 		}
 		
 		if (drinks.size() == 0) {

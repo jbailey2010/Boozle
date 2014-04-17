@@ -1,5 +1,9 @@
 package com.bevinisaditch.theinebriator.SearchEngine;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import static org.mockito.Matchers.*;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
@@ -10,6 +14,7 @@ import android.test.RenamingDelegatingContext;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
 import com.bevinisaditch.theinebriator.ClassFiles.TermFrequency;
+import com.bevinisaditch.theinebriator.Database.TermFrequencyDatabaseHandler;
 import com.bevinisaditch.theinebriator.SearchEngine.BM25Ranker;
 
 public class BM25RankerTest extends AndroidTestCase {
@@ -22,6 +27,7 @@ public class BM25RankerTest extends AndroidTestCase {
 	private RenamingDelegatingContext context;
 
 	public void setUp() throws Exception {
+		System.setProperty("dexmaker.dexcache", getContext().getCacheDir().toString());
 		context = new RenamingDelegatingContext(getContext(), "test_");
 		drink1 = new Drink("rum and coke");
 		drink2 = new Drink("vodka and coke");
@@ -43,7 +49,11 @@ public class BM25RankerTest extends AndroidTestCase {
 	public void testRank_DrinkName() throws InterruptedException, ExecutionException {
 		terms.add("rum");
 		
-		ranker = new BM25Ranker(context, terms, drinks);
+		TermFrequencyDatabaseHandler mockedDB = mock(TermFrequencyDatabaseHandler.class);
+		when(mockedDB.getTermFrequency(any(String.class))).thenReturn(null);
+		
+		ranker = new BM25Ranker(context, terms, drinks, SearchEngine.SEARCH_NAME);
+		ranker.handler = mockedDB;
 		ranker.execute();
 		ArrayList<Drink> sortedDrinks = ranker.get();
 		
@@ -64,8 +74,11 @@ public class BM25RankerTest extends AndroidTestCase {
 		drinks.add(drink4);
 		
 		terms.add("rum");
+		TermFrequencyDatabaseHandler mockedDB = mock(TermFrequencyDatabaseHandler.class);
+		when(mockedDB.getTermFrequency(any(String.class))).thenReturn(null);
 		
-		ranker = new BM25Ranker(context, terms, drinks);
+		ranker = new BM25Ranker(context, terms, drinks, SearchEngine.SEARCH_INGREDIENT);
+		ranker.handler = mockedDB;
 		ranker.execute();
 		ArrayList<Drink> sortedDrinks = ranker.get();
 		
@@ -84,13 +97,13 @@ public class BM25RankerTest extends AndroidTestCase {
 		expectedParse.add("and");
 		expectedParse.add("Coke");
 		
-		ranker = new BM25Ranker(context, terms, drinks);
+		ranker = new BM25Ranker(context, terms, drinks, SearchEngine.SEARCH_NAME);
 		
 		assertEquals(expectedParse, ranker.parseTerms(terms));
 	}
 	
 	public void testGetAvgLength() {
-		ranker = new BM25Ranker(context, null, drinks);
+		ranker = new BM25Ranker(context, null, drinks, SearchEngine.SEARCH_NAME);
 		int avgLength = ranker.getAvgLengthOfDrinks(drinks);
 		int expectedAvgLength = 3;
 		assertEquals(expectedAvgLength, avgLength);
@@ -102,7 +115,7 @@ public class BM25RankerTest extends AndroidTestCase {
 		unsortedDrinks.put(drink2, 2.0);
 		unsortedDrinks.put(drink3, 3.0);
 		
-		ranker = new BM25Ranker(context, null, drinks);
+		ranker = new BM25Ranker(context, null, drinks, SearchEngine.SEARCH_NAME);
 		ArrayList<Drink> sortedDrinks = ranker.sortDrinks(unsortedDrinks);
 		assertEquals(drink1, sortedDrinks.get(2));
 		assertEquals(drink2, sortedDrinks.get(1));
@@ -121,7 +134,7 @@ public class BM25RankerTest extends AndroidTestCase {
 		terms.add("test2");
 		terms.add("test3");
 		
-		ranker = new BM25Ranker(context, terms, drinks);
+		ranker = new BM25Ranker(context, terms, drinks, SearchEngine.SEARCH_NAME);
 		
 		TermFrequency termFreq1 = new TermFrequency("test1", .5f);
 		TermFrequency termFreq2 = new TermFrequency("test2", .375f);
