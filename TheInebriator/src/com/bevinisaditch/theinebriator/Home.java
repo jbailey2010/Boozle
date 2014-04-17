@@ -37,6 +37,7 @@ import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
 import com.bevinisaditch.theinebriator.ClassFiles.SearchManagement;
 import com.bevinisaditch.theinebriator.InterfaceAugmentations.ActivitySwipeDetector;
 import com.bevinisaditch.theinebriator.InterfaceAugmentations.BounceListView;
+import com.bevinisaditch.theinebriator.Utils.GeneralUtils;
 import com.devingotaswitch.theinebriator.R;
 import com.devspark.sidenavigation.ISideNavigationCallback;
 import com.devspark.sidenavigation.SideNavigationView;
@@ -470,7 +471,14 @@ public class Home extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-				//DrinkInfo.displayStats(cont);		
+				if(GeneralUtils.testInternet(cont))
+				{
+					DrinkInfo.displayStats(cont);		
+				}
+				else
+				{
+					Toast.makeText(cont, "This requires an internet connection :(", Toast.LENGTH_SHORT).show();
+				}
 			}
 			
 		});
