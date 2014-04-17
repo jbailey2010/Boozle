@@ -102,10 +102,17 @@ public class BM25RankerTest extends AndroidTestCase {
 		assertEquals(expectedParse, ranker.parseTerms(terms));
 	}
 	
-	public void testGetAvgLength() {
+	public void testGetAvgLength_Name() {
 		ranker = new BM25Ranker(context, null, drinks, SearchEngine.SEARCH_NAME);
 		int avgLength = ranker.getAvgLengthOfDrinks(drinks);
 		int expectedAvgLength = 3;
+		assertEquals(expectedAvgLength, avgLength);
+	}
+	
+	public void testGetAvgLength_Ingredient() {
+		ranker = new BM25Ranker(context, null, drinks, SearchEngine.SEARCH_INGREDIENT);
+		int avgLength = ranker.getAvgLengthOfDrinks(drinks);
+		int expectedAvgLength = 2;
 		assertEquals(expectedAvgLength, avgLength);
 	}
 	

@@ -86,7 +86,10 @@ public class BM25Ranker extends Ranker {
 			double score = 0.0;
 			
 			ArrayList<String> wordsInDrink = new ArrayList<String>();
-			wordsInDrink.add(drink.getName());
+			if (searchType == SearchEngine.SEARCH_NAME) {
+				wordsInDrink.add(drink.getName());
+			}
+			
 			if (searchType == SearchEngine.SEARCH_INGREDIENT) {
 				for (Ingredient ing : drink.getIngredients()) {
 					wordsInDrink.add(ing.getName());
@@ -113,8 +116,10 @@ public class BM25Ranker extends Ranker {
 				
 				double docFreq = 0.0;
 				
-				if (drink.getName().toLowerCase().contains(term.toLowerCase())) {
-					docFreq += 1.0;
+				if (searchType == SearchEngine.SEARCH_NAME) {
+					if (drink.getName().toLowerCase().contains(term.toLowerCase())) {
+						docFreq += 1.0;
+					}
 				}
 				
 				if (searchType == SearchEngine.SEARCH_INGREDIENT) {
@@ -189,11 +194,22 @@ public class BM25Ranker extends Ranker {
 	public int getAvgLengthOfDrinks(ArrayList<Drink> drinks) {
 		int averageLength = 0;
 		for (Drink drink : drinks){
-			//Add 1 for the name
-			averageLength += 1;
 			
+			ArrayList<String> words = new ArrayList<String>();
+			
+			//Add name to length of document
+			if (searchType == SearchEngine.SEARCH_NAME) {
+				words.add(drink.getName());
+				averageLength += parseTerms(words).size();
+			}
+			
+			//Add ingredients to length of document
 			if (searchType == SearchEngine.SEARCH_INGREDIENT) {
-				averageLength += drink.getIngredients().size();
+				for (Ingredient ing: drink.getIngredients()) {
+					words.add(ing.getName());
+				}
+				
+				averageLength += parseTerms(words).size();
 			}
 		}
 		
