@@ -38,6 +38,7 @@
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:text="blah 1"
+	            android:textColor="#ffffff"
 	            android:padding = "15dp"
 	            android:layout_marginLeft="8dp"/>
 	        
@@ -47,6 +48,7 @@
 	            android:layout_height="wrap_content"
 	            android:text="blah 2"
 	            android:padding="15dp"
+	            android:textColor="#ffffff"
 	            android:layout_marginLeft="8dp"
 	            android:layout_below="@+id/ingredients_view"
 	            android:layout_marginTop="15dp"/>

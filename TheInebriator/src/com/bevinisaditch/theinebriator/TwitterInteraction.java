@@ -1,12 +1,13 @@
 package com.bevinisaditch.theinebriator;
 
-import com.devingotaswitch.theinebriator.R;
-
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
+
+import com.devingotaswitch.theinebriator.R;
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;

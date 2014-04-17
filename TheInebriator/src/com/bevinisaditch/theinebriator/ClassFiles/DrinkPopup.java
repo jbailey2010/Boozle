@@ -22,6 +22,7 @@ import com.bevinisaditch.theinebriator.Loading;
 import com.bevinisaditch.theinebriator.TwitterInteraction;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink.Rating;
 import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;
+import com.bevinisaditch.theinebriator.Utils.GeneralUtils;
 import com.devingotaswitch.theinebriator.R;
 import com.socialize.ActionBarUtils;
 import com.socialize.entity.Entity;
@@ -56,20 +57,18 @@ public class DrinkPopup {
 	    dialog.getWindow().setAttributes(lp);
 	    //Remove this once Socialize is less broked
 	    dialog.setContentView(R.layout.drink_popup);
-	    // Your entity key. May be passed as a Bundle parameter to your activity
-	    
-	    /**
-	 	String entityKey = "http://www.boozle.com/" + name;
-	 	Entity entity = Entity.newInstance(entityKey, name);
-	 	ActionBarOptions options = new ActionBarOptions();
-	 	options.setHideShare(true);
-	 	options.setFillColor(Color.parseColor("#272727"));
-	 	options.setBackgroundColor(Color.parseColor("#191919"));
-	 	options.setAccentColor(Color.parseColor("#ff0000"));
-	 	View actionBarWrapped = ActionBarUtils.showActionBar((Activity) cont, R.layout.drink_popup, entity, options);
-	 	// Now set the view for your activity to be the wrapped view.
-	 	dialog.setContentView(actionBarWrapped);
-	 	**/
+	    if(GeneralUtils.testInternet(c)){
+		 	String entityKey = "http://www.boozle.com/" + name;
+		 	Entity entity = Entity.newInstance(entityKey, name);
+		 	ActionBarOptions options = new ActionBarOptions();
+		 	options.setHideShare(true);
+		 	options.setFillColor(Color.parseColor("#272727"));
+		 	options.setBackgroundColor(Color.parseColor("#191919"));
+		 	options.setAccentColor(Color.parseColor("#ff0000"));
+		 	View actionBarWrapped = ActionBarUtils.showActionBar((Activity) cont, R.layout.drink_popup, entity, options);
+		 	// Now set the view for your activity to be the wrapped view.
+		 	dialog.setContentView(actionBarWrapped);
+		}
 	    dialog.show();
 	    TextView close = (TextView)dialog.findViewById(R.id.close);
 	    close.setOnClickListener(new OnClickListener(){

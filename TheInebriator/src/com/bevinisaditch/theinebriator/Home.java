@@ -37,6 +37,7 @@ import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
 import com.bevinisaditch.theinebriator.ClassFiles.SearchManagement;
 import com.bevinisaditch.theinebriator.InterfaceAugmentations.ActivitySwipeDetector;
 import com.bevinisaditch.theinebriator.InterfaceAugmentations.BounceListView;
+import com.bevinisaditch.theinebriator.Utils.GeneralUtils;
 import com.devingotaswitch.theinebriator.R;
 import com.devspark.sidenavigation.ISideNavigationCallback;
 import com.devspark.sidenavigation.SideNavigationView;
@@ -48,6 +49,9 @@ public class Home extends Activity {
 	private ListView sideListView; 
 	public static SimpleAdapter adapter;
 	public static List<HashMap<String, String>> dataSet;
+	public static boolean backToNoResults = false;
+	public static boolean backToListResults = false;
+	public List<Drink> backup;
 	public LinearLayout ll;
 	public Menu menuObj;
 	public MenuItem scrollUp;
@@ -107,6 +111,16 @@ public class Home extends Activity {
 	 */
 	@Override
 	public void onBackPressed() {
+		if(backToNoResults){
+			setNoResults();
+			backToNoResults = false;
+			backToListResults = false;
+		}
+		if(backToListResults){
+			listviewInit(backup, false);
+			backToNoResults = true;
+			backToListResults = false;
+		}
 	}
 	
 	/**
@@ -135,13 +149,24 @@ public class Home extends Activity {
 	            	
 	            	break;
 	            case R.id.menu_liked:
-	            	listRatingDrinks(Rating.THUMBSUP);
+	            	listRatingDrinks(Rating.THUMBSUP, false);
+	            	backToListResults = true;
+	            	backToNoResults = false;
 	            	break;
 	            case R.id.menu_disliked:
-	            	listRatingDrinks(Rating.THUMBSDOWN);
+	            	listRatingDrinks(Rating.THUMBSDOWN, false);
+	            	backToListResults = true;
+	            	backToNoResults = false;
 	            	break;
 	            case R.id.menu_popularity:
-	            	//DrinkInfo.displayStats(cont);
+	            	if(GeneralUtils.testInternet(cont))
+					{
+						DrinkInfo.displayStats(cont);		
+					}
+					else
+					{
+						Toast.makeText(cont, "This requires an internet connection :(", Toast.LENGTH_SHORT).show();
+					}
 	            	break;
 	            default:
 	                return;
@@ -200,6 +225,9 @@ public class Home extends Activity {
 	 */
 	public void setNoResults()
 	{
+		if(backup != null){
+			backup.clear();
+		}
 		if(clearRes != null)
 		{
 			clearRes.setVisible(false);
@@ -221,7 +249,7 @@ public class Home extends Activity {
 	/**
 	 * Displays the thumbs up/down-ed drinks 
 	 */
-	public void listRatingDrinks(Rating thumbStatus)
+	public void listRatingDrinks(Rating thumbStatus, boolean searchFlag)
 	{
 		List<Drink> results = new ArrayList<Drink>();
 		for(Drink drink : drinks)
@@ -237,15 +265,22 @@ public class Home extends Activity {
 		}
 		else
 		{
-			listviewInit(results);
+			listviewInit(results, searchFlag);
 		}
 	}
 	
 	/**
 	 * Sets up the listview to display the appropriate data in the activity
 	 */
-	public void listviewInit(List<Drink> results)
+	public void listviewInit(List<Drink> results, boolean doBackUp)
 	{
+		
+		if(doBackUp){
+			backup = new ArrayList<Drink>();
+			for(Drink drink : results){
+				backup.add(drink);
+			}
+		}
 		clearRes.setVisible(true);
 		clearRes.setEnabled(true);
 		View res = ((Activity) cont).getLayoutInflater().inflate(R.layout.list_results, ll, false);
@@ -452,7 +487,9 @@ public class Home extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-            	listRatingDrinks(Rating.THUMBSUP);	
+				backToListResults = false;
+            	backToNoResults = true;
+            	listRatingDrinks(Rating.THUMBSUP, false);	
 			}
 			
 		});
@@ -461,7 +498,9 @@ public class Home extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-            	listRatingDrinks(Rating.THUMBSDOWN);		
+				backToListResults = false;
+            	backToNoResults = true;
+            	listRatingDrinks(Rating.THUMBSDOWN, false);		
 			}
 			
 		});
@@ -470,7 +509,14 @@ public class Home extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-				//DrinkInfo.displayStats(cont);		
+				if(GeneralUtils.testInternet(cont))
+				{
+					DrinkInfo.displayStats(cont);		
+				}
+				else
+				{
+					Toast.makeText(cont, "This requires an internet connection :(", Toast.LENGTH_SHORT).show();
+				}
 			}
 			
 		});
