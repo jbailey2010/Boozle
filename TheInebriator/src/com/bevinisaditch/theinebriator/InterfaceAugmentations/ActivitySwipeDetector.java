@@ -36,7 +36,7 @@ public class ActivitySwipeDetector implements View.OnTouchListener {
 		 switch(event.getAction()){
 			  case MotionEvent.ACTION_DOWN: {
 				   downX = event.getX();
-				   if(downX < 10.0) {
+				   if(downX < 50.0) {
 					   isFarLeft = true; 
 				   }
 				   else {
