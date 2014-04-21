@@ -127,6 +127,13 @@ public class SearchManagement {
 				}
 			}
 	    });
+	    TextView clear = (TextView)dialog.findViewById(R.id.clear);
+	    clear.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				input.setText("");;
+			}
+	    });
 	}
 	
 	/**

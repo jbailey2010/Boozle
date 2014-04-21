@@ -132,6 +132,9 @@ public class Home extends Activity {
 		    @Override
 		    public void onSideNavigationItemClick(int itemId) {
 		    	switch (itemId) {
+		    	case R.id.menu_home:
+		    		setNoResults();
+		    		break;
 	            case R.id.menu_random:
 	            	if(dataSet.size() > 0)
 	            	{
@@ -243,6 +246,7 @@ public class Home extends Activity {
 		res.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
 		ll.removeAllViews();
 		ll.addView(res);
+		getActionBar().setDisplayHomeAsUpEnabled(false);
 		instantiateButtons(res);
 	}
 	
