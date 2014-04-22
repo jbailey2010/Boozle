@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="libs/jackson-core-2.2.3.jar"/>
 	<classpathentry kind="lib" path="libs/jackson-annotations-2.2.3.jar"/>
 	<classpathentry kind="lib" path="libs/jackson-databind-2.2.3.jar"/>
+	<classpathentry kind="lib" path="src/sqlite-jdbc-3.7.15-M1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -40,6 +40,11 @@ public class Drink {
 		return id;
 	}
 	
+	public void setId(int newId)
+	{
+		id = newId;
+	}
+	
 	public Rating getRating()
 	{
 		return rating;

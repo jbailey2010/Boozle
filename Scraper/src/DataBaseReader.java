@@ -14,10 +14,14 @@ public class DataBaseReader {
 	private static Connection c = null;
 	private static ArrayList<Integer> ingredientIDs;
 	private static int maxIngredientID;
+	private static final int NUM_DRINKS = 200;
 
 	public static void main(String[] args) throws Exception
 	{
-		c = DriverManager.getConnection("jdbc:sqlite:drinksAndIngredientsFour.db");
+		transformDataBase(DataBaseFixer.fixDrinks());
+		
+		
+		c = DriverManager.getConnection("jdbc:sqlite:drinksAndIngredientsFive.db");
 		c.setAutoCommit(false);
 		ArrayList<Drink> drinks;
 		ArrayList<Matching> matchings;
@@ -26,10 +30,10 @@ public class DataBaseReader {
 		pairs = getPairs();
 		drinks = getDrinks();
 		c.close();
-		//writeDrinks(drinks);
-		//writeMatchings(matchings);
-		//writePairs(pairs);
-		writeDrinkTest(10, getAllDrinksTwo());
+		writeDrinks(drinks);
+		writeMatchings(matchings);
+		writePairs(pairs);
+		//writeDrinkTest(10, getAllDrinksTwo());
 		
 	}
 	
@@ -213,7 +217,7 @@ public class DataBaseReader {
 	private static ArrayList<Drink> getDrinks() throws SQLException {
 		ArrayList<Drink> drinks = new ArrayList<Drink>();
 		Statement stmt = c.createStatement();
-		ResultSet rs = stmt.executeQuery( "SELECT * FROM DRINKS WHERE ID <= 200;" );
+		ResultSet rs = stmt.executeQuery( "SELECT * FROM DRINKS WHERE ID <= "+NUM_DRINKS+";" );
 		while ( rs.next() )
 		{
 			int id = rs.getInt("id");
@@ -250,7 +254,7 @@ public class DataBaseReader {
 		ArrayList<Matching> matchings = new ArrayList<Matching>();
 		Statement stmt;
 		stmt = c.createStatement();
-		ResultSet rs2 = stmt.executeQuery( "SELECT * FROM MATCHINGS WHERE DRINKID <= 200");
+		ResultSet rs2 = stmt.executeQuery( "SELECT * FROM MATCHINGS WHERE DRINKID <= "+NUM_DRINKS+"");
 		ingredientIDs = new ArrayList<Integer>();
 		while (rs2.next())
 		{
@@ -306,11 +310,11 @@ public class DataBaseReader {
 		return ingList;
 	}
 
-	public static void transformDataBase() throws Exception
+	public static void transformDataBase(ArrayList<Drink> allDrinks) throws Exception
 	{
 		ArrayList<String> allIngredientNames = new ArrayList<String>();
 		ArrayList<DBDrink> allDBDrinks = new ArrayList<DBDrink>();
-		for (Drink currDrink : getAllDrinks())
+		for (Drink currDrink : allDrinks)
 		{
 			DBDrink dataBaseDrink = new DBDrink(currDrink);
 			//printDrink(currDrink);
@@ -340,7 +344,7 @@ public class DataBaseReader {
 			allDBDrinks.add(dataBaseDrink);
 		}
 		Class.forName(CLASS_NAME);
-		c = DriverManager.getConnection("jdbc:sqlite:drinksAndIngredientsFour.db");
+		c = DriverManager.getConnection("jdbc:sqlite:drinksAndIngredientsFive.db");
 		createDrinksTable();
 		//checkFoDup(allDBDrinks);
 		insertDrinkListToDB(allDBDrinks);
