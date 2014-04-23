@@ -25,8 +25,8 @@ public class ActivitySwipeDetector implements View.OnTouchListener {
 	
 	 public void onLeftToRightSwipe(){
 	  	((Home)activity).toggleMenu();
-	 } 
-	 
+	 }  
+	  
 	 public void onTopTouch(){
 		 
 	 }
@@ -34,7 +34,7 @@ public class ActivitySwipeDetector implements View.OnTouchListener {
 	 public boolean onTouch(View v, MotionEvent event) {
 		 float deltaX = 0;
 		 switch(event.getAction()){
-			  case MotionEvent.ACTION_DOWN: {
+			  case MotionEvent.ACTION_DOWN: { 
 				   downX = event.getX();
 				   if(downX < 50.0) {
 					   isFarLeft = true; 

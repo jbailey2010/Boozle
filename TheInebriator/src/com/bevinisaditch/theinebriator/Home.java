@@ -68,6 +68,7 @@ public class Home extends Activity {
 		ll = (LinearLayout)findViewById(R.id.home_base);
 		ll.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
 		drinks = Loading.drinks;
+		System.out.println(drinks.size());
 		setNoResults();
 	}
 
