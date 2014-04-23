@@ -81,6 +81,20 @@ public class BM25Ranker extends Ranker {
 
 		int averageLength = getAvgLengthOfDrinks(drinks);
 		
+		ArrayList<TermFrequency> termFreqs = new ArrayList<TermFrequency>();
+		for (String term : individualTerms) {
+			TermFrequency termFreq = handler.getTermFrequency(term.toLowerCase());
+			if (termFreq != null) {
+				termFreqs.add(termFreq);	
+			} else {
+				float freq = 0f;
+				termFreqs.add(new TermFrequency(term, freq));
+				Log.d("BM25Ranker", "No matching term freq for " + term);
+				
+			}
+			
+		}
+		
 		//For each drink, get a score
 		for (Drink drink : drinks) {
 			double score = 0.0;
@@ -96,22 +110,16 @@ public class BM25Ranker extends Ranker {
 				}
 			}
 			double totalFreq = parseTerms(wordsInDrink).size();
-			Log.d("BM25Ranker", "total frequency for " + drink.getName() + "is " + totalFreq);
+			//Log.d("BM25Ranker", "total frequency for " + drink.getName() + "is " + totalFreq);
 			
 			//Sum up all terms to get score
-			for (String term : individualTerms) {
-				TermFrequency termFreq = handler.getTermFrequency(term.toLowerCase());
+			for (TermFrequency termFreq : termFreqs) {
 				
-				float freq;
-				if (termFreq != null) {
-					freq = termFreq.getFrequency();
-				} else {
-					freq = 0f;
-					Log.d("BM25Ranker", "No matching term freq for " + term);
-				}
+				String term = termFreq.getTerm();
+				float freq = termFreq.getFrequency();
 				
 				double invDocFreq = Math.log((drinks.size()-freq+.5)/(freq + .5))/Math.log(2);
-				Log.d("BM25Ranker", "InvDocFreq for " + term + " is " + invDocFreq);
+				//Log.d("BM25Ranker", "InvDocFreq for " + term + " is " + invDocFreq);
 				
 				
 				double docFreq = 0.0;
@@ -133,7 +141,7 @@ public class BM25Ranker extends Ranker {
 				
 				docFreq /= totalFreq;
 				
-				Log.d("BM25Ranker", "docFreq for " + term + " in " + drink.getName() + " is " + docFreq);
+				//Log.d("BM25Ranker", "docFreq for " + term + " in " + drink.getName() + " is " + docFreq);
 				
 				double numerator = docFreq*(k+1)*invDocFreq;
 				double denominator = docFreq + k*(1-b+ b*(totalFreq/averageLength));
