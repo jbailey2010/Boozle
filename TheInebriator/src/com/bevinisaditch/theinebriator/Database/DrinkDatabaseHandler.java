@@ -35,13 +35,13 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    
 	    private Context con;
 	    private int numDrinksRead = 0;
-	    private static final String DRINK_FILE_NAME = "drinkData.txt";
-	    private static final String MATCH_FILE_NAME = "matchData.txt";
-	    private static final String PAIR_FILE_NAME = "pairData.txt";
-	 	 
+	    private static final String DRINK_FILE_NAME = "drinkDataShort.txt";
+	    private static final String MATCH_FILE_NAME = "matchDataShort.txt";
+	    private static final String PAIR_FILE_NAME = "pairDataShort.txt";
+	 	  
 	    public DrinkDatabaseHandler(Context context) {
 	        super(context, DATABASE_NAME, null, DATABASE_VERSION); 
-	        con = context;
+	        con = context; 
 	    } 
 	    
 	    public void reCreateTables()
