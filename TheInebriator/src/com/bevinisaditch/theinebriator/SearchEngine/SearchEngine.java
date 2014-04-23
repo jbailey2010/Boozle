@@ -47,7 +47,13 @@ public class SearchEngine {
 		
 		Log.d("SearchEngine", "Getting drinks...");
 		//TODO: Fix this
-		ArrayList<Drink> relevantDrinks = drinkHandler.getAllDrinks();
+		
+		String[] pterms = terms.get(0).split("\\s+");
+		ArrayList<String> parsedTerms = new ArrayList<String>();
+		for (String term : pterms) {
+			parsedTerms.add(term);
+		}
+		ArrayList<Drink> relevantDrinks = drinkHandler.getRelevantDrinksByName(parsedTerms);
 		Log.d("SearchEngine", "Got drinks...");
 		
 		

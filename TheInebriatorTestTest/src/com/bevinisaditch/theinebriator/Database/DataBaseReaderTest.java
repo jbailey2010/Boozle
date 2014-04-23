@@ -3,6 +3,7 @@ package com.bevinisaditch.theinebriator.Database;
 import java.util.ArrayList;
 
 import android.test.AndroidTestCase;
+import android.test.RenamingDelegatingContext;
 
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
@@ -79,5 +80,25 @@ public class DataBaseReaderTest extends AndroidTestCase {
 			System.out.println("\n Found " + otherDrink);
 		}
 		assertTrue(foundDrink);
+	}
+	
+	public void testGetRelevantDrinksByName() {
+		RenamingDelegatingContext context  = new RenamingDelegatingContext(getContext(), "test_");
+		DrinkDatabaseHandler handler = new DrinkDatabaseHandler(context);
+		Drink drink1 = new Drink("Rum and Coke");
+		drink1.setInstructions(" ");
+		Drink drink2 = new Drink("Tequila and lemonade");
+		drink2.setInstructions(" ");
+		//handler.addDrinkWithoutIngredients(drink1);
+		//handler.addDrinkWithoutIngredients(drink2);
+		
+		ArrayList<String> terms = new ArrayList<String>();
+		terms.add("billion");
+		
+		
+		ArrayList<Drink> relevantDrinks = handler.getRelevantDrinksByName(terms);
+		
+		assertEquals(1, relevantDrinks.size());
+		
 	}
 }

@@ -306,6 +306,48 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 			return drinks;
 	    }
 	    
+	    public ArrayList<Drink> getRelevantDrinksByName(ArrayList<String> terms) {
+	    	SQLiteDatabase db = this.getWritableDatabase();
+	    	ArrayList<Matching> allMatches = getAllMatchings();
+	    	ArrayList<IngredientIDPair> allPairs = getAllPairs();
+	    	
+	    	String selectQuery = "SELECT * FROM DRINKS WHERE ";
+	    	
+	    	if (terms != null && terms.size() > 0) {
+	    		selectQuery += "NAME LIKE '%" + terms.get(0) + "%'";
+	    		terms.remove(0);
+	    	}
+	    	
+	    	for (String term : terms) {
+	    		selectQuery += " OR NAME LIKE '%" + term + "%'";
+	    		
+	    	}
+	    	
+	    	Cursor cursor = db.rawQuery(selectQuery, null);
+	    	
+	    	ArrayList<Drink> drinks = new ArrayList<Drink>();
+			if (cursor.moveToFirst())
+			{
+				do
+				{
+					int id = cursor.getInt(0);
+					String name = cursor.getString(1);
+					Drink.Rating rating =  intToRating(cursor.getInt(2));
+					String instructions = cursor.getString(3);
+					//stmt.close();
+					ArrayList<Ingredient> ingredients = getIngredientsForDrinkID(id, allMatches, allPairs);
+
+					Drink currDrink = new Drink(name, rating, ingredients, instructions, id);
+					//System.out.println("Adding " + currDrink);
+					drinks.add(currDrink);
+				} while (cursor.moveToNext());
+			}
+			System.out.println("Got all drinks from db");
+			return drinks;
+
+	    	
+	    }
+	    
 	    /**
 	     * Gets all ingredients for a given drink ID
 	     * @param drinkID
