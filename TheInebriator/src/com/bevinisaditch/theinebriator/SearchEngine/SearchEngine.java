@@ -54,6 +54,7 @@ public class SearchEngine {
 			parsedTerms.add(term);
 		}
 		ArrayList<Drink> relevantDrinks = drinkHandler.getRelevantDrinksByName(parsedTerms);
+		//ArrayList<Drink> relevantDrinks = drinkHandler.getAllDrinks();
 		Log.d("SearchEngine", "Got drinks...");
 		
 		

@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
+import org.apache.commons.lang3.StringUtils;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -110,7 +111,7 @@ public class BM25Ranker extends Ranker {
 				}
 			}
 			double totalFreq = parseTerms(wordsInDrink).size();
-			//Log.d("BM25Ranker", "total frequency for " + drink.getName() + "is " + totalFreq);
+			Log.d("BM25Ranker", "total frequency for " + drink.getName() + "is " + totalFreq);
 			
 			//Sum up all terms to get score
 			for (TermFrequency termFreq : termFreqs) {
@@ -119,15 +120,18 @@ public class BM25Ranker extends Ranker {
 				float freq = termFreq.getFrequency();
 				
 				double invDocFreq = Math.log((drinks.size()-freq+.5)/(freq + .5))/Math.log(2);
-				//Log.d("BM25Ranker", "InvDocFreq for " + term + " is " + invDocFreq);
+				Log.d("BM25Ranker", "InvDocFreq for " + term + " is " + invDocFreq);
 				
 				
 				double docFreq = 0.0;
 				
 				if (searchType == SearchEngine.SEARCH_NAME) {
+					
 					if (drink.getName().toLowerCase().contains(term.toLowerCase())) {
 						docFreq += 1.0;
 					}
+					
+					//docFreq += StringUtils.countMatches(drink.getName().toLowerCase(), term.toLowerCase());
 				}
 				
 				if (searchType == SearchEngine.SEARCH_INGREDIENT) {
@@ -141,7 +145,7 @@ public class BM25Ranker extends Ranker {
 				
 				docFreq /= totalFreq;
 				
-				//Log.d("BM25Ranker", "docFreq for " + term + " in " + drink.getName() + " is " + docFreq);
+				Log.d("BM25Ranker", "docFreq for " + term + " in " + drink.getName() + " is " + docFreq);
 				
 				double numerator = docFreq*(k+1)*invDocFreq;
 				double denominator = docFreq + k*(1-b+ b*(totalFreq/averageLength));

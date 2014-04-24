@@ -314,12 +314,16 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	String selectQuery = "SELECT * FROM DRINKS WHERE ";
 	    	
 	    	if (terms != null && terms.size() > 0) {
-	    		selectQuery += "NAME LIKE '%" + terms.get(0) + "%'";
+	    		selectQuery += "NAME LIKE '% " + terms.get(0) + " %'";
+	    		selectQuery += " OR NAME LIKE '" + terms.get(0) + " %'";
+	    		selectQuery += " OR NAME LIKE '% " + terms.get(0) + "'";
 	    		terms.remove(0);
 	    	}
 	    	
 	    	for (String term : terms) {
-	    		selectQuery += " OR NAME LIKE '%" + term + "%'";
+	    		selectQuery += " OR NAME LIKE '% " + term + " %'";
+	    		selectQuery += " OR NAME LIKE '" + term + " %'";
+	    		selectQuery += " OR NAME LIKE '% " + term + "'";
 	    		
 	    	}
 	    	
