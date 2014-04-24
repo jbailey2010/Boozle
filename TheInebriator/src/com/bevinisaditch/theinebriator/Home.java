@@ -1,7 +1,10 @@
 package com.bevinisaditch.theinebriator;
 
+import java.io.UnsupportedEncodingException;
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -449,13 +452,18 @@ public class Home extends Activity {
 	
 	public static List<String> getIngredients()
 	{
+		HashSet<String> drinkSet = new HashSet<String>();
 		List<String> drinkNames = new ArrayList<String>();
 		for (Drink drink : drinks) {
 			for (Ingredient ingr : drink.getIngredients()) {
-				drinkNames.add(ingr.getName());
-			}
+				if(!drinkSet.contains(ingr.getName())){
+					drinkSet.add(ingr.getName());
+				}
+			} 
 		}
-		
+		for(String ingr : drinkSet){
+			drinkNames.add(ingr);
+		}
 		return drinkNames;
 	}
 	public void instantiateButtons(View res)
@@ -496,7 +504,7 @@ public class Home extends Activity {
             	backToNoResults = true;
             	listRatingDrinks(Rating.THUMBSUP, false);	
 			}
-			
+			 
 		});
 		Button disliked = (Button)res.findViewById(R.id.menu_disliked);
 		disliked.setOnClickListener(new OnClickListener(){
@@ -508,7 +516,7 @@ public class Home extends Activity {
             	listRatingDrinks(Rating.THUMBSDOWN, false);		
 			}
 			
-		});
+		});  
 		Button popularity = (Button)res.findViewById(R.id.menu_popularity);
 		popularity.setOnClickListener(new OnClickListener(){
 

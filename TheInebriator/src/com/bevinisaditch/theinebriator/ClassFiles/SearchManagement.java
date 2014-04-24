@@ -142,10 +142,7 @@ public class SearchManagement {
 	 */
 	public static void searchByIngredients(final Context c) {
 		final List<String> drinkNames = Home.getIngredients();
-		final Dialog dialog = new Dialog(c, R.style.DialogBackground);
-		
-		Log.d("MICHAEL", "" + drinkNames.size());
-		
+		final Dialog dialog = new Dialog(c, R.style.DialogBackground);		
 		if (optIngredients == null) {
 			optIngredients = new ArrayList<String>();
 		}
@@ -154,7 +151,7 @@ public class SearchManagement {
 		{
 			reqIngredients = new ArrayList<String>();
 		}
-		
+		 
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		dialog.setContentView(R.layout.search_ingredients_popup);
 		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
@@ -170,8 +167,7 @@ public class SearchManagement {
 			}
 	    });
 	    final AutoCompleteTextView input = (AutoCompleteTextView)dialog.findViewById(R.id.search_input_view);
-	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(c,
-                android.R.layout.simple_dropdown_item_1line, drinkNames);    
+	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(c, android.R.layout.simple_dropdown_item_1line, drinkNames);    
 	    input.setThreshold(2);
 	    input.setAdapter(adapter);
 	    final Button add = (Button)dialog.findViewById(R.id.search_add);
