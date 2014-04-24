@@ -43,7 +43,7 @@ public class DrinkPopup {
 	 * display the data from the clicked element itself
 	 * @param rating 
 	 */
-	public static void drinkPopUpInit(final Context c, final String name, String ingredients, final String instr, final String url, final boolean update, Rating rating)
+	public static void drinkPopUpInit(final Context c, final String name, String ingredients, final String instr, final String url, final boolean update, Rating rating, boolean showRefresh, final boolean isAllRandom)
 	{
 		nameDrink = name;
 		ingrDrink = ingredients;
@@ -91,6 +91,24 @@ public class DrinkPopup {
 			}
 	    	
 	    });
+	    ImageView refresh = (ImageView)dialog.findViewById(R.id.rerandomize);
+	    if(showRefresh){
+		    refresh.setOnClickListener(new OnClickListener(){
+				@Override
+				public void onClick(View v) {
+					if(isAllRandom){
+						((Home)cont).showAllRandomDrink();
+						dialog.dismiss();
+					}
+					else{
+						((Home)cont).showRandomDrink();
+					}
+				}
+		    });
+	    }
+	    else{
+	    	refresh.setVisibility(View.GONE);
+	    }
 	    TextView instrView = (TextView)dialog.findViewById(R.id.instructions_view);
 	    instrView.setText(instr);
 	    ImageView twitter = (ImageView)dialog.findViewById(R.id.twitter_logo);
