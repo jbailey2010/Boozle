@@ -41,8 +41,9 @@ public class DrinkPopup {
 	/**
 	 * Configures the initial pop up to appropriately handle input and
 	 * display the data from the clicked element itself
+	 * @param rating 
 	 */
-	public static void drinkPopUpInit(final Context c, final String name, String ingredients, final String instr, final String url, final boolean update)
+	public static void drinkPopUpInit(final Context c, final String name, String ingredients, final String instr, final String url, final boolean update, Rating rating)
 	{
 		nameDrink = name;
 		ingrDrink = ingredients;
@@ -102,6 +103,12 @@ public class DrinkPopup {
 	    });
 	    tu = (ImageView)dialog.findViewById(R.id.thumbs_up_img);
 	    td = (ImageView)dialog.findViewById(R.id.thumbs_down_img);
+	    if(rating.equals(Drink.Rating.THUMBSUP)){
+	    	tu.setImageResource(R.drawable.thumbsupselected);
+	    }
+	    if(rating.equals(Drink.Rating.THUMBSDOWN)){ 
+	    	td.setImageResource(R.drawable.thumbsdownselected);
+	    }
 	    tu.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {

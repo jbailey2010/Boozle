@@ -341,9 +341,9 @@ public class Home extends Activity {
 				String name = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text1)).getText().toString();
 				String ingredients = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text2)).getText().toString();
 				String instr = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text3)).getText().toString();
-				Log.d("MICHAEL", "Name: " + name + "  Ingredients: " + ingredients + "  instr: " + instr);
+				
 				list.setSelection(arg2);
-				DrinkPopup.drinkPopUpInit(cont, name, ingredients, instr, getDrinkUrl(name, instr, ingredients), true);
+				DrinkPopup.drinkPopUpInit(cont, name, ingredients, instr, getDrinkUrl(name, instr, ingredients), true, getDrinkRating(name, instr, ingredients));
 			}
 	    });
 	    list.setOnScrollListener(new OnScrollListener(){
@@ -378,7 +378,7 @@ public class Home extends Activity {
 		String name = drinkMap.get("name");
 		String ingr = drinkMap.get("info");
 		String instr = drinkMap.get("ingr");
-		DrinkPopup.drinkPopUpInit(cont, name, ingr, instr, getDrinkUrl(name, instr, ingr), true);
+		DrinkPopup.drinkPopUpInit(cont, name, ingr, instr, getDrinkUrl(name, instr, ingr), true, getDrinkRating(name, instr, ingr));
 		list.setSelection(randIndex);
 	}
 	
@@ -388,7 +388,7 @@ public class Home extends Activity {
 		String name = drink.getName();
 		String ingr = makeIngredientsBetter(drink.getIngredients());
 		String instr = drink.getInstructions();
-		DrinkPopup.drinkPopUpInit(cont, name, ingr, instr, getDrinkUrl(name, instr, ingr), false);
+		DrinkPopup.drinkPopUpInit(cont, name, ingr, instr, getDrinkUrl(name, instr, ingr), false, getDrinkRating(name, instr, ingr));
 		//list.setSelection(randIndex);
 		
 	}
@@ -406,6 +406,17 @@ public class Home extends Activity {
 			}
 		}
 		return "";
+	}
+	
+	public Rating getDrinkRating(String name, String instr, String ingr){
+		for(Drink dr : drinks)
+		{
+			if(dr.getName().equals(name) && dr.getInstructions().equals(instr) && makeIngredientsBetter(dr.getIngredients()).equals(ingr))
+			{
+				return dr.getRating();
+			}
+		}
+		return Drink.Rating.THUMBSNULL;
 	}
 	
 	/**
@@ -456,7 +467,7 @@ public class Home extends Activity {
 		List<String> drinkNames = new ArrayList<String>();
 		for (Drink drink : drinks) {
 			for (Ingredient ingr : drink.getIngredients()) {
-				if(!drinkSet.contains(ingr.getName())){
+				if(!drinkSet.contains(ingr.getName())){ 
 					drinkSet.add(ingr.getName());
 				}
 			} 
@@ -464,7 +475,7 @@ public class Home extends Activity {
 		for(String ingr : drinkSet){
 			drinkNames.add(ingr);
 		}
-		return drinkNames;
+		return drinkNames; 
 	}
 	public void instantiateButtons(View res)
 	{
