@@ -14,11 +14,11 @@ public class DataBaseReader {
 	private static Connection c = null;
 	private static ArrayList<Integer> ingredientIDs;
 	private static int maxIngredientID;
-	private static final int NUM_DRINKS = 200;
+	private static final int NUM_DRINKS = 13000;
 
 	public static void main(String[] args) throws Exception
 	{
-		transformDataBase(DataBaseFixer.fixDrinks());
+		transformDataBase(DataBaseFixer.fixIngredients(DataBaseFixer.fixDrinks()));
 		
 		
 		c = DriverManager.getConnection("jdbc:sqlite:drinksAndIngredientsFive.db");
@@ -375,6 +375,10 @@ public class DataBaseReader {
 	private static void createMatchingTable() throws Exception {
 		Statement stmt = null;
 		stmt = c.createStatement();
+		String deleteCommand = "DROP TABLE MATCHINGS";
+		stmt.executeUpdate(deleteCommand);
+		stmt.close();
+		stmt = c.createStatement();
 		String command= "CREATE TABLE MATCHINGS" +
 				"(ID INT PRIMARY KEY       NOT NULL," +
 				"DRINKID        INT        NOT NULL," +
@@ -387,6 +391,10 @@ public class DataBaseReader {
 	private static void createIngredientsTable() throws Exception {
 		Statement stmt = null;
 		stmt = c.createStatement();
+		String deleteCommand = "DROP TABLE INGREDIENTS";
+		stmt.executeUpdate(deleteCommand);
+		stmt.close();
+		stmt = c.createStatement();
 		String command = "CREATE TABLE INGREDIENTS" +
 				"(ID INT PRIMARY KEY      NOT NULL," +
 				"NAME           TEXT      NOT NULL)";
@@ -395,6 +403,10 @@ public class DataBaseReader {
 	}
 	private static void createDrinksTable() throws Exception {
 		Statement stmt = null;
+		stmt = c.createStatement();
+		String deleteCommand = "DROP TABLE DRINKS";
+		stmt.executeUpdate(deleteCommand);
+		stmt.close();
 		stmt = c.createStatement();
 		String command = "CREATE TABLE DRINKS" +
 				"(ID INT PRIMARY KEY       NOT NULL," +
@@ -426,9 +438,11 @@ public class DataBaseReader {
 				e.printStackTrace();
 			}
 		}
+		System.out.println("End insertDrinkListToDB");
 	}
 	private static void insertIngredientListToDB(ArrayList<String> names)
 	{
+		System.out.println("Begin insertIngredientListToDB");
 		int id = 0;
 		Statement stmt;
 		for (String str : names) {
@@ -445,9 +459,11 @@ public class DataBaseReader {
 				e.printStackTrace();
 			}
 		}
+		System.out.println("End insertIngredientListToDB");
 	}
 	private static void insertMatchingsToDB(ArrayList<DBDrink> drinks) throws SQLException
 	{
+		System.out.println("beginInsertMatchings");
 		int id = 0;
 		Statement stmt;
 		for (DBDrink currDrink : drinks)
@@ -462,6 +478,7 @@ public class DataBaseReader {
 				stmt.close();
 			}
 		}
+		System.out.println("endInsertMatchings");
 	}
 
 	public static ArrayList<Drink> getAllDrinks()
