@@ -8,6 +8,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.text.WordUtils;
+
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
@@ -468,7 +470,7 @@ public class Home extends Activity {
 		for (Drink drink : drinks) {
 			for (Ingredient ingr : drink.getIngredients()) {
 				if(!drinkSet.contains(ingr.getName())){ 
-					drinkSet.add(ingr.getName());
+					drinkSet.add(WordUtils.capitalize(ingr.getName()));
 				}
 			} 
 		}

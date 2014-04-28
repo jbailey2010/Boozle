@@ -101,9 +101,9 @@ public class DrinkPopup {
 						dialog.dismiss();
 					}
 					else{
-						((Home)cont).showRandomDrink();
+						((Home)cont).showRandomDrink(); 
 					}
-				}
+				} 
 		    });
 	    }
 	    else{
