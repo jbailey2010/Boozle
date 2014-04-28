@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.text.WordUtils;
+
 import com.bevinisaditch.theinebriator.Home;
 import com.bevinisaditch.theinebriator.SearchEngine.SearchEngine;
 import com.devingotaswitch.theinebriator.R;
@@ -84,7 +86,10 @@ public class SearchManagement {
 	 * @param c
 	 */
 	public static void searchByName(final Context c) {
-		final List<String> drinkNames = Home.getDrinkNames();
+		List<String> drinkNames = Home.getDrinkNames();
+		for (String name : drinkNames) {
+			name = WordUtils.capitalizeFully(name);
+		}
 		final Dialog dialog = new Dialog(c, R.style.DialogBackground);
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		dialog.setContentView(R.layout.search_name_popup);
