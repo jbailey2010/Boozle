@@ -86,7 +86,7 @@ public class SearchManagement {
 	 * @param c
 	 */
 	public static void searchByName(final Context c) {
-		List<String> drinkNames = Home.getDrinkNames();
+		final List<String> drinkNames = Home.getDrinkNames();
 		for (String name : drinkNames) {
 			name = WordUtils.capitalizeFully(name);
 		}
