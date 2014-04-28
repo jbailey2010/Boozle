@@ -48,7 +48,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    { 
 	    	SQLiteDatabase db = this.getWritableDatabase();
 	    	deleteTablesIfExist(db);
-	    	System.out.println("Deleted old tables");
+	    	//System.out.println("Deleted old tables");
 	    	onCreate(db);
 	    }
 	 
@@ -72,13 +72,13 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 					"QUANTITY       TEXT," +
 					"UNITS          TEXT)";
 	        db.execSQL(CREATE_MATCHINGS_TABLE);
-	        System.out.println("Created new tables");
+	        //System.out.println("Created new tables");
 	        readDrinks(db);
-	        System.out.println("Drinks read");
+	        //System.out.println("Drinks read");
 	        readMatchings(db);
-	        System.out.println("Matchings read");
+	        //System.out.println("Matchings read");
 	        readPairs(db);
-	        System.out.println("Pairs read");
+	        //System.out.println("Pairs read");
 	    }
 	 
 	    // Upgrading database
@@ -279,9 +279,9 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    {
 	    	ArrayList<Drink> drinks = new ArrayList<Drink>();
 	    	ArrayList<Matching> allMatches = getAllMatchings();
-	    	System.out.println("Got all matchings from db");
+	    	//System.out.println("Got all matchings from db");
 			ArrayList<IngredientIDPair> allPairs = getAllPairs();
-			System.out.println("Got all pairs from db");
+			//System.out.println("Got all pairs from db");
 			String selectQuery = "SELECT * FROM DRINKS;" ;
 			SQLiteDatabase db = this.getWritableDatabase();
 			Cursor cursor = db.rawQuery(selectQuery, null);
@@ -302,7 +302,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 					drinks.add(currDrink);
 				} while (cursor.moveToNext());
 			}
-			System.out.println("Got all drinks from db");
+			//System.out.println("Got all drinks from db");
 			return drinks;
 	    }
 	    
@@ -346,7 +346,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 					drinks.add(currDrink);
 				} while (cursor.moveToNext());
 			}
-			System.out.println("Got all drinks from db");
+			//System.out.println("Got all drinks from db");
 			return drinks;
 
 	    	
@@ -413,14 +413,14 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 
 	    		String line;
 	    		try {
-	    			int linesRead = 0;
+	    			//int linesRead = 0;
 	    			br = new BufferedReader(new InputStreamReader(is));
 	    			while ((line = br.readLine()) != null) 
 	    			{
-	    				linesRead++;
-	    				if (!line.equals("--"))
+	    				//linesRead++;
+	    				//if (!line.equals("--"))
 	    				{
-	    					System.out.println("Problem: not --");
+	    					//System.out.println("Problem: not --");
 	    				}
 	    				int id; 
 	    				String name;
@@ -432,14 +432,14 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    				instructions = br.readLine();
 	    				addDrinkByVars(id, name, rating, instructions, db);
 	    				numDrinksRead++;
-	    				if (numDrinksRead % 1000 == 0)
-	    					System.out.println("numDrinksRead: " + numDrinksRead);
+	    				//if (numDrinksRead % 1000 == 0)
+	    					//System.out.println("numDrinksRead: " + numDrinksRead);
 	    			}
-	    			System.out.println("Drink lines read: " + linesRead);
+	    			//System.out.println("Drink lines read: " + linesRead);
 
 	    		} catch (IOException e) {
 	    			e.printStackTrace();
-	    			System.out.println(e);
+	    			//System.out.println(e);
 	    		} finally {
 	    			if (br != null) {
 	    				try {
@@ -474,9 +474,9 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 
 	    			br = new BufferedReader(new InputStreamReader(is));
 	    			while ((line = br.readLine()) != null) {
-	    				if (!line.equals("--"))
+	    				//if (!line.equals("--"))
 	    				{
-	    					System.out.println("Problem: not --");
+	    					//System.out.println("Problem: not --");
 	    				}
 	    				int id = Integer.parseInt(br.readLine());
 	    				int drinkID = Integer.parseInt(br.readLine());
@@ -524,9 +524,9 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 
 	    			br = new BufferedReader(new InputStreamReader(is));
 	    			while ((line = br.readLine()) != null) {
-	    				if (!line.equals("--"))
+	    				//if (!line.equals("--"))
 	    				{
-	    					System.out.println("Problem: not --");
+	    				//	System.out.println("Problem: not --");
 	    				}
 	    				int id = Integer.parseInt(br.readLine());
 	    				String name = br.readLine();

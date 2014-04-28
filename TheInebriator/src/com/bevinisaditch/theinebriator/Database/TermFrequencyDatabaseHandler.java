@@ -103,21 +103,21 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
         	
         }
         
-        Log.d("TermFrequencyDatabaseHandler", "Calculating frequency for terms");
+        //Log.d("TermFrequencyDatabaseHandler", "Calculating frequency for terms");
         //Calculate the frequency for term
         for (Entry<String, Float> entry : termFreq.entrySet()) {
         	termFreq.put(entry.getKey(), entry.getValue()/totalTermCount);
         }
 		
         
-        Log.d("TermFrequencyDatabaseHandler", "Adding terms to database");
+        //Log.d("TermFrequencyDatabaseHandler", "Adding terms to database");
         //Add each entry to the database
         for (Entry<String, Float> entry : termFreq.entrySet()) {
         	Log.d("TermFrequencyDatabaseHandler", "Frequency for " + entry.getKey() + ": " + entry.getValue());
         	TermFrequency dbEntry = new TermFrequency(entry.getKey(), entry.getValue());
         	addTermFreq(db, dbEntry);
         }
-        Log.d("TermFrequencyDatabaseHandler", "Finished populating database");
+        //Log.d("TermFrequencyDatabaseHandler", "Finished populating database");
 	}
 
 	@Override

@@ -39,7 +39,7 @@ public class DataBaseReader {
 			Class.forName(DRIVER);
 			c = DriverManager.getConnection("jdbc:sqlite:drinks.db");
 			c.setAutoCommit(false);
-			System.out.println("Opened database successfully");
+			//System.out.println("Opened database successfully");
 			stmt = c.createStatement();
 			ResultSet results = stmt.executeQuery(command);
 			Drink retDrink = new Drink(results.getString("NAME"));
