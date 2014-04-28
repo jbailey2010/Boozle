@@ -86,8 +86,10 @@ public class DrinkPopup {
 
 			@Override
 			public void onClick(View arg0) {
-				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-				c.startActivity(browserIntent);
+				if(url!= null){
+					Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+					c.startActivity(browserIntent);
+				}
 			}
 	    	
 	    });
