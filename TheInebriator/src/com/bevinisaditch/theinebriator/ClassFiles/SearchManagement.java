@@ -147,9 +147,6 @@ public class SearchManagement {
 	 */
 	public static void searchByIngredients(final Context c) {
 		final List<String> drinkNames = Home.getIngredients();
-		for(String ing : drinkNames) {
-			ing = WordUtils.capitalizeFully(ing);
-		}
 		final Dialog dialog = new Dialog(c, R.style.DialogBackground);		
 		if (optIngredients == null) {
 			optIngredients = new ArrayList<String>();
