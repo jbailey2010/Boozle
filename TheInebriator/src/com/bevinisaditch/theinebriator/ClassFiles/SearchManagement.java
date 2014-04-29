@@ -9,6 +9,7 @@ import org.apache.commons.lang3.text.WordUtils;
 
 import com.bevinisaditch.theinebriator.Home;
 import com.bevinisaditch.theinebriator.SearchEngine.SearchEngine;
+import com.bevinisaditch.theinebriator.Utils.GeneralUtils;
 import com.devingotaswitch.theinebriator.R;
 
 import android.app.Activity;
@@ -105,9 +106,10 @@ public class SearchManagement {
 				dialog.dismiss();
 			}
 	    });
+	    final List<String> namesSorted = GeneralUtils.sortSingleList(drinkNames);
 	    final AutoCompleteTextView input = (AutoCompleteTextView)dialog.findViewById(R.id.search_input_view);
 	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(c,
-                android.R.layout.simple_dropdown_item_1line, drinkNames);    
+                android.R.layout.simple_dropdown_item_1line, namesSorted);    
 	    input.setThreshold(2);
 	    input.setAdapter(adapter);
 	    if(searchDrinkName.length() > 1)
@@ -172,7 +174,8 @@ public class SearchManagement {
 			}
 	    });
 	    final AutoCompleteTextView input = (AutoCompleteTextView)dialog.findViewById(R.id.search_input_view);
-	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(c, android.R.layout.simple_dropdown_item_1line, drinkNames);    
+	    final List<String> namesSorted = GeneralUtils.sortSingleList(drinkNames);
+	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(c, android.R.layout.simple_dropdown_item_1line, namesSorted);    
 	    input.setThreshold(2);
 	    input.setAdapter(adapter);
 	    final Button add = (Button)dialog.findViewById(R.id.search_add);
