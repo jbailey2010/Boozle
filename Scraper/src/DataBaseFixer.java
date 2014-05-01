@@ -65,29 +65,87 @@ public class DataBaseFixer {
 		{
 			ArrayList<Ingredient> newIngredients = new ArrayList<Ingredient>();
 			for (Ingredient currIngredient : currDrink.getIngredients())
-			{
-				if ((currIngredient.getQuantity() == null || currIngredient.getQuantity().isEmpty() || currIngredient.getQuantity().equals("null")) && (currIngredient.getUnits() == null || currIngredient.getUnits().isEmpty() || currIngredient.getUnits().equals("null")))
+			{			
+				Ingredient newIngredient;
+				//Refactoring
+				boolean quantityIsNull = (currIngredient.getQuantity() == null || currIngredient.getQuantity().isEmpty() || currIngredient.getQuantity().equals("null"));
+				boolean unitsIsNull = (currIngredient.getUnits() == null || currIngredient.getUnits().isEmpty() || currIngredient.getUnits().equals("null"));
+				boolean nameIsNull = (currIngredient.getName() == null || currIngredient.getName().isEmpty() || currIngredient.getName().equals("null"));
+				if (quantityIsNull && unitsIsNull)
 				{
-					Ingredient newIngredient = parseIngredient(currIngredient.getName());
-					newIngredients.add(newIngredient);
+					newIngredient = parseIngredient(currIngredient.getName());
+				}
+				else if (quantityIsNull && nameIsNull)
+				{
+					newIngredient = parseIngredient(currIngredient.getUnits());
+				}
+				else if (unitsIsNull && nameIsNull)
+				{
+					newIngredient = parseIngredient(currIngredient.getQuantity());
 				}
 				else
 				{
-					newIngredients.add(currIngredient);
+					newIngredient = currIngredient;
 				}
+				String name = newIngredient.getName();
+				if (name.length() > 3)
+				{
+					if (name.substring(0,3).equals("of "))
+					{
+						newIngredient.setName(name.substring(3));
+					}
+					else if (name.substring(0,3).equals("es "))
+					{
+						String ing = newIngredient.getQuantity() + " " + newIngredient.getUnits() + newIngredient.getName();
+						newIngredient = parseIngredient(ing);
+					}
+					else if (name.substring(0, 3).equals("en "))
+					{
+						if (newIngredient.getUnits().equals("oz"))
+						{
+							System.out.println("Corrected: " + newIngredient);
+							String ing = newIngredient.getQuantity() + newIngredient.getUnits() + newIngredient.getName();
+							System.out.println("String to parse: " + ing);
+							newIngredient = parseIngredient(ing);
+							if (newIngredient.getName().substring(0, 3).equals("en "))
+							{
+								newIngredient.setName(newIngredient.getQuantity() + newIngredient.getUnits() + newIngredient.getName());
+								newIngredient.setUnits("");
+								newIngredient.setQuantity("");
+							}
+							System.out.println("To: " + newIngredient);
+						}
+						else
+						{
+							System.out.println("en without oz");
+						}
+					}
+				}
+				else if (name.length() > 2)
+				{
+					if (name.substring(0,2).equals("d "))
+					{
+						newIngredient.setName(name.substring(2));
+					}
+				}
+				newIngredients.add(newIngredient);//Extracted
 			}
 			currDrink.setIngredients(newIngredients);
 		}
 		return drinks;
 	}
 	
-	private static final String[] POSSIBLE_UNITS = {"oz", "dash", "tsp", "tbsp", "pony", "jigger", "cup",
-        "pt", "qt", "gal", "splash", "dashes", "splashes", "float", "part",
-        "tablespoon", "teaspoon", "ponies", "gallon", "quart",
-        "ounce", "slice", "scoop"};
+	private static final String[] POSSIBLE_UNITS = {"scoop", "can", "part", "package", 
+		"shot", "dashes", "dash", "tsp", "tbsp", "pony", "ml", "sprig", "inch", "jigger",
+		"cup", "bottle", "tb", "drop", "liter", "litre", "twist", "heaping bar spoon", "bar spoon",
+		"spoon", "squeeze", "pinch", "stalk", "g", "dl", "lb", "bag",
+        "pt", "qt", "gal", "splashes", "splash", "float", "pint", "glass",
+        "tablespoon", "teaspoon", "ponies", "gallon", "quart", "oz",
+        "ounce", "slice", "cl", "whole", "piece"};
 	
 	public static Ingredient parseIngredient(String line)
 	{
+		line = line.toLowerCase();
 		String name;
 		String qty;
 		String units;
@@ -113,7 +171,7 @@ public class DataBaseFixer {
 			}
 		}
 		
-		return new Ingredient("", "", line);
+		return new Ingredient(line, "", "");
 		
 	}
 }

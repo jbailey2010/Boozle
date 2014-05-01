@@ -202,7 +202,6 @@ public class DataBaseReader {
 				ArrayList<Ingredient> ingredients = getIngredientsForDrinkID(id);
 
 				Drink currDrink = new Drink(name, rating, ingredients, instructions, id);
-				//System.out.println("Adding " + currDrink);
 				allDrinks.add(currDrink);
 			}
 			stmt.close();
@@ -237,7 +236,6 @@ public class DataBaseReader {
 		ArrayList<IngredientIDPair> pairs = new ArrayList<IngredientIDPair>();
 		Statement stmt;
 		stmt = c.createStatement();
-		System.out.println("maxIngredientID: " + maxIngredientID);
 		ResultSet rs3 = stmt.executeQuery("SELECT * FROM INGREDIENTS WHERE ID <= " + maxIngredientID);
 		while (rs3.next())
 		{
@@ -277,7 +275,6 @@ public class DataBaseReader {
 		int max = 0;
 		for (Integer curr : ingredientIDs)
 		{
-			System.out.println("Ingredient ID: " + curr);
 			if (curr > max)
 			{
 				max = curr;
@@ -526,7 +523,6 @@ public class DataBaseReader {
 			Class.forName(CLASS_NAME);
 			c = DriverManager.getConnection("jdbc:sqlite:drinks.db");
 			c.setAutoCommit(false);
-			System.out.println("Opened database successfully");
 			stmt = c.createStatement();
 			stmt.executeUpdate(command);
 		} catch (Exception e) {
@@ -580,7 +576,6 @@ public class DataBaseReader {
 			Class.forName(CLASS_NAME);
 			c = DriverManager.getConnection("jdbc:sqlite:drinks.db");
 			c.setAutoCommit(false);
-			System.out.println("Opened database successfully");
 			stmt = c.createStatement();
 			ResultSet results = stmt.executeQuery(command);
 			while(results.next()) {
