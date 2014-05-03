@@ -5,6 +5,14 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
+import com.bevinisaditch.theinebriator.ClassFiles.Drink;
+import com.socialize.EntityUtils;
+import com.socialize.entity.Entity;
+import com.socialize.error.SocializeException;
+import com.socialize.listener.entity.EntityAddListener;
+import com.socialize.listener.entity.EntityGetListener;
+
+import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -38,5 +46,43 @@ public class GeneralUtils {
 		public static List<String> sortSingleList(List<String> data){
 			Collections.sort(data);
 			return data;
+		}
+		
+		public static void bumpEntityValue(Drink dr, final Context cont)
+		{
+			String key = "http://www.boozle.com/" + dr.getName();
+			EntityUtils.getEntity((Activity) cont, key, new EntityGetListener() {
+				
+				@Override
+				public void onGet(Entity entity) {
+					System.out.println("GOT IT");
+					int newVal = 1;
+				   	if(entity.getMetaData() != null && entity.getMetaData().length() != 0)
+				   	{
+				   		newVal = Integer.parseInt(entity.getMetaData()) + 1;
+				   	}
+				   	System.out.println(newVal);
+				   	entity.setMetaData(String.valueOf(newVal));
+			    	EntityUtils.saveEntity((Activity)cont , entity, new EntityAddListener() {
+			       		@Override
+			    		public void onCreate(Entity result) {
+			    		}
+						@Override
+						public void onError(SocializeException error) {
+						}
+			    	});
+				}
+				
+				@Override
+				public void onError(SocializeException error) {
+					if(isNotFoundError(error)) {
+						// No entity found
+					}
+					else {
+						// Handle error
+					}
+				}
+			});
+		 	
 		}
 }

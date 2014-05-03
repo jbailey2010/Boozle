@@ -225,6 +225,9 @@ public class DrinkPopup {
 		{
 			if(drink.getName().equals(name) && dummy.makeIngredientsBetter(drink.getIngredients()).equals(ingr) && drink.getInstructions().equals(instr))
 			{
+				if(rating.equals(Drink.Rating.THUMBSUP) && GeneralUtils.testInternet(cont)){
+					GeneralUtils.bumpEntityValue(drink, cont);
+				}
 				drink.setRating(rating);
 				int id = drink.getId();
 				DrinkDatabaseHandler db = new DrinkDatabaseHandler(cont);
