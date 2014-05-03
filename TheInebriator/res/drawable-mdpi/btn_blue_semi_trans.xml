@@ -4,8 +4,6 @@
         <shape>
             <solid
                 android:color="#222222" />
-            <corners
-                android:radius="2dp" />
             <padding
                 android:left="10dp"
                 android:top="10dp"
@@ -19,8 +17,6 @@
                 android:startColor="#99666666"
                 android:endColor="#99555555"
                 android:angle="270" />
-            <corners
-                android:radius="2dp" />
             <padding
                 android:left="10dp"
                 android:top="10dp"
