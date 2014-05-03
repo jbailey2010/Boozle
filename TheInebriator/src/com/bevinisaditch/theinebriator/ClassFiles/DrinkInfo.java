@@ -104,6 +104,20 @@ public class DrinkInfo
 					i++;
 					data.append(i + ". "+ elem.getDisplayName() + " - " + elem.getEntityStats().getComments() + " likes\n");
 				}
+				i = 0;
+				PriorityQueue<Entity> sortedThumbs = sortEntitiesThumbs(results);
+				if(sortedThumbs.size() > 0){
+					data.append("\n");
+				}
+				i = 0;
+				while(!sortedThumbs.isEmpty() && i < 15){
+					if(i == 0){
+						data.append("Thumbs Upped:\n");
+					}
+					Entity elem = sortedThumbs.poll();
+					i++;
+					data.append(i + ". "+ elem.getDisplayName() + " - " + elem.getMetaData() + " times\n");
+				}
 				output.setText(data.toString());
 			}
 
@@ -205,6 +219,43 @@ public class DrinkInfo
 			if(elem.getEntityStats().getComments() > 0)
 			{
 				sorted.add(elem);
+			}
+		}
+		return sorted;
+	}
+	
+	/**
+	 * Sorts the input based on the amount of times drafted
+	 * @param input
+	 * @return
+	 */
+	public static PriorityQueue<Entity> sortEntitiesThumbs(List<Entity> input)
+	{
+		PriorityQueue<Entity> sorted = new PriorityQueue<Entity>(100, new Comparator<Entity>()
+				{
+					@Override
+					public int compare(Entity a, Entity b)
+					{
+						if(Integer.parseInt(a.getMetaData()) > Integer.parseInt(b.getMetaData()))
+						{
+							return -1;
+						}
+						if(Integer.parseInt(a.getMetaData()) < Integer.parseInt(b.getMetaData()))
+						{
+							return 1;
+						}
+						return 0;
+					}
+				});
+		for(Entity elem : input)
+		{
+			try{
+				if(elem.getMetaData()!= null && elem.getMetaData().length() > 0 && Integer.parseInt(elem.getMetaData()) > 0)
+				{
+					sorted.add(elem);
+				}
+			} catch(NumberFormatException e){
+				continue;
 			}
 		}
 		return sorted;
