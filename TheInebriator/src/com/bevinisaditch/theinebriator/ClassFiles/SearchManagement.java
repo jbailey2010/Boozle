@@ -141,6 +141,14 @@ public class SearchManagement {
 				input.setText("");;
 			}
 	    });
+	    TextView back = (TextView)dialog.findViewById(R.id.back);
+	    back.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+				getSearchType(c);
+			}
+	    });
 	}
 	
 	/**
@@ -191,6 +199,14 @@ public class SearchManagement {
 				optional.setText(" ");
 				submit.setBackground(c.getResources().getDrawable(R.drawable.btn_grey));
 				required.setText(" ");
+			}
+	    });
+	    TextView back = (TextView)dialog.findViewById(R.id.back);
+	    back.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+				getSearchType(c);
 			}
 	    });
 	    final RadioButton reqRadio = (RadioButton)dialog.findViewById(R.id.radio_required);

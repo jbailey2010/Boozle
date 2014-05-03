@@ -4,6 +4,19 @@
     android:layout_height="match_parent" >
     
     <TextView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="&lt;"
+        android:textColor="#FFFFFF"
+        android:textSize="44sp"
+        android:textStyle="bold" />
+    
+    <TextView
         android:id="@+id/close"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
