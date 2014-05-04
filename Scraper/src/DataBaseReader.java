@@ -16,6 +16,12 @@ public class DataBaseReader {
 	private static int maxIngredientID;
 	private static final int NUM_DRINKS = 13000;
 
+	/**
+	 * Main function calls the databasefixer and updates database and creates
+	 *  all the datas short text files
+	 * @param args
+	 * @throws Exception
+	 */
 	public static void main(String[] args) throws Exception
 	{
 		transformDataBase(DataBaseFixer.fixDrinks());
