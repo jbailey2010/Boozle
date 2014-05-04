@@ -1,0 +1,5058 @@
+--
+0
+absolut citron
+--
+1
+absolut mandrin
+--
+2
+strawberry-infused simple syrup
+--
+3
+sprite
+--
+4
+sour mix
+--
+5
+tequila herradura silver
+--
+6
+grapefruit soda (or juice)
+--
+7
+lemon juice and salt
+--
+8
+double cross vodka
+--
+9
+dry madeira
+--
+10
+scotch whisky
+--
+11
+honey
+--
+12
+absolut ruby red vodka
+--
+13
+lemon-lime soda
+--
+14
+grapefruit juice
+--
+15
+orange juice
+--
+16
+sweet & sour
+--
+17
+apricot brandy
+--
+18
+sweet & sour mix
+--
+19
+tequila avin silver
+--
+20
+cointreau
+--
+21
+fresh lime juice
+--
+22
+agave nectar
+--
+23
+5 blackberries
+--
+24
+thyme
+--
+25
+baileys original irish cream
+--
+26
+espresso or strongly-brewed coffee
+--
+27
+pumpkin pie spice
+--
+28
+cinnamon stick
+--
+29
+whipped cream
+--
+30
+white crme de cacao
+--
+31
+crme de banana
+--
+32
+cream
+--
+33
+brandy
+--
+34
+gin
+--
+35
+dry vermouth
+--
+36
+club soda or ginger ale
+--
+37
+tequila tezn aejo
+--
+38
+limoncello
+--
+39
+stoli citros
+--
+40
+grenadine
+--
+41
+juice of half a lemon
+--
+42
+blood orange-infused purity vodka
+--
+43
+1 egg white
+--
+44
+blood orange juice
+--
+45
+simple syrup
+--
+46
+blackberry soda
+--
+47
+vodka
+--
+48
+blue curaao
+--
+49
+pineapple juice
+--
+50
+cream of coconut (optional)
+--
+51
+1 beer mug lager
+--
+52
+glass wild turkey bourbon
+--
+53
+butterscotch schnapps
+--
+54
+bottles of chilled brut champagne or sparkling wine
+--
+55
+ginger ale
+--
+56
+lemonade
+--
+57
+strawberries
+--
+58
+basil hayden bourbon
+--
+59
+cinnamon simple syrup
+--
+60
+perfect puree cherry puree, thawed
+--
+61
+perfect puree key lime concentrate, thawed
+--
+62
+godiva chocolate liqueur
+--
+63
+cocoa powder
+--
+64
+el jimador blanco
+--
+65
+prosecco4 oz aperol (if you cant find aperol, campari is a good substitute)
+--
+66
+pink grapefruit juice
+--
+67
+honey syrup
+--
+68
+garnish: pomegranate seeds, raspberries, lime and grapefruit discs
+--
+69
+hiram walker original cinn cinnamon liqueur
+--
+70
+cranberry juice
+--
+71
+everglo
+--
+72
+cognac
+--
+73
+goslings rum
+--
+74
+ginger beer
+--
+75
+lime juice
+--
+76
+lime wedge
+--
+77
+guinness
+--
+78
+stella artois
+--
+79
+tequila tezn reposado
+--
+80
+martell cognac
+--
+81
+large-grained sugar
+--
+82
+champagne
+--
+83
+rum
+--
+84
+sugar
+--
+85
+crushed ice
+--
+86
+midori melon liqueur
+--
+87
+three olives cake vodka
+--
+88
+frangelico
+--
+89
+amaretto
+--
+90
+0.5 butter scotch schnapps
+--
+91
+godiva white chocolate liqueur
+--
+92
+fill with grapefruit juice
+--
+93
+harp ale
+--
+94
+or bottle guinness stout
+--
+95
+skyy infusions passion fruit vodka
+--
+96
+raspberry liqueur
+--
+97
+galliano lautentico
+--
+98
+espresso coffee
+--
+99
+double cream
+--
+100
+white crme de menthe
+--
+101
+mint
+--
+102
+irish whiskey
+--
+103
+coffee
+--
+104
+whipped cream (unsweetened)
+--
+105
+baileys irish cream
+--
+106
+guinness stout
+--
+107
+skyy infusions ginger vodka
+--
+108
+flor de caa 7-year rum
+--
+109
+fresh lemon juice
+--
+110
+holiday spiced simple syrup*
+--
+111
+soda water
+--
+112
+nutmeg and star anise pods for garnish
+--
+113
+2 orange wheels
+--
+114
+7 mint leaves
+--
+115
+jack daniels whiskey
+--
+116
+lemon juice
+--
+117
+chambord
+--
+118
+bols genever gin
+--
+119
+light rum
+--
+120
+sweet vermouth
+--
+121
+scorpion reposado mezcal
+--
+122
+antica formula carpano (sweet vermouth)
+--
+123
+homemade cherry bitters
+--
+124
+garnish: a maraschino cherry
+--
+125
+skyy citrus vodka
+--
+126
+white cranberry juice
+--
+127
+bourbon
+--
+128
+fresh mint
+--
+129
+super fine sugar
+--
+130
+water
+--
+131
+skyy infusions cherry vodka
+--
+132
+wild turkey 101 bourbon
+--
+133
+cola
+--
+134
+watermelon pucker
+--
+135
+cranapple juice
+--
+136
+peach schnapps or peach brandy
+--
+137
+sake
+--
+138
+pear juice
+--
+139
+1/4 dry vermouth
+--
+140
+pop rocks, flavor of your choice
+--
+141
+hornitos premium tequila
+--
+142
+purity vodka
+--
+143
+pumpkin puree
+--
+144
+cinnamon brown sugar syrup
+--
+145
+pomegranate juice
+--
+146
+sauza tequila
+--
+147
+sangrita
+--
+148
+prairie organic vodka
+--
+149
+hornitos plata tequila
+--
+150
+3 pineapple chunks
+--
+151
+cilantro
+--
+152
+2 thin habanero peppers
+--
+153
+bacardi 151 rum
+--
+154
+captain morgan spiced rum
+--
+155
+malibu
+--
+156
+crme de violette
+--
+157
+voli lemon
+--
+158
+club soda
+--
+159
+scorpion silver mezcal
+--
+160
+celery puree
+--
+161
+fresh mango puree
+--
+162
+chili infused sour mix
+--
+163
+domaine de canton ginger liqueur
+--
+164
+23 strawberries
+--
+165
+lemon or lime juice
+--
+166
+gin, preferably hendricks*
+--
+167
+fresh tarragon
+--
+168
+simple syrup**
+--
+169
+3 strawberries**
+--
+170
+jgermeister
+--
+171
+coconut water
+--
+172
+mango
+--
+173
+pineapple
+--
+174
+bols white cacao foam*
+--
+175
+patrn xo cafe dark cocoa
+--
+176
+ultimat vodka
+--
+177
+caramel syrup
+--
+178
+whisky
+--
+179
+maraschino liqueur
+--
+180
+x-rated fusion liqueur
+--
+181
+lemon-lime or club soda
+--
+182
+lots of ice
+--
+183
+patrn silver tequila
+--
+184
+patrn gold tequila
+--
+185
+bushmills 10-yearr-old single malt irish whiskey
+--
+186
+king of spirits gold absinthe
+--
+187
+lemon
+--
+188
+flor de caa 7 yr rum
+--
+189
+lustau palo cortado vides
+--
+190
+strawberry jam
+--
+191
+peanut syrup*
+--
+192
+1 yellow banana
+--
+193
+beer of your choice
+--
+194
+crme de banane
+--
+195
+malibu passion fruit rum
+--
+196
+tonic water
+--
+197
+lillet blanc
+--
+198
+is vodka
+--
+199
+amaretto bitters
+--
+200
+bourbon or rye whiskey
+--
+201
+simple syrup (sweet)
+--
+202
+lemon juice (sour)
+--
+203
+garnish: maraschino cherry
+--
+204
+pernod
+--
+205
+yellow chartreuse
+--
+206
+fresh coconut milk
+--
+207
+chocolate syrup
+--
+208
+coconut syrup
+--
+209
+vanilla ice cream
+--
+210
+canned pineapples
+--
+211
+strained orange juice
+--
+212
+raspberries
+--
+213
+can grapefruit juice
+--
+214
+chilled soda water
+--
+215
+chilled ginger ale
+--
+216
+1 egg
+--
+217
+freshly squeezed orange juice
+--
+218
+grenadine syrup
+--
+219
+basic syrup
+--
+220
+apple juice
+--
+221
+white wine
+--
+222
+maraschino cherries
+--
+223
+angostura bitters
+--
+224
+sherbet
+--
+225
+7-up soda
+--
+226
+tequila
+--
+227
+whiskey
+--
+228
+bourbon whiskey
+--
+229
+Chambord raspberry liqueur
+--
+230
+Irish cream
+--
+231
+Southern Comfort peach liqueur
+--
+232
+Absolut Mandrin vodka
+--
+233
+passion-fruit syrup
+--
+234
+vermouth
+--
+235
+A&W cream soda
+--
+236
+melon liqueur
+--
+237
+triple sec
+--
+238
+151 proof rum
+--
+239
+amaretto almond liqueur
+--
+240
+southern comfort peach liqueur
+--
+241
+fill with sweet and sour mix
+--
+242
+juice of 1/2 lemons
+--
+243
+1 maraschino cherry
+--
+244
+dark creme de cacao
+--
+245
+milk
+--
+246
+tea
+--
+247
+boiling water
+--
+248
+unsweetened cranberry juice
+--
+249
+apple cider
+--
+250
+brown sugar
+--
+251
+1 cinnamon
+--
+252
+ginger
+--
+253
+4 cloves
+--
+254
+dark rum
+--
+255
+banana liqueur
+--
+256
+kahlua coffee liqueur
+--
+257
+half-and-half
+--
+258
+fill with pineapple juice
+--
+259
+cherries
+--
+260
+drambuie scotch whisky
+--
+261
+malibu coconut rum
+--
+262
+cherry brandy
+--
+263
+1 canunsweetened chilled pineapple juice
+--
+264
+oft raspberry sherbet
+--
+265
+Absolut Citron vodka
+--
+266
+Pisang Ambon liqueur
+--
+267
+fill with bitter lemon soda
+--
+268
+creme de cassis
+--
+269
+1 lime
+--
+270
+frozen lemonade
+--
+271
+1 lemon
+--
+272
+hot water
+--
+273
+peach schnapps
+--
+274
+Sprite soda
+--
+275
+Strega herbal liqueur
+--
+276
+Grand Marnier orange liqueur
+--
+277
+sweet and sour mix
+--
+278
+absolut vodka
+--
+279
+wildberry schnapps
+--
+280
+dr. pepper soda
+--
+281
+amarula cream liqueur
+--
+282
+1 small banana
+--
+283
+chocolate ice cream
+--
+284
+2 bananas
+--
+285
+2 large pineapple
+--
+286
+ice
+--
+287
+spiced rum
+--
+288
+Coca-Cola
+--
+289
+3 ice cubes
+--
+290
+Opal Nera black sambuca
+--
+291
+Bombay Sapphire gin
+--
+292
+Blue Curacao liqueur
+--
+293
+sloe gin
+--
+294
+fill with cream
+--
+295
+fill with orange juice
+--
+296
+fruit juice
+--
+297
+fill with 7-up soda
+--
+298
+white creme de cacao
+--
+299
+Drambuie Scotch whisky
+--
+300
+Irish whiskey
+--
+301
+beefeater gin
+--
+302
+blue curacao liqueur
+--
+303
+oda water
+--
+304
+blackberry brandy
+--
+305
+limes
+--
+306
+Absolut vodka
+--
+307
+Midori melon liqueur
+--
+308
+Hiram Walker coconut rum
+--
+309
+pina colada mix
+--
+310
+shochu
+--
+311
+passion-fruit juice
+--
+312
+Orange Curacao liqueur
+--
+313
+frozen pink lemonade
+--
+314
+Cointreau orange liqueur
+--
+315
+light cream
+--
+316
+white creme de menthe
+--
+317
+egg
+--
+318
+Ketel One vodka
+--
+319
+Frangelico hazelnut liqueur
+--
+320
+Kahlua coffee liqueur
+--
+321
+Pernod licorice liqueur
+--
+322
+Bacardi 151 rum
+--
+323
+green creme de menthe
+--
+324
+7-Up soda
+--
+325
+Campari bitters
+--
+326
+limoncello lemon liqueur
+--
+327
+Finlandia vodka
+--
+328
+creme de noyaux
+--
+329
+1/2 banana
+--
+330
+nutmeg
+--
+331
+Malibu coconut rum
+--
+332
+cream of coconut
+--
+333
+Canadian whisky
+--
+334
+orange soda
+--
+335
+Jose Cuervo Especial gold tequila
+--
+336
+Yukon Jack Canadian whisky
+--
+337
+Champagne
+--
+338
+beer
+--
+339
+Mandarine Napoleon orange liqueur
+--
+340
+sugar syrup
+--
+341
+Curacao orange liqueur
+--
+342
+1 count orange juice
+--
+343
+1 count pineapple juice
+--
+344
+1 count cranberry juice
+--
+345
+guava juice
+--
+346
+passoa liqueur
+--
+347
+vladivar vodka
+--
+348
+mango juice
+--
+349
+ice cream
+--
+350
+mint schnapps
+--
+351
+1 swirl lime juice
+--
+352
+1 swirl grand marnier orange liqueur
+--
+353
+watermelon liqueur
+--
+354
+Marie Brizard Poire Williams pear liqueur
+--
+355
+cointreau orange liqueur
+--
+356
+berries
+--
+357
+apples
+--
+358
+V8 vegetable juice
+--
+359
+tabasco sauce
+--
+360
+salt
+--
+361
+peppers
+--
+362
+1 celery
+--
+363
+hot chocolate
+--
+364
+aftershock hot & cool cinnamon schnapps
+--
+365
+peppermint schnapps
+--
+366
+Dr. Pepper soda
+--
+367
+irish cream
+--
+368
+chocolate milk
+--
+369
+skyy blue vodka
+--
+370
+smirnoff vodka
+--
+371
+firewater cinnamon schnapps
+--
+372
+vanilla extract
+--
+373
+cinnamon
+--
+374
+lemons
+--
+375
+root beer schnapps
+--
+376
+Jagermeister herbal liqueur
+--
+377
+creme de almond
+--
+378
+Goldschlager cinnamon schnapps
+--
+379
+fill with 1/2 sweet and sour mix
+--
+380
+fill with 1/2 orange juice
+--
+381
+soda
+--
+382
+Alize liqueur
+--
+383
+creme de bananes
+--
+384
+UV blue raspberry vodka
+--
+385
+canadian club whisky
+--
+386
+creme de cacao
+--
+387
+french vanilla ice cream
+--
+388
+coffee liqueur
+--
+389
+raspberry schnapps
+--
+390
+fill with 2/3 sweet and sour mix
+--
+391
+fill with soda water
+--
+392
+Black Haus blackberry schnapps
+--
+393
+sprite soda
+--
+394
+vanilla vodka
+--
+395
+fill with cranberry juice
+--
+396
+brown creme de cacao
+--
+397
+fill with 1/2 pineapple juice
+--
+398
+orange bitters
+--
+399
+juice of 1/4 oranges
+--
+400
+1 cherry
+--
+401
+Deva absinthe
+--
+402
+benedictine herbal liqueur
+--
+403
+bitters
+--
+404
+anisette
+--
+405
+orange flower water
+--
+406
+Crown Royal Canadian whisky
+--
+407
+Absolut Kurant vodka
+--
+408
+Snapple Rain soda
+--
+409
+Bacardi Limon rum
+--
+410
+ouzo anise liqueur
+--
+411
+4 ice cubes
+--
+412
+white rum
+--
+413
+strawberry schnapps
+--
+414
+Aftershock Hot & Cool cinnamon schnapps
+--
+415
+Avalanche peppermint schnapps
+--
+416
+Scotch whisky
+--
+417
+heavy cream
+--
+418
+fruit punch
+--
+419
+yukon jack canadian whisky
+--
+420
+Tia Maria coffee liqueur
+--
+421
+DeKuyper Sour Apple Pucker schnapps
+--
+422
+coconut cream
+--
+423
+bananas
+--
+424
+2 - 3 ice cubes
+--
+425
+granulated sugar
+--
+426
+red food coloring
+--
+427
+blue food coloring
+--
+428
+2 apricot
+--
+429
+glycerine
+--
+430
+almond extract
+--
+431
+grain alcohol
+--
+432
+yellow food coloring
+--
+433
+Amer Picon orange bitters
+--
+434
+juice of 1 limes
+--
+435
+dry sherry
+--
+436
+Kool-Aid Cherry mix
+--
+437
+Bacardi white rum
+--
+438
+Mountain Dew citrus soda
+--
+439
+Skyy vodka
+--
+440
+Old Grandad bourbon whiskey
+--
+441
+apple brandy
+--
+442
+carbonated water
+--
+443
+apple schnapps
+--
+444
+cinnamon schnapps
+--
+445
+anejo rum
+--
+446
+Applejack brandy
+--
+447
+ice cubes
+--
+448
+Kerns apricot nectar
+--
+449
+fill with tonic water
+--
+450
+1 orange
+--
+451
+aslanov vodka
+--
+452
+Maui Blue Hawaiian schnapps
+--
+453
+DeKuyper Hot Damn cinnamon schnapps
+--
+454
+Lillet Blanc wine
+--
+455
+fill with ice
+--
+456
+mirnoff vodka
+--
+457
+outhern comfort peach liqueur
+--
+458
+monin passion-fruit syrup
+--
+459
+weet and sour mix
+--
+460
+juice of 1 lemons
+--
+461
+es sugar
+--
+462
+red cinnamon schnapps
+--
+463
+100 proof cinnamon schnapps
+--
+464
+Courvoisier cognac
+--
+465
+fill with 1/2 ginger ale
+--
+466
+fill with 1/2 cranberry juice
+--
+467
+cantaloupe melon
+--
+468
+1 peeled banana
+--
+469
+banana
+--
+470
+banff ice vodka
+--
+471
+irish mist herbal liqueur
+--
+472
+maui blue hawaiian schnapps
+--
+473
+Bacardi gold rum
+--
+474
+Tropicana orange juice
+--
+475
+Sagatiba Pura
+--
+476
+5 very ripe strawberries
+--
+477
+Bud Light lager
+--
+478
+1 handful ice
+--
+479
+strawberry daiquiri mix
+--
+480
+margarita mix
+--
+481
+genever gin
+--
+482
+chocolate liqueur
+--
+483
+fill with heavy cream
+--
+484
+12 eggs
+--
+485
+12 seperated eggs
+--
+486
+grated nutmeg
+--
+487
+6 eggs
+--
+488
+2 egg
+--
+489
+tawny port
+--
+490
+McGuinness Red Tassel vodka
+--
+491
+fill with sprite soda
+--
+492
+cherry liqueur
+--
+493
+2 lime
+--
+494
+coconut rum
+--
+495
+fill with water
+--
+496
+lime
+--
+497
+Jubilee peach schnapps
+--
+498
+juice of 1/2 limes
+--
+499
+juice of 1/4 lemons
+--
+500
+powdered sugar
+--
+501
+burgundy wine
+--
+502
+black sambuca
+--
+503
+1 black olive
+--
+504
+blended whiskey
+--
+505
+coffee brandy
+--
+506
+trong black coffee
+--
+507
+sake rice wine
+--
+508
+soy sauce
+--
+509
+Blavod vodka
+--
+510
+Longbranch bloody mary mix
+--
+511
+strawberry syrup
+--
+512
+Calvados brandy
+--
+513
+premium vanilla ice cream
+--
+514
+1 candrained fruit cocktail
+--
+515
+3 crushed strawberries
+--
+516
+bombay sapphire gin
+--
+517
+bols kontiki red orange liqueur
+--
+518
+Hiram Walker creme de bananes
+--
+519
+Hiram Walker Blue Curacao liqueur
+--
+520
+Becherovka herbal liqueur
+--
+521
+coarse salt
+--
+522
+apricot juice
+--
+523
+blueberry schnapps
+--
+524
+balance with cranberry juice
+--
+525
+orange pekoe tea
+--
+526
+Surge citrus soda
+--
+527
+Smirnoff vodka
+--
+528
+lemon-lime mix
+--
+529
+madeira
+--
+530
+1 olive
+--
+531
+fresh pineapple juice
+--
+532
+draft beer
+--
+533
+jagermeister herbal liqueur
+--
+534
+red bull energy drink
+--
+535
+superfine sugar
+--
+536
+orange
+--
+537
+port
+--
+538
+DeKuyper Peachtree schnapps
+--
+539
+collins mix
+--
+540
+orangina orange soda
+--
+541
+french red wine
+--
+542
+mad dog grape wine
+--
+543
+1 small ice
+--
+544
+Rumple Minze peppermint liqueur
+--
+545
+2 cans mountain dew citrus soda
+--
+546
+190 proof everclear alcohol
+--
+547
+candies
+--
+548
+fresh orange juice
+--
+549
+bitter lemon soda
+--
+550
+Captain Morgan Original spiced rum
+--
+551
+gold tequila
+--
+552
+cotch whisky
+--
+553
+Ricard pastis
+--
+554
+peychaud bitters
+--
+555
+eggnog
+--
+556
+ground nutmeg
+--
+557
+watermelon schnapps
+--
+558
+Squirt citrus soda
+--
+559
+3 counts banana syrup
+--
+560
+3 squirts chocolate syrup
+--
+561
+1 spear cucumber
+--
+562
+red wine
+--
+563
+sweet non-alcoholic apple cider
+--
+564
+cold coffee
+--
+565
+trawberry vodka
+--
+566
+Herradura blanco tequila
+--
+567
+Bandolero triple sec
+--
+568
+cherry juice
+--
+569
+Fresh Samantha mango juice
+--
+570
+clamato juice
+--
+571
+Tabasco sauce
+--
+572
+Cinzano Orancio French vermouth
+--
+573
+root beer
+--
+574
+fill with coca-cola
+--
+575
+DeKuyper Razzmatazz liqueur
+--
+576
+2 - 3 lemons
+--
+577
+sambuca
+--
+578
+1 handful sugar
+--
+579
+fill with lemon-lime soda
+--
+580
+chilled beer
+--
+581
+2 cinnamon
+--
+582
+cloves
+--
+583
+allspice
+--
+584
+packed brown sugar
+--
+585
+Green Chartreuse
+--
+586
+pepsi cola
+--
+587
+lager
+--
+588
+cider
+--
+589
+blackcurrant cordial
+--
+590
+fill with snapple soda
+--
+591
+Wild Turkey bourbon whiskey
+--
+592
+Everclear alcohol
+--
+593
+abita root beer
+--
+594
+Galliano herbal liqueur
+--
+595
+Jim Beam bourbon whiskey
+--
+596
+Stolichnaya vodka
+--
+597
+rumple minze peppermint liqueur
+--
+598
+peach nectar
+--
+599
+2 cherries
+--
+600
+fill with dr. pepper soda
+--
+601
+Beefeater gin
+--
+602
+Johnnie Walker Red Label Scotch whisky
+--
+603
+Johnnie Walker Black Label Scotch whisky
+--
+604
+pisang ambon liqueur
+--
+605
+3 strawberries
+--
+606
+Bacardi dark rum
+--
+607
+Tequila Rose strawberry cream liqueur
+--
+608
+mandarine napoleon orange liqueur
+--
+609
+tia maria coffee liqueur
+--
+610
+fresh cream
+--
+611
+5 ice cubes
+--
+612
+cold tea
+--
+613
+Dubonnet French vermouth
+--
+614
+anis liqueur
+--
+615
+1/4 lemon
+--
+616
+green ginger wine
+--
+617
+Tanqueray gin
+--
+618
+Captain Morgan Parrot Bay coconut rum
+--
+619
+tang powdered soft drink
+--
+620
+7 piecesfrozen strawberries
+--
+621
+12 ice cubes
+--
+622
+1 ripe banana
+--
+623
+3 seperated eggs
+--
+624
+ground allspice
+--
+625
+ground cinnamon
+--
+626
+ground cloves
+--
+627
+hot coffee
+--
+628
+Tang powdered soft drink
+--
+629
+fill with mountain dew citrus soda
+--
+630
+fruits
+--
+631
+high proof vodka
+--
+632
+juice of 3 - 6 lemons
+--
+633
+ice cold water
+--
+634
+pear liqueur
+--
+635
+RedRum rum
+--
+636
+top with tropicana banana-strawberry juice
+--
+637
+1 cocktail onion
+--
+638
+Stoli Ohranj vodka
+--
+639
+Dubonnet Rouge vermouth
+--
+640
+Angostura bitters
+--
+641
+zima
+--
+642
+gold rum
+--
+643
+Jamaican dark rum
+--
+644
+papaya juice
+--
+645
+1 pineapple
+--
+646
+tomato juice
+--
+647
+juice of 1/4 limes
+--
+648
+8 limes
+--
+649
+campari bitters
+--
+650
+bundaberg dark rum
+--
+651
+bacardi white rum
+--
+652
+white port
+--
+653
+corona extra lager
+--
+654
+batida de coco
+--
+655
+vanilla syrup
+--
+656
+DeKuyper Buttershots liqueur
+--
+657
+tuaca citrus liqueur
+--
+658
+Casa Noble Reposado tequila
+--
+659
+Bacardi light rum
+--
+660
+Godet white chocolate liqueur
+--
+661
+cherry vodka
+--
+662
+hot espresso
+--
+663
+fill with chocolate milk
+--
+664
+Martini & Rossi bianco vermouth
+--
+665
+ice cold Jagermeister herbal liqueur
+--
+666
+99 Bananas banana schnapps
+--
+667
+wild turkey bourbon whiskey
+--
+668
+apfelkorn liqueur
+--
+669
+goldschlager cinnamon schnapps
+--
+670
+absolut citron vodka
+--
+671
+bacardi limon rum
+--
+672
+squirt citrus soda
+--
+673
+advocaat liqueur
+--
+674
+10 ice cubes
+--
+675
+top with pineapple juice
+--
+676
+vanilla schnapps
+--
+677
+Ice 101 peppermint schnapps
+--
+678
+chilled tequila
+--
+679
+black peppers
+--
+680
+galliano herbal liqueur
+--
+681
+west coast cooler wine
+--
+682
+bulmers cider
+--
+683
+heering cherry liqueur
+--
+684
+Fernet Branca bitters
+--
+685
+Sunny Delight orange juice
+--
+686
+1/2 kgcoarsely chopped cranberries
+--
+687
+cranberry vodka
+--
+688
+Wild Spirit chocolate raspberry liqueur
+--
+689
+fill with cream soda
+--
+690
+cream sherry
+--
+691
+cream soda
+--
+692
+chocolate mint liqueur
+--
+693
+cherry cola
+--
+694
+absolut kurant vodka
+--
+695
+orgeat syrup
+--
+696
+frangelico hazelnut liqueur
+--
+697
+fill with 2/3 cranberry juice
+--
+698
+fill with 1/3 sprite soda
+--
+699
+1 mint
+--
+700
+Inferno Pepper Pot vodka
+--
+701
+olive juice
+--
+702
+2 olives
+--
+703
+2 ice cubes
+--
+704
+Hennessy cognac
+--
+705
+chilled orange juice
+--
+706
+chilled cranberry juice
+--
+707
+Passoa liqueur
+--
+708
+fill with iced tea
+--
+709
+Minute Maid fruit punch
+--
+710
+50 clfresh orange juice
+--
+711
+ambuca
+--
+712
+fill with lemonade
+--
+713
+bacardi dark rum
+--
+714
+bacardi light rum
+--
+715
+coconut milk
+--
+716
+crushed pineapples
+--
+717
+dry gin
+--
+718
+fresh pineapples
+--
+719
+apricot nectar
+--
+720
+coca-cola
+--
+721
+cold espresso
+--
+722
+Kool-Aid
+--
+723
+surge citrus soda
+--
+724
+Turkey Hill iced tea
+--
+725
+peach brandy
+--
+726
+clam juice
+--
+727
+horseradish
+--
+728
+worcestershire sauce
+--
+729
+rye whiskey
+--
+730
+2 mint
+--
+731
+Worcestershire sauce
+--
+732
+pepper
+--
+733
+Puerto Rican dark rum
+--
+734
+Tennessee whiskey
+--
+735
+chilled champagne
+--
+736
+peach
+--
+737
+maple syrup
+--
+738
+finlandia vodka
+--
+739
+red soda
+--
+740
+fill with champagne
+--
+741
+fill with ginger ale
+--
+742
+Firewater cinnamon schnapps
+--
+743
+mountain dew citrus soda
+--
+744
+weet sherry
+--
+745
+Four Roses bourbon whiskey
+--
+746
+fill with lemon juice
+--
+747
+chilled Champagne
+--
+748
+6 mint
+--
+749
+raspberry juice
+--
+750
+fruit yoghurt
+--
+751
+1 banana
+--
+752
+frozen orange juice
+--
+753
+6 ice cubes
+--
+754
+wild cherry liqueur
+--
+755
+dekuyper peachtree schnapps
+--
+756
+prite soda
+--
+757
+3 cocktail onions
+--
+758
+strawberry liqueur
+--
+759
+Red Bull energy drink
+--
+760
+Bacardi orange rum
+--
+761
+Bacardi Tropico rum
+--
+762
+Amaretto Di Saronno liqueur
+--
+763
+top with grenadine syrup
+--
+764
+Jose Cuervo 1800 tequila
+--
+765
+Christian Brothers Frost White brandy
+--
+766
+weetened condensed milk
+--
+767
+with cranberry juice
+--
+768
+chambord raspberry liqueur
+--
+769
+chilled apple juice
+--
+770
+lemon sherbet
+--
+771
+Yellow Chartreuse
+--
+772
+daiquiri mix
+--
+773
+grapes
+--
+774
+1/4 skinless lemon
+--
+775
+1/2 skinless pineapple
+--
+776
+grape soda
+--
+777
+Zima
+--
+778
+kool-aid mango mix
+--
+779
+cossack vodka
+--
+780
+bols green curacao liqueur
+--
+781
+bols creme de bananes
+--
+782
+fill with apple cider
+--
+783
+Gatorade energy drink
+--
+784
+Five Alive fruit juice
+--
+785
+DeKuyper Mad Melon schnapps
+--
+786
+Godiva chocolate liqueur
+--
+787
+peppermint liqueur
+--
+788
+Quetsch plum liqueur
+--
+789
+white grape juice
+--
+790
+pine-orange-banana juice
+--
+791
+Stoli Strasberi vodka
+--
+792
+juice of 1 small limes
+--
+793
+1/4 lime
+--
+794
+French vermouth
+--
+795
+Italian vermouth
+--
+796
+Kirschwasser cherry brandy
+--
+797
+white sambuca
+--
+798
+Fresca grapefruit soda
+--
+799
+pineapples
+--
+800
+oranges
+--
+801
+100 proof vodka
+--
+802
+Rock and Rye liqueur
+--
+803
+Harp lager
+--
+804
+Guinness stout
+--
+805
+everclear alcohol
+--
+806
+7-Up cherry soda
+--
+807
+chopped bananas
+--
+808
+raisins
+--
+809
+Dom Perignon Champagne
+--
+810
+red pepper
+--
+811
+1 canfrozen cranberry juice
+--
+812
+Smirnoff No. 21 Vodka
+--
+813
+Tuaca citrus liqueur
+--
+814
+jellied cranberry juice
+--
+815
+firmly packed brown sugar
+--
+816
+unsweetened pineapple juice
+--
+817
+butter
+--
+818
+cocoa
+--
+819
+warm orange juice
+--
+820
+1 - 2 washed oranges
+--
+821
+clove
+--
+822
+1 allspice
+--
+823
+1 clove
+--
+824
+espresso
+--
+825
+instant coffee
+--
+826
+Black Velvet Canadian whisky
+--
+827
+4 eggs
+--
+828
+1 cansweetened condensed milk
+--
+829
+3 eggs
+--
+830
+zest of 15 fresh lemons
+--
+831
+lemon liqueur
+--
+832
+jamaican dark rum
+--
+833
+fill with milk
+--
+834
+blonde beer
+--
+835
+red vodka
+--
+836
+watermelon jell-o
+--
+837
+apple
+--
+838
+Mello Yello citrus soda
+--
+839
+5 mint
+--
+840
+fill with 1/2 lemonade
+--
+841
+fill with 1/2 iced tea
+--
+842
+Kummel caraway liqueur
+--
+843
+1 vanilla
+--
+844
+1 fifth vodka
+--
+845
+fudge ice cream
+--
+846
+top with 7-up soda
+--
+847
+johnnie walker scotch whisky
+--
+848
+dry white wine
+--
+849
+Bols kiwi liqueur
+--
+850
+turkish apple tea
+--
+851
+5 cans caguamas tecate beer
+--
+852
+4 lemons
+--
+853
+2 squirts tabasco sauce
+--
+854
+es salt
+--
+855
+grape juice
+--
+856
+Swedish punsch
+--
+857
+yoghurt
+--
+858
+cold water
+--
+859
+dekuyper buttershots liqueur
+--
+860
+1 canfrozen pink lemonade
+--
+861
+frozen fruit
+--
+862
+7 lemons
+--
+863
+alcohol
+--
+864
+ugar
+--
+865
+riccadonna asti champagne
+--
+866
+fill with red bull energy drink
+--
+867
+1 marshmallow
+--
+868
+1/2 mango
+--
+869
+1/4 papaya
+--
+870
+2 handfuls ice
+--
+871
+tropicana orange juice
+--
+872
+almond syrup
+--
+873
+1/4 packet kool-aid tropical punch mix
+--
+874
+2 oranges
+--
+875
+2 lemons
+--
+876
+Stoli Vanil vodka
+--
+877
+2 squirts bitters
+--
+878
+1/2 egg
+--
+879
+whipping cream
+--
+880
+Van Der Hum liqueur
+--
+881
+parkling apple juice
+--
+882
+Rum Tree liqueur
+--
+883
+pisco brandy
+--
+884
+red grape juice
+--
+885
+1/4 mashed banana
+--
+886
+sweet sherry
+--
+887
+parkling bitter lemon soda
+--
+888
+cold cola
+--
+889
+blueberry syrup
+--
+890
+guava nectar
+--
+891
+dry ginger ale
+--
+892
+caster sugar
+--
+893
+cherry soda
+--
+894
+peach passion-fruit jello
+--
+895
+guava syrup
+--
+896
+Knob Creek bourbon whiskey
+--
+897
+cherry cider
+--
+898
+vanilla
+--
+899
+mint-flavored gin
+--
+900
+iced tea
+--
+901
+12 apples
+--
+902
+12 oranges
+--
+903
+1 fifth dekuyper sour apple pucker schnapps
+--
+904
+8 strips oranges
+--
+905
+1/2 cinnamon
+--
+906
+rum cream liqueur
+--
+907
+mandarin juice
+--
+908
+strawberry puree
+--
+909
+raspberry syrup
+--
+910
+chilled cocoa
+--
+911
+lemon vodka
+--
+912
+LBV port
+--
+913
+swiss chocolate almond liqueur
+--
+914
+weet vermouth
+--
+915
+juice of 1/2 oranges
+--
+916
+peach liqueur
+--
+917
+hawaiian punch
+--
+918
+hazelnut liqueur
+--
+919
+food coloring
+--
+920
+weetened cocoa powder
+--
+921
+2 cans coco lopez cream of coconut
+--
+922
+Del Monte pineapple juice
+--
+923
+Sunkist orange juice
+--
+924
+absolut mandrin vodka
+--
+925
+Safari liqueur
+--
+926
+fanta orange soda
+--
+927
+papaya
+--
+928
+frozen strawberries
+--
+929
+Bols peach liqueur
+--
+930
+sparkling white wine
+--
+931
+2 kg sugar
+--
+932
+peaches
+--
+933
+1 handful cloves
+--
+934
+tropical-fruit schnapps
+--
+935
+pink lemonade
+--
+936
+Crystal Light lemonade mix
+--
+937
+chilled Pisang Ambon liqueur
+--
+938
+chilled milk
+--
+939
+frozen limeade
+--
+940
+plums
+--
+941
+3 pineapples
+--
+942
+3 cinnamon
+--
+943
+2 cansfrozen pink lemonade
+--
+944
+chilled DeKuyper Cactus Juice schnapps
+--
+945
+Bols Orange Curacao liqueur
+--
+946
+Bols triple sec
+--
+947
+Pepsi Slice soda
+--
+948
+Pineau des Charentes white wine
+--
+949
+1 beaten egg
+--
+950
+Plymouth gin
+--
+951
+rosso vermouth
+--
+952
+pineapple syrup
+--
+953
+Johnnie Walker Scotch whisky
+--
+954
+Punt e Mes red vermouth
+--
+955
+Noilly Prat French vermouth
+--
+956
+pistachio ice cream
+--
+957
+apricot liqueur
+--
+958
+Marie Brizard Creme de Fraise des Bois
+--
+959
+1/3 mashed banana
+--
+960
+Licor 43 liqueur
+--
+961
+London dry gin
+--
+962
+pepper vodka
+--
+963
+cold tomato juice
+--
+964
+chilled lemonade
+--
+965
+5 maraschino cherries
+--
+966
+hot black coffee
+--
+967
+cold black coffee
+--
+968
+Havana Club Anejo Reserva rum
+--
+969
+Havana Club 7 Years rum
+--
+970
+silver tequila
+--
+971
+Charles Heidsieck Champagne
+--
+972
+filtered orange juice
+--
+973
+claret
+--
+974
+Stoli Razberi vodka
+--
+975
+Parfait Amour orange liqueur
+--
+976
+Russian vodka
+--
+977
+Early Times bourbon whiskey
+--
+978
+rhubarbs
+--
+979
+rosewater
+--
+980
+green chartreuse
+--
+981
+fernet branca bitters
+--
+982
+fresh double cream
+--
+983
+russian vodka
+--
+984
+CocoRibe coconut rum
+--
+985
+crown royal canadian whisky
+--
+986
+vanilla liqueur
+--
+987
+unsweetened grape juice
+--
+988
+Kool-Aid Lime mix
+--
+989
+3 limes
+--
+990
+strawberry margarita mix
+--
+991
+Dry Orange Curacao liqueur
+--
+992
+Bols creme de bananes
+--
+993
+Bols white creme de cacao
+--
+994
+Babycham Champagne
+--
+995
+Bols cherry brandy
+--
+996
+oude genever gin
+--
+997
+hot black tea
+--
+998
+medium sherry
+--
+999
+armagnac
+--
+1000
+strawberry brandy
+--
+1001
+chilled 7-Up soda
+--
+1002
+creme de mure
+--
+1003
+wild strawberry liqueur
+--
+1004
+chilled cola
+--
+1005
+kiwi syrup
+--
+1006
+4 strawberries
+--
+1007
+melons
+--
+1008
+hot cocoa
+--
+1009
+chilled Coca-Cola
+--
+1010
+banana syrup
+--
+1011
+beef bouillon
+--
+1012
+celery salt
+--
+1013
+white peach puree
+--
+1014
+prosecco sparkling wine
+--
+1015
+bianco vermouth
+--
+1016
+chocolate
+--
+1017
+overproof rum
+--
+1018
+lime syrup
+--
+1019
+Prosecco sparkling wine
+--
+1020
+aged rum
+--
+1021
+mango syrup
+--
+1022
+1 papaya
+--
+1023
+Rebel Yell bourbon whiskey
+--
+1024
+Danish aquavit
+--
+1025
+creme de myrtille
+--
+1026
+George Dickel Tennessee whiskey
+--
+1027
+cherryade
+--
+1028
+aquavit
+--
+1029
+weetened whipping cream
+--
+1030
+peach juice
+--
+1031
+3 beaten egg
+--
+1032
+parkling white wine
+--
+1033
+trawberry liqueur
+--
+1034
+trawberry syrup
+--
+1035
+Creme de Fraise des Bois
+--
+1036
+Irish Mist herbal liqueur
+--
+1037
+plum brandy
+--
+1038
+demerara sugar
+--
+1039
+raspberry puree
+--
+1040
+orange sherbet
+--
+1041
+absinthe herbal liqueur
+--
+1042
+Marie Brizard creme de mure
+--
+1043
+mixed-berry marinade
+--
+1044
+light marmalade
+--
+1045
+mango puree
+--
+1046
+fresh grapefruit juice
+--
+1047
+4 fresh raspberries
+--
+1048
+noilly prat french vermouth
+--
+1049
+2 fresh, skinless pineapple
+--
+1050
+2 lemon
+--
+1051
+Canton ginger liqueur
+--
+1052
+Sauza Hornitos Reposado tequila
+--
+1053
+fresh lemonade
+--
+1054
+2 fresh mint
+--
+1055
+Marie Brizard Apry apricot brandy
+--
+1056
+Cruzan coconut rum
+--
+1057
+Cruzan banana rum
+--
+1058
+Coco Lopez cream of coconut
+--
+1059
+3 mint
+--
+1060
+Suntory Royal whisky
+--
+1061
+Mozart Black chocolate liqueur
+--
+1062
+Fernet Branca Menta
+--
+1063
+Alize Gold Passion liqueur
+--
+1064
+cracked ice
+--
+1065
+Pineau des Charentes red wine
+--
+1066
+Martini & Rossi sweet vermouth
+--
+1067
+fino sherry
+--
+1068
+Heering cherry liqueur
+--
+1069
+Mount Gay Barbados rum
+--
+1070
+Mozart White chocolate liqueur
+--
+1071
+Mad Dog grape wine
+--
+1072
+Baja Rosa strawberry cream liqueur
+--
+1073
+99 Blackberries blackberry schnapps
+--
+1074
+DeKuyper Raspberry Pucker schnapps
+--
+1075
+black cherry ice cream
+--
+1076
+Hawaiian Punch
+--
+1077
+DeKuyper Island Blue Pucker schnapps
+--
+1078
+DeKuyper Watermelon Pucker schnapps
+--
+1079
+Smirnoff Green Apple Twist vodka
+--
+1080
+Pimp apple juice
+--
+1081
+100 proof Smirnoff vodka
+--
+1082
+Smirnoff Orange Twist vodka
+--
+1083
+fresh whipped cream
+--
+1084
+DeKuyper Blue Curacao liqueur
+--
+1085
+Wild Turkey 101 bourbon whiskey
+--
+1086
+can Red Bull energy drink
+--
+1087
+Canadian Club whisky
+--
+1088
+Skyy citrus vodka
+--
+1089
+1 l bacardi 151 rum
+--
+1090
+1 l blue curacao liqueur
+--
+1091
+1 l sweet and sour mix
+--
+1092
+Bong Water energy drink
+--
+1093
+(1/2 bottle) southern comfort peach liqueur
+--
+1094
+kool-aid cherry mix
+--
+1095
+dill juice
+--
+1096
+pre-chilled Smirnoff vodka
+--
+1097
+Archers peach schnapps
+--
+1098
+Archers cranberry schnapps
+--
+1099
+Archers lime schnapps
+--
+1100
+creme de menthe
+--
+1101
+1 l lemonade
+--
+1102
+Tropicana fruit punch
+--
+1103
+Jameson Irish whiskey
+--
+1104
+DeKuyper Key Largo schnapps
+--
+1105
+peppermint candies
+--
+1106
+Heineken Special Dark lager
+--
+1107
+Kahlua Especial coffee liqueur
+--
+1108
+raspberry vodka
+--
+1109
+tahitian treat soda
+--
+1110
+frozen orange-pineapple juice
+--
+1111
+lime sherbet
+--
+1112
+Silent Sam vodka
+--
+1113
+(4 cans) cola
+--
+1114
+(2 cans) Sprite soda
+--
+1115
+Juicy Juice orange tangerine juice
+--
+1116
+Ocean Spray White Cranberry & Strawberry Juice
+--
+1117
+maraschino cherry juice
+--
+1118
+frozen blueberries
+--
+1119
+frozen raspberries
+--
+1120
+Hpnotiq liqueur
+--
+1121
+100 proof Southern Comfort peach liqueur
+--
+1122
+Bartons vodka
+--
+1123
+uperfine sugar
+--
+1124
+Mexican hot chocolate
+--
+1125
+cranberry liqueur
+--
+1126
+Dubonnet Blanc vermouth
+--
+1127
+ruby port
+--
+1128
+blackcurrant syrup
+--
+1129
+chilled lager
+--
+1130
+whipped heavy cream
+--
+1131
+grated, bittersweet chocolate
+--
+1132
+hot malted milk
+--
+1133
+(4 bottles) Bass pale ale
+--
+1134
+ground ginger
+--
+1135
+1 ripe peach
+--
+1136
+1 very ripe banana
+--
+1137
+chilled ginger beer
+--
+1138
+apple sauce
+--
+1139
+Sour Puss raspberry liqueur
+--
+1140
+White Curacao liqueur
+--
+1141
+Stoli Persik vodka
+--
+1142
+chilled Brut Champagne
+--
+1143
+banana schnapps
+--
+1144
+A&W root beer
+--
+1145
+1 large orange
+--
+1146
+1 large grapefruit
+--
+1147
+1 tamarillo
+--
+1148
+fruitopia fruit juice
+--
+1149
+Stoli Pertsovka vodka
+--
+1150
+citrus juice
+--
+1151
+chilled Cabernet Sauvignon red wine
+--
+1152
+limeade
+--
+1153
+rainbow sherbert
+--
+1154
+cherry cider soda
+--
+1155
+fresh raspberry sherbet
+--
+1156
+ripe, mashed bananas
+--
+1157
+Sunny Delight Florida Style orange juice
+--
+1158
+Canadian Mist whisky
+--
+1159
+pernod licorice liqueur
+--
+1160
+Cutty Sark Scotch whisky
+--
+1161
+citrus vodka
+--
+1162
+Amaretto Di Amore liqueur
+--
+1163
+olive
+--
+1164
+chilled Surge citrus soda
+--
+1165
+Snapple Earth soda
+--
+1166
+cranberry-raspberry juice
+--
+1167
+curacao orange liqueur
+--
+1168
+pastis liqueur
+--
+1169
+honey vodka
+--
+1170
+Amontillado dry sherry
+--
+1171
+orange syrup
+--
+1172
+smoky barbecue sauce
+--
+1173
+dry sparkling wine
+--
+1174
+Tio Pepe sherry
+--
+1175
+5 strawberries
+--
+1176
+Martini & Rossi dry vermouth
+--
+1177
+1/2 sloe gin
+--
+1178
+guavaberry liqueur
+--
+1179
+chilled sparkling white wine
+--
+1180
+Danzig Goldwasser orange liqueur
+--
+1181
+Zubrowka vodka
+--
+1182
+es cinnamon
+--
+1183
+hot apple cider
+--
+1184
+Fruitopia fruit juice
+--
+1185
+chilled Sprite soda
+--
+1186
+V8 Splash fruit juice
+--
+1187
+Absolut Vanilia vodka
+--
+1188
+gomme syrup
+--
+1189
+42 Below vodka
+--
+1190
+2 fresh strawberries
+--
+1191
+Tarantula Azul Tequila
+--
+1192
+1 1/2 hennessy cognac
+--
+1193
+7 1/2 coca-cola vanilla coke
+--
+1194
+Merlot red wine
+--
+1195
+3 lychee
+--
+1196
+Stoli Limonnaya vodka
+--
+1197
+weetened lemon juice
+--
+1198
+Green Curacao liqueur
+--
+1199
+lime vodka
+--
+1200
+mandarin liqueur
+--
+1201
+Snapple Mango Madness soda
+--
+1202
+weetened maraschino cherry juice
+--
+1203
+can chilled Red Bull energy drink
+--
+1204
+passion-fruit liqueur
+--
+1205
+can, chilled Red Bull energy drink
+--
+1206
+red orange juice
+--
+1207
+hot tea
+--
+1208
+chilled pineapple juice
+--
+1209
+can Dr. Pepper soda
+--
+1210
+Sailor Jerry spiced navy rum
+--
+1211
+Smirnoff Vanilla Twist vodka
+--
+1212
+Jones cream soda
+--
+1213
+cold 7-Up soda
+--
+1214
+pureed peaches
+--
+1215
+blackcurrant vodka
+--
+1216
+Chartreuse herbal liqueur
+--
+1217
+mineral water
+--
+1218
+Hi-C orange soda
+--
+1219
+Smirnoff lemon vodka
+--
+1220
+cold Red Bull energy drink
+--
+1221
+blue Hawaiian Punch
+--
+1222
+La Grande Passion liqueur
+--
+1223
+Leroux pina colada schnapps
+--
+1224
+Leroux banana liqueur
+--
+1225
+99 Apples apple schnapps
+--
+1226
+chilled orange soda
+--
+1227
+Malibu mango rum
+--
+1228
+Smirnoff Ice
+--
+1229
+Cabo Wabo anejo tequila
+--
+1230
+watermelon vodka
+--
+1231
+Alize cognac
+--
+1232
+sour apple jell-o
+--
+1233
+2 large bananas
+--
+1234
+2 handfuls red, seedless grapes
+--
+1235
+DeKuyper Cheri-Beri Pucker schnapps
+--
+1236
+Bacardi Coco rum
+--
+1237
+Smirnoff Cranberry Twist vodka
+--
+1238
+blueberry juice
+--
+1239
+can Pepsi cola
+--
+1240
+Mountain Dew Pitch Black soda
+--
+1241
+fresh milk
+--
+1242
+2 cans chicken noodle soup
+--
+1243
+Korski vodka
+--
+1244
+carling lager
+--
+1245
+orange reef vodka
+--
+1246
+Perrier lemon soda water
+--
+1247
+1 canchilled bud light lager
+--
+1248
+orange jell-o
+--
+1249
+plymouth gin
+--
+1250
+3 kumquats
+--
+1251
+habanero pepper sauce
+--
+1252
+cayenne peppers
+--
+1253
+mango nectar
+--
+1254
+Dole pineapple juice
+--
+1255
+jose cuervo 1800 tequila
+--
+1256
+Dole Pineapple Passion Mango juice
+--
+1257
+Pepsi Holiday Spice
+--
+1258
+Tropicana Twister Kinetic Kiwi Strawberry
+--
+1259
+sliced strawberries
+--
+1260
+Bacardi Razz rum
+--
+1261
+can frozen limeade
+--
+1262
+bottle Corona lager
+--
+1263
+chilled Mountain Dew Code Red soda
+--
+1264
+chilled Malibu coconut rum
+--
+1265
+sour lemonade
+--
+1266
+Sierra Mist soda
+--
+1267
+blackberry schnapps
+--
+1268
+Barenjager honey liqueur
+--
+1269
+butterscotch liqueur
+--
+1270
+Melloni melon liqueur
+--
+1271
+Bacardi vanilla rum
+--
+1272
+blue moon belgian ale
+--
+1273
+es horseradish
+--
+1274
+chilled Aftershock Hot & Cool cinnamon schnapps
+--
+1275
+chilled Blue Curacao liqueur
+--
+1276
+chilled Jagermeister herbal liqueur
+--
+1277
+1 fifth everclear alcohol
+--
+1278
+lons Kool-Aid Blue Raspberry mix
+--
+1279
+Belvedere vodka
+--
+1280
+crumpled blue cheese
+--
+1281
+Lipton Brisk iced tea
+--
+1282
+top with coca-cola
+--
+1283
+cactus fruit juice
+--
+1284
+Bacardi Big Apple rum
+--
+1285
+3 lime
+--
+1286
+3 fresh mint
+--
+1287
+toffee liqueur
+--
+1288
+Peruvian Pisco brandy
+--
+1289
+1 canfrozen lemonade
+--
+1290
+mirnoff raspberry twist vodka
+--
+1291
+mcguinness blue curacao liqueur
+--
+1292
+1 canfrozen raspberry lemonade
+--
+1293
+1 can(equivalent) vodka
+--
+1294
+Grey Goose vodka
+--
+1295
+top with half-and-half
+--
+1296
+Captain Morgan spiced rum
+--
+1297
+Bacardi O rum
+--
+1298
+Kazkar Feni cashew apple liqueur
+--
+1299
+2 apple
+--
+1300
+Mountain Dew lime soda
+--
+1301
+fresh water
+--
+1302
+Finlandia lime vodka
+--
+1303
+Kerns guava juice
+--
+1304
+amber rum
+--
+1305
+Famous Grouse Scotch whisky
+--
+1306
+unsalted butter
+--
+1307
+chilled Hpnotiq liqueur
+--
+1308
+green apple vodka
+--
+1309
+plum wine
+--
+1310
+Lemonel lemon liqueur
+--
+1311
+Cabernet Sauvignon red wine
+--
+1312
+chilled club soda
+--
+1313
+mango rum
+--
+1314
+100% cranberry juice
+--
+1315
+12 fresh tamarinds
+--
+1316
+chilled Hawaiian Punch
+--
+1317
+chilled amaretto almond liqueur
+--
+1318
+sour apple mix
+--
+1319
+fresh ginger
+--
+1320
+(2 x 12-oz bottles) Coors Light beer
+--
+1321
+fill with raspberry lemonade
+--
+1322
+(3 x 12-oz cans) Lipton Brisk iced tea
+--
+1323
+cheap vodka
+--
+1324
+cheap rum
+--
+1325
+can Amp energy drink
+--
+1326
+1/2 grenadine syrup
+--
+1327
+bacardi vanilla rum
+--
+1328
+Pepsi cola
+--
+1329
+Finlandia cranberry vodka
+--
+1330
+chilled Red Bull energy drink
+--
+1331
+bottle Budweiser lager
+--
+1332
+2 jim beam bourbon whiskey
+--
+1333
+Grey Goose vanilla vodka
+--
+1334
+chilled Guinness stout
+--
+1335
+hot pepper sauce
+--
+1336
+burning hot coffee
+--
+1337
+1 small squid
+--
+1338
+cracked black peppers
+--
+1339
+Heaven Hill bourbon whiskey
+--
+1340
+Jim Beam rye whiskey
+--
+1341
+Evan Williams Bourbon Whiskey
+--
+1342
+birch beer
+--
+1343
+Milagro blanco tequila
+--
+1344
+top with club soda
+--
+1345
+Patron silver tequila
+--
+1346
+Agavero tequila liqueur
+--
+1347
+Dr. Pepper vanilla soda
+--
+1348
+tapatio hot sauce
+--
+1349
+Molson Canadian beer
+--
+1350
+Cynar artichoke liqueur
+--
+1351
+1 medium banana
+--
+1352
+3 large strawberries
+--
+1353
+St. Vincent Sunset 169 proof rum
+--
+1354
+single cream
+--
+1355
+lime ice cream
+--
+1356
+ice cold Budweiser lager
+--
+1357
+Absolut Peppar vodka
+--
+1358
+jalapeno pepper
+--
+1359
+Don Julio Blanco tequila
+--
+1360
+Aftershock Cool Citrus mint schnapps
+--
+1361
+Mozart chocolate liqueur
+--
+1362
+2 fuji apples
+--
+1363
+1 grapefruit
+--
+1364
+syrup
+--
+1365
+Henry McKenna bourbon whiskey
+--
+1366
+Coca-Cola Diet Lime Coke
+--
+1367
+2 small strawberries
+--
+1368
+thickened cream
+--
+1369
+chilled Sierra Mist soda
+--
+1370
+tangerine juice
+--
+1371
+smirnoff black ice
+--
+1372
+Von Dutch energy drink
+--
+1373
+Tropicana Light Berry Blend
+--
+1374
+bottle Gatorade Riptide Rush energy drink
+--
+1375
+2 - 3 fresh blueberries
+--
+1376
+Powdered cocoa
+--
+1377
+Fris vodka
+--
+1378
+Romana white sambuca
+--
+1379
+fresh, hot espresso
+--
+1380
+Captain Morgan Silver spiced rum
+--
+1381
+chilled Canada Dry ginger ale
+--
+1382
+Coca-Cola Diet Coke
+--
+1383
+Sourz apple liqueur
+--
+1384
+grape jello
+--
+1385
+Nescafe Ice Java coffee syrup
+--
+1386
+Smirnoff Raspberry Twist vodka
+--
+1387
+lychee liqueur
+--
+1388
+Vincent Van Gogh Dutch chocolate vodka
+--
+1389
+2 - 4 mountain dew code red soda
+--
+1390
+Coors Light beer
+--
+1391
+pineapple rum
+--
+1392
+amaretto cream liqueur
+--
+1393
+reposado tequila
+--
+1394
+Sparkling pomegranate juice
+--
+1395
+Alize Red Passion liqueur
+--
+1396
+fresh limes
+--
+1397
+24 cans lager
+--
+1398
+4 cans red bull energy drink
+--
+1399
+4 cansfrozen lemonade
+--
+1400
+Smirnoff Watermelon Twist vodka
+--
+1401
+powdered Countrytime pink lemonade
+--
+1402
+light beer
+--
+1403
+Captain Morgan Parrot Bay pineapple rum
+--
+1404
+orange-pineapple juice
+--
+1405
+whole milk
+--
+1406
+lon Everclear alcohol
+--
+1407
+lon vodka
+--
+1408
+lon gin
+--
+1409
+Starbucks coffee liqueur
+--
+1410
+Sortilege Canadian whisky liqueur
+--
+1411
+fresh apple juice
+--
+1412
+Godiva white chocolate liqueur
+--
+1413
+2% (semi-skimmed) milk
+--
+1414
+Havana Club white rum
+--
+1415
+Cane sugar
+--
+1416
+Malibu pineapple rum
+--
+1417
+Newfoundland Screech dark rum
+--
+1418
+Forty Creek Barrel Select Canadian whisky
+--
+1419
+Canada Dry ginger ale
+--
+1420
+mint liqueur
+--
+1421
+piece chocolate
+--
+1422
+peach iced tea
+--
+1423
+chilled Absolut Citron vodka
+--
+1424
+heaped Kool-Aid
+--
+1425
+Three Olives orange vodka
+--
+1426
+Monin apple syrup
+--
+1427
+Gala apple
+--
+1428
+fieldberry juice
+--
+1429
+Everglo liqueur
+--
+1430
+5 spearmint
+--
+1431
+100 proof smirnoff vodka
+--
+1432
+smirnoff watermelon vodka
+--
+1433
+lons Hawaiian Punch
+--
+1434
+gummy worms candies
+--
+1435
+Molinari sambuca extra
+--
+1436
+Mozart Original chocolate liqueur
+--
+1437
+Sebor Absinth absinthe
+--
+1438
+smirnoff ice
+--
+1439
+wkd silver vodka
+--
+1440
+peppermint cordial
+--
+1441
+12 crushed peppermint
+--
+1442
+cherry schnapps
+--
+1443
+Hawaiian Sun passion-fruit drink
+--
+1444
+Bushmills Irish whiskey
+--
+1445
+sour cherry juice
+--
+1446
+Popov vodka
+--
+1447
+Dole grapefruit juice
+--
+1448
+Romana black sambuca
+--
+1449
+ourz tropical blue liqueur
+--
+1450
+monin blue curacao syrup
+--
+1451
+Kentucky Tavern bourbon whiskey
+--
+1452
+top with Coca-Cola
+--
+1453
+chilled Coca-Cola Diet Coke
+--
+1454
+Absolut pepper vodka
+--
+1455
+chili peppers
+--
+1456
+Absolut Raspberri vodka
+--
+1457
+blueberry puree
+--
+1458
+black raspberry liqueur
+--
+1459
+top with apple juice
+--
+1460
+Three Olives grape vodka
+--
+1461
+Everfresh tropical fruit punch
+--
+1462
+lime cordial
+--
+1463
+banana rum
+--
+1464
+Absolut vanilla vodka
+--
+1465
+1 1/2 malibu mango rum
+--
+1466
+Monster energy drink
+--
+1467
+apricot brandy liqueur
+--
+1468
+6 vodka
+--
+1469
+2 ginger ale
+--
+1470
+8 red bull energy drink
+--
+1471
+1/2 lime juice
+--
+1472
+1/2 lemon juice
+--
+1473
+1/4 orange
+--
+1474
+corona lager
+--
+1475
+Jim Beam Black Label bourbon whiskey
+--
+1476
+chocolate cream liqueur
+--
+1477
+1 fifth smirnoff vodka
+--
+1478
+24 cans natural light lager
+--
+1479
+lon lemonade
+--
+1480
+Gatorade Cool Blue Raspberry energy drink
+--
+1481
+Remy Martin cognac
+--
+1482
+Vincent Van Gogh Espresso vodka
+--
+1483
+Sambuca di Amore liqueur
+--
+1484
+Captain Morgan Private Stock dark rum
+--
+1485
+Vernors Original ginger soda
+--
+1486
+pear nectar
+--
+1487
+Orange Vodka
+--
+1488
+Coconut Rum
+--
+1489
+Amaretto
+--
+1490
+Southern Comfort
+--
+1491
+Gin
+--
+1492
+Orange Juice
+--
+1493
+Black Currant Vodka
+--
+1494
+Melon Liqueur
+--
+1495
+Rum (Dark)
+--
+1496
+Lemon Juice
+--
+1497
+Strawberry Liqueur
+--
+1498
+Coffee Liqueur
+--
+1499
+Irish Cream
+--
+1500
+Peppermint Schnapps
+--
+1501
+Vermouth (Sweet)
+--
+1502
+Vermouth (Dry)
+--
+1503
+Sugar
+--
+1504
+club soda / carbonated water
+--
+1505
+Chartreuse (Yellow)
+--
+1506
+Citrus Vodka
+--
+1507
+Pineapple Juice
+--
+1508
+Bourbon
+--
+1509
+Kmmel
+--
+1510
+Crme de Cacao (Dark) or Chocolate Liqueur
+--
+1511
+milk or cream / half & half
+--
+1512
+Cream / Half & Half
+--
+1513
+Sweet & Sour Mix
+--
+1514
+Hazelnut Liqueur
+--
+1515
+Crme de Cacao (Dark)
+--
+1516
+Triple Sec
+--
+1517
+Vodka
+--
+1518
+Melon Liqueur or Crme de Menthe (Green)
+--
+1519
+Apple Brandy
+--
+1520
+Apple Juice
+--
+1521
+Tequila
+--
+1522
+Apple Schnapps
+--
+1523
+sweet & sour mix or margarita mix
+--
+1524
+Rum (Aejo)
+--
+1525
+Apricot Brandy
+--
+1526
+Lime Juice
+--
+1527
+Vodka or Apple Vodka
+--
+1528
+Sour Apple Pucker
+--
+1529
+Apple Juice (Optional)
+--
+1530
+Galliano Liqueur
+--
+1531
+Banana Liqueur
+--
+1532
+Grapefruit Juice
+--
+1533
+Crme de Menthe (Green)
+--
+1534
+Maraschino Liqueur
+--
+1535
+Bndictine
+--
+1536
+Cognac
+--
+1537
+Whiskey or Crme de Cacao (White)
+--
+1538
+Rum (Light)
+--
+1539
+Drambuie
+--
+1540
+Grand Marnier Orange Liqueur
+--
+1541
+Scotch Whisky
+--
+1542
+Bitters
+--
+1543
+Vodka or Vanilla Vodka
+--
+1544
+
+--
+1545
+Vanilla Ice Cream
+--
+1546
+Rum (Spiced)
+--
+1547
+Crme de Cacao (White)
+--
+1548
+Jgermeister
+--
+1549
+Blue Curacao
+--
+1550
+Whiskey
+--
+1551
+Pernod
+--
+1552
+Grenadine
+--
+1553
+Raspberry Liqueur
+--
+1554
+Sloe Gin
+--
+1555
+Peach Schnapps
+--
+1556
+club soda / carbonated water or ginger ale
+--
+1557
+Brandy
+--
+1558
+Sambuca (Black)
+--
+1559
+Blackberry Brandy
+--
+1560
+Coffee Brandy
+--
+1561
+Hot Coffee
+--
+1562
+pear cider
+--
+1563
+stout
+--
+1564
+Blackberry Schnapps
+--
+1565
+Blueberries
+--
+1566
+Raspberries
+--
+1567
+Milk
+--
+1568
+Worcestershire Sauce
+--
+1569
+Tabasco Sauce
+--
+1570
+Horseradish Sauce (Optional)
+--
+1571
+tomato juice or bloody mary mix
+--
+1572
+Tequila (Premium)
+--
+1573
+grand marnier orange liqueur
+--
+1574
+blue curacao
+--
+1575
+Tequila (Optional)
+--
+1576
+Blueberry Schnapps
+--
+1577
+cream / half & half
+--
+1578
+Vanilla Schnapps
+--
+1579
+Club Soda / Carbonated Water
+--
+1580
+Leaves
+--
+1581
+Madeira
+--
+1582
+Simple Syrup
+--
+1583
+ginger ale or club soda / carbonated water
+--
+1584
+Burgundy
+--
+1585
+Ginger Ale
+--
+1586
+Dubonnet
+--
+1587
+Butterscotch Schnapps
+--
+1588
+Orange Curacao
+--
+1589
+Cognac or Brandy
+--
+1590
+Wedges
+--
+1591
+Cachaca
+--
+1592
+Tia Maria Coffee Liqueur
+--
+1593
+Canadian Whisky
+--
+1594
+Cherry Brandy
+--
+1595
+Jim Beam Bourbon
+--
+1596
+Rum (Light) or Rum (Dark)
+--
+1597
+Rum (151-Proof)
+--
+1598
+Maraschino Cherries
+--
+1599
+grain alcohol or vodka (100-proof)
+--
+1600
+Cherry Liqueur
+--
+1601
+crme de cacao (dark)
+--
+1602
+Chocolate Syrup
+--
+1603
+Crme de Menthe (White)
+--
+1604
+Lemonade
+--
+1605
+Cranberry Juice
+--
+1606
+Claret
+--
+1607
+Cream of Coconut
+--
+1608
+Crown Royal Canadian Whisky
+--
+1609
+crme de menthe (green)
+--
+1610
+vermouth (dry)
+--
+1611
+Midori Melon Liqueur
+--
+1612
+Vodka or Gin
+--
+1613
+Vanilla Vodka
+--
+1614
+Irish Mist
+--
+1615
+Anisette
+--
+1616
+Crme de Cassis
+--
+1617
+Red Bull Energy Drink
+--
+1618
+Cherry Juice
+--
+1619
+Citrus Rum
+--
+1620
+vermouth (sweet)
+--
+1621
+Port
+--
+1622
+Gin or Vodka
+--
+1623
+Cinnamon Schnapps
+--
+1624
+Sherry (Dry)
+--
+1625
+Orange Bitters
+--
+1626
+Sambuca
+--
+1627
+Amaretto or Grand Marnier Orange Liqueur
+--
+1628
+Eggnog
+--
+1629
+Chocolate Liqueur
+--
+1630
+Peach Nectar
+--
+1631
+Irish Whiskey
+--
+1632
+Goldschlger Cinnamon Schnapps
+--
+1633
+Vodka (Optional)
+--
+1634
+Apple Vodka
+--
+1635
+Lemonade or Sweet & Sour Mix
+--
+1636
+Chartreuse (Green)
+--
+1637
+Absinthe
+--
+1638
+Green Ginger Wine
+--
+1639
+Hiram Walker Pumpkin Spice
+--
+1640
+Honey or Sugar
+--
+1641
+Hpnotiq Original
+--
+1642
+White Curacao
+--
+1643
+Tuaca
+--
+1644
+rum (dark)
+--
+1645
+Lillet Blanc
+--
+1646
+Cointreau Orange Liqueur or Triple Sec
+--
+1647
+Johnnie Walker Scotch
+--
+1648
+Jose Cuervo Tequila
+--
+1649
+Campari
+--
+1650
+Pia Colada Mix
+--
+1651
+rum (light)
+--
+1652
+Cointreau Orange Liqueur
+--
+1653
+coconut liqueur
+--
+1654
+Rum (Light) or Coconut Rum
+--
+1655
+Limoncello Lemon Liqueur
+--
+1656
+Lychee Liqueur
+--
+1657
+big red soda
+--
+1658
+crme de noyaux
+--
+1659
+Vermouth (Dry) or Vermouth (Sweet)
+--
+1660
+Crushed Pineapple
+--
+1661
+Crme de Noyaux
+--
+1662
+Passion Fruit Rum
+--
+1663
+Passion Fruit Vodka
+--
+1664
+Peach Puree
+--
+1665
+Peach Brandy
+--
+1666
+Peach Pucker
+--
+1667
+Red Wine
+--
+1668
+cranberry juice or grenadine
+--
+1669
+Amaretto (Optional)
+--
+1670
+Bloody Mary Mix or Tomato Juice
+--
+1671
+Root Beer Schnapps
+--
+1672
+Cola
+--
+1673
+Sherry (Cream)
+--
+1674
+Raspberry Vodka
+--
+1675
+Yukon Jack Whiskey
+--
+1676
+Chocolate Vodka
+--
+1677
+Watermelon Pucker
+--
+1678
+Strawberry Puree
+--
+1679
+Vanilla Vodka or Vanilla Rum
+--
+1680
+Blackberries
+--
+1681
+Triple Sec Syrup
+--
+1682
+Amarula Cream
+--
+1683
+cream / half & half or milk
+--
+1684
+white zinfandel
+--
+1685
+Grand Marnier Orange Liqueur or Triple Sec
