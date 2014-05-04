@@ -103,7 +103,7 @@ public class SearchEngine {
 		//TODO: Fix this
 		
 		Log.d("SearchEngine", "Getting drinks...");
-		ArrayList<Drink> relevantDrinks = drinkHandler.drinksForRequiredIngredients(reqIngredients);
+		ArrayList<Drink> relevantDrinks = drinkHandler.getAllDrinks();
 		Log.d("SearchEngine", "Got drinks");
 		
 		ArrayList<String> searchTerms = new ArrayList<String>();
