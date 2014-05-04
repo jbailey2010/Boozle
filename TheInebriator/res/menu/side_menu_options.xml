@@ -7,12 +7,6 @@
         android:id="@+id/menu_random"
         android:title="I'm feeling hammered"/>
     <item
-        android:id="@+id/menu_create"
-        android:title="Add a Drink"/>
-    <item
-        android:id="@+id/menu_added"
-        android:title="Added Drinks"/>
-    <item
         android:id="@+id/menu_liked"
         android:title="Liked Drinks"/>
     <item

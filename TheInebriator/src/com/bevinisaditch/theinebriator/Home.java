@@ -63,10 +63,10 @@ public class Home extends Activity {
 	public static boolean backToListResults = false;
 	public List<Drink> backup;
 	public LinearLayout ll;
-	public Menu menuObj;
+	public Menu menuObj; 
 	public MenuItem scrollUp;
 	public MenuItem clearRes;
-	public static ArrayList<Drink> drinks;
+	public static ArrayList<Drink> drinks; 
 	
 	/**
 	 * Sets up the getting of the data from Loading, then shows the default home screen
@@ -75,7 +75,7 @@ public class Home extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
-		ActionBar ab = getActionBar();
+		ActionBar ab = getActionBar(); 
 		cont = this; 
 		ab.setDisplayShowTitleEnabled(false);
 		ll = (LinearLayout)findViewById(R.id.home_base);
@@ -162,12 +162,6 @@ public class Home extends Activity {
 	            		Toast.makeText(cont, "This requires you to search first", Toast.LENGTH_SHORT).show();
 	            	}
 	                break;
-	            case R.id.menu_create:
-	            	
-	            	break;
-	            case R.id.menu_added:
-	            	
-	            	break;
 	            case R.id.menu_liked:
 	            	listRatingDrinks(Rating.THUMBSUP, false);
 	            	backToListResults = true;
@@ -514,24 +508,6 @@ public class Home extends Activity {
 			@Override
 			public void onClick(View arg0) {
             		showAllRandomDrink();		
-			}
-			
-		});
-		Button create = (Button)res.findViewById(R.id.menu_create);
-		create.setOnClickListener(new OnClickListener(){
-
-			@Override
-			public void onClick(View arg0) {
-				
-			}
-			
-		});
-		Button added = (Button)res.findViewById(R.id.menu_added);
-		added.setOnClickListener(new OnClickListener(){
-
-			@Override
-			public void onClick(View arg0) {
-            				
 			}
 			
 		});
