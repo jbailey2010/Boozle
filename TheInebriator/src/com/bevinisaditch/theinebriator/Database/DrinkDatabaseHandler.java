@@ -270,7 +270,6 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    		return -1;
 	    }
 	    
-<<<<<<< HEAD
 	    /**
 	     * Converts string to a rating
 	     * @param str
@@ -287,8 +286,6 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	else
 	    		return Rating.THUMBSNULL;
 	    }
-=======
->>>>>>> FETCH_HEAD
 	    
 	    /**
 	     * Gets all matchings in the database
