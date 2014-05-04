@@ -23,6 +23,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+/**
+ * Class for handling the database of drinks.
+ * @author Jason
+ *
+ */
 public class DrinkDatabaseHandler extends SQLiteOpenHelper 
 {
 		 
@@ -34,7 +39,8 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    private static final String DATABASE_NAME = "DrinksAndIngredients";
 	    
 	    private Context con;
-	    private int numDrinksRead = 0;
+	    
+	    //Names of text files as found in assets to read data from
 	    private static final String DRINK_FILE_NAME = "drinkDataShort.txt";
 	    private static final String MATCH_FILE_NAME = "matchDataShort.txt";
 	    private static final String PAIR_FILE_NAME = "pairDataShort.txt";
@@ -49,17 +55,22 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    } 
 	    
 	    /**
+<<<<<<< HEAD
 	     * Recreates database by deleting it and using oncreate
+=======
+	     * Deletes the old tables and re-reads from text files to populate them again.
+>>>>>>> FETCH_HEAD
 	     */
 	    public void reCreateTables()
 	    { 
 	    	SQLiteDatabase db = this.getWritableDatabase();
 	    	deleteTablesIfExist(db);
-	    	//System.out.println("Deleted old tables");
 	    	onCreate(db);
 	    }
 	 
-	    // Creating Tables
+	    /**
+	     * Creates tables and reads from text files to populate them
+	     */
 	    @Override
 	    /**
 	     * Creates tables and inserts the drinks, ingredients, and matchings into database
@@ -82,16 +93,14 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 					"QUANTITY       TEXT," +
 					"UNITS          TEXT)";
 	        db.execSQL(CREATE_MATCHINGS_TABLE);
-	        //System.out.println("Created new tables");
 	        readDrinks(db);
-	        //System.out.println("Drinks read");
 	        readMatchings(db);
-	        //System.out.println("Matchings read");
 	        readPairs(db);
-	        //System.out.println("Pairs read");
 	    }
 	 
-	    // Upgrading database
+	    /**
+	     * Deletes and repopulates tables if database was upgraded
+	     */
 	    @Override
 	    /**
 	     * handles what to do if the database version is upgraded
@@ -105,8 +114,13 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    }
 
 	    /**
+<<<<<<< HEAD
 	     * Deletes tables from db if they already exist
 	     * @param db
+=======
+	     * Executes SQL to delete the tables if they exist
+	     * @param db this database
+>>>>>>> FETCH_HEAD
 	     */
 		private void deleteTablesIfExist(SQLiteDatabase db) {
 			db.execSQL("DROP TABLE IF EXISTS DRINKS");
@@ -147,6 +161,11 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 			db.execSQL(updateText);
 		}
 		
+		/**
+		 * Sets a drink's rating to the given rating
+		 * @param drinkID ID of drink that needs a rating change
+		 * @param rating Rating to which the drink's rating should be changed
+		 */
 		public void setDrinkRating(int drinkID, Rating rating)
 		{
 			if (rating == Rating.THUMBSUP)
@@ -176,12 +195,21 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    }
 	    
 	    /**
+<<<<<<< HEAD
 	     * adds a drink by using its values
 	     * @param id
 	     * @param name
 	     * @param rating
 	     * @param instructions
 	     * @param db
+=======
+	     * Adds a drink by the fields of a drink, skipping Drink's constructor.
+	     * @param id ID of drink to add
+	     * @param name Name of drink to add
+	     * @param rating Rating of drink to add
+	     * @param instructions Instructions of drink to add
+	     * @param db This database
+>>>>>>> FETCH_HEAD
 	     */
 	    public void addDrinkByVars(int id, String name, int rating, String instructions, SQLiteDatabase db)
 	    {
@@ -222,9 +250,15 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    }
 
 	    /**
+<<<<<<< HEAD
 	     * converts rating enum to an int
 	     * @param rating
 	     * @return
+=======
+	     * Converts a rating to an int
+	     * @param rating The rating to convert
+	     * @return -1 if thumbs down 0 if thumbs null and +1 if thumbs up
+>>>>>>> FETCH_HEAD
 	     */
 	    private int ratingToInt(Rating rating)
 	    {
@@ -236,6 +270,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    		return -1;
 	    }
 	    
+<<<<<<< HEAD
 	    /**
 	     * Converts string to a rating
 	     * @param str
@@ -252,6 +287,8 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	else
 	    		return Rating.THUMBSNULL;
 	    }
+=======
+>>>>>>> FETCH_HEAD
 	    
 	    /**
 	     * Gets all matchings in the database
@@ -329,22 +366,26 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 					String name = cursor.getString(1);
 					Drink.Rating rating =  intToRating(cursor.getInt(2));
 					String instructions = cursor.getString(3);
-					//stmt.close();
 					ArrayList<Ingredient> ingredients = getIngredientsForDrinkID(id, allMatches, allPairs);
 
 					Drink currDrink = new Drink(name, rating, ingredients, instructions, id);
-					//System.out.println("Adding " + currDrink);
+					//Add currDrink to database
 					drinks.add(currDrink);
 				} while (cursor.moveToNext());
 			}
-			//System.out.println("Got all drinks from db");
 			return drinks;
 	    }
 	    
 	    /**
+<<<<<<< HEAD
 	     * Gets relevant drinks using name and terms
 	     * @param terms
 	     * @return
+=======
+	     * Gets relevant drinks by name
+	     * @param terms The terms to which the drinks must be relevant
+	     * @return The drinks relevant to terms
+>>>>>>> FETCH_HEAD
 	     */
 	    public ArrayList<Drink> getRelevantDrinksByName(ArrayList<String> terms) {
 	    	SQLiteDatabase db = this.getWritableDatabase();
@@ -437,7 +478,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    }
 	    
 	    /**
-	     * 
+	     * Reads drinks from file
 	     * @param filename path to the file
 	     * @return A string containing the content of the file found at filename
 	     */
@@ -472,9 +513,6 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    				rating = stringToRatingToInt(br.readLine());
 	    				instructions = br.readLine();
 	    				addDrinkByVars(id, name, rating, instructions, db);
-	    				numDrinksRead++;
-	    				//if (numDrinksRead % 1000 == 0)
-	    					//System.out.println("numDrinksRead: " + numDrinksRead);
 	    			}
 	    			//System.out.println("Drink lines read: " + linesRead);
 
@@ -495,6 +533,10 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	}
 	    }
 	    
+	    /**
+	     * Reads matchings from file
+	     * @param db this database
+	     */
 	    private void readMatchings(SQLiteDatabase db)
 	    {
 	    	if (db == null)
@@ -548,6 +590,10 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	}
 	    }
 	    
+	    /**
+	     * Reads pairs from file
+	     * @param db This database
+	     */
 	    private void readPairs(SQLiteDatabase db)
 	    {
 	    	if (db == null)
@@ -591,6 +637,11 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	}
 	    }
 	    
+	    /**
+	     * Converts a string rating to an int
+	     * @param str The rating in question
+	     * @return -1 if thumbs down, 0 if thumbs null, +1 if thumbs up
+	     */
 	    private int stringToRatingToInt(String str)
 	    {
 	    	if (str.equals("THUMBSUP"))
