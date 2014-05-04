@@ -45,17 +45,25 @@ public class Ingredient {
 	public void setUnits(String units) {
 		this.units = units;
 	}
-
+ 
 	public String toPrettyString()
 	{
-		if (quantity == null || quantity.isEmpty() || units == null || units.isEmpty())
+		if ((quantity == null || quantity.isEmpty()) && (units == null || units.isEmpty()))
 		{
 			return name;
+		}
+		else if ((quantity == null || quantity.isEmpty()))
+		{
+			return units + " " + name;
+		}
+		else if ((units == null || units.isEmpty()))
+		{
+			return quantity + " " + name;
 		}
 		return quantity + " " + units + " " + name;
 	}
 	
-	@Override
+	@Override 
 	public String toString() {
 		return "Ingredient [name=" + name + ", quantity=" + quantity
 				+ ", units=" + units + "]";
