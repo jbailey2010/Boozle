@@ -16,15 +16,29 @@ import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-
+/**
+ * A static library for general utilities needed through other parts of the app
+ * @author Jeff
+ *
+ */
 public class GeneralUtils {
 
+		/**
+		 * Checks to see if it can connect to the internet
+		 * @param cont - A context to look through the app and see what it knows
+		 * @return - a boolean that's true if it can, false if it can't
+		 */
 		public static boolean testInternet(Context cont){
 			ConnectivityManager connectivityManager  = (ConnectivityManager) cont.getSystemService(Context.CONNECTIVITY_SERVICE);
 		    NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
 		    return activeNetworkInfo != null && activeNetworkInfo.isConnected();
 		}
 		
+		/**
+		 * Sorts a list of hashmaps alphabetically by one of the elements of each map
+		 * @param data - the list of maps to sort
+		 * @return - the sorted list of maps
+		 */
 		public static List<Map<String, String>> sortData(List<Map<String, String>> data){
 			Collections.sort(data, new Comparator<Map<String, String>>() {
 				public int compare(Map<String, String> a, Map<String, String> b) {
@@ -43,16 +57,26 @@ public class GeneralUtils {
 			return data;
 		}
 		
+		/**
+		 * Takes a single list of strings and sorts it alphabetically
+		 * @param data - the list of strings to be sorted
+		 * @return - the sorted list
+		 */
 		public static List<String> sortSingleList(List<String> data){
 			Collections.sort(data);
 			return data;
 		}
 		
+		/**
+		 * Takes the entity, and if it already has a thumbs up count, increases it, otherwise create it at one
+		 * @param dr - The drink to look at
+		 * @param cont - The context for the sake of the asynchronous check
+		 */
 		public static void bumpEntityValue(Drink dr, final Context cont)
 		{
 			String key = "http://www.boozle.com/" + dr.getName();
 			EntityUtils.getEntity((Activity) cont, key, new EntityGetListener() {
-				
+				//The entity was gotten, though an error is still possible
 				@Override
 				public void onGet(Entity entity) {
 					int newVal = 1;
@@ -64,20 +88,21 @@ public class GeneralUtils {
 			    	EntityUtils.saveEntity((Activity)cont , entity, new EntityAddListener() {
 			       		@Override
 			    		public void onCreate(Entity result) {
+			       			//If we want to add some kind of handler, here is where to do so
 			    		}
 						@Override
 						public void onError(SocializeException error) {
+							//Some kind of error in saving, collision?
 						}
 			    	});
 				}
-				
 				@Override
 				public void onError(SocializeException error) {
 					if(isNotFoundError(error)) {
 						// No entity found
 					}
 					else {
-						// Handle error
+						//Some other kind of error
 					}
 				}
 			});

@@ -15,18 +15,27 @@ public class BounceListView extends ListView {
 	 private Context mContext;
 	 private int mMaxYOverscrollDistance;
 
+	 /**
+	  * Constructor only needing a context
+	  */
 	 public BounceListView(Context context) {
 		  super(context);
 		  mContext = context;
 		  initBounceListView();
 	 }
 
+	 /**
+	  * Constructor for if the list is partially styled
+	  */
 	 public BounceListView(Context context, AttributeSet attrs) {
 		  super(context, attrs);
 		  mContext = context;
 		  initBounceListView();
 	 }
 
+	 /**
+	  * Constructor for if the list is specifically styled
+	  */
 	 public BounceListView(Context context, AttributeSet attrs, int defStyle) {
 		  super(context, attrs, defStyle);
 		  mContext = context;

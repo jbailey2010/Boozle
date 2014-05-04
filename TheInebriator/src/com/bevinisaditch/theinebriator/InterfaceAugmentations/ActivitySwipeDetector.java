@@ -11,7 +11,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.ProgressBar;
-
+/**
+ * The class that extends native android ontouchlistener to handle swiping the menu to visibility
+ * @author Jeff
+ *
+ */
 public class ActivitySwipeDetector implements View.OnTouchListener {
 	 private Activity activity;
 	 public String origin;
@@ -19,18 +23,23 @@ public class ActivitySwipeDetector implements View.OnTouchListener {
 	 private float downX, upX;
 	 public boolean isFarLeft;
 
+	 /**
+	  * Keeps the context handy for the sake of working back to the home activity 
+	  */
 	 public ActivitySwipeDetector(final Activity activity) { 
 		  this.activity = activity;
 	 }
 	
+	 /**
+	  * The swipe was registered, so toggle the home menu
+	  */
 	 public void onLeftToRightSwipe(){
 	  	((Home)activity).toggleMenu();
 	 }  
-	  
-	 public void onTopTouch(){
-		 
-	 }
 
+	 /**
+	  * Reads the event itself to try and determine if it qualifies for a menu toggle.
+	  */
 	 public boolean onTouch(View v, MotionEvent event) {
 		 float deltaX = 0;
 		 switch(event.getAction()){

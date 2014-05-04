@@ -46,7 +46,12 @@ import com.bevinisaditch.theinebriator.Utils.GeneralUtils;
 import com.devingotaswitch.theinebriator.R;
 import com.devspark.sidenavigation.ISideNavigationCallback;
 import com.devspark.sidenavigation.SideNavigationView;
-
+/**
+ * Handles the important parts of the activity, the logic of searching, 
+ * the interactions with the data...etc.
+ * @author Jeff
+ *
+ */
 public class Home extends Activity {
 	public Context cont;
 	private BounceListView list;
@@ -63,6 +68,9 @@ public class Home extends Activity {
 	public MenuItem clearRes;
 	public static ArrayList<Drink> drinks;
 	
+	/**
+	 * Sets up the getting of the data from Loading, then shows the default home screen
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -73,10 +81,12 @@ public class Home extends Activity {
 		ll = (LinearLayout)findViewById(R.id.home_base);
 		ll.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
 		drinks = Loading.drinks;
-		System.out.println(drinks.size());
 		setNoResults();
 	}
 
+	/**
+	 * Gets the menu icons handy for displaying them when need be
+	 */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -113,7 +123,8 @@ public class Home extends Activity {
 	}
 	
 	/**
-	 * Overridden and empty because you shouldn't need to go back to loading...ever.
+	 * Overridden and handled to make sure the back button only works between parts of this
+	 * activity, not actually sending you back to loading.
 	 */
 	@Override
 	public void onBackPressed() {
@@ -384,6 +395,9 @@ public class Home extends Activity {
 		list.setSelection(randIndex);
 	}
 	
+	/**
+	 * Gets a random drink from all drinks, being called from the home screen
+	 */
 	public void showAllRandomDrink(){
 		int randIndex = (int) (Math.random() * drinks.size());
 		Drink drink = drinks.get(randIndex);
@@ -391,8 +405,6 @@ public class Home extends Activity {
 		String ingr = makeIngredientsBetter(drink.getIngredients());
 		String instr = drink.getInstructions();
 		DrinkPopup.drinkPopUpInit(cont, name, ingr, instr, getDrinkUrl(name, instr, ingr), false, getDrinkRating(name, instr, ingr), true, true);
-		//list.setSelection(randIndex);
-		
 	}
 	
 	/**
@@ -410,6 +422,9 @@ public class Home extends Activity {
 		return "";
 	}
 	
+	/**
+	 * Iterates over drinks to get the rating of a drink
+	 */
 	public Rating getDrinkRating(String name, String instr, String ingr){
 		for(Drink dr : drinks)
 		{
@@ -453,6 +468,9 @@ public class Home extends Activity {
 		}
 	}
 	
+	/**
+	 * Gets all of the drink names in a list for the autocomplete in search
+	 */
 	public static List<String> getDrinkNames()
 	{
 		List<String> drinkNames = new ArrayList<String>();
@@ -463,6 +481,10 @@ public class Home extends Activity {
 		return drinkNames;
 	}
 	
+	/**
+	 * Gets all of the ingredient names in a list, eliminating all duplicates, 
+	 * for the autocomplete in search 
+	 */
 	public static List<String> getIngredients()
 	{
 		HashSet<String> drinkSet = new HashSet<String>();
@@ -479,6 +501,11 @@ public class Home extends Activity {
 		}
 		return drinkNames; 
 	}
+	
+	/**
+	 * Handles the logic for the buttons. These are the same as the logic of the 
+	 * side menu, but they are buttons in the home screen, not menu options
+	 */
 	public void instantiateButtons(View res)
 	{
 		Button random = (Button)res.findViewById(R.id.menu_random);
@@ -548,6 +575,10 @@ public class Home extends Activity {
 		});
 	}
 	
+	/**
+	 * Gets the ingredients into a string format that's pleasant to look at for future
+	 * display purposes 
+	 */
 	public String makeIngredientsBetter(List<Ingredient> ingrList)
 	{
 		StringBuilder ingrStr = new StringBuilder(100);

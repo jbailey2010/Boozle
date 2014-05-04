@@ -27,7 +27,11 @@ import com.devingotaswitch.theinebriator.R;
 import com.socialize.ActionBarUtils;
 import com.socialize.entity.Entity;
 import com.socialize.ui.actionbar.ActionBarOptions;
-
+/**
+ * Handles the logic for the drink pop up entirely
+ * @author Jeff
+ *
+ */
 public class DrinkPopup {
 	public static Context cont;
 	public static ImageView tu;
@@ -41,7 +45,6 @@ public class DrinkPopup {
 	/**
 	 * Configures the initial pop up to appropriately handle input and
 	 * display the data from the clicked element itself
-	 * @param rating 
 	 */
 	public static void drinkPopUpInit(final Context c, final String name, String ingredients, final String instr, final String url, final boolean update, Rating rating, boolean showRefresh, final boolean isAllRandom)
 	{
@@ -51,13 +54,12 @@ public class DrinkPopup {
 		cont = c;
 		final Dialog dialog = new Dialog(cont, R.style.DialogBackground);
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-		//dialog.setContentView(R.layout.drink_popup);
 		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
 	    lp.copyFrom(dialog.getWindow().getAttributes());
 	    lp.width = WindowManager.LayoutParams.MATCH_PARENT;
 	    dialog.getWindow().setAttributes(lp);
-	    //Remove this once Socialize is less broked
 	    dialog.setContentView(R.layout.drink_popup);
+	    //If there's internet, add the comment thread
 	    if(GeneralUtils.testInternet(c)){
 		 	String entityKey = "http://www.boozle.com/" + name;
 		 	Entity entity = Entity.newInstance(entityKey, name);
@@ -67,7 +69,6 @@ public class DrinkPopup {
 		 	options.setBackgroundColor(Color.parseColor("#191919"));
 		 	options.setAccentColor(Color.parseColor("#ff0000"));
 		 	View actionBarWrapped = ActionBarUtils.showActionBar((Activity) cont, R.layout.drink_popup, entity, options);
-		 	// Now set the view for your activity to be the wrapped view.
 		 	dialog.setContentView(actionBarWrapped);
 		}
 	    dialog.show();
@@ -82,6 +83,7 @@ public class DrinkPopup {
 	    ingredientsView.setText(ingredients);
 	    TextView nameView = (TextView)dialog.findViewById(R.id.drink_name);
 	    nameView.setText(name);
+	    //If the name has a valid url, go to it
 	    nameView.setOnClickListener(new OnClickListener(){
 
 			@Override
@@ -93,6 +95,7 @@ public class DrinkPopup {
 			}
 	    	
 	    });
+	    //If it's from the home screen, come up with another random drink 
 	    ImageView refresh = (ImageView)dialog.findViewById(R.id.rerandomize);
 	    if(showRefresh){
 		    refresh.setOnClickListener(new OnClickListener(){
@@ -114,6 +117,7 @@ public class DrinkPopup {
 	    TextView instrView = (TextView)dialog.findViewById(R.id.instructions_view);
 	    instrView.setText(instr);
 	    ImageView twitter = (ImageView)dialog.findViewById(R.id.twitter_logo);
+	    //If there's internet, allow twitter interaction, otherwise hide it
 	    if(GeneralUtils.testInternet(cont)){
 		    twitter.setOnClickListener(new OnClickListener(){
 				@Override
@@ -168,6 +172,7 @@ public class DrinkPopup {
 	
 	/**
 	 * Sets the thumbs up icon to show and adjusts the original list
+	 * Configures the logic as a whole, then passes the baton to the specifics, database management...etc.
 	 */
 	public static void toggleThumbsUp(boolean update){
 		tu.setImageResource(R.drawable.thumbsupselected);
@@ -179,6 +184,7 @@ public class DrinkPopup {
 	
 	/**
 	 * Sets the thumbs up icon to show and adjusts the original list
+	 * Configures the logic as a whole, then passes the baton to the specifics, database management...etc.
 	 */
 	public static void toggleThumbsDown(boolean update){
 		tu.setImageResource(R.drawable.thumbsup);
@@ -190,6 +196,7 @@ public class DrinkPopup {
 	
 	/**
 	 * Sets no thumbs selections and adjusts the original list
+	 * Configures the logic as a whole, then passes the baton to the specifics, database management...etc.
 	 */
 	public static void neutralizeThumbs(boolean update){
 		tu.setImageResource(R.drawable.thumbsup);
@@ -201,7 +208,7 @@ public class DrinkPopup {
 	
 	/**
 	 * Finds the element in the original dataset and adjusts the image shown as such
-	 * NOTE: THIS DOES NOT SAVE THE ADJUSTED SELECTION!
+	 * It then calls the logic to potentially bump thumbs up, and save the change
 	 */
 	public static void setThumbs(String status, Rating rating, boolean doUpdateThumbs) {
 		
@@ -224,6 +231,10 @@ public class DrinkPopup {
 		}
 	}
 	
+	/**
+	 * Saves whatever change was made to the database and, if there's internet and the thumbs 
+	 * was a thumbs up, then it sends that data to the server and adjusts as such
+	 */
 	public static void updateDrinkState(String name, String ingr, String instr, Rating rating, ArrayList<Drink> drinks){
 		Home dummy = new Home();
 		for(Drink drink : drinks)

@@ -31,7 +31,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-
+/**
+ * Handles the logic of establishing what is to be searched, then passes that along to
+ * the search itself and ranker
+ * @author Jeff
+ *
+ */
 public class SearchManagement {
 	public static List<String> reqIngredients;
 	public static List<String> optIngredients;
@@ -84,7 +89,6 @@ public class SearchManagement {
 
 	/**
 	 * Handles the configuring of the searching by name popup
-	 * @param c
 	 */
 	public static void searchByName(final Context c) {
 		final List<String> drinkNames = Home.getDrinkNames();
@@ -106,6 +110,7 @@ public class SearchManagement {
 				dialog.dismiss();
 			}
 	    });
+	    //Sorts the list of names and builds an adapter with that
 	    final List<String> namesSorted = GeneralUtils.sortSingleList(drinkNames);
 	    final AutoCompleteTextView input = (AutoCompleteTextView)dialog.findViewById(R.id.search_input_view);
 	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(c,
@@ -153,7 +158,6 @@ public class SearchManagement {
 	
 	/**
 	 * Handles the configuring of the searching by ingredients popup
-	 * @param c
 	 */
 	public static void searchByIngredients(final Context c) {
 		final List<String> drinkNames = Home.getIngredients();
@@ -181,6 +185,7 @@ public class SearchManagement {
 				dialog.dismiss();
 			}
 	    });
+	    //Sorts the list of ingredients alphabetically and sets it as an adapter
 	    final AutoCompleteTextView input = (AutoCompleteTextView)dialog.findViewById(R.id.search_input_view);
 	    final List<String> namesSorted = GeneralUtils.sortSingleList(drinkNames);
 	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(c, android.R.layout.simple_dropdown_item_1line, namesSorted);    
@@ -210,6 +215,7 @@ public class SearchManagement {
 			}
 	    });
 	    final RadioButton reqRadio = (RadioButton)dialog.findViewById(R.id.radio_required);
+	    //Adds the ingredient in question to the appropriate list
 	    add.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
@@ -251,8 +257,6 @@ public class SearchManagement {
 					dialog.dismiss();
 					SearchEngine search = new SearchEngine(c);
 					search.searchByIngredient((ArrayList<String>) optIngredients, (ArrayList<String>) reqIngredients);
-					//Replace this with logic to use the two listviews in the search
-					//((Home)((Activity)c)).listviewInit();
 				}
 			}
 	    });

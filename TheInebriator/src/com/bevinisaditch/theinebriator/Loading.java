@@ -22,11 +22,18 @@ import com.bevinisaditch.theinebriator.ClassFiles.DataBaseReader;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;
 import com.devingotaswitch.theinebriator.R;
-
+/**
+ * The activity that loads from file, with a fun gif to kill time
+ * @author Jeff
+ *
+ */
 public class Loading extends Activity {
 	public Context cont;
 	private ImageView img;
 	public static ArrayList<Drink> drinks;
+	/**
+	 * Sets the display, and spawns the loading threads
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -50,16 +57,6 @@ public class Loading extends Activity {
 	}
 	
 	/**
-	 * Transition function that will transition loading screen to home screen
-	 */
-	private void sendToHome()
-	{
-		Intent i2 = new Intent(Loading.this, Home.class);
-		startActivity(i2);
-		overridePendingTransition( R.anim.slide_in_up, R.anim.slide_out_up );
-	}
-	
-	/**
 	 * Sets the animation of the gif to work, then manages the loading of the data from file
 	 */
 	private void handleInitialLoad()
@@ -70,8 +67,16 @@ public class Loading extends Activity {
 		frameAnimation.start();
 	}
 	
+	/**
+	 * The asynctask that will load data from file and pass it to the home activity
+	 * @author Jeff
+	 *
+	 */
 	private class AsyncLoader extends AsyncTask<Activity, Void, ArrayList<Drink>> {
 		Activity act;
+		/**
+		 * Calls the method to load the drinks
+		 */
         @Override
         protected ArrayList<Drink> doInBackground(Activity... params) {
         	act = (Activity)params[0];
@@ -79,6 +84,9 @@ public class Loading extends Activity {
             return drinkHandler.getAllDrinks();
         }
 
+        /**
+         * Once it's done, move over to send to home
+         */
         @Override
         protected void onPostExecute(ArrayList<Drink> result) {
             drinks = result;

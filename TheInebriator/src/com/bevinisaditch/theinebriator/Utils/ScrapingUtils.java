@@ -12,7 +12,11 @@ import org.jsoup.select.Elements;
 
 import android.content.Context;
 import android.widget.Toast;
-
+/**
+ * A mostly static library to help with some scraping
+ * @author Jeff
+ *
+ */
 public class ScrapingUtils {
 	public static String ua = "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.2 Safari/537.36"; 
 

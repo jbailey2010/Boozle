@@ -34,10 +34,11 @@ public class DrinkInfo
 	/**
 	 * Does the real work, fetching the data asynchronously, sorting it appropriately, and 
 	 * displays it in a simple way on the pop up
-	 * @param cont
+	 * @param cont - to make the dialog appear. Android stuff.
 	 */
 	public static void displayStats(Context cont)
 	{
+		//Interface syntax stuff
 		final Dialog dialog = new Dialog(cont, R.style.DialogBackground);
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		dialog.setContentView(R.layout.one_line_text);
@@ -54,12 +55,14 @@ public class DrinkInfo
 			}
 	    });
 	    output = (TextView)dialog.findViewById(R.id.textView1);
+	    //Gets the top 200 most active entities
 	    EntityUtils.getEntities((Activity) cont, 0, 200, SortOrder.TOTAL_ACTIVITY, new EntityListListener() {
 
 			@Override
 			public void onList(ListResult<Entity> result) {
 				List<Entity> results = result.getItems();
 				StringBuilder data = new StringBuilder(1000);
+				//Sort the top <= 15 by views
 				int i = 0;
 				PriorityQueue<Entity> sorted = sortEntitiesViews(results);
 				if(sorted.size() > 0)
@@ -72,6 +75,7 @@ public class DrinkInfo
 						data.append(i + ". "+ elem.getDisplayName() + " - " + elem.getEntityStats().getViews() + " views\n");
 					}
 				}
+				//Sort the top <= 15 by socialize likes
 				PriorityQueue<Entity> sortedLikes = sortEntitiesLikes(results);
 				i=0;
 				if(sortedLikes.size() > 0)
@@ -88,6 +92,7 @@ public class DrinkInfo
 					i++;
 					data.append(i + ". "+ elem.getDisplayName() + " - " + elem.getEntityStats().getLikes() + " likes\n");
 				}
+				//Sort hte top <= 15 by socialize comments
 				PriorityQueue<Entity> sortedComments = sortEntitiesComments(results);
 				if(sortedComments.size() > 0)
 				{
@@ -104,6 +109,7 @@ public class DrinkInfo
 					i++;
 					data.append(i + ". "+ elem.getDisplayName() + " - " + elem.getEntityStats().getComments() + " likes\n");
 				}
+				//Sorts the top <= 15 by local thumbs ups
 				i = 0;
 				PriorityQueue<Entity> sortedThumbs = sortEntitiesThumbs(results);
 				if(sortedThumbs.size() > 0){
@@ -130,8 +136,8 @@ public class DrinkInfo
 
 	/**
 	 * Sorts the results by views
-	 * @param input
-	 * @return
+	 * @param input - the list of entities to be sorted
+	 * @return - the priority queue of entities by views
 	 */
 	public static PriorityQueue<Entity> sortEntitiesViews(List<Entity> input)
 	{
@@ -160,8 +166,8 @@ public class DrinkInfo
 
 	/**
 	 * Sorts the results by likes
-	 * @param input
-	 * @return
+	 * @param input - the list of entities
+	 * @return - A priority queue by socialize likes
 	 */
 	public static PriorityQueue<Entity> sortEntitiesLikes(List<Entity> input)
 	{
@@ -193,8 +199,8 @@ public class DrinkInfo
 
 	/**
 	 * Sorts the results by comments
-	 * @param input
-	 * @return
+	 * @param input - the list of entities
+	 * @return - Priority queue by socialize comments
 	 */
 	public static PriorityQueue<Entity> sortEntitiesComments(List<Entity> input)
 	{
@@ -225,9 +231,9 @@ public class DrinkInfo
 	}
 	
 	/**
-	 * Sorts the input based on the amount of times drafted
-	 * @param input
-	 * @return
+	 * Sorts the input based on the amount of times thumbs upped
+	 * @param input - the list of entities
+	 * @return - Priority Queue sorted by times thumbs upped
 	 */
 	public static PriorityQueue<Entity> sortEntitiesThumbs(List<Entity> input)
 	{

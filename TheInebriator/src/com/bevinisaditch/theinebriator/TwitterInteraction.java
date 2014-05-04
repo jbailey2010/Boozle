@@ -24,6 +24,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ * A class to handle the linking with twitter 
+ * @author Jeff
+ *
+ */
 public class TwitterInteraction {
 	String validURL = "";
 	int pin = -1;
@@ -34,6 +39,10 @@ public class TwitterInteraction {
 	static AccessToken userToken = null;
 	public String drinkName;
 	
+	/**
+	 * Figures out if the linking has been done. If not, initiate that, otherwise 
+	 * log the user in.
+	 */
 	public void twitterInitial(Context cont, String name) {
 		drinkName = name;
 		long check = readUseID(cont);
@@ -300,6 +309,10 @@ public class TwitterInteraction {
 		Toast.makeText(cont, "Successfully set up your account! Please press the menu option again.", Toast.LENGTH_SHORT).show();
 	}
 	
+	/**
+	 * Spawns threads to tweet something from the user's account 
+	 *
+	 */
 	public class ParseTwitterSearch extends AsyncTask<Object, String, Void> 
 	{
 		ProgressDialog pdia;
