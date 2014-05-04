@@ -50,7 +50,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="6"
+        android:weightSum="4"
         android:orientation="vertical" >
 
     
@@ -63,24 +63,6 @@
         android:layout_width="match_parent"
         android:background="@drawable/btn_blue_semi_trans"
         android:layout_height="wrap_content"/>
-    <Button
-        android:id="@+id/menu_create"
-        style="@style/ButtonText"
-        android:text="Create a Drink"
-        android:title="Add a Drink"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_blue_semi_trans"/>
-    <Button
-        android:id="@+id/menu_added"
-        style="@style/ButtonText"
-        android:text="Custom Drinks"
-        android:title="Added Drinks"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_blue_semi_trans"/>
     <Button
         android:id="@+id/menu_liked"
         style="@style/ButtonText"
