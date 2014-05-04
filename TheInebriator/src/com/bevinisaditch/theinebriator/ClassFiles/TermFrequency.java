@@ -1,5 +1,11 @@
 package com.bevinisaditch.theinebriator.ClassFiles;
 
+/**
+ * Data structure of a term name and the frequency of which it occurs. Used by Ranker/Search Engine
+ * 
+ * @author michael
+ *
+ */
 public class TermFrequency {
 
 	//private variables
@@ -7,48 +13,85 @@ public class TermFrequency {
     String _term;
     Float _frequency;
      
-    // Empty constructor
+    /**
+     * Empty Constructor
+     */
     public TermFrequency(){
          
     }
-    // constructor
+    
+    /**
+     * Constructor
+     * 
+     * @param id - Id of term (from database)
+     * @param term - Name of the term (String)
+     * @param frequency - Frequency the term occurs (float)
+     */
     public TermFrequency(Long id, String term, Float frequency){
         this._id = id;
         this._term = term;
         this._frequency = frequency;
     }
      
-    // constructor
+    /**
+     * Constructor
+     * 
+     * @param term - Name of the term (String)
+     * @param frequency - Frequency the term occurs (float)
+     */
     public TermFrequency(String term, Float frequency){
         this._term = term;
         this._frequency = frequency;
     }
-    // getting ID
+    
+    /**
+     * @return id of the term frequency
+     */
     public Long getID(){
         return this._id;
     }
      
-    // setting id
+    /**
+     * SetID
+     * 
+     * @param id - ID to be set (from database)
+     */
     public void setID(Long id){
         this._id = id;
     }
      
-    // getting term
+    /**
+     * getTerm
+     * 
+     * @return name of the term (String)
+     */
     public String getTerm(){
         return this._term;
     }
      
-    // setting term
+    /**
+     * setTerm()
+     * 
+     * @param name - Name of the term (String)
+     */
     public void setTerm(String name){
         this._term = name;
     }
      
-    // getting term frequency
+    /**
+     * getFrequency()
+     * 
+     * @return frequency of the term (Float)
+     */
     public Float getFrequency(){
         return this._frequency;
     }
      
-    // setting term frequency
+    /**
+     * setFrequency()
+     * 
+     * @param frequency - frequency the term occurs (float)
+     */
     public void setFrequency(Float frequency){
         this._frequency = frequency;
     }

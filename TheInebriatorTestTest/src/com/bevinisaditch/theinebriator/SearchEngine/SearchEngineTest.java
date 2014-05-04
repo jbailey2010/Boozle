@@ -10,6 +10,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
 
 import org.mockito.MockitoAnnotations;
@@ -71,7 +72,7 @@ public class SearchEngineTest extends AndroidTestCase {
 		
 		engine = new SearchEngine(context, mockedRanker, mockedDB);
 		assertEquals(expectedDrinks, engine.searchByName("drink2"));
-		verify(mockedDB).getAllDrinks();
+		verify(mockedDB).getRelevantDrinksByName(any(ArrayList.class));
 		verify(mockedRanker).doInBackground();
 		
 	}

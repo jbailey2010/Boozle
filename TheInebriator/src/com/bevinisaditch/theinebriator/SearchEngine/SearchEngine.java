@@ -9,6 +9,12 @@ import android.util.Log;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;
 
+/**
+ * Search engine that should be called by the android search activity (Home.java)
+ * 
+ * @author michael
+ *
+ */
 public class SearchEngine {
 	Context context;
 	DrinkDatabaseHandler drinkHandler;
@@ -16,6 +22,11 @@ public class SearchEngine {
 	public static final Integer SEARCH_NAME = 0;
 	public static final Integer SEARCH_INGREDIENT = 1;
 	
+	/**
+	 * Constructor
+	 * 
+	 * @param context - Android activity context
+	 */
 	public SearchEngine(Context context) {
 		this.context = context;
 		drinkHandler = new DrinkDatabaseHandler(context);

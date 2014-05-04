@@ -54,12 +54,12 @@ public class DataBaseReaderTest extends AndroidTestCase {
 		//handler.addDrinkWithoutIngredients(drink2);
 		
 		ArrayList<String> terms = new ArrayList<String>();
-		terms.add("billion");
+		terms.add("coco");
 		
 		
 		ArrayList<Drink> relevantDrinks = handler.getRelevantDrinksByName(terms);
 		
-		assertEquals(1, relevantDrinks.size());
+		assertEquals(3, relevantDrinks.size());
 		
 	}
 }

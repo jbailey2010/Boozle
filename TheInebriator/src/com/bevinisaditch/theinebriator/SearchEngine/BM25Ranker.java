@@ -32,6 +32,15 @@ public class BM25Ranker extends Ranker {
 	private double b = .75;
 	private double k = 1.2;
 	
+	/**
+	 * Constructor for ranker
+	 * 
+	 * @param context - Android activity context
+	 * @param terms - Search terms
+	 * @param drinks - Relevant drinks to be ranked
+	 * @param searchType - Search by name or ingredient... 
+	 * 	Use SearchEngine.SEARCH_INGREDIENT or SearchEngine.SEARCH_NAME
+	 */
 	public BM25Ranker(
 			Context context,
 			ArrayList<String> terms,
@@ -202,7 +211,11 @@ public class BM25Ranker extends Ranker {
 		return individualTerms;
 	}
 	
-	
+	/**
+	 * Takes a list of drinks and returns the average number of words per drink
+	 * @param drinks - ArrayList of drinks
+	 * @return average number of words per drink
+	 */
 	public int getAvgLengthOfDrinks(ArrayList<Drink> drinks) {
 		int averageLength = 0;
 		for (Drink drink : drinks){
