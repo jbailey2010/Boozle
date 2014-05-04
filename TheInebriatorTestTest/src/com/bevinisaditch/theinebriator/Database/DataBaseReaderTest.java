@@ -21,10 +21,10 @@ public class DataBaseReaderTest extends AndroidTestCase {
 		ArrayList<Ingredient> ingredients;
 		Drink sampleDrink;
 		ingredients = new ArrayList<Ingredient>();
-		sampleDrink = new Drink("American Beauty Shot", Drink.Rating.THUMBSNULL, ingredients, "Mix everything in a cocktail shaker with ice. Strain into a chilled cocktail glass or a highball glass filled with ice.", 0);
+		sampleDrink = new Drink("Razberi Sunsplash", Drink.Rating.THUMBSNULL, ingredients, "Pour liquors into a hurricane glass. Add juice and grenadine, and shake well. Garnish with a flag, and serve.", 1260);
 		assertDrinkFound(sampleDrink);
 		ingredients = new ArrayList<Ingredient>();
-		sampleDrink = new Drink("Algonquin Cocktail", Drink.Rating.THUMBSNULL, ingredients, "Combine all ingredients in cocktail shaker. Stir with ice and strain into a cocktail glass or over ice in a rocks glass.", 1);
+		sampleDrink = new Drink("The Real Windex", Drink.Rating.THUMBSNULL, ingredients, "Shake vodka and liqueur with ice, and strain into a chilled cocktail glass. Garnish with orange peel, and serve.", 1261);
 		assertDrinkFound(sampleDrink);
 	}
 	
