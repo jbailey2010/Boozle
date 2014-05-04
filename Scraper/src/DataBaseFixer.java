@@ -128,6 +128,13 @@ public class DataBaseFixer {
 				String name = newIngredient.getName();
 				//Fixing some unit or drink names. Parsing didn't always work correctly
 				// issues like of frozen (contains oz) etc.
+				if (name.length() > 10)
+				{
+					if (name.substring(0,10).equals("fill with "))
+					{
+						newIngredient.setName(name.substring(10));
+					}
+				}
 				if (name.length() > 3)
 				{
 					if (name.substring(0,3).equals("of "))
@@ -228,10 +235,10 @@ public class DataBaseFixer {
 	private static final String[] POSSIBLE_UNITS = {"teaspoon", "scoop", "cup", "part", "package", 
 		"shot", "dashes", "dash", "tsp", "tbsp", "pony", "ml", "sprig", "pinch", "inch", "jigger",
 		"can ", "bottle", "tb", "drop", "liter", "litre", "twist", "heaping bar spoon", "bar spoon",
-		"spoon", "squeeze", "pinch", "stalk", "bag",
+		"spoon", "squeeze", "pinch", "stalk", "bag", "fifth",
         "gal", "splashes", "splash", "float", "pint", "glass",
         "tablespoon", "ponies", "gallon", "quart", "oz",
-        "ounce", "slice", "cl ", "whole", "piece", " g ", "lb", "dl ", "pt ", "qt"};
+        "ounce", "slice", "cl ", "whole", "piece", " g ", "lb", "L ", "l ", "dl ", "pt ", "qt"};
 	
 	/**
 	 * parses every ingredient. takes the units and quantity and separates them
