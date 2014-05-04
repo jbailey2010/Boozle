@@ -36,7 +36,8 @@ public class DataBaseFixer {
 			//Makes sure there are ingredients and there aren't duplicates
 			if (drinks.get(i).getIngredients().size() == 0 || 
 					drinks.get(i).getName().contains("#2") || 
-					drinks.get(i).getName().contains("#3")) {
+					drinks.get(i).getName().contains("#3") ||
+					drinks.get(i).getName().trim().equals("")) {
 				drinks.remove(i);
 				i--;
 				continue;
@@ -121,13 +122,15 @@ public class DataBaseFixer {
 						}
 					}
 				}
-				else if (name.length() > 2)
+				if (name.length() > 2)
 				{
 					if (name.substring(0,2).equals("d "))
 					{
 						newIngredient.setName(name.substring(2));
 					}
 				}
+				
+				
 				newIngredients.add(newIngredient);//Extracted
 			}
 			currDrink.setIngredients(newIngredients);
@@ -135,13 +138,23 @@ public class DataBaseFixer {
 		return drinks;
 	}
 	
-	private static final String[] POSSIBLE_UNITS = {"scoop", "can", "part", "package", 
+	private static boolean quantityIsValid(Ingredient ing)
+	{
+		String qty = ing.getQuantity();
+		for (int i = 0; i < qty.length(); i++)
+		{
+			break;
+		}
+		return true;
+	}
+	
+	private static final String[] POSSIBLE_UNITS = {"scoop", "cup", "part", "package", 
 		"shot", "dashes", "dash", "tsp", "tbsp", "pony", "ml", "sprig", "inch", "jigger",
-		"cup", "bottle", "tb", "drop", "liter", "litre", "twist", "heaping bar spoon", "bar spoon",
-		"spoon", "squeeze", "pinch", "stalk", "g", "dl", "lb", "bag",
-        "pt", "qt", "gal", "splashes", "splash", "float", "pint", "glass",
+		"can", "bottle", "tb", "drop", "liter", "litre", "twist", "heaping bar spoon", "bar spoon",
+		"spoon", "squeeze", "pinch", "stalk", "bag",
+        "gal", "splashes", "splash", "float", "pint", "glass",
         "tablespoon", "teaspoon", "ponies", "gallon", "quart", "oz",
-        "ounce", "slice", "cl", "whole", "piece"};
+        "ounce", "slice", "cl", "whole", "piece", " g ", "lb", "dl", "pt", "qt"};
 	
 	public static Ingredient parseIngredient(String line)
 	{
