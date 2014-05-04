@@ -45,6 +45,10 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    private static final String MATCH_FILE_NAME = "matchDataShort.txt";
 	    private static final String PAIR_FILE_NAME = "pairDataShort.txt";
 	 	  
+	    /**
+	     * just calls super constructor
+	     * @param context
+	     */
 	    public DrinkDatabaseHandler(Context context) {
 	        super(context, DATABASE_NAME, null, DATABASE_VERSION); 
 	        con = context; 
@@ -61,9 +65,8 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    }
 	 
 	    /**
-	     * Creates tables and reads from text files to populate them
+	     * Creates tables and inserts the drinks, ingredients, and matchings into database
 	     */
-	    @Override
 	    public void onCreate(SQLiteDatabase db) {
 	        String CREATE_DRINKS_TABLE = "CREATE TABLE DRINKS" +
 	        		"(ID INT PRIMARY KEY       NOT NULL," +
@@ -90,7 +93,6 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    /**
 	     * Deletes and repopulates tables if database was upgraded
 	     */
-	    @Override
 	    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 	        // Drop older table if existed
 	        deleteTablesIfExist(db);
@@ -100,7 +102,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    }
 
 	    /**
-	     * Executes SQL to delete the tables if they exist
+	     * Deletes tables from db if they already exist
 	     * @param db this database
 	     */
 		private void deleteTablesIfExist(SQLiteDatabase db) {
@@ -321,6 +323,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	return ings;
 	    }
 	    
+	    
 	    /**
 	     * Gets IngredientIDPairs given strings of the ingredient names
 	     * @param ingredients ingredient names
@@ -464,9 +467,15 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    }
 	    
 	    /**
+<<<<<<< HEAD
+	     * Gets relevant drinks using name and terms
+	     * @param terms
+	     * @return
+=======
 	     * Gets relevant drinks by name
 	     * @param terms The terms to which the drinks must be relevant
 	     * @return The drinks relevant to terms
+>>>>>>> FETCH_HEAD
 	     */
 	    public ArrayList<Drink> getRelevantDrinksByName(ArrayList<String> terms) {
 	    	SQLiteDatabase db = this.getWritableDatabase();
@@ -475,6 +484,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	
 	    	String selectQuery = "SELECT * FROM DRINKS WHERE ";
 	    	
+	    	//Creates query for database
 	    	if (terms != null && terms.size() > 0) {
 	    		selectQuery += "NAME LIKE '% " + terms.get(0) + " %'";
 	    		selectQuery += " OR NAME LIKE '" + terms.get(0) + " %'";

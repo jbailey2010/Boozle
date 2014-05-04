@@ -17,13 +17,23 @@ public class DataBaseFixer {
 	}
 
 	public static ArrayList<Ingredient> parse(){
-		return null;}
+		return null;
+	}
 	
+	/**
+	 * Fix drinks goes through the original database and cleans it up
+	 *  getting rid of duplicates, drinks without names, drinks with
+	 *  very odd ingredients, unicode encoding issues, and fixes the
+	 *  id's
+	 * @return
+	 */
 	public static ArrayList<Drink> fixDrinks()
 	{
 		int count = 0;
+		//get all drinks and fix the ingredients using the fixingredients function
 		ArrayList<Drink> drinksOrig = DataBaseReader.getAllDrinks();
 		ArrayList<Drink> drinks = fixIngredients(drinksOrig);
+		/*
 		for (Drink currDrink : drinks)
 		{
 			if (currDrink.getName().equals("Claret Punch"))
@@ -34,8 +44,10 @@ public class DataBaseFixer {
 			{
 				System.out.println("HILLARY WALLBANGER INDEED FOUND " + currDrink.getId());
 			}
-		}
+		}*/
 		System.out.println(drinks.size());
+		// loops through all drinks and gets rid of 3/4 of them for the sake of runtime
+		// and cleans up copies
 		for(int i = 0; i < drinks.size(); i++) {
 			count++;
 			//Remove every fifth ingredient
@@ -64,6 +76,7 @@ public class DataBaseFixer {
 			}
 		}
 		
+		// set the drink id correctly
 		for (int i = 0; i < drinks.size(); i++)
 		{
 			drinks.get(i).setId(i);
@@ -72,19 +85,27 @@ public class DataBaseFixer {
 		return drinks;
 	}
 	
+	/**
+	 * Fixes ingredients by checking quantity, unit, and name
+	 *  and throws out drinks that behave erratically
+	 * @param drinks
+	 * @return
+	 */
 	public static ArrayList<Drink> fixIngredients(ArrayList<Drink> drinks)
 	{
 		ArrayList<Drink> trimmedDrinks = new ArrayList<Drink>();
 		int numDrinksThrownOut = 0;
+		//Loops through all of the drinks
 		for (Drink currDrink : drinks)
 		{
 			boolean trashDrink = false;
 			ArrayList<Ingredient> newIngredients = new ArrayList<Ingredient>();
+			//Loops through all ingredients in current drink
 			for (Ingredient currIngredient : currDrink.getIngredients())
 			{			
 				String origIng = currIngredient.toString();
 				Ingredient newIngredient;
-				//Refactoring
+				//Fixes ingredient and parses it properly
 				boolean quantityIsNull = (currIngredient.getQuantity() == null || currIngredient.getQuantity().isEmpty() || currIngredient.getQuantity().equals("null"));
 				boolean unitsIsNull = (currIngredient.getUnits() == null || currIngredient.getUnits().isEmpty() || currIngredient.getUnits().equals("null"));
 				boolean nameIsNull = (currIngredient.getName() == null || currIngredient.getName().isEmpty() || currIngredient.getName().equals("null"));
@@ -105,6 +126,8 @@ public class DataBaseFixer {
 					newIngredient = currIngredient;
 				}
 				String name = newIngredient.getName();
+				//Fixing some unit or drink names. Parsing didn't always work correctly
+				// issues like of frozen (contains oz) etc.
 				if (name.length() > 3)
 				{
 					if (name.substring(0,3).equals("of "))
@@ -145,7 +168,8 @@ public class DataBaseFixer {
 						newIngredient.setName(name.substring(2));
 					}
 				}
-				
+				//Decide if drink is valid and this is where we decide if we
+				// want to throw a particular recipe
 				if (!quantityIsValid(newIngredient))
 				{
 					System.out.println("Throwing out " + newIngredient);
@@ -168,10 +192,18 @@ public class DataBaseFixer {
 		return trimmedDrinks;
 	}
 	
+	/**
+	 * checks if a quantity is valid by making sure it has
+	 *  a predetermined set of characters
+	 * @param ing
+	 * @return
+	 */
 	private static boolean quantityIsValid(Ingredient ing)
 	{
 		String validChars = "0123456789/-. aA";
 		String qty = ing.getQuantity();
+		//Loop through the string and validate it with
+		// all the validChars
 		for (int i = 0; i < qty.length(); i++)
 		{
 			char curr = qty.charAt(i);
@@ -191,6 +223,8 @@ public class DataBaseFixer {
 		return true;
 	}
 	
+	// The possible units that we will allow. Units earlier on the list will
+	// be caught before units later in the list
 	private static final String[] POSSIBLE_UNITS = {"teaspoon", "scoop", "cup", "part", "package", 
 		"shot", "dashes", "dash", "tsp", "tbsp", "pony", "ml", "sprig", "pinch", "inch", "jigger",
 		"can ", "bottle", "tb", "drop", "liter", "litre", "twist", "heaping bar spoon", "bar spoon",
@@ -199,6 +233,12 @@ public class DataBaseFixer {
         "tablespoon", "ponies", "gallon", "quart", "oz",
         "ounce", "slice", "cl ", "whole", "piece", " g ", "lb", "dl ", "pt ", "qt"};
 	
+	/**
+	 * parses every ingredient. takes the units and quantity and separates them
+	 *  from the name.
+	 * @param line
+	 * @return
+	 */
 	public static Ingredient parseIngredient(String line)
 	{
 		line = line.toLowerCase();
@@ -206,6 +246,10 @@ public class DataBaseFixer {
 		String qty;
 		String units;
 		
+		//Loop through the possible units and checks string
+		// if one of the units are there. if it does
+		// then everything before it becomes a quantity and
+		// everything after it becomes the name
 		for (String possibleUnit : POSSIBLE_UNITS)
 		{
 			int index = line.indexOf(possibleUnit);
