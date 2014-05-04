@@ -118,6 +118,9 @@ public class Drink {
 	
 
 	@Override
+	/**
+	 * @TODO what is this for?
+	 */
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -132,6 +135,9 @@ public class Drink {
 	}
 
 	@Override
+	/**
+	 * Just makes sure we can check if drinks are equal
+	 */
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;

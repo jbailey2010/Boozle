@@ -29,6 +29,8 @@ public class DrinkMixerScraper {
 		// For each drink group (a, b, c, d, ... z)
 		int max = 0;
 		ArrayList<Drink> dranks = new ArrayList<Drink>();
+		//Iterates through each URL grabbing ingredients, instructions, and 
+		// name from tags
 		for (int i = 0; i < 12128; i++) {
 			try
 			{
@@ -47,6 +49,11 @@ public class DrinkMixerScraper {
 		return dranks;
 	}
 	
+	/**
+	 * Parses the ingredients from a list of string
+	 * @param ingredients
+	 * @return
+	 */
 	public static ArrayList<Ingredient> convertToIngredients(List<String> ingredients)
 	{
 		ArrayList<Ingredient> ings = new ArrayList<Ingredient>();
@@ -60,12 +67,19 @@ public class DrinkMixerScraper {
 		return ings;
 	}
 
+	/**
+	 * Parses and individual ingredient from a string
+	 * @param line
+	 * @return
+	 */
 	public static Ingredient parseIngredient(String line)
 	{
 		String name;
 		String qty;
 		String units;
 		
+		//Checks for possible units and creates a proper 
+		// ingredient from the string
 		for (String possibleUnit : POSSIBLE_UNITS)
 		{
 			int index = line.indexOf(possibleUnit);

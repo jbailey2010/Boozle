@@ -39,11 +39,18 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    private static final String MATCH_FILE_NAME = "matchDataShort.txt";
 	    private static final String PAIR_FILE_NAME = "pairDataShort.txt";
 	 	  
+	    /**
+	     * just calls super constructor
+	     * @param context
+	     */
 	    public DrinkDatabaseHandler(Context context) {
 	        super(context, DATABASE_NAME, null, DATABASE_VERSION); 
 	        con = context; 
 	    } 
 	    
+	    /**
+	     * Recreates database by deleting it and using oncreate
+	     */
 	    public void reCreateTables()
 	    { 
 	    	SQLiteDatabase db = this.getWritableDatabase();
@@ -54,6 +61,9 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	 
 	    // Creating Tables
 	    @Override
+	    /**
+	     * Creates tables and inserts the drinks, ingredients, and matchings into database
+	     */
 	    public void onCreate(SQLiteDatabase db) {
 	        String CREATE_DRINKS_TABLE = "CREATE TABLE DRINKS" +
 	        		"(ID INT PRIMARY KEY       NOT NULL," +
@@ -83,6 +93,9 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	 
 	    // Upgrading database
 	    @Override
+	    /**
+	     * handles what to do if the database version is upgraded
+	     */
 	    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 	        // Drop older table if existed
 	        deleteTablesIfExist(db);
@@ -91,6 +104,10 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	        onCreate(db);
 	    }
 
+	    /**
+	     * Deletes tables from db if they already exist
+	     * @param db
+	     */
 		private void deleteTablesIfExist(SQLiteDatabase db) {
 			db.execSQL("DROP TABLE IF EXISTS DRINKS");
 	        db.execSQL("DROP TABLE IF EXISTS INGREDIENTS");
@@ -158,6 +175,14 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	        db.insert("DRINKS", null, values);
 	    }
 	    
+	    /**
+	     * adds a drink by using its values
+	     * @param id
+	     * @param name
+	     * @param rating
+	     * @param instructions
+	     * @param db
+	     */
 	    public void addDrinkByVars(int id, String name, int rating, String instructions, SQLiteDatabase db)
 	    {
 	    	ContentValues values = new ContentValues();
@@ -196,6 +221,11 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	db.insert("MATCHINGS", null, values);
 	    }
 
+	    /**
+	     * converts rating enum to an int
+	     * @param rating
+	     * @return
+	     */
 	    private int ratingToInt(Rating rating)
 	    {
 	    	if (rating == Rating.THUMBSNULL)
@@ -206,6 +236,11 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    		return -1;
 	    }
 	    
+	    /**
+	     * Converts string to a rating
+	     * @param str
+	     * @return
+	     */
 	    private Rating stringToRating(String str)
 	    {
 	    	if (str.equals("THUMBSNULL"))
@@ -306,6 +341,11 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 			return drinks;
 	    }
 	    
+	    /**
+	     * Gets relevant drinks using name and terms
+	     * @param terms
+	     * @return
+	     */
 	    public ArrayList<Drink> getRelevantDrinksByName(ArrayList<String> terms) {
 	    	SQLiteDatabase db = this.getWritableDatabase();
 	    	ArrayList<Matching> allMatches = getAllMatchings();
@@ -313,6 +353,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	
 	    	String selectQuery = "SELECT * FROM DRINKS WHERE ";
 	    	
+	    	//Creates query for database
 	    	if (terms != null && terms.size() > 0) {
 	    		selectQuery += "NAME LIKE '% " + terms.get(0) + " %'";
 	    		selectQuery += " OR NAME LIKE '" + terms.get(0) + " %'";
