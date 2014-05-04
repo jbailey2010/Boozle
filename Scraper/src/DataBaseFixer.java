@@ -22,7 +22,19 @@ public class DataBaseFixer {
 	public static ArrayList<Drink> fixDrinks()
 	{
 		int count = 0;
-		ArrayList<Drink> drinks = DataBaseReader.getAllDrinks();
+		ArrayList<Drink> drinksOrig = DataBaseReader.getAllDrinks();
+		ArrayList<Drink> drinks = fixIngredients(drinksOrig);
+		for (Drink currDrink : drinks)
+		{
+			if (currDrink.getName().equals("Claret Punch"))
+			{
+				System.out.println("CLARET PUNCH WAS INDEED FOUND " + currDrink.getId());
+			}
+			if (currDrink.getName().equals("Hillary Wallbanger"))
+			{
+				System.out.println("HILLARY WALLBANGER INDEED FOUND " + currDrink.getId());
+			}
+		}
 		System.out.println(drinks.size());
 		for(int i = 0; i < drinks.size(); i++) {
 			count++;
@@ -62,11 +74,15 @@ public class DataBaseFixer {
 	
 	public static ArrayList<Drink> fixIngredients(ArrayList<Drink> drinks)
 	{
+		ArrayList<Drink> trimmedDrinks = new ArrayList<Drink>();
+		int numDrinksThrownOut = 0;
 		for (Drink currDrink : drinks)
 		{
+			boolean trashDrink = false;
 			ArrayList<Ingredient> newIngredients = new ArrayList<Ingredient>();
 			for (Ingredient currIngredient : currDrink.getIngredients())
 			{			
+				String origIng = currIngredient.toString();
 				Ingredient newIngredient;
 				//Refactoring
 				boolean quantityIsNull = (currIngredient.getQuantity() == null || currIngredient.getQuantity().isEmpty() || currIngredient.getQuantity().equals("null"));
@@ -100,7 +116,7 @@ public class DataBaseFixer {
 						String ing = newIngredient.getQuantity() + " " + newIngredient.getUnits() + newIngredient.getName();
 						newIngredient = parseIngredient(ing);
 					}
-					else if (name.substring(0, 3).equals("en "))
+					else if (name.substring(0, 3).equals("en ") || name.substring(0, 3).equals("en,"))
 					{
 						if (newIngredient.getUnits().equals("oz"))
 						{
@@ -130,31 +146,58 @@ public class DataBaseFixer {
 					}
 				}
 				
-				
+				if (!quantityIsValid(newIngredient))
+				{
+					System.out.println("Throwing out " + newIngredient);
+					trashDrink = true;
+				}
 				newIngredients.add(newIngredient);//Extracted
 			}
 			currDrink.setIngredients(newIngredients);
+			if (!trashDrink)
+			{
+				trimmedDrinks.add(currDrink);
+			}
+			else
+			{
+				System.out.println("Drink name thrown out: " + currDrink.getName());
+				numDrinksThrownOut++;
+			}
 		}
-		return drinks;
+		System.out.println("Num drinks thrown out: " + numDrinksThrownOut);
+		return trimmedDrinks;
 	}
 	
 	private static boolean quantityIsValid(Ingredient ing)
 	{
+		String validChars = "0123456789/-. aA";
 		String qty = ing.getQuantity();
 		for (int i = 0; i < qty.length(); i++)
 		{
-			break;
+			char curr = qty.charAt(i);
+			boolean match = false;
+			for (int j = 0; j < validChars.length(); j++)
+			{
+				if (curr == validChars.charAt(j))
+				{
+					match = true;
+				}
+			}
+			if (!match)
+			{
+				return false;
+			}
 		}
 		return true;
 	}
 	
-	private static final String[] POSSIBLE_UNITS = {"scoop", "cup", "part", "package", 
-		"shot", "dashes", "dash", "tsp", "tbsp", "pony", "ml", "sprig", "inch", "jigger",
-		"can", "bottle", "tb", "drop", "liter", "litre", "twist", "heaping bar spoon", "bar spoon",
+	private static final String[] POSSIBLE_UNITS = {"teaspoon", "scoop", "cup", "part", "package", 
+		"shot", "dashes", "dash", "tsp", "tbsp", "pony", "ml", "sprig", "pinch", "inch", "jigger",
+		"can ", "bottle", "tb", "drop", "liter", "litre", "twist", "heaping bar spoon", "bar spoon",
 		"spoon", "squeeze", "pinch", "stalk", "bag",
         "gal", "splashes", "splash", "float", "pint", "glass",
-        "tablespoon", "teaspoon", "ponies", "gallon", "quart", "oz",
-        "ounce", "slice", "cl", "whole", "piece", " g ", "lb", "dl", "pt", "qt"};
+        "tablespoon", "ponies", "gallon", "quart", "oz",
+        "ounce", "slice", "cl ", "whole", "piece", " g ", "lb", "dl ", "pt ", "qt"};
 	
 	public static Ingredient parseIngredient(String line)
 	{

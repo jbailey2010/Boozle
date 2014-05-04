@@ -18,7 +18,7 @@ public class DataBaseReader {
 
 	public static void main(String[] args) throws Exception
 	{
-		transformDataBase(DataBaseFixer.fixIngredients(DataBaseFixer.fixDrinks()));
+		transformDataBase(DataBaseFixer.fixDrinks());
 		
 		
 		c = DriverManager.getConnection("jdbc:sqlite:drinksAndIngredientsFive.db");
