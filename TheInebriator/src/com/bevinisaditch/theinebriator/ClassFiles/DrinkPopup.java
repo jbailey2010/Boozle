@@ -114,13 +114,18 @@ public class DrinkPopup {
 	    TextView instrView = (TextView)dialog.findViewById(R.id.instructions_view);
 	    instrView.setText(instr);
 	    ImageView twitter = (ImageView)dialog.findViewById(R.id.twitter_logo);
-	    twitter.setOnClickListener(new OnClickListener(){
-			@Override
-			public void onClick(View v) {
-				TwitterInteraction obj = new TwitterInteraction();
-				obj.twitterInitial(cont, name);
-			}
-	    });
+	    if(GeneralUtils.testInternet(cont)){
+		    twitter.setOnClickListener(new OnClickListener(){
+				@Override
+				public void onClick(View v) {
+					TwitterInteraction obj = new TwitterInteraction();
+					obj.twitterInitial(cont, name);
+				}
+		    });
+	    }
+	    else{
+	    	twitter.setVisibility(View.GONE);
+	    }
 	    tu = (ImageView)dialog.findViewById(R.id.thumbs_up_img);
 	    td = (ImageView)dialog.findViewById(R.id.thumbs_down_img);
 	    if(rating.equals(Drink.Rating.THUMBSUP)){

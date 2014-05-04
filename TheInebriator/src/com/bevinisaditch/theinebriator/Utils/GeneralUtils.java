@@ -55,13 +55,11 @@ public class GeneralUtils {
 				
 				@Override
 				public void onGet(Entity entity) {
-					System.out.println("GOT IT");
 					int newVal = 1;
 				   	if(entity.getMetaData() != null && entity.getMetaData().length() != 0)
 				   	{
 				   		newVal = Integer.parseInt(entity.getMetaData()) + 1;
 				   	}
-				   	System.out.println(newVal);
 				   	entity.setMetaData(String.valueOf(newVal));
 			    	EntityUtils.saveEntity((Activity)cont , entity, new EntityAddListener() {
 			       		@Override
