@@ -95,7 +95,7 @@ public class SearchEngineTest extends AndroidTestCase {
 		reqIngs.add("ing3");
 		
 		assertEquals(expectedDrinks, engine.searchByIngredient(optIngs, reqIngs));
-		verify(mockedDB).getAllDrinks();
+		verify(mockedDB).drinksForRequiredIngredients(any(ArrayList.class));
 		verify(mockedRanker).doInBackground();
 	}
 
