@@ -6,12 +6,12 @@
     android:layout_margin="5sp"
     android:background="@android:drawable/alert_dark_frame" >
 
-    <ImageView
+  /*  <ImageView
         android:id="@+id/widget_image"
-        android:layout_width="126dp"
-        android:layout_height="110sp"
+        android:layout_width="220dp"
+        android:layout_height="150sp"
         android:layout_gravity="center"
-        android:src="@drawable/party" />
+        android:src="@drawable/party" />*/
     
     <Button
         android:id="@+id/widget_button"
@@ -19,6 +19,20 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="I'm feeling tipsy" />
+    
+     <Button
+        android:id="@+id/drink_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Try!" />
+     <ImageView
+        android:id="@+id/count_image"
+        android:layout_width="220dp"
+        android:layout_height="150sp"
+        android:layout_gravity="center"
+        android:src="@drawable/zero" />
+ 
 
 
 </LinearLayout>

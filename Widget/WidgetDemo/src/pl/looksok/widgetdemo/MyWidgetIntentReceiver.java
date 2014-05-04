@@ -9,6 +9,7 @@ import android.widget.RemoteViews;
 public class MyWidgetIntentReceiver extends BroadcastReceiver {
 
 	private static int clickCount = 0;
+	private static int drinkCount = 0;
 	
 	@Override
 	public void onReceive(Context context, Intent intent) {
@@ -20,12 +21,35 @@ public class MyWidgetIntentReceiver extends BroadcastReceiver {
 	private void updateWidgetPictureAndButtonListener(Context context) {
 		RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_demo);
 		remoteViews.setImageViewResource(R.id.widget_image, getImageToSet());
-		
+		remoteViews.setImageViewResource(R.id.count_image, getNumToSet());
 		remoteViews.setOnClickPendingIntent(R.id.widget_button, MyWidgetProvider.buildButtonPendingIntent(context));
+		remoteViews.setOnClickPendingIntent(R.id.drink_button, MyWidgetProvider.buildButtonPendingIntent(context));
 		
 		MyWidgetProvider.pushWidgetUpdate(context.getApplicationContext(), remoteViews);
 	}
 
+	private int getNumToSet() {
+
+		drinkCount++;
+		if (drinkCount == 1)
+			return R.drawable.one;
+		if (drinkCount == 2)
+			return R.drawable.two;
+		if (drinkCount == 3)
+			return R.drawable.three;
+		if (drinkCount == 4)
+			return R.drawable.four;
+		else {
+			
+			drinkCount = 1;
+			return R.drawable.one;
+		}
+		
+		
+		
+		
+		
+	}	
 	private int getImageToSet() {
 		clickCount++;
 		//return clickCount % 2 == 0 ? R.drawable.beer : R.drawable.wordpress_icon;
@@ -59,4 +83,5 @@ public class MyWidgetIntentReceiver extends BroadcastReceiver {
 				return R.drawable.bm;
 		}
 	}
+	
 }

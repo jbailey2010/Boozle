@@ -17,6 +17,7 @@ public class MyWidgetProvider extends AppWidgetProvider {
 
 		RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_demo);
 		remoteViews.setOnClickPendingIntent(R.id.widget_button, buildButtonPendingIntent(context));
+		remoteViews.setOnClickPendingIntent(R.id.drink_button, buildButtonPendingIntent(context));
 		
 		pushWidgetUpdate(context, remoteViews);
 	}
