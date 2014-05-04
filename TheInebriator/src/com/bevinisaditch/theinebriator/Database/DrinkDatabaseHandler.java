@@ -25,7 +25,7 @@ import org.json.JSONObject;
 
 /**
  * Class for handling the database of drinks.
- * @author Jason
+ * @author termaat1
  *
  */
 public class DrinkDatabaseHandler extends SQLiteOpenHelper 
@@ -236,7 +236,147 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    		return -1;
 	    }
 	    
+	    /**
+	     * Gets the drinks that contain listed ingredients
+	     * @param ingredients listed ingredients
+	     * @return drinks that contain ingredients
+	     */
+	    public ArrayList<Drink> drinksForRequiredIngredients(ArrayList<String> ingredients)
+	    {
+	    	SQLiteDatabase db = this.getWritableDatabase();
+	    	ArrayList<Drink> drinks = new ArrayList<Drink>();
+	    	ArrayList<IngredientIDPair> pairs = getPairsFromStrings(ingredients, db);
+	    	ArrayList<Matching> matches = getMatchingsThatContainIngredients(pairs, db);
+	    	ArrayList<Integer> drinkIDs = new ArrayList<Integer>();
+	    	for (Matching match : matches)
+	    	{
+	    		int drinkID = match.drinkID;
+	    		if (!drinkIDs.contains(drinkID))
+	    		{
+	    			drinkIDs.add(drinkID);
+	    		}
+	    	}
+	    	drinks = getDrinksByID(drinkIDs, matches, pairs, db);
+	    	return drinks;
+	    }
+
+	    /**
+	     * Gets a list of drinks corresponding to the list of drink IDs
+	     * @param ids IDs of drinks to get
+	     * @param matches Relevant matchings
+	     * @param pairs Relevant IngredientIDPairs
+	     * @param db This database
+	     * @return Drinks with given IDs
+	     */
+	    private ArrayList<Drink> getDrinksByID(ArrayList<Integer> ids, ArrayList<Matching> matches, ArrayList<IngredientIDPair> pairs, SQLiteDatabase db)
+	    {
+	    	ArrayList<Drink> drinks = new ArrayList<Drink>();
+	    	for (int i : ids)
+	    	{
+	    		String sql = "SELECT * FROM DRINKS WHERE ID = " + i;
+	    		Cursor cursor = db.rawQuery(sql, null);
+	    		Drink drink = null;
+	    		if (cursor.moveToFirst())
+	    		{
+	    			int id = cursor.getInt(0);
+					String name = cursor.getString(1);
+					Drink.Rating rating =  intToRating(cursor.getInt(2));
+					String instructions = cursor.getString(3);
+					ArrayList<Ingredient> ingredients = getIngredientsForDrinkIDSubset(id, matches, pairs);
+
+					Drink currDrink = new Drink(name, rating, ingredients, instructions, id);
+					drinks.add(currDrink);
+	    		}
+	    	}
+	    	return drinks;
+	    }
 	    
+	    /**
+	     * Gets ingredients for a given drink ID with relevant matchings and pairs given
+	     * @param id Drink ID
+	     * @param matches Relevant matchings
+	     * @param pairs Relevant pairs
+	     * @return Ingredients for given drink ID
+	     */
+	    private ArrayList<Ingredient> getIngredientsForDrinkIDSubset(int id, ArrayList<Matching> matches, ArrayList<IngredientIDPair> pairs)
+	    {
+	    	ArrayList<Ingredient> ings = new ArrayList<Ingredient>();
+	    	for (Matching curr : matches)
+	    	{
+	    		if (curr.drinkID == id)
+	    		{
+	    			int ingID = curr.ingredientID;
+	    			String name = "";
+	    			for (IngredientIDPair pair : pairs)
+	    			{
+	    				if (pair.id == ingID)
+	    				{
+	    					name = pair.name;
+	    				}
+	    			}
+	    			Ingredient newIngredient = new Ingredient(name, curr.quantity, curr.units);
+	    			ings .add(newIngredient);
+	    		}
+	    	}
+	    	return ings;
+	    }
+	    
+	    /**
+	     * Gets IngredientIDPairs given strings of the ingredient names
+	     * @param ingredients ingredient names
+	     * @param db This database
+	     * @return list of pairs
+	     */
+		private ArrayList<IngredientIDPair> getPairsFromStrings(ArrayList<String> ingredients,
+				SQLiteDatabase db) {
+			ArrayList<IngredientIDPair> pairs = new ArrayList<IngredientIDPair>();
+			for (String ing : ingredients)
+	    	{
+	    		String sql = "SELECT * FROM INGREDIENTS WHERE NAME = \"" + ing + "\"";
+	    		Cursor cursor = db.rawQuery(sql, null);
+	    		IngredientIDPair pair = null;
+	    		if (cursor.moveToFirst())
+	    		{
+	    			pair = new IngredientIDPair(cursor.getInt(0), cursor.getString(1));
+	    			pairs.add(pair);
+	    		}
+	    	}
+			return pairs;
+		}
+		
+		/**
+		 * Gets matchings that contain ingredients
+		 * @param ingredients Ingredients to look for
+		 * @param db this database
+		 * @return Relevant matchings
+		 */
+		private ArrayList<Matching> getMatchingsThatContainIngredients(ArrayList<IngredientIDPair> ingredients, SQLiteDatabase db)
+		{
+			ArrayList<Matching> matches = new ArrayList<Matching>();
+			for (IngredientIDPair pair : ingredients)
+			{
+				int id = pair.id;
+				String sql = "SELECT * FROM MATCHINGS WHERE INGREDIENTID = " + id;
+				Cursor cursor = db.rawQuery(sql, null);
+			     
+		        // looping through all rows and adding to list
+		        if (cursor.moveToFirst()) {
+		            do {
+		                Matching matching = new Matching();
+		                matching.matchID = cursor.getInt(0);
+		                matching.drinkID = cursor.getInt(1);
+		                matching.ingredientID = cursor.getInt(2);
+		                matching.quantity = cursor.getString(3);
+		                matching.units = cursor.getString(4);
+		                matches.add(matching);
+		            } while (cursor.moveToNext());
+		        }
+			}
+			return matches;
+		}
+	    
+		
+		
 	    /**
 	     * Gets all matchings in the database
 	     * @return
