@@ -3,14 +3,8 @@ import com.bevinisaditch.theinebriator.Home;
 
 
 import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
-import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewConfiguration;
-import android.widget.ProgressBar;
 /**
  * The class that extends native android ontouchlistener to handle swiping the menu to visibility
  * @author Jeff

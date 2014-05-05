@@ -1,13 +1,9 @@
 package com.bevinisaditch.theinebriator;
 
-import java.io.UnsupportedEncodingException;
-import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-
 import org.apache.commons.lang3.text.WordUtils;
 
 import android.os.Bundle;
@@ -15,7 +11,6 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;

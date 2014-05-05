@@ -17,6 +17,15 @@ import android.test.RenamingDelegatingContext;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.Database.TermFrequencyDatabaseHandler;
 
+/**
+ * Advanced unit test for the BM25Ranker.
+ * 
+ * This class tests the ranker for all characters in the ASCII character set to ensure
+ * no character will interfere with run-time operations.
+ * 
+ * @author michael
+ *
+ */
 @RunWith(Parameterized.class)
 public class B25RankerParameterizedTest extends AndroidTestCase {
 	private BM25Ranker ranker;

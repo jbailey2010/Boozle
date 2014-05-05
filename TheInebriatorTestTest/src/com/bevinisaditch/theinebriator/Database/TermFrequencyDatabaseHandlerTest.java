@@ -11,6 +11,14 @@ import com.bevinisaditch.theinebriator.ClassFiles.TermFrequency;
 import android.test.AndroidTestCase;
 import android.test.RenamingDelegatingContext;
 
+/**
+ * Tests the TermFrequencyDatabaseHandler class
+ * 
+ * Tests CRUD operations, populating the database, and other custom functions.
+ * 
+ * @author michael
+ *
+ */
 public class TermFrequencyDatabaseHandlerTest extends AndroidTestCase {
 	TermFrequencyDatabaseHandler handler;
 	TermFrequency termFreq1;

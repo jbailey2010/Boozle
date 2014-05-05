@@ -5,6 +5,10 @@ import android.test.AndroidTestCase;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
 
+/**
+ * This class tests our drink data structure
+ *
+ */
 public class DrinkTest extends AndroidTestCase {
 
 	public void testConstructor()

@@ -2,6 +2,10 @@ package com.bevinisaditch.theinebriator.ClassFiles;
 
 import android.test.AndroidTestCase;
 
+/**
+ * Tests Matching data structure
+ *
+ */
 public class MatchingTest extends AndroidTestCase {
 
 	public void testEmptyConstructor()

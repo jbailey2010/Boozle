@@ -17,6 +17,15 @@ import com.bevinisaditch.theinebriator.ClassFiles.TermFrequency;
 import com.bevinisaditch.theinebriator.Database.TermFrequencyDatabaseHandler;
 import com.bevinisaditch.theinebriator.SearchEngine.BM25Ranker;
 
+/**
+ * This is for the BM25Ranker.
+ * 
+ * Tests the rank function and all associated helper functions. Most tests mock the
+ * TermFrequencyDatabaseHandler
+ * 
+ * @author michael
+ *
+ */
 public class BM25RankerTest extends AndroidTestCase {
 	private Drink drink1;
 	private Drink drink2;

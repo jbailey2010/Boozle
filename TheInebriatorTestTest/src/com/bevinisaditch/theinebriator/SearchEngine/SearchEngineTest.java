@@ -1,20 +1,14 @@
 package com.bevinisaditch.theinebriator.SearchEngine;
 
-import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
 
 import org.mockito.MockitoAnnotations;
-import org.powermock.api.mockito.PowerMockito;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import android.test.AndroidTestCase;
@@ -24,6 +18,17 @@ import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
 import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;
 
+/**
+ * Tests SearchEngine methods.
+ * 
+ * Uses mock databases to get data and pass them to the ranker.
+ * Ranker is also mocked.
+ * 
+ * Ensures functions get called with mock framework.
+ * 
+ * @author michael
+ *
+ */
 @RunWith(PowerMockRunner.class)
 public class SearchEngineTest extends AndroidTestCase {
 	Drink drink1;

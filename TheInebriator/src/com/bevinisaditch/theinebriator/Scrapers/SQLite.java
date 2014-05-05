@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 
 import android.content.Context;
-import android.database.*;
 import android.database.sqlite.*;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 

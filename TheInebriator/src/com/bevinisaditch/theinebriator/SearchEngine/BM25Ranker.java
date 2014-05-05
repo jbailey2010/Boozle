@@ -7,12 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
-import org.apache.commons.lang3.StringUtils;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
-
 import com.bevinisaditch.theinebriator.Home;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;

@@ -9,6 +9,12 @@ import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
 import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;
 
+/**
+ * Tests functions related to the DrinkDatabaseHandler
+ *
+ * Tests getRelevantDrinks and getAllDrinks
+ *
+ */
 public class DataBaseReaderTest extends AndroidTestCase {
 	
 	ArrayList<Drink> allDrinks;
