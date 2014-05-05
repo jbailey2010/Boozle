@@ -1,0 +1,36 @@
+README
+
+Boozle is an application for searching for alcoholic drink recipes, 
+storing like and disliked drinks, and viewing popular drinks among 
+all Boozle users. There is also a feature for getting random drink
+recipes.
+
+This app was created for a school project at the University of Illinois.
+
+This app was created by:
+Michael Willingham
+Jeff Bailey
+John Boctor
+Jason Termaat
+Akash Binjrajka
+Rishi Chitkara
+
+Documentation can be found in CS429FinalDocumentation.pdf
+
+Installation Instruction:
+
+Option 1: Import the project into Eclipse and run as an AVD or via Device.
+
+1) Import the project into eclipse using the import wizard. You can 
+   import this project directly from GitHub.
+2) Build the workspace and right click on "TheInebriator" project.
+   Then click Run As->Android Application.
+3) To run tests, right click on "AllTests.java" in "TheInebriatorTest" project 
+   Then click Run As->Android JUnit Test.
+
+Option 2: Install directly to device with the .apk
+
+1) Locate TheInebriator.apk in root directory
+2) Follow instructions from http://www.talkandroid.com/guides/beginner/install-apk-files-on-android/
+   on installing an android application to your device directly.
+
