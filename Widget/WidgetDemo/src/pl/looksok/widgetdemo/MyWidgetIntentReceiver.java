@@ -17,7 +17,10 @@ public class MyWidgetIntentReceiver extends BroadcastReceiver {
 			updateWidgetPictureAndButtonListener(context);
 		}
 	}
+/*
+	Function to set default images and then call updater function
 
+*/
 	private void updateWidgetPictureAndButtonListener(Context context) {
 		RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_demo);
 		remoteViews.setImageViewResource(R.id.widget_image, getImageToSet());
@@ -27,7 +30,9 @@ public class MyWidgetIntentReceiver extends BroadcastReceiver {
 		
 		MyWidgetProvider.pushWidgetUpdate(context.getApplicationContext(), remoteViews);
 	}
-
+/*
+	Function to set the drink counter. Called by ImageViewSource
+*/
 	private int getNumToSet() {
 
 		drinkCount++;
@@ -46,13 +51,15 @@ public class MyWidgetIntentReceiver extends BroadcastReceiver {
 		}
 		
 		
-		
+	/*
+	Sets drink image based on click
+	*/	
 		
 		
 	}	
 	private int getImageToSet() {
 		clickCount++;
-		//return clickCount % 2 == 0 ? R.drawable.beer : R.drawable.wordpress_icon;
+	
 		if (clickCount == 1)
 					return R.drawable.bm;
 		if (clickCount == 2)
