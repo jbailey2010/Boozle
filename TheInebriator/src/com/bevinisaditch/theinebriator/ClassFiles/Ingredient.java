@@ -40,11 +40,11 @@ public class Ingredient {
 
 	public String getUnits() {
 		return units;
-	}
+	} 
 
-	public void setUnits(String units) {
+	public void setUnits(String units) { 
 		this.units = units;
-	}
+	} 
  
 	public String toPrettyString()
 	{

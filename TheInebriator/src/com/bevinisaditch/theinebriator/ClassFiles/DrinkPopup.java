@@ -70,7 +70,7 @@ public class DrinkPopup {
 		 	View actionBarWrapped = ActionBarUtils.showActionBar((Activity) cont, R.layout.drink_popup, entity, options);
 		 	dialog.setContentView(actionBarWrapped);
 		}
-	    dialog.show();
+	    dialog.show(); 
 	    TextView close = (TextView)dialog.findViewById(R.id.close);
 	    close.setOnClickListener(new OnClickListener(){
 			@Override
