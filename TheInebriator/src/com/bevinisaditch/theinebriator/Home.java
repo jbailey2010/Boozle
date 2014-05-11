@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+
 import org.apache.commons.lang3.text.WordUtils;
 
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -70,11 +72,15 @@ public class Home extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
-		ActionBar ab = getActionBar(); 
+		//ActionBar ab = getActionBar(); 
 		cont = this; 
-		ab.setDisplayShowTitleEnabled(false);
+		//ab.setDisplayShowTitleEnabled(false);
 		ll = (LinearLayout)findViewById(R.id.home_base);
 		ll.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
+		if(Loading.drinks == null || Loading.drinks.size() == 0){
+			Intent intent = new Intent(this, Loading.class);
+            startActivity(intent);
+		}
 		drinks = Loading.drinks;
 		setNoResults();
 	}
@@ -132,6 +138,12 @@ public class Home extends Activity {
 			listviewInit(backup, false);
 			backToNoResults = true;
 			backToListResults = false;
+		}
+		else{
+			Intent startMain = new Intent(Intent.ACTION_MAIN);
+			startMain.addCategory(Intent.CATEGORY_HOME);
+			startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			startActivity(startMain);
 		}
 	}
 	

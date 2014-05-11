@@ -29,9 +29,9 @@ public class Loading extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_loading);
-		ActionBar ab = getActionBar();
+		//ActionBar ab = getActionBar();
 		cont = this;
-		ab.setDisplayShowTitleEnabled(false);
+		//ab.setDisplayShowTitleEnabled(false);
 		handleInitialLoad();
 		AsyncLoader loader = new AsyncLoader();
 		loader.execute(this);
