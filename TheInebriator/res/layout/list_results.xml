@@ -9,8 +9,8 @@
 	        android:id="@+id/listview_rankings"
 	        android:layout_width="match_parent"
 	        android:layout_height="match_parent"
-	        android:divider="#AAAAAA"
-	        android:background="#AAAAAA"
+	        android:divider="#888888"
+	        android:background="#888888"
 	        android:clickable="true"> 
 	    </com.bevinisaditch.theinebriator.InterfaceAugmentations.BounceListView>
 	    <com.devspark.sidenavigation.SideNavigationView

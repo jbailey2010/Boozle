@@ -117,17 +117,10 @@ public class SearchManagement {
 			@Override
 			public void onClick(View v) {
 				String possName = (String)input.getText().toString();
-				if(drinkNames.contains(possName))
-				{
-					searchDrinkName = possName;
-					dialog.dismiss();
-					SearchEngine search = new SearchEngine(c);
-					search.searchByName(possName);
-				}
-				else
-				{
-					Toast.makeText(c, "That is not a valid drink name", Toast.LENGTH_SHORT).show();
-				}
+				searchDrinkName = possName;
+				dialog.dismiss();
+				SearchEngine search = new SearchEngine(c);
+				search.searchByName(possName);
 			}
 	    });
 	    TextView clear = (TextView)dialog.findViewById(R.id.clear);
@@ -216,7 +209,7 @@ public class SearchManagement {
 					Toast.makeText(c, "That ingredient is already added", Toast.LENGTH_SHORT).show();
 					input.setText("");
 				}
-				else if(drinkNames.contains(name))
+				else
 				{
 					if(reqIngredients.size() == 0 && optIngredients.size() == 0)
 					{
@@ -233,10 +226,6 @@ public class SearchManagement {
 					updateTextViews(required, reqIngredients, "Required Ingredients:");
 					updateTextViews(optional, optIngredients, "Optional Ingredients:");
 					input.setText("");
-				}
-				else
-				{
-					Toast.makeText(c, "That is not a valid ingredient name", Toast.LENGTH_SHORT).show();
 				}
 			}
 	    });

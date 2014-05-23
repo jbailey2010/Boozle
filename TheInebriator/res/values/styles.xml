@@ -14,6 +14,7 @@
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
     
@@ -23,5 +24,15 @@
 	    <item name="android:textColorSecondary">#EEEEEE</item>
 	    <item name="android:textColorTertiary">#EEEEEE</item>
     </style> 
+    
+    <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">#111111</item>
+		<item name="android:titleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>
+	</style>
+
+  <style name="MyTheme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+    <item name="android:textColor">#ffffff</item>
+    <item name="android:textStyle">bold</item>
+  </style>
 
 </resources>

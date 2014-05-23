@@ -116,7 +116,7 @@ public class Home extends Activity {
 				list.smoothScrollToPosition(0);
 				return true;
 			case R.id.menu_clear_results:
-				confirmClear();
+				confirmClear(); 
 				return true;
 			default:
 				return super.onOptionsItemSelected(item);
@@ -129,21 +129,21 @@ public class Home extends Activity {
 	 */
 	@Override
 	public void onBackPressed() {
+		if(!backToNoResults && !backToListResults){
+			Intent startMain = new Intent(Intent.ACTION_MAIN);
+			startMain.addCategory(Intent.CATEGORY_HOME);
+			startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			startActivity(startMain);
+		}
 		if(backToNoResults){
 			setNoResults();
-			backToNoResults = false;
+			backToNoResults = false; 
 			backToListResults = false;
 		}
 		if(backToListResults){
 			listviewInit(backup, false);
 			backToNoResults = true;
 			backToListResults = false;
-		}
-		else{
-			Intent startMain = new Intent(Intent.ACTION_MAIN);
-			startMain.addCategory(Intent.CATEGORY_HOME);
-			startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			startActivity(startMain);
 		}
 	}
 	
@@ -330,6 +330,13 @@ public class Home extends Activity {
 			{
 				datum.put("img", "");
 			}
+			dataSet.add(datum);
+		}
+		if(results.size() == 0){
+			HashMap<String, String> datum = new HashMap<String, String>();
+			datum.put("name", "No results were found");
+			datum.put("info", "");
+			datum.put("ingr", "Try again, perhaps using the autocomplete to assist you");
 			dataSet.add(datum);
 		}
 		adapter = new SimpleAdapter(cont, dataSet, 
