@@ -62,67 +62,72 @@ public class DrinkInfo
 			public void onList(ListResult<Entity> result) {
 				List<Entity> results = result.getItems();
 				StringBuilder data = new StringBuilder(1000);
-				//Sort the top <= 15 by views
-				int i = 0;
-				PriorityQueue<Entity> sorted = sortEntitiesViews(results);
-				if(sorted.size() > 0)
-				{
-					data.append("Views:\n");
-					while(!sorted.isEmpty() && i < 15)
+				if(results != null){
+					//Sort the top <= 15 by views
+					int i = 0;
+					PriorityQueue<Entity> sorted = sortEntitiesViews(results);
+					if(sorted.size() > 0)
 					{
-						Entity elem = sorted.poll();
+						data.append("Views:\n");
+						while(!sorted.isEmpty() && i < 15)
+						{
+							Entity elem = sorted.poll();
+							i++;
+							data.append(i + ". "+ elem.getDisplayName() + " - " + elem.getEntityStats().getViews() + " views\n");
+						}
+					}
+					//Sort the top <= 15 by socialize likes
+					PriorityQueue<Entity> sortedLikes = sortEntitiesLikes(results);
+					i=0;
+					if(sortedLikes.size() > 0)
+					{
+						data.append("\n");
+					}
+					while(!sortedLikes.isEmpty() && i < 15)
+					{
+						if(i == 0)
+						{
+							data.append("Likes:\n");
+						}
+						Entity elem = sortedLikes.poll();
 						i++;
-						data.append(i + ". "+ elem.getDisplayName() + " - " + elem.getEntityStats().getViews() + " views\n");
+						data.append(i + ". "+ elem.getDisplayName() + " - " + elem.getEntityStats().getLikes() + " likes\n");
 					}
-				}
-				//Sort the top <= 15 by socialize likes
-				PriorityQueue<Entity> sortedLikes = sortEntitiesLikes(results);
-				i=0;
-				if(sortedLikes.size() > 0)
-				{
-					data.append("\n");
-				}
-				while(!sortedLikes.isEmpty() && i < 15)
-				{
-					if(i == 0)
+					//Sort hte top <= 15 by socialize comments
+					PriorityQueue<Entity> sortedComments = sortEntitiesComments(results);
+					if(sortedComments.size() > 0)
 					{
-						data.append("Likes:\n");
+						data.append("\n");
 					}
-					Entity elem = sortedLikes.poll();
-					i++;
-					data.append(i + ". "+ elem.getDisplayName() + " - " + elem.getEntityStats().getLikes() + " likes\n");
-				}
-				//Sort hte top <= 15 by socialize comments
-				PriorityQueue<Entity> sortedComments = sortEntitiesComments(results);
-				if(sortedComments.size() > 0)
-				{
-					data.append("\n");
-				}
-				i=0;
-				while(!sortedComments.isEmpty() && i < 15)
-				{
-					if(i == 0)
+					i=0;
+					while(!sortedComments.isEmpty() && i < 15)
 					{
-						data.append("Comments:\n");
+						if(i == 0)
+						{
+							data.append("Comments:\n");
+						}
+						Entity elem = sortedComments.poll();
+						i++;
+						data.append(i + ". "+ elem.getDisplayName() + " - " + elem.getEntityStats().getComments() + " likes\n");
 					}
-					Entity elem = sortedComments.poll();
-					i++;
-					data.append(i + ". "+ elem.getDisplayName() + " - " + elem.getEntityStats().getComments() + " likes\n");
-				}
-				//Sorts the top <= 15 by local thumbs ups
-				i = 0;
-				PriorityQueue<Entity> sortedThumbs = sortEntitiesThumbs(results);
-				if(sortedThumbs.size() > 0){
-					data.append("\n");
-				}
-				i = 0;
-				while(!sortedThumbs.isEmpty() && i < 15){
-					if(i == 0){
-						data.append("Thumbs Upped:\n");
+					//Sorts the top <= 15 by local thumbs ups
+					i = 0;
+					PriorityQueue<Entity> sortedThumbs = sortEntitiesThumbs(results);
+					if(sortedThumbs.size() > 0){
+						data.append("\n");
 					}
-					Entity elem = sortedThumbs.poll();
-					i++;
-					data.append(i + ". "+ elem.getDisplayName() + " - " + elem.getMetaData() + " times\n");
+					i = 0;
+					while(!sortedThumbs.isEmpty() && i < 15){
+						if(i == 0){
+							data.append("Thumbs Upped:\n");
+						}
+						Entity elem = sortedThumbs.poll();
+						i++;
+						data.append(i + ". "+ elem.getDisplayName() + " - " + elem.getMetaData() + " times\n");
+					}
+				}
+				else{
+					data.append("An error occurred. Do you have an internet connection?");
 				}
 				output.setText(data.toString());
 			}
