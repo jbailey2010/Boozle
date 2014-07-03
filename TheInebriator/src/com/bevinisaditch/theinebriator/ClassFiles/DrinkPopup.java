@@ -244,7 +244,7 @@ public class DrinkPopup {
 					GeneralUtils.bumpEntityValue(drink, cont);
 				}
 				drink.setRating(rating);
-				int id = drink.getId();
+				long id = drink.getId();
 				DrinkDatabaseHandler db = new DrinkDatabaseHandler(cont);
 				db.setDrinkRating(id, rating);
 				break;

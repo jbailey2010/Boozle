@@ -20,9 +20,9 @@ public class Drink {
 	private String name;
 	private String instructions;
 	private String url;
-	private int id;
+	private Long id;
 	
-	public Drink(String name, Rating rating, ArrayList<Ingredient> ingredients, String instructions, int id)
+	public Drink(String name, Rating rating, ArrayList<Ingredient> ingredients, String instructions, Long id)
 	{
 		this.name = name;
 		this.rating = rating;
@@ -39,7 +39,7 @@ public class Drink {
 		this.name = name;
 	}
 	
-	public int getId()
+	public Long getId()
 	{
 		return id;
 	}

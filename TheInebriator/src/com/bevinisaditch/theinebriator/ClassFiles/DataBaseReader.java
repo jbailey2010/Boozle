@@ -106,7 +106,7 @@ public class DataBaseReader {
 			ResultSet rs = stmt.executeQuery( "SELECT * FROM DRINKS;" );
 			while ( rs.next() )
 			{
-				int id = rs.getInt("id");
+				long id = rs.getInt("id");
 				String name = rs.getString("name");
 				Drink.Rating rating =  intToRating(rs.getInt("rating"));
 				String instructions = rs.getString("instructions");
@@ -148,7 +148,7 @@ public class DataBaseReader {
 	 * @param n
 	 * @return
 	 */
-	private static ArrayList<Ingredient> getIngredientsForDrinkID(int drinkID)
+	private static ArrayList<Ingredient> getIngredientsForDrinkID(Long drinkID)
 	{
 		ArrayList<Ingredient> ingList = new ArrayList<Ingredient>();
 		for (Matching currMatch : allMatches)
