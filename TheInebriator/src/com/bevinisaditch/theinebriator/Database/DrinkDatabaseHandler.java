@@ -339,6 +339,8 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 					Drink currDrink = new Drink(name, rating, ingredients, instructions, id);
 					drinks.add(currDrink);
 	    		}
+	    		
+	    		cursor.close();
 	    	}
 	    	return drinks;
 	    }
@@ -393,6 +395,8 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    			pair = new IngredientIDPair(cursor.getInt(0), cursor.getString(1));
 	    			pairs.add(pair);
 	    		}
+	    		
+	    		cursor.close();
 	    	}
 			return pairs;
 		}
@@ -424,7 +428,10 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 		                matches.add(matching);
 		            } while (cursor.moveToNext());
 		        }
+		        
+		        cursor.close();
 			}
+			
 			return matches;
 		}
 	    
@@ -455,6 +462,8 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	                matchings.add(matching);
 	            } while (cursor.moveToNext());
 	        }
+	        
+	        cursor.close();
 	     
 	        return matchings;
 	    }
@@ -479,6 +488,8 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	                pairs.add(pair);
 	            } while (cursor.moveToNext());
 	        }
+	        
+	        cursor.close();
 	     
 	        return pairs; 
 	    }
@@ -514,6 +525,8 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 					drinks.add(currDrink);
 				} while (cursor.moveToNext());
 			}
+			
+			cursor.close();
 			return drinks;
 	    }
 	    
@@ -563,6 +576,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 					drinks.add(currDrink);
 				} while (cursor.moveToNext());
 			}
+			cursor.close();
 			//System.out.println("Got all drinks from db");
 			return drinks;
 
