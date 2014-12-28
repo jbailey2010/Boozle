@@ -66,7 +66,7 @@ public class DrinkPopup {
 		 	options.setHideShare(true);
 		 	options.setFillColor(Color.parseColor("#272727"));
 		 	options.setBackgroundColor(Color.parseColor("#191919"));
-		 	options.setAccentColor(Color.parseColor("#ff0000"));
+		 	options.setAccentColor(Color.parseColor("#00aa00"));
 		 	View actionBarWrapped = ActionBarUtils.showActionBar((Activity) cont, R.layout.drink_popup, entity, options);
 		 	dialog.setContentView(actionBarWrapped);
 		}

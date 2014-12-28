@@ -53,13 +53,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/search_input_view"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:text=" " />
 
     <ScrollView
         android:id="@+id/search_list_scrollview"
         android:layout_width="wrap_content"
-        android:layout_height="130dp"
+        android:layout_height="120dp"
         android:layout_alignRight="@+id/search_input_view"
         android:layout_alignTop="@+id/textView3"
         android:layout_toRightOf="@+id/textView3"
@@ -89,7 +89,7 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="130dp"
+        android:layout_height="120dp"
         android:layout_alignLeft="@+id/search_input_view"
         android:layout_alignTop="@+id/textView3"
         android:layout_toLeftOf="@+id/textView3" >
@@ -126,7 +126,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/search_input_view"
         android:layout_below="@+id/search_list_scrollview"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="13dp"
         android:background="@drawable/btn_blue"
         android:text="Add" />
 
