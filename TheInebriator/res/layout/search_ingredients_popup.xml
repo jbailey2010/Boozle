@@ -41,7 +41,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="6dp"
         android:dropDownHeight="200dp"
         android:background="@drawable/input_well"
         android:ems="10"
@@ -53,13 +53,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/search_input_view"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:text=" " />
 
     <ScrollView
         android:id="@+id/search_list_scrollview"
         android:layout_width="wrap_content"
-        android:layout_height="150dp"
+        android:layout_height="130dp"
         android:layout_alignRight="@+id/search_input_view"
         android:layout_alignTop="@+id/textView3"
         android:layout_toRightOf="@+id/textView3"
@@ -89,7 +89,7 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="150dp"
+        android:layout_height="130dp"
         android:layout_alignLeft="@+id/search_input_view"
         android:layout_alignTop="@+id/textView3"
         android:layout_toLeftOf="@+id/textView3" >
@@ -120,24 +120,13 @@
     </RelativeLayout>
 
     <Button
-        android:id="@+id/search_submit"
-        style="@style/ButtonText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/search_input_view"
-        android:layout_below="@+id/search_list_scrollview"
-        android:layout_marginTop="26dp"
-        android:background="@drawable/btn_grey"
-        android:text="Search" />
-
-    <Button
         android:id="@+id/search_add"
         style="@style/ButtonText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/search_input_view"
         android:layout_below="@+id/search_list_scrollview"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/btn_blue"
         android:text="Add" />
 
@@ -165,5 +154,16 @@
         android:textColor="#FFFFFF"
         android:textSize="44sp"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/search_submit"
+        style="@style/ButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/search_add"
+        android:layout_alignBottom="@+id/search_add"
+        android:layout_alignRight="@+id/search_list_scrollview"
+        android:background="@drawable/btn_grey"
+        android:text="Search" />
 
 </RelativeLayout>
