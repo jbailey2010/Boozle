@@ -26,7 +26,7 @@
             android:paddingTop="-50dp"
             android:text="Press the search icon above to begin a search"
             android:textColor="#002800"
-            android:textSize="28sp"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <TextView
@@ -37,7 +37,7 @@
             android:layout_centerHorizontal="true"
             android:text="Additional options are available below"
             android:textColor="#003200"
-            android:textSize="22sp" />
+            android:textSize="17sp" />
     </RelativeLayout>
     </RelativeLayout>
     
