@@ -5,22 +5,20 @@
             <solid
                 android:color="#222222" />
             <padding
-                android:left="10dp"
-                android:top="10dp"
-                android:right="10dp"
-                android:bottom="10dp" />
+                android:left="15dp"
+                android:top="9dp"
+                android:right="15dp"
+                android:bottom="9dp" />
         </shape>
     </item>
     <item>
         <shape>
-            <gradient
-                android:startColor="#99666666"
-                android:endColor="#99555555"
-                android:angle="270" />
+            <solid
+                android:color="#99555555" />
             <padding
-                android:left="10dp"
+                android:left="17dp"
                 android:top="10dp"
-                android:right="10dp"
+                android:right="17dp"
                 android:bottom="10dp" />
         </shape>
     </item>
