@@ -188,6 +188,7 @@ public class SearchManagement {
 				optional.setText(" ");
 				submit.setBackground(c.getResources().getDrawable(R.drawable.btn_grey));
 				required.setText(" ");
+				input.setText("");
 			}
 	    });
 	    TextView back = (TextView)dialog.findViewById(R.id.back);
