@@ -36,9 +36,9 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    private boolean test = false;
 	    
 	    //Names of text files as found in assets to read data from
-	    private static final String DRINK_FILE_NAME = "drinkDataShort.txt";
-	    private static final String MATCH_FILE_NAME = "matchDataShort.txt";
-	    private static final String PAIR_FILE_NAME = "pairDataShort.txt";
+	    private static final String DRINK_FILE_NAME = "drinkData.txt";
+	    private static final String MATCH_FILE_NAME = "matchData.txt";
+	    private static final String PAIR_FILE_NAME = "pairData.txt";
 	 	  
 	    /**
 	     * just calls super constructor
