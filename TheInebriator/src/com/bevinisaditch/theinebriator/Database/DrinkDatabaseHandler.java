@@ -5,13 +5,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.bevinisaditch.theinebriator.ClassFiles.Drink.Rating;
 import com.bevinisaditch.theinebriator.ClassFiles.*;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -32,9 +35,6 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    
 	    private Context con;
 	    
-	    //used to determine if instance was created in test environment
-	    private boolean test = false;
-	    
 	    //Names of text files as found in assets to read data from
 	    private static final String DRINK_FILE_NAME = "drinkData.txt";
 	    private static final String MATCH_FILE_NAME = "matchData.txt";
@@ -47,22 +47,6 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    public DrinkDatabaseHandler(Context context) {
 	        super(context, DATABASE_NAME, null, DATABASE_VERSION); 
 	        con = context; 
-	    } 
-	    
-	    /**
-	     * just calls super constructor
-	     * This is an overloaded function for tests so they don't populate the DB
-	     * for each test.
-	     * 
-	     * @param context
-	     * @param test - extra paremter to determine whether an instance was created
-	     * during a test
-	     */
-	    public DrinkDatabaseHandler(Context context, boolean test) {
-	        super(context, DATABASE_NAME, null, DATABASE_VERSION); 
-	        con = context;
-	        this.test = test;
-	        
 	    } 
 	    
 	    /**
@@ -98,11 +82,10 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 					"QUANTITY       TEXT," +
 					"UNITS          TEXT)";
 	        db.execSQL(CREATE_MATCHINGS_TABLE);
-	        if (test == false) {
-		        readDrinks(db);
-		        readMatchings(db);
-		        readPairs(db);
-	        }
+
+	        readDrinks(db);
+		    readMatchings(db);
+		    readPairs(db);
 	    }
 	 
 	    /**
@@ -251,49 +234,72 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * @param instructions Instructions of drink to add
 	     * @param db This database
 	     */
-	    public long addDrinkByVars(int id, String name, int rating, String instructions, SQLiteDatabase db)
+	    public void addDrinkByVars(List<Object> drinkData, SQLiteDatabase db)
 	    {
-	    	ContentValues values = new ContentValues();
-	    	values.put("ID", id);
-	    	values.put("NAME", name);
-	    	values.put("RATING", rating);
-	    	values.put("INSTRUCTIONS", instructions);
-	    	long row = db.insert("DRINKS", null, values);
-	    	if (row == 0) {
-	    		System.out.println("WHATS GONIG ON");
+	    	try{
+	    		db.beginTransaction();
+	    		for(int i = 0; i < drinkData.size(); i++){
+	    	    	ContentValues values = new ContentValues();
+	    	    	values.put("ID", (Integer) drinkData.get(i));
+	    	    	values.put("NAME", (String)drinkData.get(++i));
+	    	    	values.put("RATING", (Integer)drinkData.get(++i));
+	    	    	values.put("INSTRUCTIONS", (String)drinkData.get(++i));
+	    	    	db.insert("DRINKS", null, values);
+	    		}
+	    		db.setTransactionSuccessful();
+	    	} catch (SQLException e) {}
+	    	finally{
+	    		db.endTransaction();
 	    	}
-	    	return row;
+	    }
+	    
+	    
+	    /**
+	     * Adds a matching to the database.
+	     * @param match
+	     */
+	    public void addMatching(List<Matching> matchings, SQLiteDatabase db)
+	    {
+	    	try{
+	    		db.beginTransaction();
+	    		for(Matching match : matchings){
+	    	    	ContentValues values = new ContentValues();
+	    	    	values.put("ID", match.matchID);
+	    	    	values.put("DRINKID", match.drinkID);
+	    	    	values.put("INGREDIENTID", match.ingredientID);
+	    	    	values.put("QUANTITY", match.quantity);
+	    	    	values.put("UNITS", match.units);
+	    	    	db.insert("MATCHINGS", null, values);
+	    		}
+	    		db.setTransactionSuccessful();
+	    	} catch (SQLException e) {}
+	    	finally{
+	    		db.endTransaction();
+	    	}
 	    }
 	    
 	    /**
 	     * Adds an IngredientIDPair to the database.
 	     * @param pair
 	     */
-	    public long addPair(IngredientIDPair pair, SQLiteDatabase db)
+	    public void addPair(List<IngredientIDPair> pairs, SQLiteDatabase db)
 	    {
-	    	ContentValues values = new ContentValues();
-	    	values.put("ID", pair.id);
-	    	values.put("NAME", pair.name);
-	    	
-	    	long id = db.insert("INGREDIENTS", null, values);
-	    	return id;
+	    	try{
+	    		db.beginTransaction();
+		    	for(IngredientIDPair pair : pairs){
+			    	ContentValues values = new ContentValues();
+			    	values.put("ID", pair.id);
+			    	values.put("NAME", pair.name);
+			    	
+			    	db.insert("INGREDIENTS", null, values);
+		    	}
+		    	db.setTransactionSuccessful();
+	    	} catch (SQLException e) {}
+	    	finally{
+	    		db.endTransaction();
+	    	}
 	    }
-	    
-	    /**
-	     * Adds a matching to the database.
-	     * @param match
-	     */
-	    public long addMatching(Matching match, SQLiteDatabase db)
-	    {
-	    	ContentValues values = new ContentValues();
-	    	values.put("ID", match.matchID);
-	    	values.put("DRINKID", match.drinkID);
-	    	values.put("INGREDIENTID", match.ingredientID);
-	    	values.put("QUANTITY", match.quantity);
-	    	values.put("UNITS", match.units);
-	    	long id = db.insert("MATCHINGS", null, values);
-	    	return id;
-	    }
+
 
 	    /**
 	     * Converts a rating to an int
@@ -732,40 +738,32 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	{
 	    		db = this.getWritableDatabase();
 	    	}
+	    	List<Object> drinkData = new ArrayList<Object>();
 	    	try {
 	    		AssetManager assets = con.getResources().getAssets();
 	    		InputStream is = assets.open(DRINK_FILE_NAME);
 	    		BufferedReader br = null;
 
-	    		String line;
 	    		try {
-	    			//int linesRead = 0;
 	    			br = new BufferedReader(new InputStreamReader(is));
-	    			while ((line = br.readLine()) != null) 
+	    			while (br.readLine() != null) 
 	    			{
-	    				//linesRead++;
-	    				//if (!line.equals("--"))
-	    				{
-	    					//System.out.println("Problem: not --");
-	    				}
-	    				int id; 
-	    				String name;
-	    				int rating;
-	    				String instructions;
-	    				id = Integer.parseInt(br.readLine())+1;
-	    				name = br.readLine();
-	    				rating = stringToRatingToInt(br.readLine());
-	    				instructions = br.readLine();
-	    				addDrinkByVars(id, name, rating, instructions, db);
+	    				int id = Integer.parseInt(br.readLine())+1;
+	    				String name = br.readLine();
+	    				int rating = stringToRatingToInt(br.readLine());
+	    				String instructions = br.readLine();
+	    				drinkData.add(id);
+	    				drinkData.add(name);
+	    				drinkData.add(rating);
+	    				drinkData.add(instructions);
 	    			}
-	    			//System.out.println("Drink lines read: " + linesRead);
 
 	    		} catch (IOException e) {
 	    			e.printStackTrace();
-	    			//System.out.println(e);
 	    		} finally {
 	    			if (br != null) {
 	    				try {
+	    					addDrinkByVars(drinkData, db);
 	    					br.close();
 	    				} catch (IOException e) {
 	    					e.printStackTrace();
@@ -787,24 +785,15 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	{
 	    		db = this.getWritableDatabase();
 	    	}
+	    	List<Matching> matchings = new ArrayList<Matching>();
 	    	try {
 	    		AssetManager assets = con.getResources().getAssets();
 	    		InputStream is = assets.open(MATCH_FILE_NAME);
 	    		BufferedReader br = null;
-	    		//id
-	    		//drink
-	    		//ingredient
-	    		//quantity
-	    		//units
-	    		String line;
+	    		
 	    		try {
-
 	    			br = new BufferedReader(new InputStreamReader(is));
-	    			while ((line = br.readLine()) != null) {
-	    				//if (!line.equals("--"))
-	    				{
-	    					//System.out.println("Problem: not --");
-	    				}
+	    			while (br.readLine() != null) {
 	    				int id = Integer.parseInt(br.readLine())+1;
 	    				int drinkID = Integer.parseInt(br.readLine())+1;
 	    				int ingredientID = Integer.parseInt(br.readLine())+1;
@@ -815,7 +804,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    				if (units.equals("null"))
 	    					units = "";
 	    				Matching match = new Matching(drinkID, ingredientID, id, quantity, units);
-	    				addMatching(match, db);
+	    				matchings.add(match);
 	    			}
 
 	    		} catch (IOException e) {
@@ -823,6 +812,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    		} finally {
 	    			if (br != null) {
 	    				try {
+	    					addMatching(matchings, db);
 	    					br.close();
 	    				} catch (IOException e) {
 	    					e.printStackTrace();
@@ -844,25 +834,19 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	{
 	    		db = this.getWritableDatabase();
 	    	}
+	    	List<IngredientIDPair> pairs = new ArrayList<IngredientIDPair>();
 	    	try {
 	    		AssetManager assets = con.getResources().getAssets();
 	    		InputStream is = assets.open(PAIR_FILE_NAME);
 	    		BufferedReader br = null;
-	    		//id
-	    		//name
-	    		String line;
 	    		try {
 
 	    			br = new BufferedReader(new InputStreamReader(is));
-	    			while ((line = br.readLine()) != null) {
-	    				//if (!line.equals("--"))
-	    				{
-	    				//	System.out.println("Problem: not --");
-	    				}
+	    			while (br.readLine() != null) {
 	    				int id = Integer.parseInt(br.readLine())+1;
 	    				String name = br.readLine();
 	    				IngredientIDPair pair = new IngredientIDPair(id, name);
-	    				addPair(pair, db);
+	    				pairs.add(pair);
 	    			}
 
 	    		} catch (IOException e) {
@@ -870,6 +854,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    		} finally {
 	    			if (br != null) {
 	    				try {
+	    					addPair(pairs, db);
 	    					br.close();
 	    				} catch (IOException e) {
 	    					e.printStackTrace();
