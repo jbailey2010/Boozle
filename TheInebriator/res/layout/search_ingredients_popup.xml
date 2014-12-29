@@ -42,7 +42,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="6dp"
-        android:dropDownHeight="200dp"
+        android:dropDownHeight="160dp"
         android:background="@drawable/input_well"
         android:ems="10"
         android:textColor="#000000" />
