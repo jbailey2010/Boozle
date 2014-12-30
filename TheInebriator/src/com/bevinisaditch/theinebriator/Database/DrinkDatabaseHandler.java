@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.bevinisaditch.theinebriator.ClassFiles.Drink.Rating;
 import com.bevinisaditch.theinebriator.ClassFiles.*;
@@ -39,6 +41,8 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    private static final String DRINK_FILE_NAME = "drinkData.txt";
 	    private static final String MATCH_FILE_NAME = "matchData.txt";
 	    private static final String PAIR_FILE_NAME = "pairData.txt";
+	    
+	    private Set<Integer> nullSet = new HashSet<Integer>();
 	 	  
 	    /**
 	     * just calls super constructor
@@ -239,12 +243,21 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	try{
 	    		db.beginTransaction();
 	    		for(int i = 0; i < drinkData.size(); i++){
-	    	    	ContentValues values = new ContentValues();
-	    	    	values.put("ID", (Integer) drinkData.get(i));
-	    	    	values.put("NAME", (String)drinkData.get(++i));
-	    	    	values.put("RATING", (Integer)drinkData.get(++i));
-	    	    	values.put("INSTRUCTIONS", (String)drinkData.get(++i));
-	    	    	db.insert("DRINKS", null, values);
+	    			if(drinkData.get(i+1) != null && ((String)drinkData.get(i+1)).length() > 0){
+		    	    	ContentValues values = new ContentValues();
+		    	    	values.put("ID", (Integer) drinkData.get(i));
+		    	    	values.put("NAME", (String)drinkData.get(++i));
+		    	    	values.put("RATING", (Integer)drinkData.get(++i));
+		    	    	values.put("INSTRUCTIONS", (String)drinkData.get(++i));
+		    	    	db.insert("DRINKS", null, values);
+	    			}
+	    			else{
+	    				Integer id = (Integer)drinkData.get(i);
+	    				if(!nullSet.contains(id)){
+	    					nullSet.add(id);
+	    				}
+	    				i += 3;
+	    			}
 	    		}
 	    		db.setTransactionSuccessful();
 	    	} catch (SQLException e) {}
@@ -263,13 +276,15 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	try{
 	    		db.beginTransaction();
 	    		for(Matching match : matchings){
-	    	    	ContentValues values = new ContentValues();
-	    	    	values.put("ID", match.matchID);
-	    	    	values.put("DRINKID", match.drinkID);
-	    	    	values.put("INGREDIENTID", match.ingredientID);
-	    	    	values.put("QUANTITY", match.quantity);
-	    	    	values.put("UNITS", match.units);
-	    	    	db.insert("MATCHINGS", null, values);
+	    			if(!nullSet.contains(match.drinkID)){
+		    	    	ContentValues values = new ContentValues();
+		    	    	values.put("ID", match.matchID);
+		    	    	values.put("DRINKID", match.drinkID);
+		    	    	values.put("INGREDIENTID", match.ingredientID);
+		    	    	values.put("QUANTITY", match.quantity);
+		    	    	values.put("UNITS", match.units);
+		    	    	db.insert("MATCHINGS", null, values);
+	    			}
 	    		}
 	    		db.setTransactionSuccessful();
 	    	} catch (SQLException e) {}
