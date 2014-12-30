@@ -9,6 +9,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.lang3.StringEscapeUtils;
+
 import com.bevinisaditch.theinebriator.ClassFiles.Drink.Rating;
 import com.bevinisaditch.theinebriator.ClassFiles.*;
 
@@ -304,8 +306,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 		    	for(IngredientIDPair pair : pairs){
 			    	ContentValues values = new ContentValues();
 			    	values.put("ID", pair.id);
-			    	values.put("NAME", pair.name);
-			    	
+			    	values.put("NAME", 	pair.name);
 			    	db.insert("INGREDIENTS", null, values);
 		    	}
 		    	db.setTransactionSuccessful();
