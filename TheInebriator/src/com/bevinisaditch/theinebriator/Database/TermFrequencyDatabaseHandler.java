@@ -54,6 +54,9 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
         
         Log.d("TermFrequencyDatabaseHandler", "Populating Term Frequency DB");
         // Populate DB
+        //TODO: This needs populating. We have drink names and ingredient names, but we need a link.
+        
+        
         ArrayList<Drink> allDrinks = Loading.drinks;
         if (allDrinks != null) {
         	populateDatabase(db, allDrinks);

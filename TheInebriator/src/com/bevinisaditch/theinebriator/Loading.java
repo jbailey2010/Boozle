@@ -1,6 +1,9 @@
 package com.bevinisaditch.theinebriator;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.ActionBar;
@@ -10,6 +13,7 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.view.Menu;
 import android.widget.ImageView;
+
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;
 import com.devingotaswitch.theinebriator.R;
@@ -21,7 +25,9 @@ import com.devingotaswitch.theinebriator.R;
 public class Loading extends Activity {
 	public Context cont;
 	private ImageView img;
-	public static ArrayList<Drink> drinks;
+	public static List<String> drinkNames;
+	public static List<String> ingrNames;
+	
 	/**
 	 * Sets the display, and spawns the loading threads
 	 */
@@ -63,24 +69,30 @@ public class Loading extends Activity {
 	 * @author Jeff
 	 *
 	 */
-	private class AsyncLoader extends AsyncTask<Activity, Void, ArrayList<Drink>> {
+	private class AsyncLoader extends AsyncTask<Activity, Void, Void> {
 		Activity act;
+		List<String> drinks;
+		List<String> ingredients;
+		
 		/**
 		 * Calls the method to load the drinks
 		 */
         @Override
-        protected ArrayList<Drink> doInBackground(Activity... params) {
+        protected Void doInBackground(Activity... params) {
         	act = (Activity)params[0];
         	DrinkDatabaseHandler drinkHandler = new DrinkDatabaseHandler(cont);
-            return drinkHandler.getAllDrinks();
+        	drinks = drinkHandler.getDrinkNames();
+        	ingredients = drinkHandler.getIngredientNames();
+        	return null;
         }
 
         /**
          * Once it's done, move over to send to home
          */
         @Override
-        protected void onPostExecute(ArrayList<Drink> result) {
-            drinks = result;
+        protected void onPostExecute(Void result) {
+            drinkNames = drinks;
+            ingrNames = ingredients;
             Intent intent = new Intent(act, Home.class);
             startActivity(intent);
         }

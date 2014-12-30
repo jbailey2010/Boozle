@@ -45,7 +45,7 @@ public class DrinkPopup {
 	 * Configures the initial pop up to appropriately handle input and
 	 * display the data from the clicked element itself
 	 */
-	public static void drinkPopUpInit(final Context c, final String name, String ingredients, final String instr, final String url, final boolean update, Rating rating, boolean showRefresh, final boolean isAllRandom)
+	public static void drinkPopUpInit(final Context c, final String name, String ingredients, final String instr, final boolean update, Rating rating, boolean showRefresh, final boolean isAllRandom)
 	{
 		nameDrink = name;
 		ingrDrink = ingredients;
@@ -82,18 +82,6 @@ public class DrinkPopup {
 	    ingredientsView.setText(ingredients);
 	    TextView nameView = (TextView)dialog.findViewById(R.id.drink_name);
 	    nameView.setText(name);
-	    //If the name has a valid url, go to it
-	    nameView.setOnClickListener(new OnClickListener(){
-
-			@Override
-			public void onClick(View arg0) {
-				if(url!= null){
-					Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-					c.startActivity(browserIntent);
-				}
-			}
-	    	
-	    });
 	    //If it's from the home screen, come up with another random drink 
 	    ImageView refresh = (ImageView)dialog.findViewById(R.id.rerandomize);
 	    if(showRefresh){
@@ -236,6 +224,7 @@ public class DrinkPopup {
 	 */
 	public static void updateDrinkState(String name, String ingr, String instr, Rating rating, ArrayList<Drink> drinks){
 		Home dummy = new Home();
+		//TODO: If can remain (only uses name of drink). Update db method to uniquely identify and update there.
 		for(Drink drink : drinks)
 		{
 			if(drink.getName().equals(name) && dummy.makeIngredientsBetter(drink.getIngredients()).equals(ingr) && drink.getInstructions().equals(instr))

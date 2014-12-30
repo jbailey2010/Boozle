@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.lang3.text.WordUtils;
 
@@ -63,7 +64,7 @@ public class Home extends Activity {
 	public Menu menuObj; 
 	public MenuItem scrollUp;
 	public MenuItem clearRes;
-	public static ArrayList<Drink> drinks; 
+	
 	
 	/**
 	 * Sets up the getting of the data from Loading, then shows the default home screen
@@ -77,11 +78,10 @@ public class Home extends Activity {
 		//ab.setDisplayShowTitleEnabled(false);
 		ll = (LinearLayout)findViewById(R.id.home_base);
 		ll.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
-		if(Loading.drinks == null || Loading.drinks.size() == 0){
+		if(Loading.drinkNames == null || Loading.drinkNames.size() == 0){
 			Intent intent = new Intent(this, Loading.class);
             startActivity(intent);
 		}
-		drinks = Loading.drinks;
 		setNoResults();
 	}
 
@@ -274,7 +274,10 @@ public class Home extends Activity {
 	public void listRatingDrinks(Rating thumbStatus, boolean searchFlag)
 	{
 		List<Drink> results = new ArrayList<Drink>();
-		for(Drink drink : drinks)
+		//TODO This needs to get all drinks with thumbStatus from the db
+		
+		
+		for(Drink drink : Loading.drinks)
 		{
 			if(drink.getRating() == thumbStatus)
 			{
@@ -364,7 +367,7 @@ public class Home extends Activity {
 				String instr = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text3)).getText().toString();
 				
 				list.setSelection(arg2);
-				DrinkPopup.drinkPopUpInit(cont, name, ingredients, instr, getDrinkUrl(name, instr, ingredients), true, getDrinkRating(name, instr, ingredients), false, false);
+				DrinkPopup.drinkPopUpInit(cont, name, ingredients, instr, true, getDrinkRating(name, instr, ingredients), false, false);
 			}
 	    });
 	    list.setOnScrollListener(new OnScrollListener(){
@@ -399,7 +402,7 @@ public class Home extends Activity {
 		String name = drinkMap.get("name");
 		String ingr = drinkMap.get("info");
 		String instr = drinkMap.get("ingr");
-		DrinkPopup.drinkPopUpInit(cont, name, ingr, instr, getDrinkUrl(name, instr, ingr), true, getDrinkRating(name, instr, ingr), true, false);
+		DrinkPopup.drinkPopUpInit(cont, name, ingr, instr, true, getDrinkRating(name, instr, ingr), true, false);
 		list.setSelection(randIndex);
 	}
 	
@@ -407,34 +410,27 @@ public class Home extends Activity {
 	 * Gets a random drink from all drinks, being called from the home screen
 	 */
 	public void showAllRandomDrink(){
-		int randIndex = (int) (Math.random() * drinks.size());
-		Drink drink = drinks.get(randIndex);
+		int randIndex = (int) (Math.random() * getDrinkNames().size());
+		//TODO: This needs to get the randIndex-th drink from the database
+		
+		
+		
+		Drink drink = Loading.drinks.get(randIndex);
 		String name = drink.getName();
 		String ingr = makeIngredientsBetter(drink.getIngredients());
 		String instr = drink.getInstructions();
-		DrinkPopup.drinkPopUpInit(cont, name, ingr, instr, getDrinkUrl(name, instr, ingr), false, getDrinkRating(name, instr, ingr), true, true);
-	}
-	
-	/**
-	 * Iterates over drinks to get the url of a drink
-	 */
-	public String getDrinkUrl(String name, String instr, String ingr)
-	{
-		for(Drink dr : drinks)
-		{
-			if(dr.getName().equals(name) && dr.getInstructions().equals(instr) && makeIngredientsBetter(dr.getIngredients()).equals(ingr))
-			{
-				return dr.getUrl();
-			}
-		}
-		return "";
+		DrinkPopup.drinkPopUpInit(cont, name, ingr, instr, false, getDrinkRating(name, instr, ingr), true, true);
 	}
 	
 	/**
 	 * Iterates over drinks to get the rating of a drink
 	 */
 	public Rating getDrinkRating(String name, String instr, String ingr){
-		for(Drink dr : drinks)
+		//TODO This needs to lookup the rating of the drink from the database and return it
+		
+		
+		
+		for(Drink dr : Loading.drinks)
 		{
 			if(dr.getName().equals(name) && dr.getInstructions().equals(instr) && makeIngredientsBetter(dr.getIngredients()).equals(ingr))
 			{
@@ -481,12 +477,7 @@ public class Home extends Activity {
 	 */
 	public static List<String> getDrinkNames()
 	{
-		List<String> drinkNames = new ArrayList<String>();
-		for(Drink drink : drinks)
-		{
-			drinkNames.add(drink.getName());
-		}
-		return drinkNames;
+		return Loading.drinkNames;
 	}
 	
 	/**
@@ -495,19 +486,7 @@ public class Home extends Activity {
 	 */
 	public static List<String> getIngredients()
 	{
-		HashSet<String> drinkSet = new HashSet<String>();
-		List<String> drinkNames = new ArrayList<String>();
-		for (Drink drink : drinks) {
-			for (Ingredient ingr : drink.getIngredients()) {
-				if(!drinkSet.contains(ingr.getName())){ 
-					drinkSet.add(WordUtils.capitalize(ingr.getName()));
-				}
-			} 
-		}
-		for(String ingr : drinkSet){
-			drinkNames.add(ingr);
-		}
-		return drinkNames; 
+		return Loading.ingrNames;
 	}
 	
 	/**

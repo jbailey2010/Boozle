@@ -524,9 +524,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    {
 	    	ArrayList<Drink> drinks = new ArrayList<Drink>();
 	    	ArrayList<Matching> allMatches = getAllMatchings();
-	    	//System.out.println("Got " + allMatches.size() + " matchings from DB");
 			ArrayList<IngredientIDPair> allPairs = getAllPairs();
-	    	//System.out.println("Got " + allPairs.size() + " pairs from DB");
 			String selectQuery = "SELECT * FROM DRINKS;" ;
 			SQLiteDatabase db = this.getWritableDatabase();
 			Cursor cursor = db.rawQuery(selectQuery, null);
@@ -550,6 +548,34 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 			
 			cursor.close();
 			return drinks;
+	    }
+	    
+	    public List<String> getDrinkNames(){
+	    	List<String> names = new ArrayList<String>();
+	    	String selectQuery = "SELECT DISTINCT NAME FROM DRINKS";
+	    	SQLiteDatabase db = this.getWritableDatabase();
+	    	Cursor cursor = db.rawQuery(selectQuery, null);
+	    	
+	    	if (cursor.moveToFirst()) {
+	    		do {
+	    			names.add(cursor.getString(0));
+	    		} while(cursor.moveToNext());
+	    	}
+	    	return names;
+	    }
+	    
+	    public List<String> getIngredientNames(){
+	    	List<String> names = new ArrayList<String>();
+	    	String selectQuery = "SELECT DISTINCT NAME FROM INGREDIENTS";
+	    	SQLiteDatabase db = this.getWritableDatabase();
+	    	Cursor cursor = db.rawQuery(selectQuery, null);
+	    	
+	    	if (cursor.moveToFirst()) {
+	    		do {
+	    			names.add(cursor.getString(0));
+	    		} while(cursor.moveToNext());
+	    	}
+	    	return names;
 	    }
 	    
 	    /**
