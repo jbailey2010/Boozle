@@ -230,7 +230,8 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    }
 	    
 	    /**
-	     * Adds a drink by the fields of a drink, skipping Drink's constructor.
+	     * Adds all drinks to the database, unless it's empty
+	     * 
 	     * @param id ID of drink to add
 	     * @param name Name of drink to add
 	     * @param rating Rating of drink to add
@@ -267,7 +268,9 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    
 	    
 	    /**
-	     * Adds a matching to the database.
+	     * Adds all matchings to the database, unless they 
+	     * correspond to an empty drink.
+	     * 
 	     * @param match
 	     */
 	    public void addMatching(List<Matching> matchings, SQLiteDatabase db)
@@ -293,7 +296,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    }
 	    
 	    /**
-	     * Adds an IngredientIDPair to the database.
+	     * Adds all IngredientIDPairs to the database.
 	     * @param pair
 	     */
 	    public void addPair(List<IngredientIDPair> pairs, SQLiteDatabase db)
@@ -546,6 +549,12 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 			return drinks;
 	    }
 	    
+	    /**
+	     * Reads all of the drink names from file, for the 
+	     * sake of the drink search dropdown primarily
+	     * 
+	     * @return - the list of drink names, uniquely
+	     */
 	    public List<String> getDrinkNames(){
 	    	List<String> names = new ArrayList<String>();
 	    	String selectQuery = "SELECT DISTINCT NAME FROM DRINKS";
@@ -560,6 +569,12 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	return names;
 	    }
 	    
+	    /**
+	     * Reads all of the ingredient names from file, for the 
+	     * sake of the search dropdown primarily
+	     * 
+	     * @return - the list of ingredient names, uniquely
+	     */
 	    public List<String> getIngredientNames(){
 	    	List<String> names = new ArrayList<String>();
 	    	String selectQuery = "SELECT DISTINCT NAME FROM INGREDIENTS";
@@ -574,10 +589,16 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	return names;
 	    }
 	    
-	    public Rating getDrinkRating(String drinkName, String instructions){
+	    /**
+	     * Gets the rating of a drink, given the id of that drink
+	     * 
+	     * @param id - the id of the drink to be checked
+	     * @return the rating of the drink
+	     */
+	    public Rating getDrinkRating(Long id){
 	    	Rating rating = Rating.THUMBSNULL;
-	    	String selectQuery = "SELECT RATING FROM DRINKS WHERE NAME = '" + drinkName + 
-	    			"' AND INSTRUCTIONS = '" + instructions + "'";
+	    	String selectQuery = "SELECT RATING FROM DRINKS WHERE ID = '" + id + 
+	    			"'";
 	    	SQLiteDatabase db = this.getWritableDatabase();
 	    	Cursor cursor = db.rawQuery(selectQuery, null);
 	    	
@@ -587,6 +608,31 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    		} while(cursor.moveToNext());
 	    	}
 	    	return rating;
+	    }
+	    
+	    /**
+	     * Gets the drink ID of a drink defined by the given name 
+	     * and instructions. Note, this may not be airtight, and may
+	     * need revisiting. It was chosen because it should be faster than 
+	     * adding in ingredients to the equation.
+	     * 
+	     * @param name the name of the drink
+	     * @param instr the instructions to make it
+	     * @return the id of the drink
+	     */
+	    public Long getDrinkId(String name, String instr){
+	    	long id = -1;
+	    	String selectQuery = "SELECT ID FROM DRINKS WHERE NAME = '" + name + 
+	    			"' AND INSTRUCTIONS = '" + instr + "'";
+	    	SQLiteDatabase db = this.getWritableDatabase();
+	    	Cursor cursor = db.rawQuery(selectQuery, null);
+	    	
+	    	if (cursor.moveToFirst()) {
+	    		do {
+	    			id = cursor.getInt(0);
+	    		} while(cursor.moveToNext());
+	    	}
+	    	return id;
 	    }
 	    
 	    

@@ -69,12 +69,12 @@ public class GeneralUtils {
 		
 		/**
 		 * Takes the entity, and if it already has a thumbs up count, increases it, otherwise create it at one
-		 * @param dr - The drink to look at
+		 * @param name - The drink to look at
 		 * @param cont - The context for the sake of the asynchronous check
 		 */
-		public static void bumpEntityValue(Drink dr, final Context cont)
+		public static void bumpEntityValue(String name, final Context cont)
 		{
-			String key = "http://www.boozle.com/" + dr.getName();
+			String key = "http://www.boozle.com/" + name;
 			EntityUtils.getEntity((Activity) cont, key, new EntityGetListener() {
 				//The entity was gotten, though an error is still possible
 				@Override

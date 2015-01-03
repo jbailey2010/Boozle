@@ -210,11 +210,11 @@ public class DrinkPopup {
 					break;
 				}
 			}
-			updateDrinkState(nameDrink, ingrDrink, instrDrink, rating, Home.drinks);
+			updateDrinkState(nameDrink, ingrDrink, instrDrink, rating);
 		}
 		else
 		{
-			updateDrinkState(nameDrink, ingrDrink, instrDrink, rating, Loading.drinks);
+			updateDrinkState(nameDrink, ingrDrink, instrDrink, rating);
 		}
 	}
 	
@@ -222,22 +222,11 @@ public class DrinkPopup {
 	 * Saves whatever change was made to the database and, if there's internet and the thumbs 
 	 * was a thumbs up, then it sends that data to the server and adjusts as such
 	 */
-	public static void updateDrinkState(String name, String ingr, String instr, Rating rating, ArrayList<Drink> drinks){
-		Home dummy = new Home();
-		//TODO: If can remain (only uses name of drink). Update db method to uniquely identify and update there.
-		for(Drink drink : drinks)
-		{
-			if(drink.getName().equals(name) && dummy.makeIngredientsBetter(drink.getIngredients()).equals(ingr) && drink.getInstructions().equals(instr))
-			{
-				if(rating.equals(Drink.Rating.THUMBSUP) && GeneralUtils.testInternet(cont)){
-					GeneralUtils.bumpEntityValue(drink, cont);
-				}
-				drink.setRating(rating);
-				long id = drink.getId();
-				DrinkDatabaseHandler db = new DrinkDatabaseHandler(cont);
-				db.setDrinkRating(id, rating);
-				break;
-			}
+	public static void updateDrinkState(String name, String ingr, String instr, Rating rating){
+		if(rating.equals(Drink.Rating.THUMBSUP) && GeneralUtils.testInternet(cont)){
+			GeneralUtils.bumpEntityValue(name, cont);
 		}
+		DrinkDatabaseHandler handler = Home.getHandler(cont);
+		handler.setDrinkRating(handler.getDrinkId(name, instr), rating);
 	}
 }

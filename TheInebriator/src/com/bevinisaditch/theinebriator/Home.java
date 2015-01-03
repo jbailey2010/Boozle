@@ -65,7 +65,9 @@ public class Home extends Activity {
 	public Menu menuObj; 
 	public MenuItem scrollUp;
 	public MenuItem clearRes;
-	public static DrinkDatabaseHandler handler;
+	
+	/* A singleton instance of the handler, since it is the means to data now */
+	private static DrinkDatabaseHandler handler;
 	
 	
 	/**
@@ -76,7 +78,7 @@ public class Home extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		cont = this; 
-		handler = new DrinkDatabaseHandler(cont);
+		handler = Home.getHandler(cont);
 		ll = (LinearLayout)findViewById(R.id.home_base);
 		ll.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
 		if(Loading.drinkNames == null || Loading.drinkNames.size() == 0){
@@ -199,6 +201,20 @@ public class Home extends Activity {
 	    sideNavigationView.setMenuItems(R.menu.side_menu_options);
 	    sideNavigationView.setMenuClickCallback(sideNavigationCallback);
 	    getActionBar().setDisplayHomeAsUpEnabled(true);
+	}
+	
+	/**
+	 * A way to access the database object, since it's now the 
+	 * means to get the individual data with the list of drinks gone.
+	 * 
+	 * @param cont - a context to create the object
+	 * @return the singleton handler
+	 */
+	public static DrinkDatabaseHandler getHandler(Context cont){
+		if(handler == null){
+			handler = new DrinkDatabaseHandler(cont);
+		}
+		return handler;
 	}
 
 	/**
@@ -426,8 +442,9 @@ public class Home extends Activity {
 	/**
 	 * Iterates over drinks to get the rating of a drink
 	 */
-	public Rating getDrinkRating(String name, String instr, String ingr){		
-		return handler.getDrinkRating(name, instr);
+	public Rating getDrinkRating(String name, String instr, String ingr){
+		handler = Home.getHandler(cont);
+		return handler.getDrinkRating(handler.getDrinkId(name, instr));
 	}
 	
 	/**
