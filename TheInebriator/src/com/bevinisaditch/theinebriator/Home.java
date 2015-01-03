@@ -85,6 +85,7 @@ public class Home extends Activity {
 			Intent intent = new Intent(this, Loading.class);
             startActivity(intent);
 		}
+		handler.isUnique();
 		setNoResults();
 	}
 
@@ -428,11 +429,8 @@ public class Home extends Activity {
 	 */
 	public void showAllRandomDrink(){
 		int randIndex = (int) (Math.random() * getDrinkNames().size());
-		//TODO: This needs to get the randIndex-th drink from the database
-		
-		
-		
-		Drink drink = Loading.drinks.get(randIndex);
+		handler = Home.getHandler(cont);
+		Drink drink = handler.getRandomDrink(randIndex);
 		String name = drink.getName();
 		String ingr = makeIngredientsBetter(drink.getIngredients());
 		String instr = drink.getInstructions();

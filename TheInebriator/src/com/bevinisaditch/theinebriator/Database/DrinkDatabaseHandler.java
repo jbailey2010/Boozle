@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringEscapeUtils;
@@ -162,6 +163,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 			else
 				thumbsNullDrink(drinkID);
 		}
+		
 		
 		/**
 		 * This function takes a drink and add its to the database
@@ -342,122 +344,24 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * @param db This database
 	     * @return Drinks with given IDs
 	     */
-	    private ArrayList<Drink> getDrinksByID(ArrayList<Integer> ids, ArrayList<Matching> matches, ArrayList<IngredientIDPair> pairs, SQLiteDatabase db)
+	    private Drink getDrinkByID(int id, SQLiteDatabase db)
 	    {
-	    	ArrayList<Drink> drinks = new ArrayList<Drink>();
-	    	for (int i : ids)
-	    	{
-	    		String sql = "SELECT * FROM DRINKS WHERE ID = " + i;
-	    		Cursor cursor = db.rawQuery(sql, null);
-	    		Drink drink = null;
-	    		if (cursor.moveToFirst())
-	    		{
-	    			long id = cursor.getInt(0);
-					String name = cursor.getString(1);
-					Drink.Rating rating =  intToRating(cursor.getInt(2));
-					String instructions = cursor.getString(3);
-					ArrayList<Ingredient> ingredients = getIngredientsForDrinkIDSubset(id, matches, pairs);
-
-					Drink currDrink = new Drink(name, rating, ingredients, instructions, id);
-					drinks.add(currDrink);
-	    		}
-	    		
-	    		cursor.close();
-	    	}
-	    	return drinks;
+    		String sql = "SELECT * FROM DRINKS WHERE ID = " + id;
+    		Cursor cursor = db.rawQuery(sql, null);
+    		Drink drink = null;
+    		if (cursor.moveToFirst())
+    		{
+    			long index = cursor.getInt(0);
+				String name = cursor.getString(1);
+				Drink.Rating rating =  intToRating(cursor.getInt(2));
+				String instructions = cursor.getString(3);
+				ArrayList<Ingredient> ingredients = getIngredientsForDrinkID(index);
+				drink = new Drink(name, rating, ingredients, instructions, index);
+    		}
+    		cursor.close();
+	       	return drink;
 	    }
 	    
-	    /**
-	     * Gets ingredients for a given drink ID with relevant matchings and pairs given
-	     * @param id Drink ID
-	     * @param matches Relevant matchings
-	     * @param pairs Relevant pairs
-	     * @return Ingredients for given drink ID
-	     */
-	    private ArrayList<Ingredient> getIngredientsForDrinkIDSubset(Long id, ArrayList<Matching> matches, ArrayList<IngredientIDPair> pairs)
-	    {
-	    	ArrayList<Ingredient> ings = new ArrayList<Ingredient>();
-	    	for (Matching curr : matches)
-	    	{
-	    		if (curr.drinkID == id)
-	    		{
-	    			int ingID = curr.ingredientID;
-	    			String name = "";
-	    			for (IngredientIDPair pair : pairs)
-	    			{
-	    				if (pair.id == ingID)
-	    				{
-	    					name = pair.name;
-	    				}
-	    			}
-	    			Ingredient newIngredient = new Ingredient(name, curr.quantity, curr.units);
-	    			ings .add(newIngredient);
-	    		}
-	    	}
-	    	return ings;
-	    }
-	    
-	    
-	    /**
-	     * Gets IngredientIDPairs given strings of the ingredient names
-	     * @param ingredients ingredient names
-	     * @param db This database
-	     * @return list of pairs
-	     */
-		private ArrayList<IngredientIDPair> getPairsFromStrings(ArrayList<String> ingredients,
-				SQLiteDatabase db) {
-			ArrayList<IngredientIDPair> pairs = new ArrayList<IngredientIDPair>();
-			for (String ing : ingredients)
-	    	{
-	    		String sql = "SELECT * FROM INGREDIENTS WHERE NAME = \"" + ing + "\"";
-	    		Cursor cursor = db.rawQuery(sql, null);
-	    		IngredientIDPair pair = null;
-	    		if (cursor.moveToFirst())
-	    		{
-	    			pair = new IngredientIDPair(cursor.getInt(0), cursor.getString(1));
-	    			pairs.add(pair);
-	    		}
-	    		
-	    		cursor.close();
-	    	}
-			return pairs;
-		}
-		
-		/**
-		 * Gets matchings that contain ingredients
-		 * @param ingredients Ingredients to look for
-		 * @param db this database
-		 * @return Relevant matchings
-		 */
-		private ArrayList<Matching> getMatchingsThatContainIngredients(ArrayList<IngredientIDPair> ingredients, SQLiteDatabase db)
-		{
-			ArrayList<Matching> matches = new ArrayList<Matching>();
-			for (IngredientIDPair pair : ingredients)
-			{
-				int id = pair.id;
-				String sql = "SELECT * FROM MATCHINGS WHERE INGREDIENTID = " + id;
-				Cursor cursor = db.rawQuery(sql, null);
-			     
-		        // looping through all rows and adding to list
-		        if (cursor.moveToFirst()) {
-		            do {
-		                Matching matching = new Matching();
-		                matching.matchID = cursor.getInt(0);
-		                matching.drinkID = cursor.getInt(1);
-		                matching.ingredientID = cursor.getInt(2);
-		                matching.quantity = cursor.getString(3);
-		                matching.units = cursor.getString(4);
-		                matches.add(matching);
-		            } while (cursor.moveToNext());
-		        }
-		        
-		        cursor.close();
-			}
-			
-			return matches;
-		}
-	    
-		
 		
 	    /**
 	     * Gets all matchings in the database
@@ -611,6 +515,41 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    }
 	    
 	    /**
+	     * Gets all of the ids from the drinks database. Useful since
+	     * they may be a non-continuous set since missing data in drinks
+	     * means a skipped id
+	     * 
+	     * @return the list of ids for drinks
+	     */
+	    public List<Integer> getIdsList(){
+	    	List<Integer> indices = new ArrayList<Integer>();
+	    	String selectQuery = "SELECT ID FROM DRINKS";
+	    	SQLiteDatabase db = this.getWritableDatabase();
+	    	Cursor cursor = db.rawQuery(selectQuery, null);
+	    	
+	    	if (cursor.moveToFirst()) {
+	    		do {
+	    			indices.add(cursor.getInt(0));
+	    		} while(cursor.moveToNext());
+	    	}
+	    	return indices;
+	    }
+	    
+	    /**
+	     * Given an index, it gets that index-th drink id (since they may be 
+	     * non-continuous due to missing data), and uses that to grab a drink and
+	     * return it. 
+	     * 
+	     * @param index - the index of the drink id to get
+	     * @return the random drink
+	     */
+	    public Drink getRandomDrink(int index){
+	    	SQLiteDatabase db = this.getWritableDatabase();
+	    	int randIndex = getIdsList().get(index);
+	    	return getDrinkByID(randIndex, db);
+	    }
+	    
+	    /**
 	     * Gets the drink ID of a drink defined by the given name 
 	     * and instructions. Note, this may not be airtight, and may
 	     * need revisiting. It was chosen because it should be faster than 
@@ -634,6 +573,28 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	}
 	    	return id;
 	    }
+	    
+		public void isUnique(){
+			String selectTotal = "SELECT count(ID) FROM DRINKS";
+			int count = -1;
+			SQLiteDatabase db = this.getWritableDatabase();
+	    	Cursor cursor = db.rawQuery(selectTotal, null);
+	    	if (cursor.moveToFirst()){
+	    		do {
+	    			count = cursor.getInt(0);
+	    		} while(cursor.moveToNext());
+	    	}
+	    	System.out.println("Total count: " + count);
+	    	
+	    	String selectUnique = "SELECT count(DISTINCT NAME,INSTRUCTIONS) FROM DRINKS";
+	    	cursor = db.rawQuery(selectUnique, null);
+	    	if (cursor.moveToFirst()){
+	    		do {
+	    			count = cursor.getInt(0);
+	    		} while(cursor.moveToNext());
+	    	}
+	    	System.out.println("Unique count: " + count);
+		}
 	    
 	    
 	    /**
