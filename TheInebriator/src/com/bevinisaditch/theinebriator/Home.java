@@ -38,6 +38,7 @@ import com.bevinisaditch.theinebriator.ClassFiles.DrinkInfo;
 import com.bevinisaditch.theinebriator.ClassFiles.DrinkPopup;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
 import com.bevinisaditch.theinebriator.ClassFiles.SearchManagement;
+import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;
 import com.bevinisaditch.theinebriator.InterfaceAugmentations.ActivitySwipeDetector;
 import com.bevinisaditch.theinebriator.InterfaceAugmentations.BounceListView;
 import com.bevinisaditch.theinebriator.Utils.GeneralUtils;
@@ -64,6 +65,7 @@ public class Home extends Activity {
 	public Menu menuObj; 
 	public MenuItem scrollUp;
 	public MenuItem clearRes;
+	public static DrinkDatabaseHandler handler;
 	
 	
 	/**
@@ -73,9 +75,8 @@ public class Home extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
-		//ActionBar ab = getActionBar(); 
 		cont = this; 
-		//ab.setDisplayShowTitleEnabled(false);
+		handler = new DrinkDatabaseHandler(cont);
 		ll = (LinearLayout)findViewById(R.id.home_base);
 		ll.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
 		if(Loading.drinkNames == null || Loading.drinkNames.size() == 0){
@@ -425,19 +426,8 @@ public class Home extends Activity {
 	/**
 	 * Iterates over drinks to get the rating of a drink
 	 */
-	public Rating getDrinkRating(String name, String instr, String ingr){
-		//TODO This needs to lookup the rating of the drink from the database and return it
-		
-		
-		
-		for(Drink dr : Loading.drinks)
-		{
-			if(dr.getName().equals(name) && dr.getInstructions().equals(instr) && makeIngredientsBetter(dr.getIngredients()).equals(ingr))
-			{
-				return dr.getRating();
-			}
-		}
-		return Drink.Rating.THUMBSNULL;
+	public Rating getDrinkRating(String name, String instr, String ingr){		
+		return handler.getDrinkRating(name, instr);
 	}
 	
 	/**
