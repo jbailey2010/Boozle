@@ -2,8 +2,10 @@ package com.bevinisaditch.theinebriator.Database;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map.Entry;
 
+import com.bevinisaditch.theinebriator.Home;
 import com.bevinisaditch.theinebriator.Loading;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
@@ -57,9 +59,9 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
         //TODO: This needs populating. We have drink names and ingredient names, but we need a link.
         
         
-        ArrayList<Drink> allDrinks = Loading.drinks;
-        if (allDrinks != null) {
-        	populateDatabase(db, allDrinks);
+        List<String> drinkNames = Home.getDrinkNames();
+        if (drinkNames != null && drinkNames.size() > 0) {
+        	populateDatabase(db, drinkNames, Home.getIngredients());
         }
         Log.d("TermFrequencyDatabaseHandler", "Finished populating Term Frequency DB");
 	}
@@ -71,11 +73,11 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
 	 * 
 	 * @param allDrinks - ArrayList of drinks to break down into terms
 	 */
-	public void populateDatabase(SQLiteDatabase db, ArrayList<Drink> allDrinks) {
+	public void populateDatabase(SQLiteDatabase db, List<String> drinkNames, List<String> list) {
 		HashMap<String, Float> termFreq = new HashMap<String, Float>();
         Integer totalTermCount = 0;
-        for (Drink drink : allDrinks) {
-        	String name = drink.getName().toLowerCase();
+        for (String name : drinkNames) {
+        	name = name.toLowerCase();
         	String[] terms = name.split("\\s+");
         	Float count;
         	for (String term : terms) {        		
@@ -87,40 +89,34 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
 	        	}
 	        	totalTermCount += 1;
         	}
-        	
-        	// Sum up ingredient name count
-        	for (Ingredient ingredient : drink.getIngredients()) {
-        		name = ingredient.getName().toLowerCase();
-        		
-        		terms = name.split("\\s+");
-        		for (String term : terms) {
-	        		count = termFreq.get(term);
-	            	if (count != null) {
-	            		termFreq.put(term, count + 1);
-	            	} else {
-	            		termFreq.put(term, 1f);
-	            	}
-	            	totalTermCount += 1;
-        		}
+        }
+        for(String name : list){
+        	name = name.toLowerCase();
+        	String [] terms = name.split("\\s+");
+        	Float count;
+        	for (String term : terms) {
+	        	count = termFreq.get(term);
+	           	if (count != null) {
+	           		termFreq.put(term, count + 1);
+	           	} else {
+	           		termFreq.put(term, 1f);
+	           	}
+	           	totalTermCount += 1;
         	}
-        	
         }
         
-        //Log.d("TermFrequencyDatabaseHandler", "Calculating frequency for terms");
         //Calculate the frequency for term
         for (Entry<String, Float> entry : termFreq.entrySet()) {
         	termFreq.put(entry.getKey(), entry.getValue()/totalTermCount);
         }
 		
         
-        //Log.d("TermFrequencyDatabaseHandler", "Adding terms to database");
         //Add each entry to the database
         for (Entry<String, Float> entry : termFreq.entrySet()) {
         	Log.d("TermFrequencyDatabaseHandler", "Frequency for " + entry.getKey() + ": " + entry.getValue());
         	TermFrequency dbEntry = new TermFrequency(entry.getKey(), entry.getValue());
         	addTermFreq(db, dbEntry);
         }
-        //Log.d("TermFrequencyDatabaseHandler", "Finished populating database");
 	}
 
 	@Override
