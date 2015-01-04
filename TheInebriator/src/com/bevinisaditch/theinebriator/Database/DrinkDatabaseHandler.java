@@ -536,6 +536,45 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    }
 	    
 	    /**
+	     * Gets the drinks rated with a given rating from 
+	     * the database 
+	     * 
+	     * @param rating - the thumbs up/down/null rating of the drink
+	     * @return the list of drinks rated as such
+	     */
+	    public List<Drink> getRatedDrinks(Rating rating){
+	    	List<Drink> drinks = new ArrayList<Drink>();
+	    	SQLiteDatabase db = this.getWritableDatabase();
+	    	List<Integer> ratedIds = getDrinkIDByRating(rating);
+	    	for(Integer id : ratedIds){
+	    		drinks.add(getDrinkByID(id, db));
+	    	}
+	    	return drinks;
+	    }
+	    
+	    /**
+	     * Gets all of the ids of drinks that have the specified 
+	     * rating
+	     * 
+	     * @param rating - the rating, beit thumbs up, down, or null
+	     * @return the list of ids of those drinks
+	     */
+	    public List<Integer> getDrinkIDByRating(Rating rating){
+	    	List<Integer> indices = new ArrayList<Integer>();
+	    	int ratingInt = ratingToInt(rating);
+	    	String selectQuery = "SELECT ID FROM DRINKS WHERE RATING = '" + ratingInt + "'";
+	    	SQLiteDatabase db = this.getWritableDatabase();
+	    	Cursor cursor = db.rawQuery(selectQuery, null);
+	    	
+	    	if (cursor.moveToFirst()) {
+	    		do {
+	    			indices.add(cursor.getInt(0));
+	    		} while(cursor.moveToNext());
+	    	}
+	    	return indices;
+	    }
+	    
+	    /**
 	     * Given an index, it gets that index-th drink id (since they may be 
 	     * non-continuous due to missing data), and uses that to grab a drink and
 	     * return it. 

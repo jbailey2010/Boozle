@@ -35,9 +35,7 @@ public class Loading extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_loading);
-		//ActionBar ab = getActionBar();
 		cont = this;
-		//ab.setDisplayShowTitleEnabled(false);
 		handleInitialLoad();
 		AsyncLoader loader = new AsyncLoader();
 		loader.execute(this);
@@ -48,7 +46,6 @@ public class Loading extends Activity {
 	 */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.loading, menu);
 		return true;
 	}
@@ -56,8 +53,7 @@ public class Loading extends Activity {
 	/**
 	 * Sets the animation of the gif to work, then manages the loading of the data from file
 	 */
-	private void handleInitialLoad()
-	{
+	private void handleInitialLoad() {
 		img = (ImageView)findViewById(R.id.loading_gif);
 		img.setBackgroundResource(R.drawable.drink_gif);
 		AnimationDrawable frameAnimation = (AnimationDrawable) img.getBackground();
