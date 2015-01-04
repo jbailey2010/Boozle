@@ -182,10 +182,6 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 			drinkValues.put("INSTRUCTIONS", drink.getInstructions());
 			long drinkID = db.insert("DRINKS", null, drinkValues);
 			
-			if (drinkID == -1) {
-				System.out.println("Error inserting drink");
-			}
-			
 			ArrayList<Ingredient> ings = drink.getIngredients();
 			
 			for (Ingredient ing : ings) {
@@ -193,9 +189,6 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 				ContentValues ingValues = new ContentValues();
 				ingValues.put("NAME", ing.getName());
 		    	long ingID = db.insert("INGREDIENTS", null, ingValues);
-		    	if (ingID == -1) {
-					System.out.println("Error inserting ingredient");
-				}
 		    	
 		    	//Add matching
 		    	ContentValues values = new ContentValues();
@@ -203,10 +196,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 		    	values.put("INGREDIENTID", ingID);
 		    	values.put("QUANTITY", ing.getQuantity());
 		    	values.put("UNITS", ing.getUnits());
-		    	long matchingID = db.insert("MATCHINGS", null, values);
-		    	if (matchingID == -1) {
-					System.out.println("Error inserting matching");
-				}
+		    	db.insert("MATCHINGS", null, values);
 			}
 			
 			return drinkID;
