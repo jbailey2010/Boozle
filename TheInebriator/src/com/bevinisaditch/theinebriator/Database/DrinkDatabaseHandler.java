@@ -255,9 +255,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    			}
 	    			else{
 	    				Integer id = (Integer)drinkData.get(i);
-	    				if(!nullSet.contains(id)){
-	    					nullSet.add(id);
-	    				}
+    					nullSet.add(id);
 	    				i += 3;
 	    			}
 	    		}
@@ -461,7 +459,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     */
 	    public List<String> getDrinkNames(){
 	    	List<String> names = new ArrayList<String>();
-	    	String selectQuery = "SELECT DISTINCT NAME FROM DRINKS";
+	    	String selectQuery = "SELECT NAME FROM DRINKS";
 	    	SQLiteDatabase db = this.getWritableDatabase();
 	    	Cursor cursor = db.rawQuery(selectQuery, null);
 	    	
@@ -481,7 +479,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     */
 	    public List<String> getIngredientNames(){
 	    	List<String> names = new ArrayList<String>();
-	    	String selectQuery = "SELECT DISTINCT NAME FROM INGREDIENTS";
+	    	String selectQuery = "SELECT NAME FROM INGREDIENTS";
 	    	SQLiteDatabase db = this.getWritableDatabase();
 	    	Cursor cursor = db.rawQuery(selectQuery, null);
 	    	
@@ -613,6 +611,12 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	return id;
 	    }
 	    
+	    /**
+	     * A janky helper to determine how unique the instructions plus 
+	     * drink identifier is. It may be useful again if we add drinks, 
+	     * but as of the original set, there are 13232 drinks, and it identifies
+	     * 13228 uniquely by that classification.
+	     */
 		public void isUnique(){
 			String selectTotal = "SELECT count(ID) FROM DRINKS";
 			int count = -1;
@@ -625,11 +629,13 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	}
 	    	System.out.println("Total count: " + count);
 	    	
-	    	String selectUnique = "SELECT count(DISTINCT NAME,INSTRUCTIONS) FROM DRINKS";
+	    	String selectUnique = "SELECT DISTINCT NAME,INSTRUCTIONS FROM DRINKS";
 	    	cursor = db.rawQuery(selectUnique, null);
+	    	count = 0;
 	    	if (cursor.moveToFirst()){
 	    		do {
-	    			count = cursor.getInt(0);
+	    			count++;
+	    			cursor.getInt(0);
 	    		} while(cursor.moveToNext());
 	    	}
 	    	System.out.println("Unique count: " + count);

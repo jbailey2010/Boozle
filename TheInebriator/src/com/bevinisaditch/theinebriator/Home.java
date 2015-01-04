@@ -85,7 +85,6 @@ public class Home extends Activity {
 			Intent intent = new Intent(this, Loading.class);
             startActivity(intent);
 		}
-		handler.isUnique();
 		setNoResults();
 	}
 
@@ -398,7 +397,7 @@ public class Home extends Activity {
 	 * Gets a random drink from all drinks, being called from the home screen
 	 */
 	public void showAllRandomDrink(){
-		int randIndex = (int) (Math.random() * getDrinkNames().size());
+		int randIndex = (int) (Math.random() * Loading.drinkNames.size());
 		handler = Home.getHandler(cont);
 		Drink drink = handler.getRandomDrink(randIndex);
 		String name = drink.getName();
@@ -445,7 +444,7 @@ public class Home extends Activity {
 	 * Gets all of the drink names in a list for the autocomplete in search
 	 */
 	public static List<String> getDrinkNames() {
-		return Loading.drinkNames;
+		return deduplicateList(Loading.drinkNames);
 	}
 	
 	/**
@@ -453,7 +452,26 @@ public class Home extends Activity {
 	 * for the autocomplete in search 
 	 */
 	public static List<String> getIngredients() {
-		return Loading.ingrNames;
+		return deduplicateList(Loading.ingrNames);
+	}
+	
+	/**
+	 * A small helper method to handle deduplication of names of ingredients 
+	 * and drink names
+	 * 
+	 * @param names - the ingredient or drink names, uncut
+	 * @return the trimmed, deduplicated version
+	 */
+	private static List<String> deduplicateList(List<String> names){
+		List<String> dedupNames = new ArrayList<String>();
+		Set<String> dedup = new HashSet<String>();
+		for(String name : names){
+			if(!dedup.contains(name)){
+				dedup.add(name);
+			}
+		}
+		dedupNames.addAll(dedup);
+		return dedupNames;
 	}
 	
 	/**
