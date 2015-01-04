@@ -108,8 +108,7 @@ public class SearchManagement {
                 android.R.layout.simple_dropdown_item_1line, namesSorted);    
 	    input.setThreshold(2);
 	    input.setAdapter(adapter);
-	    if(searchDrinkName.length() > 1)
-	    {
+	    if(searchDrinkName.length() > 1) {
 	    	input.setText(searchDrinkName);
 	    }
 	    Button submit = (Button) dialog.findViewById(R.id.clear_confirm);
