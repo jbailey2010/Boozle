@@ -7,13 +7,14 @@
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/close"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
         android:text="&lt;"
         android:textColor="#FFFFFF"
-        android:textSize="44sp"
+        android:textSize="40sp"
         android:textStyle="bold" />
     
     <TextView
@@ -22,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:padding="10dp"
+        android:padding="5dp"
         android:text="X"
         android:textColor="#FF0000"
         android:textSize="30sp"
@@ -32,10 +33,12 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/close"
+        android:layout_toLeftOf="@+id/close"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/back"
         android:text="Enter the drink name below"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textSize="17sp" />
 
     <AutoCompleteTextView
         android:id="@+id/search_input_view"
@@ -70,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/search_input_view"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/btn_blue"
         android:text="Search" />
 
