@@ -88,14 +88,18 @@ public abstract class DemoActivity extends Activity implements DialogRegister {
 				// Standard GCM Registration
 				// This is simply to verify that SmartAlerts work where there is already a GCM implementation
 				// If you are not already using GCM you can ignore this.
-				GCMRegistrar.checkDevice(DemoActivity.this);
-				GCMRegistrar.checkManifest(DemoActivity.this);
+                try {
+                    GCMRegistrar.checkDevice(DemoActivity.this);
+                    GCMRegistrar.checkManifest(DemoActivity.this);
 
-				final String regId = GCMRegistrar.getRegistrationId(DemoActivity.this);
+                    final String regId = GCMRegistrar.getRegistrationId(DemoActivity.this);
 
-				if (regId.equals("")) {
-					GCMRegistrar.register(DemoActivity.this, GCMIntentService.SENDER_ID);
-				}
+                    if (regId.equals("")) {
+                        GCMRegistrar.register(DemoActivity.this, GCMIntentService.SENDER_ID);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
 				onCreate();
 
@@ -270,7 +274,19 @@ public abstract class DemoActivity extends Activity implements DialogRegister {
 		Socialize.onResume(this);
 	}
 
-	@Override
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Socialize.onStart(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Socialize.onStop(this);
+    }
+
+    @Override
 	protected void onDestroy() {
 		if(dialogs != null) {
 			for (Dialog dialog : dialogs) {

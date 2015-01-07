@@ -1,6 +1,6 @@
 package com.socialize.demo.implementations.fragments;
 
-
+import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +13,7 @@ import com.socialize.demo.R;
 import com.socialize.entity.Entity;
 import com.socialize.ui.actionbar.ActionBarView;
 
-public class DemoMainFragmentManual extends android.support.v4.app.Fragment {
+public class DemoMainFragmentManual extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.actionbar_manual, container, false);

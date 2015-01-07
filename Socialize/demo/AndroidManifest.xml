@@ -4,7 +4,7 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17" />
+    <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="20" />
     
     <uses-permission android:name="android.permission.INTERNET"/>
 	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -174,7 +174,8 @@
         <activity android:name=".implementations.facebook.GetPermissionsActivity"/> 
         <activity android:name=".implementations.facebook.OpenGraphActivity"/>
         <activity android:name=".implementations.facebook.GetEmailActivity"/>
-        
+        <activity android:name=".implementations.facebook.CheckIsLinkedActivity"/>
+
         <!-- Twitter -->
         <activity android:name=".implementations.twitter.TwitterActivity"/> 
         <activity android:name=".implementations.twitter.TweetActivity"/> 

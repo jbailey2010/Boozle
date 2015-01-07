@@ -37,6 +37,7 @@ com.socialize.listener.user
 com.socialize.listener.view
 com.socialize.location
 com.socialize.log
+com.socialize.loopy
 com.socialize.net
 com.socialize.networks
 com.socialize.networks.facebook

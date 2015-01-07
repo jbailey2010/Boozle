@@ -6,9 +6,34 @@
 What's New
 ==========
 
-In this version (v2.9)
-----------------------
+In this version (v3.1.3)
+------------------------
 
+Facebook upgrade
+~~~~~~~~~~~~~~~~
+
+Socialize is upgrading to Facebook SDK 3.18 due to proximity of end of support of older Facebook API.
+
+More information here:
+
+:ref:`https://developers.facebook.com/docs/apps/upgrading`
+
+Gradle support is added.
+
+v3.0
+----
+
+Lifecycle Changes
+~~~~~~~~~~~~~~~~~
+
+If you're already using Sociaize and are upgrading to v3.0.0+ then make sure you implement the new lifecycle methods.
+
+More information here:
+
+:ref:`lifecycle`
+
+v2.9
+----
 
 Pinterest!
 ~~~~~~~~~~
