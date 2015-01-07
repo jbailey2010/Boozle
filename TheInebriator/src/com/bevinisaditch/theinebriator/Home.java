@@ -85,6 +85,7 @@ public class Home extends Activity {
             startActivity(intent);
 		}
 		setNoResults();
+		Socialize.onCreate(this, savedInstanceState);
 	}
 	
 	@Override
