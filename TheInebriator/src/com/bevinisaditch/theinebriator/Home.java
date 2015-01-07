@@ -357,8 +357,10 @@ public class Home extends Activity {
 				String ingredients = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text2)).getText().toString();
 				String instr = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text3)).getText().toString();
 				
-				list.setSelection(arg2);
-				DrinkPopup.drinkPopUpInit(cont, name, ingredients, instr, true, getDrinkRating(name, instr, ingredients), false, false);
+				if(!name.contains("No results")){
+					list.setSelection(arg2);
+					DrinkPopup.drinkPopUpInit(cont, name, ingredients, instr, true, getDrinkRating(name, instr, ingredients), false, false);
+				}
 			}
 	    });
 	    list.setOnScrollListener(new OnScrollListener(){
