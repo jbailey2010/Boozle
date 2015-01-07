@@ -6,10 +6,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.commons.lang3.text.WordUtils;
 
 import android.os.Bundle;
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -45,6 +43,7 @@ import com.bevinisaditch.theinebriator.Utils.GeneralUtils;
 import com.devingotaswitch.theinebriator.R;
 import com.devspark.sidenavigation.ISideNavigationCallback;
 import com.devspark.sidenavigation.SideNavigationView;
+import com.socialize.Socialize;
 /**
  * Handles the important parts of the activity, the logic of searching, 
  * the interactions with the data...etc.
@@ -87,6 +86,47 @@ public class Home extends Activity {
 		}
 		setNoResults();
 	}
+	
+	@Override
+    protected void onPause() {
+        super.onPause();
+
+        // Call Socialize in onPause
+        Socialize.onPause(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Call Socialize in onResume
+        Socialize.onResume(this);
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        // Call Socialize in onStart
+        Socialize.onStart(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        // Call Socialize in onStop
+        Socialize.onStop(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        // Call Socialize in onDestroy before the activity is destroyed
+        Socialize.onDestroy(this);
+
+        super.onDestroy();
+    }
 
 	/**
 	 * Gets the menu icons handy for displaying them when need be
