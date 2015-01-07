@@ -67,6 +67,7 @@ public class DrinkPopup {
 		 	Entity entity = Entity.newInstance(entityKey, name);
 		 	ActionBarOptions options = new ActionBarOptions();
 		 	options.setHideShare(true);
+		 	options.setHideLike(true);
 		 	options.setFillColor(Color.parseColor("#272727"));
 		 	options.setBackgroundColor(Color.parseColor("#191919"));
 		 	options.setAccentColor(Color.parseColor("#0000cc"));

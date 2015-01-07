@@ -64,40 +64,16 @@ public class DrinkInfo
 					//Sort the top <= 15 by views
 					int i = 0;
 					PriorityQueue<Entity> sorted = sortEntitiesViews(results);
-					if(sorted.size() > 0)
-					{
+					if(sorted.size() > 0) {
 						data.append("Views:\n");
-						while(!sorted.isEmpty() && i < 15)
-						{
+						while(!sorted.isEmpty() && i < 15) {
 							Entity elem = sorted.poll();
 							i++;
 							data.append(i + ". "+ elem.getDisplayName() + " - " + elem.getEntityStats().getViews() + " views\n");
 						}
 					}
-					//Sort the top <= 15 by socialize likes
-					PriorityQueue<Entity> sortedLikes = sortEntitiesLikes(results);
-					i=0;
-					if(sortedLikes.size() > 0)
-					{
-						data.append("\n");
-					}
-					while(!sortedLikes.isEmpty() && i < 15)
-					{
-						if(i == 0)
-						{
-							data.append("Likes:\n");
-						}
-						Entity elem = sortedLikes.poll();
-						i++;
-						data.append(i + ". "+ elem.getDisplayName() + " - " + elem.getEntityStats().getLikes() + " likes\n");
-					}
 					//Sort hte top <= 15 by socialize comments
 					PriorityQueue<Entity> sortedComments = sortEntitiesComments(results);
-					if(sortedComments.size() > 0)
-					{
-						data.append("\n");
-					}
-					i=0;
 					while(!sortedComments.isEmpty() && i < 15)
 					{
 						if(i == 0)
@@ -163,39 +139,6 @@ public class DrinkInfo
 		for(Entity elem : input)
 		{
 			sorted.add(elem);
-		}
-		return sorted;
-	}
-
-	/**
-	 * Sorts the results by likes
-	 * @param input - the list of entities
-	 * @return - A priority queue by socialize likes
-	 */
-	public static PriorityQueue<Entity> sortEntitiesLikes(List<Entity> input)
-	{
-		PriorityQueue<Entity> sorted = new PriorityQueue<Entity>(100, new Comparator<Entity>()
-				{
-					@Override
-					public int compare(Entity a, Entity b)
-					{
-						if(a.getEntityStats().getLikes() > b.getEntityStats().getLikes())
-						{
-							return -1;
-						}
-						if(a.getEntityStats().getLikes() < b.getEntityStats().getLikes())
-						{
-							return 1;
-						}
-						return 0;
-					}
-				});
-		for(Entity elem : input)
-		{
-			if(elem.getEntityStats().getLikes() > 0)
-			{
-				sorted.add(elem);
-			}
 		}
 		return sorted;
 	}
