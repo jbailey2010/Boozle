@@ -197,27 +197,5 @@ public class DataBaseReader {
 		}
 
 	}
-	/**
-	 *
-	 * @param name
-	 * @param instructions
-	 * @return
-	 */
-	public static int idFromNameAndInst(String name, String instructions) {
-		String command = "SELECT ID FROM DRINKS WHERE NAME='"+name+"', INSTRUCTIONS='"+instructions;
-		Connection c = null;
-		Statement stmt = null;
-		try {
-			Class.forName(DRIVER);
-			c = DriverManager.getConnection("jdbc:sqlite:drinks.db");
-			c.setAutoCommit(false);
-			System.out.println("Opened database successfully");
-			stmt = c.createStatement();
-			ResultSet results = stmt.executeQuery(command);
-				return results.getInt("ID");
-		} catch (Exception e) {
-			e.printStackTrace();
-			return -1;
-		}
-	}
+
 }

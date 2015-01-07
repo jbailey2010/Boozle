@@ -131,12 +131,10 @@ public class DrinkPopup {
 				if(isThumbsDown || (!isThumbsUp && !isThumbsDown))
 				{
 					toggleThumbsUp(update);
-					DataBaseReader.toggleThumbs(DataBaseReader.idFromNameAndInst(name, instr), Drink.Rating.THUMBSUP);
 				}
 				else if(isThumbsUp)
 				{
 					neutralizeThumbs(update);
-					DataBaseReader.toggleThumbs(DataBaseReader.idFromNameAndInst(name, instr), Drink.Rating.THUMBSNULL);
 				}
 			}
 	    });
@@ -146,12 +144,10 @@ public class DrinkPopup {
 				if(isThumbsUp || (!isThumbsUp && !isThumbsDown))
 				{
 					toggleThumbsDown(update);
-					DataBaseReader.toggleThumbs(DataBaseReader.idFromNameAndInst(name, instr), Drink.Rating.THUMBSDOWN);
 				}
 				else if(isThumbsDown)
 				{
 					neutralizeThumbs(update);
-					DataBaseReader.toggleThumbs(DataBaseReader.idFromNameAndInst(name, instr), Drink.Rating.THUMBSNULL);
 				}
 			}
 	    });
@@ -210,12 +206,8 @@ public class DrinkPopup {
 					break;
 				}
 			}
-			updateDrinkState(nameDrink, ingrDrink, instrDrink, rating);
 		}
-		else
-		{
-			updateDrinkState(nameDrink, ingrDrink, instrDrink, rating);
-		}
+		updateDrinkState(nameDrink, ingrDrink, instrDrink, rating);
 	}
 	
 	/**
