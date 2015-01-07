@@ -306,7 +306,7 @@ Sour mix
 3 oz apple juice
 --
 102
-1 1/2 oz Don Julio añejo tequila
+1 1/2 oz Don Julio anejo tequila
 --
 103
 Sweetened cocoa powder
@@ -972,7 +972,7 @@ Club soda or ginger ale
 8-9 raspberries
 --
 324
-1.5 parts Tequila Tezón añejo
+1.5 parts Tequila Tezón anejo
 --
 325
 1 part limoncello
@@ -1521,7 +1521,7 @@ Dash of Amer Picon
 1/2 oz honey
 --
 507
-0.5 oz Flor de Caña 7 Year Grand Reserve Rum
+0.5 oz Flor de Cana 7 Year Grand Reserve Rum
 --
 508
 0.75 oz Croft PINK Port
@@ -1788,7 +1788,7 @@ Splash of Champagne or sparkling wine
 1 oz half and half
 --
 596
-2 ounces Tequila Herradura Añejo
+2 ounces Tequila Herradura Anejo
 --
 597
 4 ounces cola
@@ -2001,7 +2001,7 @@ Whipped Cream Topping
 1/4 oz freshly-squeezed lime juice
 --
 667
-2 oz Cabo Wabo añejo tequila
+2 oz Cabo Wabo anejo tequila
 --
 668
 1 oz Licor 43
@@ -2115,7 +2115,7 @@ Grated nutmeg
 2 oz lemon juice
 --
 705
-1 oz Tequila Don Julio Añejo
+1 oz Tequila Don Julio Anejo
 --
 706
 1/2 oz dark creme de cacao
@@ -3837,7 +3837,7 @@ lemon and orange slices
 12 oz Skyy Infusions ginger vodka
 --
 1279
-4 oz Flor de Caña 7-year rum
+4 oz Flor de Cana 7-year rum
 --
 1280
 4 oz fresh lemon juice
@@ -3927,7 +3927,7 @@ Nutmeg or cinnamon
 1/2 oz fresh sour*
 --
 1309
-2 oz Flor de Caña 7-year Grand Reserve
+2 oz Flor de Cana 7-year Grand Reserve
 --
 1310
 4 sugar cubes
@@ -4350,7 +4350,7 @@ Dash egg white
 7up
 --
 1450
-1 1/2 oz Flor de Caña 4 year old
+1 1/2 oz Flor de Cana 4 year old
 --
 1451
 1 oz guava juice
@@ -6060,7 +6060,7 @@ Orange wheel, garnish
 lemonade
 --
 2020
-1 1/2 oz Flor de Caña 7-year-old rum
+1 1/2 oz Flor de Cana 7-year-old rum
 --
 2021
 1/2 oz El Dorado 151 proof demerara rum
@@ -7017,7 +7017,7 @@ Ingredients:
 1 ounce Amaretto
 --
 2339
-1.5 oz Flor de Caña 7 yr rum
+1.5 oz Flor de Cana 7 yr rum
 --
 2340
 .5 oz Lustau Palo Cortado Vides
@@ -7062,13 +7062,13 @@ Peach or Apple (to garnish)
 3 – 4 dashes Peychaud’s Bitters
 --
 2354
-2 oz Cabo Wabo añejo
+2 oz Cabo Wabo anejo
 --
 2355
 1/2 oz prickly pear purée
 --
 2356
-1 medium jalapeño slice
+1 medium jalapeno slice
 --
 2357
 1/4 oz amaretto
@@ -7128,7 +7128,7 @@ Squeeze of fresh lime wedge
 Salted rim (provides the grit!)
 --
 2376
-2 oz Flor de Caña 4-year white rum
+2 oz Flor de Cana 4-year white rum
 --
 2377
 1/2 oz cinnamon bark syrup*
@@ -7326,7 +7326,7 @@ Milk (cooked till hot)
 1 1/2 oz Skyy Infusions Cherry
 --
 2442
-2 oz. Flor De Caña 7-year Grand Reserve
+2 oz. Flor De Cana 7-year Grand Reserve
 --
 2443
 1 scoop chocolate ice cream
@@ -7440,7 +7440,7 @@ Splash of white rum
 1 tbsp prickly pear syrup
 --
 2480
-Olive (jalapeño stuffed)
+Olive (jalapeno stuffed)
 --
 2481
 1/4 oz vodka
@@ -21894,7 +21894,7 @@ Triple Sec
 Splash of Sweet & Sour Mix
 --
 7298
-Rum (Añejo)
+Rum (Anejo)
 --
 7299
 Lemon Juice
@@ -22251,7 +22251,7 @@ Eggnog
 Madeira
 --
 7417
-Piña Colada Mix
+Pina Colada Mix
 --
 7418
 Splash of Pineapple Juice

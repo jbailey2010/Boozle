@@ -56,7 +56,7 @@ public class DrinkInfo
 	    });
 	    output = (TextView)dialog.findViewById(R.id.textView1);
 	    //Gets the top 200 most active entities
-	    EntityUtils.getEntities((Activity) cont, 0, 200, SortOrder.TOTAL_ACTIVITY, new EntityListListener() {
+	    EntityUtils.getEntities((Activity) cont, 0, 300, SortOrder.TOTAL_ACTIVITY, new EntityListListener() {
 			@Override
 			public void onList(ListResult<Entity> result) {
 				List<Entity> results = result.getItems();
