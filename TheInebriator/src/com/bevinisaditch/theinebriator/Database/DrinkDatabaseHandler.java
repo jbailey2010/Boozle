@@ -46,9 +46,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    private static final String PAIR_FILE_NAME = "pairData.txt";
 	    
 	    private Set<Integer> nullSet = new HashSet<Integer>();
-	    
-	    private Set<Integer> nullMatchSet = new HashSet<Integer>();
-	 	  
+	    	 	  
 	    /**
 	     * just calls super constructor
 	     * @param context
