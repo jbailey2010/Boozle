@@ -9,11 +9,11 @@ import android.view.Window;
  */
 public class CompatUtils {
 	public static void setBackgroundDrawable(View view, Drawable bg) {
-		if(android.os.Build.VERSION.SDK_INT < 16) {
+		if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
 			view.setBackgroundDrawable(bg);
 		}
 		else {
-			view.setBackgroundDrawable(bg);
+			view.setBackground(bg);
 		}
 	}
 }

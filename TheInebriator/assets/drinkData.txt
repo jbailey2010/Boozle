@@ -175,7 +175,7 @@ THUMBSNULL
 Cut the watermelon into small, flat triangles with the rind forming the smallest edge. Put the cocoa powder in one bowl or plate and the ancho chili powder in another bowl or plate. Cut the lime and use it to moisten one half of the edge of a shot glass or other small, fluted glass. Dip the moistened edge into the cocoa powder and fill the glass with the Don Julio Añejo. Dip the pointed end of the watermelon slice in the ancho chile powder and toast with the “drop” (“salud”). Bite and chew the chile-coated watermelon to mix those flavors in your mouth, and then lick the cocoa from the rim and wash it all down with the Don Julio Añejo, allowing all of the flavors to mix in your mouth before swallowing.
 --
 35
-Anna’s Summer Shot
+Anna's Summer Shot
 THUMBSNULL
 Combine everything in a shaker and shake vigorously with ice. Pour into a shot glass. Shoot, repeat.
 --
@@ -412,7 +412,7 @@ Shake all but champagne and strain into a chilled champagne flute. Top with cham
 82
 Basil Mojito
 THUMBSNULL
-In a glass, muddle the basil leaves, lime, and simple syrup until the basil is thoroughly bruised but not pulverized. Pour in the rum. Fill the glass most of the way with crushed ice. (If you don’t have a “crushed ice” option on your refrigerator, wrap ice cubes in a towel and hammer them with a kitchen mallet.) Pour in the club soda to the top of the glass. Garnish with a lime wedge or basil leaf.
+In a glass, muddle the basil leaves, lime, and simple syrup until the basil is thoroughly bruised but not pulverized. Pour in the rum. Fill the glass most of the way with crushed ice. (If you don't have a “crushed ice” option on your refrigerator, wrap ice cubes in a towel and hammer them with a kitchen mallet.) Pour in the club soda to the top of the glass. Garnish with a lime wedge or basil leaf.
 --
 83
 Batidas
@@ -697,7 +697,7 @@ Combine all the ingredients in a shaker filled with ice, shake well and strain i
 139
 Boston Tea Punch
 THUMBSNULL
-Heat rum, tea and triple sec in a saucepan, add sugar and stir until dissolved. Don’t let it boil. Serve in warmed punch cups or mugs. Serves 12.
+Heat rum, tea and triple sec in a saucepan, add sugar and stir until dissolved. Don't let it boil. Serve in warmed punch cups or mugs. Serves 12.
 --
 140
 Bourbon Cobbler
@@ -707,7 +707,7 @@ Combine the bourbon, southern comfort and peach brandy in a shaker filled with i
 141
 Bourbon Peach Tea
 THUMBSNULL
-Fill tall glass with ice. Add Maker’s Mark® and peach schnapps. Top off with unsweetened iced tea. Garnish with peach.
+Fill tall glass with ice. Add Maker's Mark® and peach schnapps. Top off with unsweetened iced tea. Garnish with peach.
 --
 142
 Bourbon Sidecar
@@ -1017,7 +1017,7 @@ Rim a chilled champagne flute with chocolate by pouring some ground chocolate on
 203
 Chocolatini
 THUMBSNULL
-Wet rim of a martini glass and dip in cocoa. Combine vodka and Godiva liqueur in a cocktail shaker with ice. Shake well to chill liqueurs. Strain into the martini glass. If you’ve got an extra Hershey’s Kiss lying around, use it as a garnish!
+Wet rim of a martini glass and dip in cocoa. Combine vodka and Godiva liqueur in a cocktail shaker with ice. Shake well to chill liqueurs. Strain into the martini glass. If you've got an extra Hershey's Kiss lying around, use it as a garnish!
 --
 204
 Christmas Coco
@@ -1160,29 +1160,29 @@ THUMBSNULL
 Direction: Combine all ingredients, shake with 3 ice cubes and pour all ingredients into rocks glass or over new ice (optional). Then garnish, sip and enjoy
 --
 232
-Cup O’ Agave Gold
+Cup O' 
 THUMBSNULL
 Pour tequila and soda into a tall glass nearly filled with ice. Stir well and garnish with a lemon wedge.
 --
 233
-Cupid’s Arrow
+Cupid's Arrow
 THUMBSNULL
 Combine Godiva Chocolate Liqueur, Godiva White Chocolate Liqueur and Moon Mountain vodka in a cocktail shaker filled with ice. Shake well and strain into chilled martini glass. Garnish with a Godiva Milk Chocolate Truffle.
 --
 234
-Cupid’s Kiss
+Cupid's Kiss
 THUMBSNULL
 Shake with ice and strain into chilled a martini glass. Garnish with an edible orchid.
 --
 235
-Cupid’s Cosmo
+Cupid's Cosmo
 THUMBSNULL
 1. Pour over ice 2. Garnish with a lime wedge/peel
 --
 236
-Cupid’s Mark
+Cupid's Mark
 THUMBSNULL
-In a champagne flute, pour Maker’s Mark. Fill glass with chilled sparkling apple cider and add maraschino cherry.
+In a champagne flute, pour Maker's Mark. Fill glass with chilled sparkling apple cider and add maraschino cherry.
 --
 237
 Cuppa Good Cheer
@@ -1190,7 +1190,7 @@ THUMBSNULL
 
 --
 238
-Dad’s Dry Daiquiri
+Dad's Dry Daiquiri
 THUMBSNULL
 
 --
@@ -1210,7 +1210,7 @@ THUMBSNULL
 Fill a chilled highball glass with ice cubes. Add all ingredients. Garnish with lime wedge.
 --
 242
-Dave Wondrich’s Zombie
+Dave Wondrich's Zombie
 THUMBSNULL
 Add the ingredients other than the 151-proof rum to a shaker or a pitcher and stir. Add to a collins glass that is filled 3/4s full with cracked ice.
 --
@@ -1265,12 +1265,12 @@ THUMBSNULL
 
 --
 253
-Devil’s Kiss
+Devil's Kiss
 THUMBSNULL
 Pour Goldschlager into a shot glass and float the 151 on top. For added effect, you can light the 151. (Exercise caution, however, as 151 is extremely flammable!)
 --
 254
-Devil’s Handshake
+Devil's Handshake
 THUMBSNULL
 Dry shake vigorously, ice and shake again. Strain onto fresh ice in a highball glass. Garnish with a lime wedge.
 --
@@ -1315,7 +1315,7 @@ THUMBSNULL
 
 --
 263
-Dragon’s Blood Punch
+Dragon's Blood Punch
 THUMBSNULL
 Chill all ingredients the day before. An hour before serving, combine everything in a punch bowl. A large soup pot will do in a pinch. Stir well and ad ice. We recommend using a block of ice as it will melt slower than cubes. It also looks cool. The icy hand is a great way to introduce ice. Serve in punch cups.
 --
@@ -1375,7 +1375,7 @@ THUMBSNULL
 Pour ingredients into cocktail shaker filled with ice. Shake vigorously a chilled martini glass. Garnish with an olive stuffed radish that has been scored to create the “veins” of an eyeball.
 --
 275
-Faeries’ Nectar
+Faeries' Nectar
 THUMBSNULL
 
 --
@@ -1500,12 +1500,12 @@ THUMBSNULL
 Mix everything except the sherry in shaker with ice. Strain into a collins glass filled with ice. Float the sherry on top.
 --
 300
-Fool’s Gold
+Fool's Gold
 THUMBSNULL
 Combine the ingredients in a shaker filled with ice, shake and strain into a shot glass.
 --
 301
-Founder’s Fizz
+Founder's Fizz
 THUMBSNULL
 Add ingredients to your carbonator of choice and carbonate. Then pour over ice into a tall glass.
 --
@@ -1515,7 +1515,7 @@ THUMBSNULL
 Add all ingredients to a mixing glass and stir until ice cold. Strain into a chilled martini glass, garnish with a lime zest stamped into the shape of a shamrock.
 --
 303
-Fragole all’ Aceto Balsamico
+Fragole all' Aceto Balsamico
 THUMBSNULL
 In a mixing glass, add all the ingredients, add ice, and shake 10 to 12 times, pour in to a chilled martini glass.
 --
@@ -1625,7 +1625,7 @@ THUMBSNULL
 Fill a chilled flute with all ingredients. Garnish with a lemon twist.
 --
 325
-Gabrielle’s X-Rated Kiss
+Gabrielle's X-Rated Kiss
 THUMBSNULL
 
 --
@@ -1885,12 +1885,12 @@ THUMBSNULL
 Combine ingredients in a shaker with cracked ice. Shake well and strain into a cocktail glass. For a nice touch, float an orchid flower on the edge of the glass!
 --
 377
-He’s Into You
+He's Into You
 THUMBSNULL
 Pour all ingredients in a mixing pint filled with ice. Shake vigorously and strain into a chilled martini glass. Garnish with a slice of strawberry on the rim of the glass.
 --
 378
-He’s Just Not That Into You
+He's Just Not That Into You
 THUMBSNULL
 Combine all but 7 Up in a tall mixing glass. Add ice and shake vigorously. Strain over fresh ice into a martini glass, and top with 7 Up. Garnish with a lemon twist.
 --
@@ -1930,7 +1930,7 @@ THUMBSNULL
 In a cocktail shaker, add ice, tequila, juices, lemon-lime soda, and shake. Serve over ice.
 --
 386
-Herradura’s Cincorita
+Herradura's Cincorita
 THUMBSNULL
 Mix Tequila Herradura Silver, Cointreau, agave nectar and fresh lime juice in a shaker with ice. Pour into a margarita glass rimmed with salt. Pour the Chambord on top, so as to create a crimson floater. Garnish with a lime wedge.
 --
@@ -1945,7 +1945,7 @@ THUMBSNULL
 
 --
 389
-Hound’s Tooth Toddy
+Hound's Tooth Toddy
 THUMBSNULL
 
 --
@@ -1955,7 +1955,7 @@ THUMBSNULL
 Pour all ingredients except hard cider into a shaker with ice and shake. Strain into a Collins glass with ice and top off with hard cider. Optional: Garnish with apple slices sprinkled with cinnamon.
 --
 391
-Hula Dancer’s Delight
+Hula Dancer's Delight
 THUMBSNULL
 Shake and strain into a rocks glass then add a little Grenadine. Garnish with floating orchid.
 --
@@ -1977,12 +1977,12 @@ Mix together in shaker, strain over fresh ice into a chilled collins glass, and 
 395
 Hurricane
 THUMBSNULL
-This should be made in a hurricane glass, a lantern-shaped footed vessel. If you don’t have one, you can use a bucket or collins glass. Fill any of them with ice. You can also mix in a shaker and strain into a cocktail glass.
+This should be made in a hurricane glass, a lantern-shaped footed vessel. If you don't have one, you can use a bucket or collins glass. Fill any of them with ice. You can also mix in a shaker and strain into a cocktail glass.
 --
 396
 Hurricane #2
 THUMBSNULL
-This should be made in a hurricane glass, a lantern-shaped footed vessel. If you don’t have one, you can use a bucket or collins glass. Fill any of them with ice. Garnish with a lime squeeze, cherry, pineapple spear and, naturally, a paper umbrella.
+This should be made in a hurricane glass, a lantern-shaped footed vessel. If you don't have one, you can use a bucket or collins glass. Fill any of them with ice. Garnish with a lime squeeze, cherry, pineapple spear and, naturally, a paper umbrella.
 --
 397
 Ice and Fire
@@ -2170,22 +2170,22 @@ THUMBSNULL
 Heat apple cider in a pan and our into a footed mug. Add the Tuaca, put a dollop of whipped cream on top, and then add a dash of nutmeg or cinnamon.
 --
 434
-J.J.’s Shamrock
+J.J.'s Shamrock
 THUMBSNULL
 Combine all the ingredients in a shaker filled with ice, shake well and strain into a martini glass.
 --
 435
-Jack-o’-Lantern
+Jack-o'-Lantern
 THUMBSNULL
 Combine all of the ingredients in a cocktail shaker with ice. Shake vigorously and pour into a goblet glass and garnish with a slice of orange and a mint leaf laid flat on top. *To make fresh sour, combine ¼ oz fresh lime juice and ¾ oz simple syrup.
 --
 436
-Jack-o’-Lantern Punch
+Jack-o'-Lantern Punch
 THUMBSNULL
 Dissolve the sugar cubes in 1 oz of club soda (this generally involves muddling to help process). Muddle the cloves with the sugar cubes. After the sugar cubes and cloves are muddled/dissolved, add the rest of the ingredients one at a time and stir as added. Add ice once all of the ingredients have been added and stirred. Stir the punch until it is chilled. Strain the punch into a glass, punch bowl, or carved out pumpkin depending on the size of the portion, top with 2 oz club soda and garnish with apple slices, cinnamon sticks and pumpkin seeds.
 --
 437
-Jack-o’-Tini
+Jack-o'-Tini
 THUMBSNULL
 Place a single candy corn at the bottom of chilled cocktail glass. Combine vodka and liqueur a shaker with ice, shake well and strain into the glass.
 --
@@ -2215,7 +2215,7 @@ THUMBSNULL
 Muddle the sugar with the bitters. Add ice and Jameson. Stir until cold (about 20 seconds). Garnish with a fresh orange peel.
 --
 443
-Jammer’s Cacao Kiss
+Jammer's Cacao Kiss
 THUMBSNULL
 Combine the dark creme de cacao, the dark rum with the 4-6 oz of hot chocolate. Mix well. Pour over ice and top with whipped cream and shake a dash of chocolate shavings on top. Garnish with a cherry.
 --
@@ -2242,7 +2242,7 @@ Muddle kiwi and strawberry. Add with liquids into a shaker with ice. Shake and s
 448
 Kopstootje
 THUMBSNULL
-Fill the original tulip glass so full with Bols you couldn’t pick it up without spilling. Clasp hands behind your back and lean forward to sip until the meniscus is gone. Pick up the glass and shoot. Follow with a beer back.
+Fill the original tulip glass so full with Bols you couldn't pick it up without spilling. Clasp hands behind your back and lean forward to sip until the meniscus is gone. Pick up the glass and shoot. Follow with a beer back.
 --
 449
 Kurant &amp; 7-Up
@@ -2327,7 +2327,7 @@ Using your fingers, strip the lavender flowers from the stem and combine with th
 465
 Lemon Verbena Spring Fling Cocktail
 THUMBSNULL
-Muddle the lemon verbena, fresh lemon juice and simple syrup at the bottom of a tall glass (collins glass). Then add the gin. Put crushed ice on top (this not only keeps it cold but also stops the leaves from getting in your mouth). Top off with club soda. Garnish with a slice of lemon. NOTES: I tried making lemon verbena simple syrup. It tasted like a high-end throat lozenge. Unless you want a Ricola cocktail, I don’t suggest it. Also, I tried it with another high-quality gin and found that it wasn’t as balanced as when made with Tru2 and we had to add some more lemon and simple syrup to balance the juniper flavor of the gin.
+Muddle the lemon verbena, fresh lemon juice and simple syrup at the bottom of a tall glass (collins glass). Then add the gin. Put crushed ice on top (this not only keeps it cold but also stops the leaves from getting in your mouth). Top off with club soda. Garnish with a slice of lemon. NOTES: I tried making lemon verbena simple syrup. It tasted like a high-end throat lozenge. Unless you want a Ricola cocktail, I don't suggest it. Also, I tried it with another high-quality gin and found that it wasn't as balanced as when made with Tru2 and we had to add some more lemon and simple syrup to balance the juniper flavor of the gin.
 --
 466
 Lemonada
@@ -2440,14 +2440,14 @@ THUMBSNULL
 
 --
 488
-Lover’s Cocktail
+Lover's Cocktail
 THUMBSNULL
 Add ingredients to a shaker with ice. Mix gently and serve in two chilled cocktail glasses.
 --
 489
-Lovin’ in the Coven
+Lovin' in the Coven
 THUMBSNULL
-Shake all ingredients with ice and strain into a chilled cocktail glass (don’t shake too hard with a carbonated beverage). Charge with ½ oz Tru Blood beverage.
+Shake all ingredients with ice and strain into a chilled cocktail glass (don't shake too hard with a carbonated beverage). Charge with ½ oz Tru Blood beverage.
 --
 490
 Low Calorie Spring Cocktails
@@ -2470,7 +2470,7 @@ THUMBSNULL
 Combine ingredients in a blender with 1 cup ice, blend 15–20 seconds until smooth, and pour into a margarita glass.
 --
 494
-Lucky’s Manhattan
+Lucky's Manhattan
 THUMBSNULL
 
 --
@@ -2485,7 +2485,7 @@ THUMBSNULL
 Fill a Collins glass with ice. Add Jack Daniels?, Triple Sec?, Sweet & Sour. Fill with 7up
 --
 497
-L’Orange Autumn Sage
+L'Orange Autumn Sage
 THUMBSNULL
 
 --
@@ -2507,7 +2507,7 @@ Mix all the ingredients in a blender and serve in a tall glass with a sprig of m
 501
 Mai Tai
 THUMBSNULL
-Combine ingredients together in a shaker with ice. Serve over fresh ice in a double old fashioned glass. Garnish with a pineapple wedge & cherry. Can use store bought mix in place of the Orgeat syrup, grenadine & lime juice. I recommend Trader Vic’s brand as Vic is credited with the inception of this great drink.
+Combine ingredients together in a shaker with ice. Serve over fresh ice in a double old fashioned glass. Garnish with a pineapple wedge & cherry. Can use store bought mix in place of the Orgeat syrup, grenadine & lime juice. I recommend Trader Vic's brand as Vic is credited with the inception of this great drink.
 --
 502
 Make It Work Mojito
@@ -2605,7 +2605,7 @@ THUMBSNULL
 Build in a high-ball glass filled with ice.
 --
 521
-Midori’s Merry Martini
+Midori's Merry Martini
 THUMBSNULL
 Shake and strain into a chilled cocktail glass.
 --
@@ -2642,7 +2642,7 @@ Pour coffee liqueur and vodka into a chilled old fashioned glass, fill with club
 528
 Mint Julep
 THUMBSNULL
-Place sprigs of mint in glass with the sugar and a small amount of water and muddle gently. Fill half way with crushed ice, then add the bourbon. Don’t stir. Fill the glass the rest of the way with crushed ice. Stick it in the freezer until the glass frosts—this should take roughly five minutes. Garnish with more mint sprigs and a straw. Traditionally, a silver julep cup is used. However, a Collins or Highball glass can work in a pinch.
+Place sprigs of mint in glass with the sugar and a small amount of water and muddle gently. Fill half way with crushed ice, then add the bourbon. Don't stir. Fill the glass the rest of the way with crushed ice. Stick it in the freezer until the glass frosts—this should take roughly five minutes. Garnish with more mint sprigs and a straw. Traditionally, a silver julep cup is used. However, a Collins or Highball glass can work in a pinch.
 --
 529
 Mint Spook
@@ -2755,7 +2755,7 @@ THUMBSNULL
 1. Add the cucumber and mint to a cocktail shaker and muddle to release the flavors. 2. Fill cocktail shaker with ice and add Moon Mountain Vodka, lime juice, and agave syrup. 3. Shake vigorously and strain into an old-fashioned glass. 4. Garnish with a slice of cucumber and mint sprig.
 --
 551
-Mother’s Day Blackberry Champagne Cocktail
+Mother's Day Blackberry Champagne Cocktail
 THUMBSNULL
 
 --
@@ -2792,7 +2792,7 @@ Combine in a rocks glass with ice. Add, and drink quickly through, a straw. Repe
 558
 Mulled Cider
 THUMBSNULL
-Combine ingredients in a saucepan and heat over medium heat. Stir occasionally, don’t let it get to hot. Once the mixture is thoroughly heated, strain into a mug. Garnish with a lemon twist. Want to make enough for a group? Ingredients: 1 bottle (750 ml) gold rum 1 ½ gallon apple cider or juice 2 tbsp honey 12 cloves 1 tsp allspice 12 cinnamon sticks Directions: Combine ingredients in a soup pot or electric crock pot and heat over medium heat. Stir occasionally, don’t let it get to hot. Once the mixture is thoroughly heated turn on low. Float lemon and apple slices on top. Serve in glass mugs.
+Combine ingredients in a saucepan and heat over medium heat. Stir occasionally, don't let it get to hot. Once the mixture is thoroughly heated, strain into a mug. Garnish with a lemon twist. Want to make enough for a group? Ingredients: 1 bottle (750 ml) gold rum 1 ½ gallon apple cider or juice 2 tbsp honey 12 cloves 1 tsp allspice 12 cinnamon sticks Directions: Combine ingredients in a soup pot or electric crock pot and heat over medium heat. Stir occasionally, don't let it get to hot. Once the mixture is thoroughly heated turn on low. Float lemon and apple slices on top. Serve in glass mugs.
 --
 559
 Nude Beach
@@ -2935,12 +2935,12 @@ THUMBSNULL
 Fill a collins glass with ice and add vodka. Add juices.
 --
 587
-Packer’s Punch
+Packer's Punch
 THUMBSNULL
 Mix ingredients in a punch bowl with lots of ice.
 --
 588
-Packer’s ROCKS
+Packer's ROCKS
 THUMBSNULL
 Build over ice in a highball glass. Garnish with a lemon slice.
 --
@@ -3022,7 +3022,7 @@ Combine all ingredients in a shaker. Shake and strain into shot glasses. Serve e
 604
 Peach Twist
 THUMBSNULL
-Fill a cocktail shaker 1/2 way with ice. Combine all ingredients and shake well. Strain into a cocktail glass. This cocktail can also be made with Stoli’s raspberry-flavored vodka.
+Fill a cocktail shaker 1/2 way with ice. Combine all ingredients and shake well. Strain into a cocktail glass. This cocktail can also be made with Stoli's raspberry-flavored vodka.
 --
 605
 Peaches and Cream
@@ -3082,7 +3082,7 @@ Layer ingredients into a shot glass: espresso first and then the Amarula. Garnis
 616
 Peppermint Froth
 THUMBSNULL
-Shake all ingredients in a cocktail shaker filled with ice. Strain into a rocks glass filled with crushed ice and garnish with a chocolate-covered peppermint candy stick. If you’re feeling decadent, top with whipped cream and crushed candy canes.
+Shake all ingredients in a cocktail shaker filled with ice. Strain into a rocks glass filled with crushed ice and garnish with a chocolate-covered peppermint candy stick. If you're feeling decadent, top with whipped cream and crushed candy canes.
 --
 617
 Peppermint Martini
@@ -3110,9 +3110,9 @@ THUMBSNULL
 Rim shot glass with Pop Rocks, fill with 1 part tequila.
 --
 622
-Pop’s Milk Punch
+Pop's Milk Punch
 THUMBSNULL
-Served cold. Make accordingly to the size of your Dad’s thermos.
+Served cold. Make accordingly to the size of your Dad's thermos.
 --
 623
 Pornstar
@@ -3190,7 +3190,7 @@ THUMBSNULL
 
 --
 638
-Pumpkin’s Passion
+Pumpkin's Passion
 THUMBSNULL
 Combine ingredients in mixing tin with ice, cap and shake. Pour into a margarita glass and garnish with a wedge of orange and a dash of cinnamon.
 --
@@ -3202,7 +3202,7 @@ Mix wet ingredients in shaker and pour into regular chilled glass over cherries.
 640
 Purple Hooter
 THUMBSNULL
-This drink is typically served as a shooter although it also great on the rocks or served up in a cocktail glass. Any way you choose to prepare this drink your head will spin like an owl’s after few. Build in a mixing glass with ice. Blend & strain into shot, cocktail or rocks glass.
+This drink is typically served as a shooter although it also great on the rocks or served up in a cocktail glass. Any way you choose to prepare this drink your head will spin like an owl's after few. Build in a mixing glass with ice. Blend & strain into shot, cocktail or rocks glass.
 --
 641
 Purple Hooter
@@ -3210,7 +3210,7 @@ THUMBSNULL
 Blend & strain into shot, cocktail or rocks glass.
 --
 642
-Purple Melon’s Majesty
+Purple Melon's Majesty
 THUMBSNULL
 
 --
@@ -3225,7 +3225,7 @@ THUMBSNULL
 Combine vodka, chablis, sugar syrup, lemon juice and vanilla extract in a shaker filled with ice, shake and pour into a chilled red wine goblet. Top with grenadine.
 --
 645
-Quaker’s Cocktail
+Quaker's Cocktail
 THUMBSNULL
 Combine ingredients in a shaker filled with ice, shake and strain into a chilled martini or cocktail glass. Garnish with the lemon twist.
 --
@@ -3385,12 +3385,12 @@ THUMBSNULL
 Poor the Jäegar in a highball glass filled with ice, follow with cranberry juice. Top with peach schnapps and garnish with a cherry. Or split between 2 shot glasses.
 --
 677
-Regent’s Punch
+Regent's Punch
 THUMBSNULL
 Combine the brandy, rum, arrack, maraschino liqueur, pineapple syrup, sugar, lemon peel and orange peel in a bowl. In a separate bowl, pour the boiling water over the green tea, allow to combine (5-10 minutes) and strain into the first bowl. Add Champagne. Serve in punch cups over ice.
 --
 678
-Satan’s Whiskers
+Satan's Whiskers
 THUMBSNULL
 Stir with ice, then strain into a stemmed cocktail glass. Garnish with orange twist.
 --
@@ -3455,7 +3455,7 @@ THUMBSNULL
 
 --
 691
-Sex a’ Peel
+Sex a' Peel
 THUMBSNULL
 Muddle and strain banana. Add banana juice with simple syrup and balsamic vinegar in a cocktail shaker. Add Rémy Martin V.S.O.P and ice. Shake well and strain into a martini glass. Garnish with lemon twist.
 --
@@ -3512,7 +3512,7 @@ Combine all ingredients in a blender. Blend on high for 20 seconds. Pour into a 
 702
 Shark Attack
 THUMBSNULL
-Mix everything in a large pitcher or punch bowl. Serve over ice in a chilled Collins Glass with cocktail umbrellas. Don’t put your feet in the water! Makes 15–20 servings.
+Mix everything in a large pitcher or punch bowl. Serve over ice in a chilled Collins Glass with cocktail umbrellas. Don't put your feet in the water! Makes 15–20 servings.
 --
 703
 Shire Flower
@@ -3522,7 +3522,7 @@ THUMBSNULL
 704
 Shirley Temple
 THUMBSNULL
-Pour the lemon lime soda into a highball glass (or collins glass) filled with ice. Add grenadine (make sure that it’s non-alcoholic) and stir. Add maraschino cherries (make sure to give the kiddies extra). For a twist, substitute the grenadine for maraschino cherry juice (you can purchase it or use the juice from the cherries). It’s a DOTW fave.
+Pour the lemon lime soda into a highball glass (or collins glass) filled with ice. Add grenadine (make sure that it's non-alcoholic) and stir. Add maraschino cherries (make sure to give the kiddies extra). For a twist, substitute the grenadine for maraschino cherry juice (you can purchase it or use the juice from the cherries). It's a DOTW fave.
 --
 705
 Shot with a Beer Back
@@ -3612,12 +3612,12 @@ Fill a collins glass with ice add Vodka. Fill with lemonade and float the blue c
 722
 Sleepy Hollow Fizz
 THUMBSNULL
-Dry shake, shake with 3 ice cubes and strain into a tall glass. Top with club soda. No garnish. Pumpkin purée: Take one 15 oz can of Libby’s 100% pure pumpkin, add 1 tsp of ground cinnamon, ½ tsp of ground ginger, ¼ tsp of ground cloves and 15 oz of simple syrup and blend it all together in a blender or Cuisinart. Store in the fridge.
+Dry shake, shake with 3 ice cubes and strain into a tall glass. Top with club soda. No garnish. Pumpkin purée: Take one 15 oz can of Libby's 100% pure pumpkin, add 1 tsp of ground cinnamon, ½ tsp of ground ginger, ¼ tsp of ground cloves and 15 oz of simple syrup and blend it all together in a blender or Cuisinart. Store in the fridge.
 --
 723
 Sleepy Hollow Fizz
 THUMBSNULL
-Dry shake, shake with 3 ice cubes and strain into a fizz glass. *Pumpkin purée: Take one 15 oz can of Libby’s 100% pure pumpkin, add 1 tsp of ground cinnamon, ½ tsp of ground ginger, 1/4 tsp of ground cloves and 15 oz of simple syrup and blend it all together in a blender or Cuisinart. Store in the fridge.
+Dry shake, shake with 3 ice cubes and strain into a fizz glass. *Pumpkin purée: Take one 15 oz can of Libby's 100% pure pumpkin, add 1 tsp of ground cinnamon, ½ tsp of ground ginger, 1/4 tsp of ground cloves and 15 oz of simple syrup and blend it all together in a blender or Cuisinart. Store in the fridge.
 --
 724
 Sleigh
@@ -3690,7 +3690,7 @@ THUMBSNULL
 Stir 2–3 oz of gin with a dash each of vermouth and orange bitters in a mixing glass over ice. Strain into a chilled cocktail glass. Garnish with mixed olives.
 --
 738
-St. Patrick’s Day Drinks (part 1)
+St. Patrick's Day Drinks (part 1)
 THUMBSNULL
 
 --
@@ -3700,7 +3700,7 @@ THUMBSNULL
 
 --
 740
-St. Patrick’s Day Irish Whiskey Cocktails
+St. Patrick's Day Irish Whiskey Cocktails
 THUMBSNULL
 
 --
@@ -3717,7 +3717,7 @@ Stars Muddle blueberries and lime juice in a glass. Add tequila and agave nectar
 743
 Steelers Cider
 THUMBSNULL
-Combine Maker’s Mark bourbon and apple cider in a pot. Add the thinly sliced lemon (with rind), cloves, allspice, and cinnamon sticks. Heat to boiling and serve. Garnish with a cinnamon stick.
+Combine Maker's Mark bourbon and apple cider in a pot. Add the thinly sliced lemon (with rind), cloves, allspice, and cinnamon sticks. Heat to boiling and serve. Garnish with a cinnamon stick.
 --
 744
 Steelers Squeeze
@@ -3772,7 +3772,7 @@ THUMBSNULL
 754
 Strawberry Tarragon Cocktail
 THUMBSNULL
-Muddle the berries, tarragon, and simple syrup in a cocktail shaker. Add gin and lemon juice. Shake with ice and strain into a cocktail glass. Garnish with a strawberry, if desired. *You can use any gin you like, but I personally think that in this case the botanical profile of Hendrick’s played a big part in the balance of the drink. ** The amount of simple syrup in this recipe is based on the fresh-from-the-garden berries I had available to me. Store berries are often less sweet, so you may have to add another berry or another splash of syrup to taste.
+Muddle the berries, tarragon, and simple syrup in a cocktail shaker. Add gin and lemon juice. Shake with ice and strain into a cocktail glass. Garnish with a strawberry, if desired. *You can use any gin you like, but I personally think that in this case the botanical profile of Hendrick's played a big part in the balance of the drink. ** The amount of simple syrup in this recipe is based on the fresh-from-the-garden berries I had available to me. Store berries are often less sweet, so you may have to add another berry or another splash of syrup to taste.
 --
 755
 Sugar Cookie
@@ -4005,7 +4005,7 @@ THUMBSNULL
 Stir all ingredients. Strain into old fashioned glass with one large cube of ice. Garnish with either chocolate covered strawberry or strawberry half and shaved chocolate.
 --
 801
-The Dean’s Wife
+The Dean's Wife
 THUMBSNULL
 Serve in a highball glass.
 --
@@ -4115,7 +4115,7 @@ THUMBSNULL
 
 --
 823
-The Leprechaun’s Pot of Gold (Irisih Absinthetini)
+The Leprechaun's Pot of Gold (Irisih Absinthetini)
 THUMBSNULL
 Pour over ice, stir gently, rim your glass with your twist of lemon then float it. Let this sit for a minute, sip and enjoy.
 --
@@ -4125,7 +4125,7 @@ THUMBSNULL
 Combine all liquids in a punch bowl and stir. Add lemon wheels and fruit (depending the season you could use vagarious berries, peaches, apples, pears). Serve over ice in a punch cup. Serves 8–10. (Tip: chill all ingredients prior to making your punch!)
 --
 825
-The Maker’s Heart
+The Maker's Heart
 THUMBSNULL
 In a mixing glass combine blackberries, pomegranate juice and lemon juice. Muddle. Add ice and remaining ingredients. Shake and strain over fresh ice. Garnish with an orange peel. Rim with navel orange-zested sugar.* *For sugar rim, take one oz of plain white sugar and zest it with four peels of orange.
 --
@@ -4195,7 +4195,7 @@ THUMBSNULL
 
 --
 839
-The Queen’s Bouquet
+The Queen's Bouquet
 THUMBSNULL
 
 --
@@ -4220,7 +4220,7 @@ THUMBSNULL
 Pour ingredients into a cocktail shaker with ice. Shake and strain into a cocktail glass. *Honey tea pear syrup (enough for four cocktails) Ingredients: ¾ cup water ¾ cup honey 1 pear, chopped (I used a Bosc pear) 1 bag black tea (I used Earl Grey) Instructions: Cook water, honey and pears together in a pot. When it comes to a boil, turn off and steep tea bag in the mixture for five minutes. Pour in container and refrigerate until needed. When used in a cocktail, strain out the pears. They are actually quite tasty, and perhaps you should consider putting them on top of ice cream.
 --
 844
-The Rockin’ Paloma
+The Rockin' Paloma
 THUMBSNULL
 Add Cabo, lime juice, and cucumber to pint glass, muddle, add ice and shake vigorously. Add soda to shaker and stir. Strain over fresh ice into a collins glass with a salted rim. Drop the grenadine on top and allow it to mix in. Garnish with cucumber slice, serve and enjoy!
 --
@@ -4297,7 +4297,7 @@ Half fill a chilled highball or collins glass with ice cubes, add rum and fill w
 859
 The Victory Cocktail
 THUMBSNULL
-Combine each set of ingredients in advance as you’ll want to blend these quickly one after another. Blend the ingredients of layer 3 and place in the base of the glass. Blend the ingredients of layer 2 and layer carefully over the first base. Blend the ingredients of layer 1 and layer carefully. Garnish with half a strawberry and 3 blueberries.
+Combine each set of ingredients in advance as you'll want to blend these quickly one after another. Blend the ingredients of layer 3 and place in the base of the glass. Blend the ingredients of layer 2 and layer carefully over the first base. Blend the ingredients of layer 1 and layer carefully. Garnish with half a strawberry and 3 blueberries.
 --
 860
 The Whiskey Sour 101
@@ -4330,7 +4330,7 @@ THUMBSNULL
 Combine ingredients in a mixing glass filled with ice. Mix and strain into a shot glass.
 --
 866
-Tiki’s Revenge
+Tiki's Revenge
 THUMBSNULL
 Fill a cocktail shaker with ice. Add Voodoo Tiki Desert Rose, melon liqueur, sour, and mango juice. Shake well and pour into a chilled highball glass.
 --
@@ -4460,12 +4460,12 @@ THUMBSNULL
 
 --
 892
-Valentine’s Day Champagne Cocktail Roundup
+Valentine's Day Champagne Cocktail Roundup
 THUMBSNULL
 
 --
 893
-Valentine’s Kiss
+Valentine's Kiss
 THUMBSNULL
 Combine ingredients in collins glass and top with club with club soda. Garnish with lime and cherry.
 --
@@ -4500,39 +4500,39 @@ THUMBSNULL
 Combine all ingredients in tall chilled glass with ice.
 --
 900
-Vampire’s Kiss
+Vampire's Kiss
 THUMBSNULL
 Combine in a shaker with ice. Shake well. Strain into a collins or other tall glass.
 --
 901
-Vampire’s Kiss #2
+Vampire's Kiss #2
 THUMBSNULL
 
 --
 902
-Vampire’s Elixir
+Vampire's Elixir
 THUMBSNULL
 Dress strawberry syrup on the inside and rim of a chilled martini glass. Combine all ingredients in a cocktail shaker with ice. Shake vigorously and strain into martini glass. Garnish with vampire teeth.
 --
 903
-Vampire’s Kiss
+Vampire's Kiss
 THUMBSNULL
 
 --
 904
-Vampire’s Punch
+Vampire's Punch
 THUMBSNULL
 Wash and remove pits and stems from fresh cherries, and muddle in cocktail shaker. Combine the rest of the ingredients except 7 Up in bowl and stir. Top with 7 Up and muddled cherries. Serves 12.
 --
 905
-Van Gogh’s Garden
+Van Gogh's Garden
 THUMBSNULL
 Muddle two cucumber wheels & two peeled kiwi wheels with the simple syrup in a double rocks glass. Fill with ice and add the Lucid absinthe. Top with club soda and add an un-peeled kiwi wheel on the rim.
 --
 906
 Vancouver Cocktail
 THUMBSNULL
-Combine everything in the tin side of a Boston Shaker. Don’t add ice yet. Use a stick blender or a cappuccino frother get the eggs whites started. Blend lightly for about 20 seconds. Add a scoop of ice and shake well (20–30 seconds) and strain into a chilled cocktail glass. If you are brave, flame an orange peel into the drink to release the oils and float it.
+Combine everything in the tin side of a Boston Shaker. Don't add ice yet. Use a stick blender or a cappuccino frother get the eggs whites started. Blend lightly for about 20 seconds. Add a scoop of ice and shake well (20–30 seconds) and strain into a chilled cocktail glass. If you are brave, flame an orange peel into the drink to release the oils and float it.
 --
 907
 Vanderbilt Cocktail
@@ -4547,7 +4547,7 @@ Pour the vodka into a collins glass filled with ice and fill with coke.
 909
 Vanilla Peppermint Martini
 THUMBSNULL
-Crush your choice of candy canes to rim the martini glasses. If you don’t want to rim with crushed candy canes, then just dangle a miniature candy cane on the rim of each glass.
+Crush your choice of candy canes to rim the martini glasses. If you don't want to rim with crushed candy canes, then just dangle a miniature candy cane on the rim of each glass.
 --
 910
 Vanity Fair
@@ -4562,7 +4562,7 @@ THUMBSNULL
 912
 Very Merry Cocoa
 THUMBSNULL
-Mix the liquors together in a glass or shaker first. Make cocoa as you normally would (leaving out some of the water/milk), then dump the liquor mix in on top, and stir. It’s cocoa with a pretty strong kick, but the mini-marshmallows can make you feel like a kid again. Just don’t let the kids confuse the drinks!
+Mix the liquors together in a glass or shaker first. Make cocoa as you normally would (leaving out some of the water/milk), then dump the liquor mix in on top, and stir. It's cocoa with a pretty strong kick, but the mini-marshmallows can make you feel like a kid again. Just don't let the kids confuse the drinks!
 --
 913
 Very Old Fashioned
@@ -4680,7 +4680,7 @@ THUMBSNULL
 In a Boston shaker, add blueberries and sugar, muddle hard. Fill the shaker with ice, and add all other ingredients. Shake well, and double strain into a tall glass filled with ice. Garnish with blueberries on a cocktail pick.
 --
 936
-What’s Up, Doc? Cocktail
+What's Up, Doc? Cocktail
 THUMBSNULL
 Combine ingredients in a cocktail shaker filled with ice and shake vigorously. Strain into cocktail glass over ice. Optional: Sprinkle some cinnamon on top. We juiced some carrots ourselves and used Beefeater 24 gin and Domaine de Canton ginger liqueur. We chose this gin is a little less dry than some other brands. You can substitute store-bought carrot juice and your favorite brands and adjust to taste if needed.
 --
@@ -4707,7 +4707,7 @@ THUMBSNULL
 941
 White Elephant
 THUMBSNULL
-Pour an ounce of Kahlúa into a shot glass, layering the Amarula on top. (Amarula is a cream liqueur similar to Bailey’s but made from the marula fruit.) Add a dollop of whipped cream and drizzle with Grenadine. Courtesy of Phil.
+Pour an ounce of Kahlúa into a shot glass, layering the Amarula on top. (Amarula is a cream liqueur similar to Bailey's but made from the marula fruit.) Add a dollop of whipped cream and drizzle with Grenadine. Courtesy of Phil.
 --
 942
 White Russian
@@ -4742,7 +4742,7 @@ In a shaker with ice, add the scotch and melon liqueur. Shake well and pour ice 
 948
 Wicked Witch Apple Punch
 THUMBSNULL
-Combine all ingredients in a large black witch’s cauldron with ice and stir. Garnish with large slices of red apple floating on top and dry ice.
+Combine all ingredients in a large black witch's cauldron with ice and stir. Garnish with large slices of red apple floating on top and dry ice.
 --
 949
 Wicky Wacky Woo
@@ -4817,7 +4817,7 @@ In a blender, combine all ingredients except the 151 with crushed ice. Blend at 
 963
 Zombie – Don the Beachcomer 1934
 THUMBSNULL
-Put everything in blender, saving ice for last. Blend at high speed for no more than 5 seconds. Pour into glass and add ice cubes to fill. Garnish with a mint sprig. DOTW suggestion would be to also stir the ingredients. *Donn’s Mix Ingredients: 3 cinnamon sticks, crushed 1 cup sugar 1 cup water Fresh grapefruit juice Directions: Create an infused simple syrup by heating cinnamon sticks, sugar and water. Bring to a boil, stirring until sugar is dissolved. Simmer for 2 minutes, then remove from heat and let sit for at least 2 hours before straining into a clean glass bottle. To finish making the mix, add 1 part of the syrup to 2 parts fresh grapefruit juice.
+Put everything in blender, saving ice for last. Blend at high speed for no more than 5 seconds. Pour into glass and add ice cubes to fill. Garnish with a mint sprig. DOTW suggestion would be to also stir the ingredients. *Donn's Mix Ingredients: 3 cinnamon sticks, crushed 1 cup sugar 1 cup water Fresh grapefruit juice Directions: Create an infused simple syrup by heating cinnamon sticks, sugar and water. Bring to a boil, stirring until sugar is dissolved. Simmer for 2 minutes, then remove from heat and let sit for at least 2 hours before straining into a clean glass bottle. To finish making the mix, add 1 part of the syrup to 2 parts fresh grapefruit juice.
 --
 964
 Zombie Peep Corpse Reviver

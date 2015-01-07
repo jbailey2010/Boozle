@@ -32,10 +32,13 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.view.animation.AlphaAnimation;
 import android.widget.*;
-import com.facebook.*;
+import com.facebook.FacebookException;
+import com.facebook.Request;
+import com.facebook.Session;
+import com.facebook.SessionState;
 import com.facebook.android.R;
-import com.facebook.model.GraphObject;
 import com.facebook.internal.SessionTracker;
+import com.facebook.model.GraphObject;
 
 import java.util.*;
 
@@ -102,6 +105,7 @@ public abstract class PickerFragment<T extends GraphObject> extends Fragment {
     private Button doneButton;
     private Drawable titleBarBackground;
     private Drawable doneButtonBackground;
+    private boolean appEventsLogged;
 
     PickerFragment(Class<T> graphObjectClass, int layout, Bundle args) {
         this.graphObjectClass = graphObjectClass;
@@ -165,9 +169,12 @@ public abstract class PickerFragment<T extends GraphObject> extends Fragment {
             }
         });
         listView.setOnScrollListener(onScrollListener);
-        listView.setAdapter(adapter);
 
         activityCircle = (ProgressBar) view.findViewById(R.id.com_facebook_picker_activity_circle);
+
+        setupViews(view);
+
+        listView.setAdapter(adapter);
 
         return view;
     }
@@ -230,6 +237,14 @@ public abstract class PickerFragment<T extends GraphObject> extends Fragment {
         if (activityCircle != null) {
             outState.putBoolean(ACTIVITY_CIRCLE_SHOW_KEY, activityCircle.getVisibility() == View.VISIBLE);
         }
+    }
+
+    @Override
+    public void onStop() {
+        if (!appEventsLogged) {
+            logAppEvents(false);
+        }
+        super.onStop();
     }
 
     @Override
@@ -489,6 +504,9 @@ public abstract class PickerFragment<T extends GraphObject> extends Fragment {
         setPickerFragmentSettingsFromBundle(inState);
     }
 
+    void setupViews(ViewGroup view) {
+    }
+
     boolean filterIncludesItem(T graphObject) {
         if (filter != null) {
             return filter.includeItem(graphObject);
@@ -498,6 +516,14 @@ public abstract class PickerFragment<T extends GraphObject> extends Fragment {
 
     List<T> getSelectedGraphObjects() {
         return adapter.getGraphObjectsById(selectionStrategy.getSelectedIds());
+    }
+
+    void setSelectedGraphObjects(List<String> objectIds) {
+        for(String objectId : objectIds) {
+            if(!this.selectionStrategy.isSelected(objectId)) {
+                this.selectionStrategy.toggleSelection(objectId);
+            }
+        }
     }
 
     void saveSettingsToBundle(Bundle outState) {
@@ -561,6 +587,9 @@ public abstract class PickerFragment<T extends GraphObject> extends Fragment {
         }
     }
 
+    void logAppEvents(boolean doneButtonClicked) {
+    }
+
     private static void setAlpha(View view, float alpha) {
         // Set the alpha appropriately (setAlpha is API >= 11, this technique works on all API levels).
         AlphaAnimation alphaAnimation = new AlphaAnimation(alpha, alpha);
@@ -603,8 +632,8 @@ public abstract class PickerFragment<T extends GraphObject> extends Fragment {
             View titleBar = stub.inflate();
 
             final RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
-                    RelativeLayout.LayoutParams.FILL_PARENT,
-                    RelativeLayout.LayoutParams.FILL_PARENT);
+                    RelativeLayout.LayoutParams.MATCH_PARENT,
+                    RelativeLayout.LayoutParams.MATCH_PARENT);
             layoutParams.addRule(RelativeLayout.BELOW, R.id.com_facebook_picker_title_bar);
             listView.setLayoutParams(layoutParams);
 
@@ -617,6 +646,9 @@ public abstract class PickerFragment<T extends GraphObject> extends Fragment {
                 doneButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        logAppEvents(true);
+                        appEventsLogged = true;
+
                         if (onDoneButtonClickedListener != null) {
                             onDoneButtonClickedListener.onDoneButtonClicked(PickerFragment.this);
                         }
@@ -874,7 +906,7 @@ public abstract class PickerFragment<T extends GraphObject> extends Fragment {
 
         public void startLoading(Request request) {
             if (loader != null) {
-                loader.startLoading(request, true);
+                loader.startLoading(request, canSkipRoundTripIfCached());
                 onStartLoading(loader, request);
             }
         }
@@ -897,6 +929,10 @@ public abstract class PickerFragment<T extends GraphObject> extends Fragment {
 
         protected void onLoadFinished(GraphObjectPagingLoader<T> loader, SimpleGraphObjectCursor<T> data) {
             updateAdapter(data);
+        }
+
+        protected boolean canSkipRoundTripIfCached() {
+            return true;
         }
     }
 

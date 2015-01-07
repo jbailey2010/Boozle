@@ -186,7 +186,7 @@ Cola
 1/2 oz chambord
 --
 62
-1 oz white crème de cacao
+1 oz white creme de cacao
 --
 63
 1 oz double cream
@@ -594,7 +594,7 @@ Mint Leaf
 1/4 oz apricot brandy
 --
 198
-1/4 oz crème de violette
+1/4 oz creme de violette
 --
 199
 1 1/2 oz Plymouth gin
@@ -828,7 +828,7 @@ juice of half a lime
 Half a fresh banana
 --
 276
-1 oz crème de banana
+1 oz creme de banana
 --
 277
 1 oz cream
@@ -1242,7 +1242,7 @@ Edible flowers, for garnish
 1/2 oz blue curaçao
 --
 414
-1/4 oz crème de coconut
+1/4 oz creme de coconut
 --
 415
 3–4 oz pineapple juice
@@ -1272,7 +1272,7 @@ Edible flowers, for garnish
 1/2 oz lemon juice
 --
 424
-1/2 ounce crème de violette
+1/2 ounce creme de violette
 --
 425
 1 oz tequila
@@ -1422,7 +1422,7 @@ Unsweetened iced tea
 2 oz bourbon
 --
 474
-1/2 oz brown crème de cacao
+1/2 oz brown creme de cacao
 --
 475
 2 oz cream
@@ -1449,7 +1449,7 @@ Nutmeg
 1/2 part Busnel calvados
 --
 483
-1/2 oz crème de cassis
+1/2 oz creme de cassis
 --
 484
 1 oz fresh lemon juice
@@ -1839,7 +1839,7 @@ Grated dark chocolate
 1 1/2 oz. Grey Goose Cherry Noir
 --
 613
-3/4 oz. Crème de Yvette
+3/4 oz. Creme de Yvette
 --
 614
 1 oz. The Perfect Purée Cherry
@@ -2118,7 +2118,7 @@ Grated nutmeg
 1 oz Tequila Don Julio Añejo
 --
 706
-1/2 oz dark crème de cacao
+1/2 oz dark creme de cacao
 --
 707
 1/4 oz unsweetened passion fruit puree
@@ -2427,7 +2427,7 @@ Spicy Bloody Mary mix (for drizzle)
 Coffee soda
 --
 809
-Crème de cacao
+Creme de cacao
 --
 810
 Guinness
@@ -2607,7 +2607,7 @@ Pomegranate as garnish
 Heavy Cream
 --
 869
-1/4 oz white crème de menthe
+1/4 oz white creme de menthe
 --
 870
 Dash bitter
@@ -2742,10 +2742,10 @@ Frozen flavor ice pops
 1 oz prickly pear juice
 --
 914
-1/2 oz green crème de menthe
+1/2 oz green creme de menthe
 --
 915
-1/2 oz white crème de menthe
+1/2 oz white creme de menthe
 --
 916
 1/2 oz gin
@@ -2829,7 +2829,7 @@ Fill glass with chilled G.H. Mumm Champagne
 1 oz Chambord
 --
 943
-1/2 oz crème de cacao (white or dark)
+1/2 oz creme de cacao (white or dark)
 --
 944
 1/2 oz cream or half & half
@@ -2874,7 +2874,7 @@ Splash of absinthe
 2 oz white tequila
 --
 958
-1/2 oz white crème de cacao
+1/2 oz white creme de cacao
 --
 959
 2 oz rum
@@ -2892,7 +2892,7 @@ Splash of absinthe
 3 oz premium vodka
 --
 964
-1/4 oz crème de cacao
+1/4 oz creme de cacao
 --
 965
 1/4 oz chocolate syrup
@@ -3069,10 +3069,10 @@ Orange slices
 3 large basil leaves (torn)
 --
 1023
-1/2 oz green crème de menthe
+1/2 oz green creme de menthe
 --
 1024
-1/2 oz white crème de cacao
+1/2 oz white creme de cacao
 --
 1025
 1/2 oz cream
@@ -3615,7 +3615,7 @@ Iced tea
 Wedge of lime
 --
 1205
-Dash white crème de menthe
+Dash white creme de menthe
 --
 1206
 Mint
@@ -3705,7 +3705,7 @@ Marshmallows (optional)
 Lemon peel
 --
 1235
-1/2 oz Irish crème liqueur
+1/2 oz Irish creme liqueur
 --
 1236
 1 oz. Irish Whiskey
@@ -3729,13 +3729,13 @@ Whipped cream (unsweetened)
 Dash sugar
 --
 1243
-1 oz green crème de menthe
+1 oz green creme de menthe
 --
 1244
 1 oz Baileys Irish Cream
 --
 1245
-1/3 oz green crème de menthe
+1/3 oz green creme de menthe
 --
 1246
 1/3 oz Irish cream
@@ -4059,7 +4059,7 @@ Lime slice
 1/2 oz Godiva liqueur
 --
 1353
-1 oz crème de cassis
+1 oz creme de cassis
 --
 1354
 Fill with champagne
@@ -4188,7 +4188,7 @@ Cherry
 Splash lime juice
 --
 1396
-1 1/2 oz crème de banana
+1 1/2 oz creme de banana
 --
 1397
 1 oz lime liqueur
@@ -4335,7 +4335,7 @@ Dash egg white
 1/4 oz anisette
 --
 1445
-1/4 oz white crème de cacao
+1/4 oz white creme de cacao
 --
 1446
 1 oz. Jack Daniels?
@@ -4536,7 +4536,7 @@ Dry champagne
 Splash of white cranberry juice
 --
 1512
-1/4 oz crème de noyaux
+1/4 oz creme de noyaux
 --
 1513
 1 1/2 oz ( ~50 ml) Benedictine
@@ -4674,7 +4674,7 @@ Agave Nectar to taste
 1 oz coconut rum
 --
 1558
-1/2 oz crème de banane
+1/2 oz creme de banane
 --
 1559
 2 tsp absinthe or Pernod
@@ -4791,7 +4791,7 @@ Dash lime juice
 1 oz cherry brandy
 --
 1597
-1 oz crème de cacao
+1 oz creme de cacao
 --
 1598
 1 1/2 oz. Sailor Jerry spiced rum
@@ -4869,7 +4869,7 @@ Juice of 1/2 Orange
 1 1/2 oz Grey Goose orange vodka
 --
 1623
-1/4 oz crème de banane
+1/4 oz creme de banane
 --
 1624
 3/4 cup gold rum
@@ -5382,7 +5382,7 @@ Slice of fresh ginger
 1 1/2 oz Monin pumpkin spice
 --
 1794
-1 oz crème de banane (banana)
+1 oz creme de banane (banana)
 --
 1795
 2 maraschino cherries
@@ -5682,7 +5682,7 @@ thin peel of one orange
 1/2 Fernet Branca
 --
 1894
-1 oz white crème de menthe
+1 oz white creme de menthe
 --
 1895
 3-4 fresh figs, sliced (or 1 cup dried figs)
@@ -5721,10 +5721,10 @@ thin peel of one orange
 3/4 oz Midori melon liqueur
 --
 1907
-1/2 oz. Green Crème de Menthe
+1/2 oz. Green Creme de Menthe
 --
 1908
-1/2 oz. White Crème de Cacao
+1/2 oz. White Creme de Cacao
 --
 1909
 1 oz. Half-and-Half
@@ -5880,10 +5880,10 @@ spring of mint (optional)
 Dash of green chartreuse
 --
 1960
-Dash of green crème de menthe
+Dash of green creme de menthe
 --
 1961
-1 1/2 oz green crème de menthe
+1 1/2 oz green creme de menthe
 --
 1962
 4 oz vanilla ice cream
@@ -5937,7 +5937,7 @@ maraschino cherries
 6 – 12 oz beer
 --
 1979
-1 oz. crème de violette
+1 oz. creme de violette
 --
 1980
 1 1/2 oz VS or VSOP cognac
@@ -6045,7 +6045,7 @@ Orange wheel, garnish
 1 part guava puree
 --
 2015
-3/4 oz crème de violette
+3/4 oz creme de violette
 --
 2016
 3 oz dry sparkling wine (such as Drusian prosecco)
@@ -6252,7 +6252,7 @@ Stripes:
 3 parts soda water
 --
 2084
-3/4 oz white crème de menthe
+3/4 oz white creme de menthe
 --
 2085
 1 part Absolut Brooklyn vodka
@@ -6294,7 +6294,7 @@ crushed ice
 Lemon or lime juice
 --
 2098
-1 part Hiram Walker crème de strawberry liqueur
+1 part Hiram Walker creme de strawberry liqueur
 --
 2099
 4 parts chilled champagne
@@ -7338,7 +7338,7 @@ Milk (cooked till hot)
 1/2 oz. Licor 43
 --
 2446
-1 oz crème de banane
+1 oz creme de banane
 --
 2447
 4 oz lemonade
@@ -7632,7 +7632,7 @@ Cocoa
 1 oz Kahlúa coffee liqueur
 --
 2544
-1 oz crème de menthe (white or green, your choice—I like green)
+1 oz creme de menthe (white or green, your choice—I like green)
 --
 2545
 1 oz Baileys or a hazelnut creme
@@ -7908,7 +7908,7 @@ Red apple slices
 1/4 oz Galliano
 --
 2636
-1/4 oz crème de banane
+1/4 oz creme de banane
 --
 2637
 3/4 oz blackberry brandy
@@ -21996,7 +21996,7 @@ Vermouth (Dry)
 Apricot Brandy
 --
 7332
-Crème de Menthe (White)
+Creme de Menthe (White)
 --
 7333
 Banana Liqueur
@@ -22056,7 +22056,7 @@ Chartreuse (Yellow)
 Splash of Raspberry Syrup
 --
 7352
-Crème de Cacao (White)
+Creme de Cacao (White)
 --
 7353
 Cream / Half & Half
@@ -22098,7 +22098,7 @@ Kümmel
 Sambuca
 --
 7366
-Crème de Cacao (Dark) or Chocolate Liqueur
+Creme de Cacao (Dark) or Chocolate Liqueur
 --
 7367
 Milk or Cream / Half & Half
@@ -22125,7 +22125,7 @@ Splash of Orange Juice
 Float of Port
 --
 7375
-Crème de Cacao (Dark)
+Creme de Cacao (Dark)
 --
 7376
 Campari
@@ -22134,7 +22134,7 @@ Campari
 Apple Brandy
 --
 7378
-Melon Liqueur or Crème de Menthe (Green)
+Melon Liqueur or Creme de Menthe (Green)
 --
 7379
 Hot Chocolate
@@ -22203,7 +22203,7 @@ Green Ginger Wine
 Bénédictine
 --
 7401
-Crème de Menthe (Green)
+Creme de Menthe (Green)
 --
 7402
 Iced Tea
@@ -22221,7 +22221,7 @@ Canadian Whisky
 Cranberry Liqueur
 --
 7407
-Whiskey or Crème de Cacao (White)
+Whiskey or Creme de Cacao (White)
 --
 7408
 Hazelnut Liqueur or Amaretto
@@ -22284,10 +22284,10 @@ Captain Morgan Tattoo Rum
 Splash of Cranberry Juice
 --
 7428
-Splash of Crème de Cacao (Dark)
+Splash of Creme de Cacao (Dark)
 --
 7429
-Splash of Crème de Cacao (White)
+Splash of Creme de Cacao (White)
 --
 7430
 Splash of Grenadine (Optional)
@@ -22392,7 +22392,7 @@ of Blueberries
 of Raspberries
 --
 7464
-Crème de Cassis
+Creme de Cassis
 --
 7465
 Cointreau Orange Liqueur or Triple Sec
@@ -22485,7 +22485,7 @@ of Grenadine
 of Strawberry Liqueur or Raspberry Liqueur
 --
 7495
-Splash of Crème de Cassis
+Splash of Creme de Cassis
 --
 7496
 Splash of Vermouth (Dry)
@@ -22560,7 +22560,7 @@ Splash of Grenadine or Raspberry Syrup
 Amarula Cream
 --
 7520
-Splash of Crème de Menthe (White)
+Splash of Creme de Menthe (White)
 --
 7521
 Splash of Cola
@@ -22617,7 +22617,7 @@ Splash of Olive Juice
 Float of Cream / Half & Half
 --
 7539
-Float of Crème de Menthe (Green)
+Float of Creme de Menthe (Green)
 --
 7540
 Yukon Jack Whiskey
@@ -22686,13 +22686,13 @@ White Cranberry Juice
 Root Beer Vodka (100-Proof)
 --
 7562
-of Crème de Menthe (Green)
+of Creme de Menthe (Green)
 --
 7563
 Splash of Passion Fruit Syrup
 --
 7564
-Crème de Noyaux
+Creme de Noyaux
 --
 7565
 Float of Cherry Brandy
@@ -22812,7 +22812,7 @@ Peppermint Schnapps (Optional)
 Peach Brandy or Peach Schnapps
 --
 7604
-Splash of Crème de Menthe (Green)
+Splash of Creme de Menthe (Green)
 --
 7605
 of Jagermeister
@@ -22845,13 +22845,13 @@ Jose Cuervo Tequila
 Coconut Rum (Optional)
 --
 7615
-Chocolate Liqueur or Crème de Cacao (Dark)
+Chocolate Liqueur or Creme de Cacao (Dark)
 --
 7616
 of Bourbon
 --
 7617
-Coffee Liqueur or Crème de Cacao (Dark)
+Coffee Liqueur or Creme de Cacao (Dark)
 --
 7618
 Wedge
@@ -22896,7 +22896,7 @@ Splash of Simple Syrup
 Float of Rum (Dark)
 --
 7632
-Splash of Almond Liqueur or Crème de Noyaux
+Splash of Almond Liqueur or Creme de Noyaux
 --
 7633
 Triple Sec or Orange Curacao
@@ -22929,7 +22929,7 @@ of Tequila
 of Hot Sauce
 --
 7643
-Splash of Crème de Noyaux
+Splash of Creme de Noyaux
 --
 7644
 Anisette or Pernod
@@ -23085,7 +23085,7 @@ Beans
 Splash of Chartreuse (Green)
 --
 7695
-Orgeat Syrup or Crème de Noyaux
+Orgeat Syrup or Creme de Noyaux
 --
 7696
 Cider
@@ -23118,7 +23118,7 @@ Ouzo
 Mountain Dew
 --
 7706
-Crème de Menthe (White) or Peppermint Schnapps
+Creme de Menthe (White) or Peppermint Schnapps
 --
 7707
 Coffee Liqueur or Coffee Brandy

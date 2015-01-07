@@ -83,8 +83,8 @@ public class DefaultProfileImageContextMenu implements ProfileImageContextMenu {
 		intent.setType("image/*");
 		intent.setAction(Intent.ACTION_GET_CONTENT);
 
-		if (android.os.Build.VERSION.SDK_INT >= 11){
-			intent.putExtra("android.intent.extra.LOCAL_ONLY", true);
+		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB){
+			intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
 		}
 
 		context.startActivityForResult(Intent.createChooser(intent, "Select Picture"), ProfileActivity.GALLERY_PIC_REQUEST);

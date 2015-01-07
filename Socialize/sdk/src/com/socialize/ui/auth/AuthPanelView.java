@@ -198,7 +198,7 @@ public class AuthPanelView extends DialogPanelView {
 				rememberCell.setVisibility(View.VISIBLE);
 			}
 			
-			String mystring = new String(localizationService.getString(I18NConstants.AUTH_RATHER_NOT));
+			String mystring = localizationService.getString(I18NConstants.AUTH_RATHER_NOT);
 			SpannableString content = new SpannableString(mystring);
 			content.setSpan(new UnderlineSpan(), 0, mystring.length(), 0);
 			skipAuth.setText(content);
@@ -325,7 +325,10 @@ public class AuthPanelView extends DialogPanelView {
 			CompatUtils.setBackgroundDrawable(header, headerBG);
 		}
 
-		header.setText(localizationService.getString(I18NConstants.AUTH_HEADER));
+        if(localizationService != null) {
+            header.setText(localizationService.getString(I18NConstants.AUTH_HEADER));
+        }
+
 		header.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
 		header.setTextColor(Color.WHITE);
 		header.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
