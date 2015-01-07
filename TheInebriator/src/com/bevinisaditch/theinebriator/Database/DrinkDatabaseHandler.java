@@ -46,6 +46,8 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    private static final String PAIR_FILE_NAME = "pairData.txt";
 	    
 	    private Set<Integer> nullSet = new HashSet<Integer>();
+	    
+	    private Set<Integer> nullMatchSet = new HashSet<Integer>();
 	 	  
 	    /**
 	     * just calls super constructor
@@ -238,7 +240,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    			if(drinkData.get(i+1) != null && ((String)drinkData.get(i+1)).length() > 0){
 		    	    	ContentValues values = new ContentValues();
 		    	    	values.put("ID", (Integer) drinkData.get(i));
-		    	    	values.put("NAME", (String)drinkData.get(++i));
+		    	    	values.put("NAME", " " + (String)drinkData.get(++i) + " ");
 		    	    	values.put("RATING", (Integer)drinkData.get(++i));
 		    	    	values.put("INSTRUCTIONS", (String)drinkData.get(++i));
 		    	    	db.insert("DRINKS", null, values);
@@ -273,7 +275,8 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 		    	    	values.put("ID", match.matchID);
 		    	    	values.put("DRINKID", match.drinkID);
 		    	    	values.put("INGREDIENTID", match.ingredientID);
-		    	    	values.put("QUANTITY", match.quantity);
+		    	    	
+		    	    	values.put("QUANTITY", " " + match.quantity);
 		    	    	values.put("UNITS", match.units);
 		    	    	db.insert("MATCHINGS", null, values);
 	    			}
@@ -296,7 +299,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 		    	for(IngredientIDPair pair : pairs){
 			    	ContentValues values = new ContentValues();
 			    	values.put("ID", pair.id);
-			    	values.put("NAME", 	pair.name);
+		    		values.put("NAME", pair.name + " ");
 			    	db.insert("INGREDIENTS", null, values);
 		    	}
 		    	db.setTransactionSuccessful();
@@ -647,16 +650,11 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	//Creates query for database
 	    	if (terms != null && terms.size() > 0) {
 	    		selectQuery += "NAME LIKE '% " + terms.get(0) + " %'";
-	    		selectQuery += " OR NAME LIKE '" + terms.get(0) + " %'";
-	    		selectQuery += " OR NAME LIKE '% " + terms.get(0) + "'";
 	    		terms.remove(0);
 	    	}
 	    	
 	    	for (String term : terms) {
-	    		selectQuery += " OR NAME LIKE '% " + term + " %'";
-	    		selectQuery += " OR NAME LIKE '" + term + " %'";
-	    		selectQuery += " OR NAME LIKE '% " + term + "'";
-	    		
+	    		selectQuery += " OR NAME LIKE '% " + term + " %'";	    		
 	    	}
 	    	
 	    	Cursor cursor = db.rawQuery(selectQuery, null);
@@ -689,7 +687,6 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     */
 	    public ArrayList<Drink> getRelevantDrinksByIngredient(ArrayList<String> ingredients)
 	    {
-	    	//TODO: Fix this
 	    	SQLiteDatabase db = this.getWritableDatabase();
 	    	ArrayList<Drink> drinks = new ArrayList<Drink>();
 	    	
@@ -701,16 +698,12 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    				 + "JOIN Matchings m on d.ID = m.DRINKID "
 	    				 + "JOIN Ingredients i on i.ID = m.INGREDIENTID "
 	    				 + "WHERE i.NAME LIKE '% " + ingredient + " %' "
-	    				 + "or i.NAME LIKE '" + ingredient + " %' "
-	    				 + "or i.NAME LIKE '% " + ingredient + "' "
 	    				 + "or LOWER( i.NAME ) = '" + ingredient.toLowerCase() + "'";
 	    		
 	    		Cursor cursor = db.rawQuery(query, null);
 	    		
-	    		if (cursor.moveToFirst())
-				{
-					do
-					{
+	    		if (cursor.moveToFirst()) {
+					do {
 						//Get drink information
 						long id = cursor.getInt(0);
 						String name = cursor.getString(1);
