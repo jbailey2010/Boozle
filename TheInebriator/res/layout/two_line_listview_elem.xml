@@ -62,6 +62,17 @@
 		        android:layout_alignTop="@+id/text1"
 		        android:layout_alignBottom="@id/text1"
 		        android:layout_marginRight="14dp" />
+
+		    <TextView
+		        android:id="@+id/idHidden"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignBaseline="@+id/text3"
+		        android:layout_alignBottom="@+id/text3"
+		        android:layout_alignRight="@+id/imageView1"
+		        android:text="Small Text"
+		        android:visibility="invisible"
+		        android:textAppearance="?android:attr/textAppearanceSmall" />
 	
 		</RelativeLayout>
 	</RelativeLayout>

@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/search_input_view"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="5dp"
         android:text=" " />
 
     <ScrollView
@@ -127,7 +127,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/search_input_view"
         android:layout_below="@+id/search_list_scrollview"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/btn_blue"
         android:text="Add" />
 

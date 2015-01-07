@@ -40,17 +40,20 @@ public class DrinkPopup {
 	public static String nameDrink;
 	public static String ingrDrink;
 	public static String instrDrink;
+	public static long id;
 	
 	/**
 	 * Configures the initial pop up to appropriately handle input and
 	 * display the data from the clicked element itself
+	 * @param id 
 	 */
-	public static void drinkPopUpInit(final Context c, final String name, String ingredients, final String instr, final boolean update, Rating rating, boolean showRefresh, final boolean isAllRandom)
+	public static void drinkPopUpInit(final Context c, final String name, String ingredients, final String instr, long drinkId, final boolean update, Rating rating, boolean showRefresh, final boolean isAllRandom)
 	{
 		nameDrink = name;
 		ingrDrink = ingredients;
 		instrDrink = instr;
 		cont = c;
+		id = drinkId;
 		final Dialog dialog = new Dialog(cont, R.style.DialogBackground);
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
@@ -207,18 +210,18 @@ public class DrinkPopup {
 				}
 			}
 		}
-		updateDrinkState(nameDrink, ingrDrink, instrDrink, rating);
+		updateDrinkState(rating);
 	}
 	
 	/**
 	 * Saves whatever change was made to the database and, if there's internet and the thumbs 
 	 * was a thumbs up, then it sends that data to the server and adjusts as such
 	 */
-	public static void updateDrinkState(String name, String ingr, String instr, Rating rating){
+	public static void updateDrinkState(Rating rating){
 		if(rating.equals(Drink.Rating.THUMBSUP) && GeneralUtils.testInternet(cont)){
-			GeneralUtils.bumpEntityValue(name, cont);
+			GeneralUtils.bumpEntityValue(nameDrink, cont);
 		}
 		DrinkDatabaseHandler handler = Home.getHandler(cont);
-		handler.setDrinkRating(handler.getDrinkId(name, instr), rating);
+		handler.setDrinkRating(id, rating);
 	}
 }

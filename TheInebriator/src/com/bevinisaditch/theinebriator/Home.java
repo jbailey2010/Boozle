@@ -345,24 +345,21 @@ public class Home extends Activity {
 		list = (BounceListView)res.findViewById(R.id.listview_rankings);
 		list.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
 		dataSet = new ArrayList<HashMap<String, String>>();
-		for(Drink curr: results)
-		{
+		for(Drink curr: results) {
 			HashMap<String, String> datum = new HashMap<String, String>();
 			datum.put("name", curr.getName());
 			List<Ingredient> ingr = curr.getIngredients();
 			String ingrStr = makeIngredientsBetter(ingr);
 			datum.put("info", ingrStr);
 			datum.put("ingr", curr.getInstructions());
-			if(curr.getRating() == Rating.THUMBSUP)
-			{
+			datum.put("id", String.valueOf(curr.getId()));
+			if(curr.getRating() == Rating.THUMBSUP) {
 				datum.put("img", Integer.toString(R.drawable.thumbsup));
 			}
-			else if(curr.getRating() == Rating.THUMBSDOWN)
-			{
+			else if(curr.getRating() == Rating.THUMBSDOWN) {
 				datum.put("img", Integer.toString(R.drawable.thumbsdown));
 			}
-			else
-			{
+			else {
 				datum.put("img", "");
 			}
 			dataSet.add(datum);
@@ -376,9 +373,9 @@ public class Home extends Activity {
 		}
 		adapter = new SimpleAdapter(cont, dataSet, 
 	    		R.layout.two_line_listview_elem, 
-	    		new String[] {"name", "info", "ingr", "img"}, 
+	    		new String[] {"name", "info", "ingr", "id", "img"}, 
 	    		new int[] {R.id.text1, 
-	    			R.id.text2, R.id.text3, R.id.imageView1});
+	    			R.id.text2, R.id.text3, R.id.idHidden, R.id.imageView1});
 	    list.setAdapter(adapter);
 	    configListResults();
 	    ll.removeAllViews();
@@ -397,10 +394,11 @@ public class Home extends Activity {
 				String name = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text1)).getText().toString();
 				String ingredients = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text2)).getText().toString();
 				String instr = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text3)).getText().toString();
-				
+				long id = Long.valueOf(((TextView)((RelativeLayout)arg1).findViewById(R.id.idHidden)).getText().toString());
 				if(!name.contains("No results")){
 					list.setSelection(arg2);
-					DrinkPopup.drinkPopUpInit(cont, name, ingredients, instr, true, getDrinkRating(name, instr, ingredients), false, false);
+					DrinkPopup.drinkPopUpInit(cont, name, ingredients, instr, id, true, 
+							getDrinkRating(name, instr, ingredients), false, false);
 				}
 			}
 	    });
@@ -432,7 +430,8 @@ public class Home extends Activity {
 		String name = drinkMap.get("name");
 		String ingr = drinkMap.get("info");
 		String instr = drinkMap.get("ingr");
-		DrinkPopup.drinkPopUpInit(cont, name, ingr, instr, true, getDrinkRating(name, instr, ingr), true, false);
+		long id = Long.valueOf(drinkMap.get("id"));
+		DrinkPopup.drinkPopUpInit(cont, name, ingr, instr, id, true, getDrinkRating(name, instr, ingr), true, false);
 		list.setSelection(randIndex);
 	}
 	
@@ -446,7 +445,8 @@ public class Home extends Activity {
 		String name = drink.getName();
 		String ingr = makeIngredientsBetter(drink.getIngredients());
 		String instr = drink.getInstructions();
-		DrinkPopup.drinkPopUpInit(cont, name, ingr, instr, false, getDrinkRating(name, instr, ingr), true, true);
+		long id = drink.getId();
+		DrinkPopup.drinkPopUpInit(cont, name, ingr, instr, id, false, getDrinkRating(name, instr, ingr), true, true);
 	}
 	
 	/**
