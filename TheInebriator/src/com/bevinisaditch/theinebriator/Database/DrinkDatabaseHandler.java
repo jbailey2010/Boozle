@@ -641,20 +641,23 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 		**/
 	    public ArrayList<Drink> getRelevantDrinksByName(ArrayList<String> terms) {
 	    	SQLiteDatabase db = this.getWritableDatabase();
-	    	ArrayList<Matching> allMatches = getAllMatchings();
-	    	ArrayList<IngredientIDPair> allPairs = getAllPairs();
 	    	
-	    	String selectQuery = "SELECT * FROM DRINKS WHERE ";
-	    	//TODO: Limit the queries here as well
-	    	//Creates query for database
+	    	String selectQuery = 
+	    			"SELECT ID, NAME, RATING, INSTRUCTIONS, GROUP_CONCAT(QUANTITY), GROUP_CONCAT(UNITS), GROUP_CONCAT(ingr_name) FROM ("
+	    		  + "SELECT * FROM (SELECT * FROM DRINKS AS d WHERE ";
 	    	if (terms != null && terms.size() > 0) {
 	    		selectQuery += "NAME LIKE '% " + terms.get(0) + " %'";
 	    		terms.remove(0);
 	    	}
-	    	
 	    	for (String term : terms) {
 	    		selectQuery += " OR NAME LIKE '% " + term + " %'";	    		
-	    	}
+	    	} 
+	    	selectQuery += ") AS d "
+	    	+ " LEFT JOIN MATCHINGS AS m"
+	    	+ " on d.ID = m.DRINKID " 
+	    	+ "LEFT JOIN "
+	    	+ "(SELECT NAME as ingr_name, ID FROM INGREDIENTS AS i)"
+	    	+ " AS i on i.ID = m.INGREDIENTID ) GROUP BY ID";
 	    	
 	    	Cursor cursor = db.rawQuery(selectQuery, null);
 	    	
@@ -663,13 +666,36 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 			{
 				do
 				{
-					long id = cursor.getLong(0);
+					
+					//Get drink information
+					long id = cursor.getInt(0);
 					String name = cursor.getString(1);
 					Drink.Rating rating =  intToRating(cursor.getInt(2));
 					String instructions = cursor.getString(3);
-					ArrayList<Ingredient> ingredients = getIngredientsForDrinkID(id, allMatches, allPairs);
+					
+					//Split up the concatenated ingredients and add to ingredient list
+					ArrayList<Ingredient> drinkIngredients = new ArrayList<Ingredient>();
+					List<String> quantity = manageIngredients(cursor.getString(4));
+					List<String> units = manageIngredients(cursor.getString(5));
+					List<String> ingrName = manageIngredients(cursor.getString(6));
+					int maxLength = getMaxLength(units, quantity, ingrName);
+					
+					//Dummy ingredients first, then it will be populated
+					for(int i = 0; i < maxLength; i++){
+						Ingredient ingr = new Ingredient(null, null, null);
+						if(units != null && units.size() > 0){
+							ingr.setUnits(units.get(i));
+						}
+						if(quantity != null && quantity.size() > 0){
+							ingr.setQuantity(quantity.get(i));
+						}
+						if(ingrName != null && ingrName.size()> 0){
+							ingr.setName(ingrName.get(i));
+						}
+						drinkIngredients.add(ingr);
+					}
 
-					Drink currDrink = new Drink(name, rating, ingredients, instructions, id);
+					Drink currDrink = new Drink(name, rating, drinkIngredients, instructions, id);
 					drinks.add(currDrink);
 				} while (cursor.moveToNext());
 			}
