@@ -65,12 +65,10 @@ public class SearchManagement {
 			@Override
 			public void onClick(View arg0) {
 				String selection = typeSpinner.getSelectedItem().toString();
-				if(selection.contains("Name"))
-				{
+				if(selection.contains("Name")){
 					searchByName(c);
 				}
-				else if(selection.contains("Ingredients"))
-				{
+				else if(selection.contains("Ingredients")) 	{
 					searchByIngredients(c);
 				}
 				dialog.dismiss();
@@ -149,8 +147,7 @@ public class SearchManagement {
 			optIngredients = new ArrayList<String>();
 		}
 		
-		if (reqIngredients == null)
-		{
+		if (reqIngredients == null) {
 			reqIngredients = new ArrayList<String>();
 		}
 		 
@@ -204,23 +201,18 @@ public class SearchManagement {
 			@Override
 			public void onClick(View v) {
 				String name = input.getText().toString();
-				if(reqIngredients.contains(name) || optIngredients.contains(name))
-				{
+				if(reqIngredients.contains(name) || optIngredients.contains(name)) {
 					Toast.makeText(c, "That ingredient is already added", Toast.LENGTH_SHORT).show();
 					input.setText("");
 				}
-				else
-				{
-					if(reqIngredients.size() == 0 && optIngredients.size() == 0)
-					{
+				else {
+					if(reqIngredients.size() == 0 && optIngredients.size() == 0) {
 						submit.setBackground(c.getResources().getDrawable(R.drawable.btn_blue));
 					}
-					if(reqRadio.isChecked())
-					{
+					if(reqRadio.isChecked()) {
 						reqIngredients.add(name);
 					}
-					else
-					{
+					else {
 						optIngredients.add(name);
 					}
 					updateTextViews(required, reqIngredients, "Required Ingredients:");
@@ -232,21 +224,18 @@ public class SearchManagement {
 	    submit.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				if(optIngredients.size() > 0 || reqIngredients.size() > 0)
-				{
+				if(optIngredients.size() > 0 || reqIngredients.size() > 0) {
 					dialog.dismiss();
 					SearchEngine search = new SearchEngine(c);
 					search.searchByIngredient((ArrayList<String>) optIngredients, (ArrayList<String>) reqIngredients);
 				}
 			}
 	    });
-	    if(optIngredients.size() == 0 && reqIngredients.size() == 0)
-	    {
+	    if(optIngredients.size() == 0 && reqIngredients.size() == 0) {
 		    optIngredients = new ArrayList<String>();
 			reqIngredients = new ArrayList<String>();
 	    }
-	    else
-	    {
+	    else {
 	    	updateTextViews(required, reqIngredients, "Required Ingredients:");
 			updateTextViews(optional, optIngredients, "Optional Ingredients:");
 	    }
@@ -258,12 +247,10 @@ public class SearchManagement {
 	public static void updateTextViews(TextView view, List<String>ingrList, String header)
 	{
 		StringBuilder ingrBuilder = new StringBuilder(100);
-		if(ingrList.size() > 0)
-		{
+		if(ingrList.size() > 0) {
 			ingrBuilder.append(header + "\n");
 		}
-		for(String ingr : ingrList)
-		{
+		for(String ingr : ingrList) {
 			ingrBuilder.append(ingr + "\n");
 		}
 		view.setText(ingrBuilder.toString());

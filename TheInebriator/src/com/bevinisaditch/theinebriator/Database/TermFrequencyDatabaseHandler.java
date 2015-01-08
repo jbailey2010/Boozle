@@ -15,6 +15,7 @@ import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -49,11 +50,12 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
+		
 		String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_TERM_FREQ + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_TERM + " TEXT,"
                 + KEY_FREQ + " REAL" + ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
-        
+
         Log.d("TermFrequencyDatabaseHandler", "Populating Term Frequency DB");
         // Populate DB
         List<String> drinkNames = Loading.drinkNames;
@@ -106,43 +108,37 @@ public class TermFrequencyDatabaseHandler extends SQLiteOpenHelper {
         for (Entry<String, Float> entry : termFreq.entrySet()) {
         	termFreq.put(entry.getKey(), entry.getValue()/totalTermCount);
         }
-		
-        
+		        
         //Add each entry to the database
-        for (Entry<String, Float> entry : termFreq.entrySet()) {
-        	Log.d("TermFrequencyDatabaseHandler", "Frequency for " + entry.getKey() + ": " + entry.getValue());
-        	TermFrequency dbEntry = new TermFrequency(entry.getKey(), entry.getValue());
-        	addTermFreq(db, dbEntry);
-        }
+        addAllTermFreq(termFreq, db);
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		// Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_TERM_FREQ);
- 
+         
         // Create tables again
         onCreate(db);
 		
 	}
 	
-
-	/**
-	 *  Add a term frequency instance to the database
-	 * 
-	 * @param termFreq instance of term frequency
-	 * @return id of the row
-	 */
-	public Long addTermFreq(TermFrequency termFreq) {
-		SQLiteDatabase db = this.getWritableDatabase();
-		 
-	    ContentValues values = new ContentValues();
-	    values.put(KEY_TERM, termFreq.getTerm());
-	    values.put(KEY_FREQ, termFreq.getFrequency());
-	 
-	    long id = db.insert(TABLE_TERM_FREQ, null, values);
-	    db.close();
-	    return id;
+	public void addAllTermFreq(HashMap<String, Float> termMap, SQLiteDatabase db) {
+		try{
+    		db.beginTransaction();
+    		for(String term : termMap.keySet()){
+    			Float freq = termMap.get(term);
+    			ContentValues values = new ContentValues();
+    			values.put(KEY_TERM, term);
+    			values.put(KEY_FREQ, freq);
+    			
+    			db.insert(TABLE_TERM_FREQ, null, values);
+    		}
+    		db.setTransactionSuccessful();
+    	} catch (SQLException e) {}
+    	finally{
+    		db.endTransaction();
+    	}
 	}
 	
 	/**

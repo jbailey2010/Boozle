@@ -4,23 +4,29 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
+
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.util.Log;
+
 import com.bevinisaditch.theinebriator.Home;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
 import com.bevinisaditch.theinebriator.ClassFiles.TermFrequency;
+import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;
 import com.bevinisaditch.theinebriator.Database.TermFrequencyDatabaseHandler;
 
 @SuppressLint("DefaultLocale")
 public class BM25Ranker extends Ranker {
 	public Context context;
-	//public ProgressDialog loginDialog;
-	ArrayList<Drink> relevantDrinks;
-	ArrayList<String> searchTerms;
+	public ProgressDialog loginDialog;
+	ArrayList<String> optIngredients;
+	ArrayList<String> reqIngredients;
 	TermFrequencyDatabaseHandler handler;
 	Integer searchType;
 	
@@ -36,35 +42,30 @@ public class BM25Ranker extends Ranker {
 	 * @param drinks - Relevant drinks to be ranked
 	 * @param searchType - Search by name or ingredient... 
 	 * 	Use SearchEngine.SEARCH_INGREDIENT or SearchEngine.SEARCH_NAME
+	 * @param byName 
 	 */
-	public BM25Ranker(
-			Context context,
-			ArrayList<String> terms,
-			ArrayList<Drink> drinks,
+	public BM25Ranker( Context context, ArrayList<String> optIngredients, ArrayList<String> reqIngredients,
 			Integer searchType) {
 		this.context = context;
-		//this.loginDialog = new ProgressDialog(context);
-		this.relevantDrinks = drinks;
-		this.searchTerms = terms;
+		this.optIngredients = optIngredients;
+		this.reqIngredients = reqIngredients;
 		this.handler = new TermFrequencyDatabaseHandler(context);
 		this.searchType = searchType;
-		
 	}
 	
 	
     protected void onPreExecute() {
     	super.onPreExecute();
-    	/**
+		loginDialog = new ProgressDialog(context);
     	loginDialog.setMessage("Please wait... Searching");
     	loginDialog.setCancelable(false);
         loginDialog.show();
-        **/  
     }
 	
 	@Override
 	protected ArrayList<Drink> doInBackground(Void... params) {
 		
-		return rank(searchTerms, relevantDrinks);
+		return rank();
 	}
 	
 	@Override
@@ -74,17 +75,39 @@ public class BM25Ranker extends Ranker {
 			Home.backToNoResults = true;
 			((Home) context).listviewInit(result, true);
 		}
-		//loginDialog.dismiss();
+		loginDialog.dismiss();
     }
 	
 
 	@Override
-	public ArrayList<Drink> rank(ArrayList<String> terms, ArrayList<Drink> drinks) {
-		
-		HashMap<Drink, Double> unsortedDrinks = new HashMap<Drink, Double>();
-		
-		ArrayList<String> individualTerms = parseTerms(terms);
+	public ArrayList<Drink> rank() {
+		DrinkDatabaseHandler drinkHandler = Home.getHandler(context);
+		ArrayList<Drink> drinks = new ArrayList<Drink>();
+		ArrayList<String> terms = new ArrayList<String>();
+		if(searchType == SearchEngine.SEARCH_NAME){
+			terms.add(reqIngredients.get(0));
+			
+			String[] pterms = terms.get(0).split("\\s+");
+			ArrayList<String> parsedTerms = new ArrayList<String>();
+			for (String term : pterms) {
+				parsedTerms.add(term);
+			}
+			
+			drinks = drinkHandler.getRelevantDrinksByName(parsedTerms);
+			Log.d("SearchEngine", "Got drinks");
 
+		}
+		else if(searchType == SearchEngine.SEARCH_INGREDIENT){
+			drinks = drinkHandler.getRelevantDrinksByIngredient(reqIngredients);
+			Log.d("SearchEngine", "Got drinks");
+			//If by ingredient, add all optional and required ingredients
+			terms.addAll(optIngredients);
+			terms.addAll(reqIngredients);
+			
+		}		
+		
+		HashMap<Drink, Double> unsortedDrinks = new HashMap<Drink, Double>();		
+		ArrayList<String> individualTerms = parseTerms(terms);
 		int averageLength = getAvgLengthOfDrinks(drinks);
 		
 		ArrayList<TermFrequency> termFreqs = new ArrayList<TermFrequency>();
@@ -96,9 +119,7 @@ public class BM25Ranker extends Ranker {
 				float freq = 0f;
 				termFreqs.add(new TermFrequency(term, freq));
 				//Log.d("BM25Ranker", "No matching term freq for " + term);
-				
 			}
-			
 		}
 		
 		//For each drink, get a score
@@ -172,11 +193,9 @@ public class BM25Ranker extends Ranker {
 	 * @return sorted TreeMap of Drinks based on their score
 	 */
 	public ArrayList<Drink> sortDrinks(HashMap<Drink, Double> unsortedDrinks) {
-		System.out.println("unsortedDrinks size: " + unsortedDrinks.size());
 		DrinkComparator comparator = new DrinkComparator(unsortedDrinks);
 		TreeMap<Drink, Double> sortedDrinks = new TreeMap<Drink, Double>(comparator);
 		sortedDrinks.putAll(unsortedDrinks);
-		System.out.println("SortedDrinks size: " + sortedDrinks.size());
 		
 		ArrayList<Drink> returnedDrinks = new ArrayList<Drink>();
 		Entry<Drink, Double> currentEntry = sortedDrinks.pollFirstEntry();

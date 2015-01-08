@@ -15,9 +15,6 @@ public abstract class Ranker extends AsyncTask<Void, Void, ArrayList<Drink>> {
 	 * @param drinks - List of drinks to be ranked/sorted
 	 * @return - Sorted list of drinks
 	 */
-	public abstract ArrayList<Drink> rank(
-			ArrayList<String> terms, 
-			ArrayList<Drink> drinks
-			);
+	public abstract ArrayList<Drink> rank();
 
 }

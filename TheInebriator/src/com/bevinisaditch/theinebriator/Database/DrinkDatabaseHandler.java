@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -644,7 +645,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	ArrayList<IngredientIDPair> allPairs = getAllPairs();
 	    	
 	    	String selectQuery = "SELECT * FROM DRINKS WHERE ";
-	    	
+	    	//TODO: Limit the queries here as well
 	    	//Creates query for database
 	    	if (terms != null && terms.size() > 0) {
 	    		selectQuery += "NAME LIKE '% " + terms.get(0) + " %'";
@@ -691,26 +692,50 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	for (String ingredient : ingredients ) {
 	    		
 	    		//Get all Drinks that have the required ingredient
-	    		String query = "SELECT d.ID, d.NAME, d.RATING, d.INSTRUCTIONS "
-	    				 + "FROM Drinks d "
-	    				 + "JOIN Matchings m on d.ID = m.DRINKID "
-	    				 + "JOIN Ingredients i on i.ID = m.INGREDIENTID "
-	    				 + "WHERE i.NAME LIKE '% " + ingredient + " %' "
-	    				 + "or LOWER( i.NAME ) = '" + ingredient.toLowerCase() + "'";
-	    		
+	    		String query =
+	    	"SELECT ID, NAME, RATING, INSTRUCTIONS, GROUP_CONCAT(QUANTITY), GROUP_CONCAT(UNITS), GROUP_CONCAT(ingr_name) FROM ("
+	  	  +	"SELECT * FROM DRINKS AS d "
+		  + "LEFT JOIN MATCHINGS AS m" 
+		  + " on d.ID = m.DRINKID "
+		  + "LEFT JOIN "
+		  + "(SELECT NAME AS ingr_name, ID FROM INGREDIENTS AS i "
+		  + 		"WHERE ingr_name LIKE '% " + ingredient + " %' "
+		  +			"OR LOWER( ingr_name ) = '" + ingredient.toLowerCase() + "'"
+		  + ") AS i on i.ID = m.INGREDIENTID ) GROUP BY ID";	    				 
+	    	
 	    		Cursor cursor = db.rawQuery(query, null);
 	    		
 	    		if (cursor.moveToFirst()) {
-					do {
+					do {						
 						//Get drink information
 						long id = cursor.getInt(0);
 						String name = cursor.getString(1);
 						Drink.Rating rating =  intToRating(cursor.getInt(2));
 						String instructions = cursor.getString(3);
 						
-						//Get the ingredients for this specific drink
-						ArrayList<Ingredient> drinkIngredients = getIngredientsForDrinkID(id);
-
+						//Split up the concatenated ingredients and add to ingredient list
+						ArrayList<Ingredient> drinkIngredients = new ArrayList<Ingredient>();
+						List<String> quantity = manageIngredients(cursor.getString(4));
+						List<String> units = manageIngredients(cursor.getString(5));
+						List<String> ingrName = manageIngredients(cursor.getString(6));
+						int maxLength = getMaxLength(units, quantity, ingrName);
+						
+						//Dummy ingredients first, then it will be populated
+						for(int i = 0; i < maxLength; i++){
+							Ingredient ingr = new Ingredient(null, null, null);
+							if(units != null && units.size() > 0){
+								ingr.setUnits(units.get(i));
+							}
+							if(quantity != null && quantity.size() > 0){
+								ingr.setQuantity(quantity.get(i));
+							}
+							if(ingrName != null && ingrName.size()> 0){
+								ingr.setName(ingrName.get(i));
+							}
+							drinkIngredients.add(ingr);
+						}
+						
+						
 						//Create drink and add to return list
 						Drink currDrink = new Drink(name, rating, drinkIngredients, instructions, id);
 						drinks.add(currDrink);
@@ -722,6 +747,25 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	}
 	    	
 	    	return drinks;
+	    }
+	    
+	    private List<String> manageIngredients(String concat){
+	    	if(concat == null || !concat.contains(",")){
+	    		return null;
+	    	}
+	    	return Arrays.asList(concat.split(",", -1));
+	    }
+	    
+	    private int getMaxLength(List<String> units, List<String> quantity, List<String> name){
+	    	int u = (units == null) ? 0 : units.size();
+	    	int q = (quantity == null) ? 0 : quantity.size();
+	    	int n = (name == null) ? 0 : name.size();
+
+	    	//Some weird drinks where there's a count mismatch. Q and u should be the same, so default to n
+	    	if(n > 0 && q > 0 && n < q){
+	    		return n;
+	    	}
+	    	return Math.max(u, Math.max(q, n));
 	    }
 	    
 	    /**

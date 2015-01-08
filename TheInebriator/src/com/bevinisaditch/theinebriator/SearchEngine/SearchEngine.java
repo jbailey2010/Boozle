@@ -1,11 +1,16 @@
 package com.bevinisaditch.theinebriator.SearchEngine;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.util.Log;
 
+import com.bevinisaditch.theinebriator.Home;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;
 
@@ -29,7 +34,7 @@ public class SearchEngine {
 	 */
 	public SearchEngine(Context context) {
 		this.context = context;
-		drinkHandler = new DrinkDatabaseHandler(context);
+		drinkHandler = Home.getHandler(context);
 	}
 	
 	/**
@@ -47,89 +52,81 @@ public class SearchEngine {
 	/**
 	 * Takes a name to search for and returns the sorted drinks
 	 * @param name - name of drink you wish to search for
-	 * @return - ArrayList<Drink> of sorted drinks
 	 */
-	public ArrayList<Drink> searchByName(String name) {
-		
-		Log.d("SearchEngine", "SearchByName is called");
-		ArrayList<String> terms = new ArrayList<String>();
-		terms.add(name);
-		
-		
-		Log.d("SearchEngine", "Getting drinks...");
-		//TODO: Fix this
-		
-		String[] pterms = terms.get(0).split("\\s+");
-		ArrayList<String> parsedTerms = new ArrayList<String>();
-		for (String term : pterms) {
-			parsedTerms.add(term);
-		}
-		ArrayList<Drink> relevantDrinks = drinkHandler.getRelevantDrinksByName(parsedTerms);
-		//ArrayList<Drink> relevantDrinks = drinkHandler.getAllDrinks();
-		Log.d("SearchEngine", "Got drinks...");
-		
-		
-		if (ranker == null) {
-			ranker = new BM25Ranker(context, terms, relevantDrinks, SEARCH_NAME);
-		} 
-		
-		Log.d("SearchEngine", "Ranking drinks...");
-		this.ranker.execute();
-		Log.d("SearchEngine", "Drinks ranked");
-		
-		ArrayList<Drink> sortedDrinks;
-		try {
-			sortedDrinks = ranker.get();
-		} catch (InterruptedException e) {
-			sortedDrinks = null;
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			sortedDrinks = null;
-			e.printStackTrace();
-		}
-		
-		return sortedDrinks;
-		
+	public void searchByName(final String name) {
+		AsyncLoaderName nameFreq = new AsyncLoaderName();
+		nameFreq.execute(name, this);
 	}
+	
+	private class AsyncLoaderName extends AsyncTask<Object, Void, BM25Ranker> {
+		SearchEngine engine;
+
+		/**
+		 * Calls the method to load the drinks
+		 */
+        @Override
+        protected BM25Ranker doInBackground(Object... params) {
+        	String name = (String)params[0];
+        	engine = (SearchEngine)params[1];
+
+    		if (ranker == null) {
+    	    	ArrayList<String> nameList = new ArrayList<String>();
+    			nameList.add(name);	
+    			ranker = new BM25Ranker(context, null, nameList, SEARCH_NAME);			    
+    		} 
+    		
+        	return ranker;
+        }
+
+        /**
+         * Once it's done, move over to send to home
+         */
+        @Override
+        protected void onPostExecute(BM25Ranker ranker) {
+            engine.ranker = ranker;
+            ranker.execute();
+        }
+    }
 	
 	/**
 	 * Takes optional and required ingredients and returns a list of sorted drinks
 	 * @param optIngredients - optional ingredients
 	 * @param reqIngredients - required ingredients
-	 * @return sorted drinks
 	 */
-	public ArrayList<Drink> searchByIngredient(ArrayList<String> optIngredients, ArrayList<String> reqIngredients) {
-		Log.d("SearchEngine", "SearchByIngredient called");
-		//TODO: Fix this
+	public void searchByIngredient(final ArrayList<String> optIngredients, final ArrayList<String> reqIngredients) {
 		
-		Log.d("SearchEngine", "Getting drinks...");
-		ArrayList<Drink> relevantDrinks = drinkHandler.getRelevantDrinksByIngredient(reqIngredients);
-		Log.d("SearchEngine", "Got drinks");
-		
-		ArrayList<String> searchTerms = new ArrayList<String>();
-		searchTerms.addAll(optIngredients);
-		searchTerms.addAll(reqIngredients);
-		
-		if (ranker == null) {
-			ranker = new BM25Ranker(context, searchTerms, relevantDrinks, SEARCH_INGREDIENT);
-		}
-		
-		Log.d("SearchEngine", "Ranking drinks...");
-		ranker.execute();
-		Log.d("SearchEngine", "drinks ranked");
-		
-		ArrayList<Drink> sortedDrinks;
-		try {
-			sortedDrinks = ranker.get();
-		} catch (InterruptedException e) {
-			sortedDrinks = null;
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			sortedDrinks = null;
-			e.printStackTrace();
-		}
-		
-		return sortedDrinks;
+		AsyncLoaderIngr ingrFreq = new AsyncLoaderIngr();
+		ingrFreq.execute(optIngredients, this, reqIngredients);
 	}
+	
+	private class AsyncLoaderIngr extends AsyncTask<Object, Void, BM25Ranker> {
+		SearchEngine engine;
 
+		/**
+		 * Calls the method to load the drinks
+		 */
+        @Override
+        protected BM25Ranker doInBackground(Object... params) {
+        	ArrayList<String> optIngredients = (ArrayList<String>)params[0];
+        	engine = (SearchEngine)params[1];
+        	ArrayList<String> reqIngredients = (ArrayList<String>)params[2];
+
+    		if (ranker == null) {
+    			ranker = new BM25Ranker(context, optIngredients, reqIngredients, 
+		        		SEARCH_INGREDIENT);			    
+    		} 
+    		
+        	return ranker;
+        }
+
+        /**
+         * Once it's done, move over to send to home
+         */
+        @Override
+        protected void onPostExecute(BM25Ranker ranker) {
+            engine.ranker = ranker;
+            ranker.execute();
+        }
+    }
+	
 }
