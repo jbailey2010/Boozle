@@ -137,9 +137,7 @@ public class BM25Ranker extends Ranker {
 			
 			if (searchType == SearchEngine.SEARCH_INGREDIENT) {
 				for (Ingredient ing : drink.getIngredients()) {
-					if(ing.getName() != null){
-						wordsInDrink.add(ing.getName());
-					}
+					wordsInDrink.add(ing.getName());
 				}
 			}
 			double totalFreq = parseTerms(wordsInDrink).size();
@@ -168,11 +166,9 @@ public class BM25Ranker extends Ranker {
 				
 				if (searchType == SearchEngine.SEARCH_INGREDIENT) {
 					for (Ingredient ingredient : drink.getIngredients()) {
-						if (ingredient.getName() != null && 
-								(ingredient.getName().toLowerCase()).contains(term.toLowerCase())) {
+						if ((ingredient.getName().toLowerCase()).contains(term.toLowerCase())) {
 							docFreq += 1.0;
 						}
-						
 					}
 				}
 				

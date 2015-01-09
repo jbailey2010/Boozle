@@ -511,9 +511,10 @@ public class Home extends Activity {
 	private static List<String> deduplicateList(List<String> names){
 		List<String> dedupNames = new ArrayList<String>();
 		Set<String> dedup = new HashSet<String>();
-		for(String name : names){
+		for(String nameIter : names){
+			String name = sanitizeString(nameIter);
 			if(!dedup.contains(name)){
-				dedup.add(sanitizeString(name));
+				dedup.add(name);
 			}
 		}
 		dedupNames.addAll(dedup);
@@ -527,7 +528,8 @@ public class Home extends Activity {
 		input = WordUtils.capitalizeFully(input);
 		//TODO: apply trimming here for units and whatnot
 		
-		//TODO: Split on #<number> to avoid dedup
+		//Split on #<number> to avoid dedup
+		input = input.split(" #[0-9]+$")[0];
 		
 		return input;
 	}
