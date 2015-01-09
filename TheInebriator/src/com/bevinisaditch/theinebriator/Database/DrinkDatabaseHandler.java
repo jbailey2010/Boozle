@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -60,8 +59,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    /**
 	     * Deletes the old tables and re-reads from text files to populate them again.
 	     */
-	    public void reCreateTables()
-	    { 
+	    public void reCreateTables() { 
 	    	SQLiteDatabase db = this.getWritableDatabase();
 	    	deleteTablesIfExist(db);
 	    	onCreate(db);
@@ -82,7 +80,6 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 					"NAME           TEXT      NOT NULL)";
 	        db.execSQL(CREATE_PAIRS_TABLE);
 	        
-	        //TODO: Quantity and Units should be in the 'INGREDIENTS' table - Mike
 	        String CREATE_MATCHINGS_TABLE = "CREATE TABLE MATCHINGS" +
 					"(ID INTEGER PRIMARY KEY," +
 					"DRINKID        INT        NOT NULL," +
@@ -121,8 +118,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 		 * Thumbs up the drink with given ID
 		 * @param drinkID
 		 */
-		public void thumbsUpDrink(Long drinkID)
-		{
+		public void thumbsUpDrink(Long drinkID) {
 			SQLiteDatabase db = this.getWritableDatabase();
 			String updateText = "UPDATE DRINKS " + "SET RATING = 1 " + "WHERE ID = " + drinkID;
 			db.execSQL(updateText);
@@ -132,8 +128,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 		 * Sets the rating to no thumbs up nor thumbs down for the drink with the given id
 		 * @param drinkID
 		 */
-		public void thumbsNullDrink(Long drinkID)
-		{
+		public void thumbsNullDrink(Long drinkID) {
 			SQLiteDatabase db = this.getWritableDatabase();
 			String updateText = "UPDATE DRINKS " + "SET RATING = 0 " + "WHERE ID = " + drinkID;
 			db.execSQL(updateText);
@@ -143,8 +138,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 		 * Thumbs down the drink with given ID
 		 * @param drinkID
 		 */
-		public void thumbsDownDrink(Long drinkID)
-		{
+		public void thumbsDownDrink(Long drinkID) {
 			SQLiteDatabase db = this.getWritableDatabase();
 			String updateText = "UPDATE DRINKS " + "SET RATING = -1 " + "WHERE ID = " + drinkID;
 			db.execSQL(updateText);
@@ -155,8 +149,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 		 * @param drinkID ID of drink that needs a rating change
 		 * @param rating Rating to which the drink's rating should be changed
 		 */
-		public void setDrinkRating(Long drinkID, Rating rating)
-		{
+		public void setDrinkRating(Long drinkID, Rating rating) {
 			if (rating == Rating.THUMBSUP)
 				thumbsUpDrink(drinkID);
 			else if (rating == Rating.THUMBSDOWN)
@@ -208,8 +201,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * Adds a drink to the database, ignoring its ingredients.
 	     * @param drink
 	     */
-	    public void addDrinkWithoutIngredients(Drink drink)
-	    {
+	    public void addDrinkWithoutIngredients(Drink drink) {
 	    	SQLiteDatabase db = this.getWritableDatabase();
 	    	 
 	        ContentValues values = new ContentValues();
@@ -231,8 +223,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * @param instructions Instructions of drink to add
 	     * @param db This database
 	     */
-	    public void addDrinkByVars(List<Object> drinkData, SQLiteDatabase db)
-	    {
+	    public void addDrinkByVars(List<Object> drinkData, SQLiteDatabase db) {
 	    	try{
 	    		db.beginTransaction();
 	    		for(int i = 0; i < drinkData.size(); i++){
@@ -264,8 +255,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * 
 	     * @param match
 	     */
-	    public void addMatching(List<Matching> matchings, SQLiteDatabase db)
-	    {
+	    public void addMatching(List<Matching> matchings, SQLiteDatabase db) {
 	    	try{
 	    		db.beginTransaction();
 	    		for(Matching match : matchings){
@@ -291,8 +281,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * Adds all IngredientIDPairs to the database.
 	     * @param pair
 	     */
-	    public void addPair(List<IngredientIDPair> pairs, SQLiteDatabase db)
-	    {
+	    public void addPair(List<IngredientIDPair> pairs, SQLiteDatabase db) {
 	    	try{
 	    		db.beginTransaction();
 		    	for(IngredientIDPair pair : pairs){
@@ -314,8 +303,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * @param rating The rating to convert
 	     * @return -1 if thumbs down 0 if thumbs null and +1 if thumbs up
 	     */
-	    private int ratingToInt(Rating rating)
-	    {
+	    private int ratingToInt(Rating rating) {
 	    	if (rating == Rating.THUMBSNULL)
 	    		return 0;
 	    	else if (rating == Rating.THUMBSUP)
@@ -334,13 +322,11 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * @param db This database
 	     * @return Drinks with given IDs
 	     */
-	    private Drink getDrinkByID(int id, SQLiteDatabase db)
-	    {
+	    private Drink getDrinkByID(int id, SQLiteDatabase db) {
     		String sql = "SELECT * FROM DRINKS WHERE ID = " + id;
     		Cursor cursor = db.rawQuery(sql, null);
     		Drink drink = null;
-    		if (cursor.moveToFirst())
-    		{
+    		if (cursor.moveToFirst()) {
     			long index = cursor.getInt(0);
 				String name = cursor.getString(1);
 				Drink.Rating rating =  intToRating(cursor.getInt(2));
@@ -357,8 +343,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * Gets all matchings in the database
 	     * @return
 	     */
-	    public ArrayList<Matching> getAllMatchings()
-	    {
+	    public ArrayList<Matching> getAllMatchings() {
 	    	ArrayList<Matching> matchings = new ArrayList<Matching>();
 	        // Select All Query
 	        String selectQuery = "SELECT * FROM MATCHINGS";
@@ -388,8 +373,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * Gets all IngredientIDPairs in the database
 	     * @return
 	     */
-	    public ArrayList<IngredientIDPair> getAllPairs()
-	    {
+	    public ArrayList<IngredientIDPair> getAllPairs() {
 	    	ArrayList<IngredientIDPair> pairs = new ArrayList<IngredientIDPair>();
 	        // Select All Query
 	        String selectQuery = "SELECT * FROM INGREDIENTS";
@@ -414,8 +398,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * Gets all drinks in the database with ingredients
 	     * @return
 	     */
-	    public ArrayList<Drink> getAllDrinks()
-	    {
+	    public ArrayList<Drink> getAllDrinks() {
 	    	ArrayList<Drink> drinks = new ArrayList<Drink>();
 	    	ArrayList<Matching> allMatches = getAllMatchings();
 			ArrayList<IngredientIDPair> allPairs = getAllPairs();
@@ -423,10 +406,8 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 			SQLiteDatabase db = this.getWritableDatabase();
 			Cursor cursor = db.rawQuery(selectQuery, null);
 			
-			if (cursor.moveToFirst())
-			{
-				do
-				{
+			if (cursor.moveToFirst()) {
+				do 	{
 					Long id = cursor.getLong(0);
 					String name = cursor.getString(1);
 					Drink.Rating rating =  intToRating(cursor.getInt(2));
@@ -641,23 +622,20 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 		**/
 	    public ArrayList<Drink> getRelevantDrinksByName(ArrayList<String> terms) {
 	    	SQLiteDatabase db = this.getWritableDatabase();
+	    	ArrayList<Matching> allMatches = getAllMatchings();
+	    	ArrayList<IngredientIDPair> allPairs = getAllPairs();
 	    	
-	    	String selectQuery = 
-	    			"SELECT ID, NAME, RATING, INSTRUCTIONS, GROUP_CONCAT(QUANTITY), GROUP_CONCAT(UNITS), GROUP_CONCAT(ingr_name) FROM ("
-	    		  + "SELECT * FROM (SELECT * FROM DRINKS AS d WHERE ";
+	    	String selectQuery = "SELECT * FROM DRINKS WHERE ";
+	    	
+	    	//Creates query for database
 	    	if (terms != null && terms.size() > 0) {
 	    		selectQuery += "NAME LIKE '% " + terms.get(0) + " %'";
 	    		terms.remove(0);
 	    	}
+	    	
 	    	for (String term : terms) {
 	    		selectQuery += " OR NAME LIKE '% " + term + " %'";	    		
-	    	} 
-	    	selectQuery += ") AS d "
-	    	+ " LEFT JOIN MATCHINGS AS m"
-	    	+ " on d.ID = m.DRINKID " 
-	    	+ "LEFT JOIN "
-	    	+ "(SELECT NAME as ingr_name, ID FROM INGREDIENTS AS i)"
-	    	+ " AS i on i.ID = m.INGREDIENTID ) GROUP BY ID";
+	    	}
 	    	
 	    	Cursor cursor = db.rawQuery(selectQuery, null);
 	    	
@@ -666,36 +644,13 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 			{
 				do
 				{
-					
-					//Get drink information
-					long id = cursor.getInt(0);
+					long id = cursor.getLong(0);
 					String name = cursor.getString(1);
 					Drink.Rating rating =  intToRating(cursor.getInt(2));
 					String instructions = cursor.getString(3);
-					
-					//Split up the concatenated ingredients and add to ingredient list
-					ArrayList<Ingredient> drinkIngredients = new ArrayList<Ingredient>();
-					List<String> quantity = manageIngredients(cursor.getString(4));
-					List<String> units = manageIngredients(cursor.getString(5));
-					List<String> ingrName = manageIngredients(cursor.getString(6));
-					int maxLength = getMaxLength(units, quantity, ingrName);
-					
-					//Dummy ingredients first, then it will be populated
-					for(int i = 0; i < maxLength; i++){
-						Ingredient ingr = new Ingredient("", "", "");
-						if(units != null && units.size() > 0){
-							ingr.setUnits(units.get(i));
-						}
-						if(quantity != null && quantity.size() > 0){
-							ingr.setQuantity(quantity.get(i));
-						}
-						if(ingrName != null && ingrName.size()> 0){
-							ingr.setName(ingrName.get(i));
-						}
-						drinkIngredients.add(ingr);
-					}
+					ArrayList<Ingredient> ingredients = getIngredientsForDrinkID(id, allMatches, allPairs);
 
-					Drink currDrink = new Drink(name, rating, drinkIngredients, instructions, id);
+					Drink currDrink = new Drink(name, rating, ingredients, instructions, id);
 					drinks.add(currDrink);
 				} while (cursor.moveToNext());
 			}
@@ -718,50 +673,26 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	for (String ingredient : ingredients ) {
 	    		
 	    		//Get all Drinks that have the required ingredient
-	    		String query =
-	    	"SELECT ID, NAME, RATING, INSTRUCTIONS, GROUP_CONCAT(QUANTITY), GROUP_CONCAT(UNITS), GROUP_CONCAT(ingr_name) FROM ("
-	  	  +	"SELECT * FROM DRINKS AS d "
-		  + "LEFT JOIN MATCHINGS AS m" 
-		  + " on d.ID = m.DRINKID "
-		  + "LEFT JOIN "
-		  + "(SELECT NAME AS ingr_name, ID FROM INGREDIENTS AS i "
-		  + 		"WHERE ingr_name LIKE '% " + ingredient + " %' "
-		  +			"OR LOWER( ingr_name ) = '" + ingredient.toLowerCase() + "'"
-		  + ") AS i on i.ID = m.INGREDIENTID ) GROUP BY ID";	    				 
-	    	
+	    		String query = "SELECT d.ID, d.NAME, d.RATING, d.INSTRUCTIONS "
+	    				 + "FROM Drinks d "
+	    				 + "JOIN Matchings m on d.ID = m.DRINKID "
+	    				 + "JOIN Ingredients i on i.ID = m.INGREDIENTID "
+	    				 + "WHERE i.NAME LIKE '% " + ingredient + " %' "
+	    				 + "or LOWER( i.NAME ) = '" + ingredient.toLowerCase() + "'";
+	    		
 	    		Cursor cursor = db.rawQuery(query, null);
 	    		
 	    		if (cursor.moveToFirst()) {
-					do {		
+					do {
 						//Get drink information
 						long id = cursor.getInt(0);
 						String name = cursor.getString(1);
 						Drink.Rating rating =  intToRating(cursor.getInt(2));
 						String instructions = cursor.getString(3);
 						
-						//Split up the concatenated ingredients and add to ingredient list
-						ArrayList<Ingredient> drinkIngredients = new ArrayList<Ingredient>();
-						List<String> quantity = manageIngredients(cursor.getString(4));
-						List<String> units = manageIngredients(cursor.getString(5));
-						List<String> ingrName = manageIngredients(cursor.getString(6));
-						int maxLength = getMaxLength(units, quantity, ingrName);
-						
-						//Dummy ingredients first, then it will be populated
-						for(int i = 0; i < maxLength; i++){
-							Ingredient ingr = new Ingredient("", "", "");
-							if(units != null && units.size() > 0){
-								ingr.setUnits(units.get(i));
-							}
-							if(quantity != null && quantity.size() > 0){
-								ingr.setQuantity(quantity.get(i));
-							}
-							if(ingrName != null && ingrName.size()> 0){
-								ingr.setName(ingrName.get(i));
-							}
-							drinkIngredients.add(ingr);
-						}
-						
-						
+						//Get the ingredients for this specific drink
+						ArrayList<Ingredient> drinkIngredients = getIngredientsForDrinkID(id);
+
 						//Create drink and add to return list
 						Drink currDrink = new Drink(name, rating, drinkIngredients, instructions, id);
 						drinks.add(currDrink);
@@ -775,32 +706,6 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	return drinks;
 	    }
 	    
-	    private List<String> manageIngredients(String concat){
-	    	if(concat == null || !concat.contains(",")){
-	    		return null;
-	    	}
-	    	return Arrays.asList(concat.split(",", -1));
-	    }
-	    
-	    private int getMaxLength(List<String> units, List<String> quantity, List<String> name){
-	    	int u = (units == null) ? 0 : units.size();
-	    	int q = (quantity == null) ? 0 : quantity.size();
-	    	int n = (name == null) ? 0 : name.size();
-
-	    	
-	    	//Some weird drinks where there's a count mismatch. Q and u should be the same, so default to n
-	    	if(n > 0 && q > 0 && n < Math.min(u, q)){
-	    		return n;
-	    	}
-	    	//TODO: This is a short term fix. Sometimes, quantity and units are mismatched, which is 
-	    	//clearly wrong. Some logical, consistent mapping would be great.
-	    	if(q > 0 && u > 0 && q != u){
-	    		q = Math.min(u, q);
-	    		u = Math.min(u, q);
-	    	}
-	    	return Math.max(u, Math.max(q, n));
-	    }
-	    
 	    /**
 	     * Gets all ingredients for a given drink ID
 	     * @param drinkID
@@ -808,21 +713,18 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * @param allPairs
 	     * @return
 	     */
-	    private static ArrayList<Ingredient> getIngredientsForDrinkID(Long drinkID, ArrayList<Matching> allMatches, ArrayList<IngredientIDPair> allPairs)
-		{
+	    private static ArrayList<Ingredient> getIngredientsForDrinkID(Long drinkID, ArrayList<Matching> allMatches,
+	    		ArrayList<IngredientIDPair> allPairs) {
 			ArrayList<Ingredient> ingList = new ArrayList<Ingredient>();
-			for (Matching currMatch : allMatches)
-			{
-				if (currMatch.drinkID == drinkID)
-				{
+			for (Matching currMatch : allMatches) {
+				if (currMatch.drinkID == drinkID) {
 					Ingredient currIngredient = new Ingredient();
 					currIngredient.setName(allPairs.get(currMatch.ingredientID-1).name);
 					currIngredient.setQuantity(currMatch.quantity);
 					currIngredient.setUnits(currMatch.units);
 					ingList.add(currIngredient);
 				}
-				else if (currMatch.drinkID > drinkID)
-				{
+				else if (currMatch.drinkID > drinkID) {
 					break;
 				}
 			}
@@ -848,10 +750,8 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	Cursor cursor = db.rawQuery(query, null);
 	    	
 	    	//Create each ingredient from a row
-	    	if (cursor.moveToFirst())
-			{
-				do
-				{
+	    	if (cursor.moveToFirst()) {
+				do {
 					//Get all information for the ingredient
 					String name = cursor.getString(0);
 					String quantity = cursor.getString(1);
@@ -874,8 +774,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * @param i
 	     * @return
 	     */
-	    private Rating intToRating(int i)
-	    {
+	    private Rating intToRating(int i) {
 	    	if (i == 1)
 	    		return Rating.THUMBSUP;
 	    	else if (i == -1)
@@ -889,10 +788,8 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * @param filename path to the file
 	     * @return A string containing the content of the file found at filename
 	     */
-	    private void readDrinks(SQLiteDatabase db)
-	    {
-	    	if (db == null)
-	    	{
+	    private void readDrinks(SQLiteDatabase db) {
+	    	if (db == null) {
 	    		db = this.getWritableDatabase();
 	    	}
 	    	List<Object> drinkData = new ArrayList<Object>();
@@ -903,8 +800,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 
 	    		try {
 	    			br = new BufferedReader(new InputStreamReader(is));
-	    			while (br.readLine() != null) 
-	    			{
+	    			while (br.readLine() != null) {
 	    				int id = Integer.parseInt(br.readLine())+1;
 	    				String name = br.readLine();
 	    				int rating = stringToRatingToInt(br.readLine());
@@ -936,10 +832,8 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * Reads matchings from file
 	     * @param db this database
 	     */
-	    private void readMatchings(SQLiteDatabase db)
-	    {
-	    	if (db == null)
-	    	{
+	    private void readMatchings(SQLiteDatabase db) {
+	    	if (db == null) {
 	    		db = this.getWritableDatabase();
 	    	}
 	    	List<Matching> matchings = new ArrayList<Matching>();
@@ -985,10 +879,8 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * Reads pairs from file
 	     * @param db This database
 	     */
-	    private void readPairs(SQLiteDatabase db)
-	    {
-	    	if (db == null)
-	    	{
+	    private void readPairs(SQLiteDatabase db) {
+	    	if (db == null) {
 	    		db = this.getWritableDatabase();
 	    	}
 	    	List<IngredientIDPair> pairs = new ArrayList<IngredientIDPair>();
@@ -1028,18 +920,14 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * @param str The rating in question
 	     * @return -1 if thumbs down, 0 if thumbs null, +1 if thumbs up
 	     */
-	    private int stringToRatingToInt(String str)
-	    {
-	    	if (str.equals("THUMBSUP"))
-	    	{
+	    private int stringToRatingToInt(String str) {
+	    	if (str.equals("THUMBSUP")) {
 	    		return 1;
 	    	}
-	    	else if (str.equals("THUMBSDOWN"))
-	    	{
+	    	else if (str.equals("THUMBSDOWN")) {
 	    		return -1;
 	    	}
-	    	else
-	    	{
+	    	else {
 	    		return 0;
 	    	}
 	    }
