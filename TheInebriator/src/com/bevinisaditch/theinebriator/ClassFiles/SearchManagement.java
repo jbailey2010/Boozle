@@ -80,7 +80,7 @@ public class SearchManagement {
 	 * Handles the configuring of the searching by name popup
 	 */
 	public static void searchByName(final Context c) {
-		final List<String> drinkNames = Home.getDrinkNames();
+		final List<String> drinkNames = GeneralUtils.getDNames();
 		for (String name : drinkNames) {
 			name = WordUtils.capitalizeFully(name);
 		}
@@ -141,7 +141,7 @@ public class SearchManagement {
 	 * Handles the configuring of the searching by ingredients popup
 	 */
 	public static void searchByIngredients(final Context c) {
-		final List<String> drinkNames = Home.getIngredients();
+		final List<String> drinkNames = GeneralUtils.getINames();
 		final Dialog dialog = new Dialog(c, R.style.DialogBackground);		
 		if (optIngredients == null) {
 			optIngredients = new ArrayList<String>();

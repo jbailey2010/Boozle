@@ -60,7 +60,6 @@ public class Home extends Activity {
 	private BounceListView list;
 	SideNavigationView sideNavigationView;
 	private ListView sideListView; 
-	private static HashSet<String> unitsSet;
 	public static SimpleAdapter adapter;
 	public static List<HashMap<String, String>> dataSet;
 	public static boolean backToNoResults = false;
@@ -487,94 +486,6 @@ public class Home extends Activity {
 				datum.put("img", Integer.toString(R.drawable.thumbsdown));
 			}
 		}
-	}
-	
-	/**
-	 * Gets all of the drink names in a list for the autocomplete in search
-	 */
-	public static List<String> getDrinkNames() {
-		return deduplicateList(Loading.drinkNames, false);
-	}
-	
-	/**
-	 * Gets all of the ingredient names in a list, eliminating all duplicates, 
-	 * for the autocomplete in search 
-	 */
-	public static List<String> getIngredients() {
-		return deduplicateList(Loading.ingrNames, true);
-	}
-	
-	/**
-	 * A small helper method to handle deduplication of names of ingredients 
-	 * and drink names
-	 * 
-	 * @param names - the ingredient or drink names, uncut
-	 * @return the trimmed, deduplicated version
-	 */
-	private static List<String> deduplicateList(List<String> names, boolean isIngr){
-		List<String> dedupNames = new ArrayList<String>();
-		Set<String> dedup = new HashSet<String>();
-		for(String nameIter : names){
-			String name = null;
-			if(isIngr){
-				name = sanitizeIngr(nameIter);
-			}
-			else{
-				name = sanitizeName(nameIter);
-			}
-			if(!dedup.contains(name)){
-				dedup.add(name);
-			}
-		}
-		dedupNames.addAll(dedup);
-		return dedupNames;
-	}
-	
-	private static String sanitizeName(String input){
-		//Cut leading and trailing spaces
-		input = input.trim();
-		//Capitalize for aesthetics in dropdown
-		input = WordUtils.capitalizeFully(input);
-		//Split on #<number> to avoid dedup
-		input = input.split(" #[0-9]+$")[0];
-		
-		return input;
-	}
-	
-	private static String sanitizeIngr(String input){
-		//Cut leading and trailing spaces
-		input = input.trim();
-		//Capitalize for aesthetics in dropdown
-		input = WordUtils.capitalizeFully(input);
-		//Apply trimming here for units and whatnot
-		String[] ingrArr = input.split(" ");
-		HashSet<String> units = getUnits();
-		for(String elem : ingrArr){
-			if(units.contains(elem)){
-				input = input.split(elem)[1];
-				break;
-			}
-		}
-		return input;
-	}
-	
-	private static HashSet<String> getUnits(){
-		if(unitsSet == null || unitsSet.size() == 0){
-			unitsSet = populateSet();
-		}
-		return unitsSet;
-	}
-	
-	private static HashSet<String> populateSet(){
-		String[] units = {"teaspoon","scoop","cup","part","package", 
-				"shot","dashes","dash","tsp","tbsp","pony","ml","sprig","pinch","inch","jigger",
-				"can","bottle","tb","drop","liter","litre","twist","heaping bar spoon","bar spoon",
-				"spoon","squeeze","pinch","stalk","bag","fifth",
-		       "gal","splashes","splash","float","pint","glass",
-		       "tablespoon","ponies","gallon","quart","oz",
-		       "ounce","slice","cl","whole","piece","g","lb","L", 
-		       "l","dl","pt","qt"};
-		return new HashSet<String>(Arrays.asList(units));
 	}
 	
 	/**
