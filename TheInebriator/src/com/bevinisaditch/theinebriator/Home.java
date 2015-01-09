@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Set;
 
 
+
+import org.apache.commons.lang3.text.WordUtils;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.Dialog;
@@ -510,11 +513,23 @@ public class Home extends Activity {
 		Set<String> dedup = new HashSet<String>();
 		for(String name : names){
 			if(!dedup.contains(name)){
-				dedup.add(name);
+				dedup.add(sanitizeString(name));
 			}
 		}
 		dedupNames.addAll(dedup);
 		return dedupNames;
+	}
+	
+	private static String sanitizeString(String input){
+		//Cut leading and trailing spaces
+		input = input.trim();
+		//Capitalize for aesthetics in dropdown
+		input = WordUtils.capitalizeFully(input);
+		//TODO: apply trimming here for units and whatnot
+		
+		//TODO: Split on #<number> to avoid dedup
+		
+		return input;
 	}
 	
 	/**

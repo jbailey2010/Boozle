@@ -682,7 +682,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 					
 					//Dummy ingredients first, then it will be populated
 					for(int i = 0; i < maxLength; i++){
-						Ingredient ingr = new Ingredient(null, null, null);
+						Ingredient ingr = new Ingredient("", "", "");
 						if(units != null && units.size() > 0){
 							ingr.setUnits(units.get(i));
 						}
@@ -732,7 +732,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    		Cursor cursor = db.rawQuery(query, null);
 	    		
 	    		if (cursor.moveToFirst()) {
-					do {						
+					do {		
 						//Get drink information
 						long id = cursor.getInt(0);
 						String name = cursor.getString(1);
@@ -748,7 +748,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 						
 						//Dummy ingredients first, then it will be populated
 						for(int i = 0; i < maxLength; i++){
-							Ingredient ingr = new Ingredient(null, null, null);
+							Ingredient ingr = new Ingredient("", "", "");
 							if(units != null && units.size() > 0){
 								ingr.setUnits(units.get(i));
 							}
@@ -787,9 +787,16 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	int q = (quantity == null) ? 0 : quantity.size();
 	    	int n = (name == null) ? 0 : name.size();
 
+	    	
 	    	//Some weird drinks where there's a count mismatch. Q and u should be the same, so default to n
-	    	if(n > 0 && q > 0 && n < q){
+	    	if(n > 0 && q > 0 && n < Math.min(u, q)){
 	    		return n;
+	    	}
+	    	//TODO: This is a short term fix. Sometimes, quantity and units are mismatched, which is 
+	    	//clearly wrong. Some logical, consistent mapping would be great.
+	    	if(q > 0 && u > 0 && q != u){
+	    		q = Math.min(u, q);
+	    		u = Math.min(u, q);
 	    	}
 	    	return Math.max(u, Math.max(q, n));
 	    }

@@ -108,7 +108,11 @@ public class BM25Ranker extends Ranker {
 		
 		HashMap<Drink, Double> unsortedDrinks = new HashMap<Drink, Double>();		
 		ArrayList<String> individualTerms = parseTerms(terms);
+		
+		//TODO: Cache this, only running it once on initial load? 
+		//Seems sharedprefs-able
 		int averageLength = getAvgLengthOfDrinks(drinks);
+	
 		
 		ArrayList<TermFrequency> termFreqs = new ArrayList<TermFrequency>();
 		for (String term : individualTerms) {
@@ -133,7 +137,9 @@ public class BM25Ranker extends Ranker {
 			
 			if (searchType == SearchEngine.SEARCH_INGREDIENT) {
 				for (Ingredient ing : drink.getIngredients()) {
-					wordsInDrink.add(ing.getName());
+					if(ing.getName() != null){
+						wordsInDrink.add(ing.getName());
+					}
 				}
 			}
 			double totalFreq = parseTerms(wordsInDrink).size();
@@ -162,7 +168,8 @@ public class BM25Ranker extends Ranker {
 				
 				if (searchType == SearchEngine.SEARCH_INGREDIENT) {
 					for (Ingredient ingredient : drink.getIngredients()) {
-						if ((ingredient.getName().toLowerCase()).contains(term.toLowerCase())) {
+						if (ingredient.getName() != null && 
+								(ingredient.getName().toLowerCase()).contains(term.toLowerCase())) {
 							docFreq += 1.0;
 						}
 						
@@ -246,7 +253,9 @@ public class BM25Ranker extends Ranker {
 			//Add ingredients to length of document
 			if (searchType == SearchEngine.SEARCH_INGREDIENT) {
 				for (Ingredient ing: drink.getIngredients()) {
-					words.add(ing.getName());
+					if(ing.getName() != null){
+						words.add(ing.getName());
+					}
 				}
 				
 				averageLength += parseTerms(words).size();

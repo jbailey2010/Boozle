@@ -345,7 +345,7 @@ Splash sweet & sour
 2 oz fresh lemon juice
 --
 115
-2 oz Rémy Martin V.S.O.P.
+2 oz Remy Martin V.S.O.P.
 --
 116
 4-5 fresh strawberries
@@ -954,7 +954,7 @@ Ground Cinnamon
 1 tbs of orange zest
 --
 318
-1 peach, puréed
+1 peach, pureed
 --
 319
 1 oz gin
@@ -1230,7 +1230,7 @@ a dash of freshly ground pepper
 1 oz St. Germain elderflower liqueur
 --
 410
-Moët & Chandon Impérial Champagne
+Moët & Chandon Imperial Champagne
 --
 411
 Edible flowers, for garnish
@@ -1542,13 +1542,13 @@ Lime twist, as garnish
 1/2 oz. Port
 --
 514
-1/2 oz. Perfect Purée Raspberry puree, thawed
+1/2 oz. Perfect Puree Raspberry puree, thawed
 --
 515
-1/2 oz. Perfect Purée Pink Guava puree, thawed
+1/2 oz. Perfect Puree Pink Guava puree, thawed
 --
 516
-1/2 oz. Perfect Purée Lychee puree, thawed
+1/2 oz. Perfect Puree Lychee puree, thawed
 --
 517
 1/4 oz. lemon juice
@@ -1842,7 +1842,7 @@ Grated dark chocolate
 3/4 oz. Creme de Yvette
 --
 614
-1 oz. The Perfect Purée Cherry
+1 oz. The Perfect Puree Cherry
 --
 615
 1/8 oz. balsamic vinegar
@@ -1899,7 +1899,7 @@ Float cherry heering
 2 parts organic, freshly pressed red grape juice
 --
 633
-1 part purée de mandarine
+1 part puree de mandarine
 --
 634
 1 oz cream of coconut
@@ -2790,7 +2790,7 @@ Garnish: cucumber slice
 1 1/2 oz Bombay Sapphire gin
 --
 930
-1 oz Strawberry Perfect Purée of Napa Valley
+1 oz Strawberry Perfect Puree of Napa Valley
 --
 931
 ? oz balsamic vinaigrette
@@ -2976,7 +2976,7 @@ Splash of prosecco or champagne
 2 oz Square One organic vodka
 --
 992
-2 oz persimmon purée
+2 oz persimmon puree
 --
 993
 4 oz Moët & Chandon Imperial Champagne
@@ -3045,7 +3045,7 @@ Orange slices
 1 1/2 oz Wild Turkey 101 bourbon
 --
 1015
-1 1/2 oz sweet potato purée*
+1 1/2 oz sweet potato puree*
 --
 1016
 1 1/2 tsp maple syrup
@@ -3543,7 +3543,7 @@ Hard cider
 1/2 oz vanilla rum
 --
 1181
-1 oz lychee purée
+1 oz lychee puree
 --
 1182
 Splash of fresh lemon juice
@@ -4119,7 +4119,7 @@ Dash of Peychaud’s bitters
 Juice of 1/2 lime
 --
 1373
-1/4 cup strawberry purée*
+1/4 cup strawberry puree*
 --
 1374
 1/4 teaspoon lime juice
@@ -5013,7 +5013,7 @@ Orange slice, for garnish
 3/4 oz rose syrup (such as Monin)
 --
 1671
-Rosé champagne or sparkling wine
+Rose champagne or sparkling wine
 --
 1672
 1 rose petal
@@ -5289,7 +5289,7 @@ Garnish: cucumber wheel
 1/4 oz french vanilla syrup
 --
 1763
-1 tbsp pumpkin purée
+1 tbsp pumpkin puree
 --
 1764
 1 dash orange juice
@@ -5364,7 +5364,7 @@ Pumpkin pie spice
 2 oz Skyy Infusions Ginger vodka
 --
 1788
-1 oz pumpkin purée
+1 oz pumpkin puree
 --
 1789
 Splash of honey, water
@@ -5823,7 +5823,7 @@ Dollop of egg white
 Garnish: Black and White whole Sesame Seeds
 --
 1941
-2 oz Rémy Martin V.S.O.P
+2 oz Remy Martin V.S.O.P
 --
 1942
 1/2 of a fresh banana
@@ -6069,7 +6069,7 @@ lemonade
 1/2 oz maple syrup
 --
 2023
-2 bar spoons pumpkin purée
+2 bar spoons pumpkin puree
 --
 2024
 1 egg yolk
@@ -6366,10 +6366,10 @@ Splash of grenadine or cherry juice
 .75oz Ginger Infused Sour Mix
 --
 2122
-.5oz Celery Purée
+.5oz Celery Puree
 --
 2123
-1.25oz Strawberry purée
+1.25oz Strawberry puree
 --
 2124
 Garnish:
@@ -6492,7 +6492,7 @@ Powdered sugar
 1 1/2 oz. Zen Green Tea Liqueur
 --
 2164
-2 oz. The Perfect Purée Coconut
+2 oz. The Perfect Puree Coconut
 --
 2165
 .5 oz water
@@ -6900,7 +6900,7 @@ Dash of hot sauce (to taste)
 3/4 cup lemon juice
 --
 2300
-1/2 cup ginger purée
+1/2 cup ginger puree
 --
 2301
 1/2 cup raw simple syrup
@@ -6990,7 +6990,7 @@ Splash Lime Juice
 2 oz Bluecoat American gin
 --
 2330
-3/4 oz Vieux Carré absinthe
+3/4 oz Vieux Carre absinthe
 --
 2331
 Ingredients:
@@ -7038,7 +7038,7 @@ Ingredients:
 0.5 oz Cream
 --
 2346
-0.5 oz Peach Purée
+0.5 oz Peach Puree
 --
 2347
 0.5 Apple Butter Syrup
@@ -7065,7 +7065,7 @@ Peach or Apple (to garnish)
 2 oz Cabo Wabo anejo
 --
 2355
-1/2 oz prickly pear purée
+1/2 oz prickly pear puree
 --
 2356
 1 medium jalapeno slice
@@ -7479,7 +7479,7 @@ Sour
 4 fresh raspberries
 --
 2493
-1 oz black plum purée
+1 oz black plum puree
 --
 2494
 3 fresh lime wedges
@@ -22200,7 +22200,7 @@ Grapefruit Juice
 Green Ginger Wine
 --
 7400
-Bénédictine
+Benedictine
 --
 7401
 Creme de Menthe (Green)
@@ -22449,7 +22449,7 @@ Tequila (Silver)
 Blueberries
 --
 7483
-Splash of Bénédictine
+Splash of Benedictine
 --
 7484
 Splash of Club Soda / Carbonated Water
