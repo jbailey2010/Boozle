@@ -243,7 +243,7 @@ Orange slice
 1 oz fresh-lemon juice
 --
 81
-3/4 oz simple syrup*
+3/4 oz simple syrup
 --
 82
 3 fresh raspberry and 3 fresh blueberries
@@ -699,7 +699,7 @@ Sprig thyme
 0.5 oz white grapefruit juice
 --
 233
-0.5 oz honey syrup*
+0.5 oz honey syrup
 --
 234
 0.25 oz Dill Pickle Brine
@@ -1827,7 +1827,7 @@ Squeeze lime juice
 3/4 oz cream
 --
 609
-3/4 oz Earl Grey simple syrup*
+3/4 oz Earl Grey simple syrup
 --
 610
 Grated cinnamon
@@ -2172,7 +2172,7 @@ Lime squeeze
 1/2oz Angostura Bitters
 --
 724
-1oz Cucumber Syrup*
+1oz Cucumber Syrup
 --
 725
 3/4oz Fresh Lime Juice
@@ -2214,7 +2214,7 @@ Glass:Rocks or Highball
 Juice 1 lime
 --
 738
-2 oz cucumber-infused gin*
+2 oz cucumber-infused gin
 --
 739
 2 oz Ron Zacapa Rum
@@ -2325,7 +2325,7 @@ Lime wedge
 1 ounce dark rum
 --
 775
-1/2 ounce 151-proof rum
+1/2 ounce 151 proof rum
 --
 776
 1 ounce lime juice
@@ -2358,7 +2358,7 @@ club soda
 1/2 oz Simple Syrup
 --
 786
-1/2 oz Anaheim Chile Infused Triple Sec*
+1/2 oz Anaheim Chile Infused Triple Sec
 --
 787
 1/2 oz Mezcal
@@ -2970,7 +2970,7 @@ splash prosecco or champagne
 1 oz gin
 --
 990
-3 oz orange ice*
+3 oz orange ice
 --
 991
 2 oz Square One organic vodka
@@ -3045,7 +3045,7 @@ Orange slices
 1 1/2 oz Wild Turkey 101 bourbon
 --
 1015
-1 1/2 oz sweet potato puree*
+1 1/2 oz sweet potato puree
 --
 1016
 1 1/2 tsp maple syrup
@@ -3078,7 +3078,7 @@ Orange slices
 1/2 oz cream
 --
 1026
-1 oz cranberry-honey syrup*
+1 oz cranberry-honey syrup
 --
 1027
 Green tea-flavored ginger ale
@@ -3186,7 +3186,7 @@ Lots ice
 Lemon for garnish
 --
 1062
-1 oz green tea syrup*
+1 oz green tea syrup
 --
 1063
 2 oz 360 vodka
@@ -3330,7 +3330,7 @@ Splash 7 Up or other lemon-lime soda
 1/2 ounce simple syrup
 --
 1110
-3/4 parts raspberry syrup*
+3/4 parts raspberry syrup
 --
 1111
 3/4 parts fresh lemon juice
@@ -3666,7 +3666,7 @@ Marshmallows (optional)
 1 part fresh lemon juice
 --
 1222
-1 part mulled orange syrup*
+1 part mulled orange syrup
 --
 1223
 1 part dark rum
@@ -3846,7 +3846,7 @@ lemon and orange slices
 4 oz fresh lime juice
 --
 1282
-6 oz holiday spiced simple syrup*
+6 oz holiday spiced simple syrup
 --
 1283
 12 oz soda water
@@ -3924,7 +3924,7 @@ Nutmeg or cinnamon
 1 oz mango nectar or juice
 --
 1308
-1/2 oz fresh sour*
+1/2 oz fresh sour
 --
 1309
 2 oz Flor de Cana 7-year Grand Reserve
@@ -4119,7 +4119,7 @@ Dash Peychaud’s bitters
 Juice 1/2 lime
 --
 1373
-1/4 cup strawberry puree*
+1/4 cup strawberry puree
 --
 1374
 1/4 teaspoon lime juice
@@ -4485,7 +4485,7 @@ Hot sauce (Tapatio or Tabasco work)
 .5 oz blue curacao
 --
 1495
-.75 oz blueberry syrup*
+.75 oz blueberry syrup
 --
 1496
 .5 oz meyer lemon juice
@@ -4668,7 +4668,7 @@ Agave Nectar to taste
 3 oz Champagne Laurent-Perrier Brut L-P
 --
 1556
-1 oz 99-proof banana schnapps
+1 oz 99 proof banana schnapps
 --
 1557
 1 oz coconut rum
@@ -5127,7 +5127,7 @@ Garnish: 2 Chocolate covered Maraschino cherries
 1 oz maraschino liqueur
 --
 1709
-1/2 oz pear syrup*
+1/2 oz pear syrup
 --
 1710
 1 oz ginger ale
@@ -5412,7 +5412,7 @@ Slice fresh ginger
 3 parts white rum
 --
 1804
-2 parts green tea syrup*
+2 parts green tea syrup
 --
 1805
 1 1/2 parts fresh lime juice
@@ -5520,7 +5520,7 @@ Pepper to taste
 2 oz Skyy Infusions ginger vodka
 --
 1840
-1 oz honey syrup*
+1 oz honey syrup
 --
 1841
 2 oz Fortaleza tequila blanco
@@ -5619,7 +5619,7 @@ Orange
 2 oz oval vodka
 --
 1873
-3 tablespoons macerated strawberries*
+3 tablespoons macerated strawberries
 --
 1874
 A splash fresh-squeezed lemon juice
@@ -5925,7 +5925,7 @@ Dash green creme de menthe
 8 ounces lemon-lime soda (7-Up, Sprite, Squirt)
 --
 1975
-2 oz grenadine syrup*
+2 oz grenadine syrup
 --
 1976
 maraschino cherries
@@ -6189,7 +6189,7 @@ The peel 3 lemons, each cut in a 1/2 inch/15 mm wide spiral with a vegetable pee
 3/4 cup/180 ml fresh-squeezed, strained lemon juice
 --
 2063
-1 750-ml bottle Chilean Pisco
+1 750 ml bottle Chilean Pisco
 --
 2064
 1 quart/1 liter cold water
@@ -6309,16 +6309,16 @@ Lemon or lime juice
 splash grenadine or cherry juice
 --
 2103
-1 1/2 oz gin, preferably Hendricks*
+1 1/2 oz gin, preferably Hendricks
 --
 2104
 3 sprigs fresh tarragon
 --
 2105
-1/2 oz simple syrup**
+1/2 oz simple syrup
 --
 2106
-3 strawberries**
+3 strawberries
 --
 2107
 2 oz Prairie organic vodka
@@ -6498,7 +6498,7 @@ Powdered sugar
 .5 oz water
 --
 2166
-.75 oz Bols White Cacao Foam*
+.75 oz Bols White Cacao Foam
 --
 2167
 4-6 pieces rhubarb
@@ -6621,7 +6621,7 @@ Pineapple wedge
 .5 oz fresh-squeezed lime juice
 --
 2207
-.25 oz rose syrup*
+.25 oz rose syrup
 --
 2208
 3 dashes Peychaud’s bitters
@@ -7026,7 +7026,7 @@ Ingredients:
 .25 oz strawberry jam
 --
 2342
-.25 oz peanut syrup*
+.25 oz peanut syrup
 --
 2343
 1 yellow banana
@@ -7095,7 +7095,7 @@ Squeeze fresh lime wedge
 1 1/2 oz bourbon (I used Eagle Rare Want a stronger drink? Make it 2 oz!)
 --
 2365
-1 oz honey-tea pear syrup*
+1 oz honey-tea pear syrup
 --
 2366
 2 oz Cabo Wabo reposado
@@ -7131,7 +7131,7 @@ Salted rim (provides the grit!)
 2 oz Flor de Cana 4-year white rum
 --
 2377
-1/2 oz cinnamon bark syrup*
+1/2 oz cinnamon bark syrup
 --
 2378
 2 strawberries
@@ -7287,7 +7287,7 @@ Garnish with strawberry
 1/2 oz amaretto
 --
 2429
-1 oz homemade sour mix*
+1 oz homemade sour mix
 --
 2430
 2 oz fresh pineapple
@@ -7851,7 +7851,7 @@ Lime twist, garnish
 2 oz fresh sour mix
 --
 2617
-1 750-ml bottle HobNob Wicked Red
+1 750 ml bottle HobNob Wicked Red
 --
 2618
 11/2 cups spiced rum
@@ -7902,7 +7902,7 @@ pineapple juice
 Red apple slices
 --
 2634
-1/2 oz Bacardi 151-proof rum
+1/2 oz Bacardi 151 proof rum
 --
 2635
 1/4 oz Galliano
@@ -7998,7 +7998,7 @@ Splash Ginger Ale
 1 1/2 oz gold Puerto Rican rum
 --
 2666
-1 oz 151-proof Demerara rum
+1 oz 151 proof Demerara rum
 --
 2667
 1/8 tsp Herbsaint or Pernod
@@ -8007,13 +8007,13 @@ Splash Ginger Ale
 1/2 oz Falernum
 --
 2669
-1/2 oz Donn’s Mix*
+1/2 oz Donn’s Mix
 --
 2670
-3/4 oz dry gin (we like Bluecoat or Aviation)
+3/4 oz dry gin
 --
 2671
-3/4 oz orange liqueur (for example, Cointreau or Patron Citronge)
+3/4 oz orange liqueur
 --
 2672
 3/4 oz Lillet Blanc
@@ -8028,10 +8028,10 @@ Splash Ginger Ale
 1 zombie bunny Peep
 --
 2676
-1 formerly living bunny Peep in the throes being eaten
+1 part formerly living bunny Peep in the throes being eaten
 --
 2677
-4 zombie apostle chick Peeps
+4 part zombie apostle chick Peeps
 --
 2678
 
@@ -11610,7 +11610,7 @@ Bacardi spiced rum
 1 cl Tia Maria coffee liqueur
 --
 3870
-1 clyellow Grand Marnier orange liqueur
+1 cl yellow Grand Marnier orange liqueur
 --
 3871
 2 cl triple sec
@@ -11643,7 +11643,7 @@ draft beer
 1 packet black cherry jell-o
 --
 3881
-3 - 5 gummi bears
+3 - 5 part gummi bears
 --
 3882
 1 can Corona Extra lager

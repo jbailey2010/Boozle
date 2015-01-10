@@ -77,8 +77,8 @@ public class GeneralUtils {
 					"shot","dashes","dash","tsp","tbsp","pony","ml","sprig","pinch","inch","jigger",
 					"can","cans","bottle","tb","drop","liter","litre","twist","amount",
 					"spoon","squeeze","pinch","stalk","bag","fifth","bottles","liters",
-			       "gal","splashes","splash","float","pint","glass","clbottle",
-			       "tablespoon","ponies","gallon","quart","oz", "oz)",
+			       "gal","splashes","splash","float","pint","glass","clbottle","drops",
+			       "tablespoon","tablespoons","ponies","gallon","quart","oz", "oz)",
 			       "ounce","slice","cl","whole","piece","pieces","g","lb", "oz", 
 			       "l","dl","pt","qt"};
 			return new HashSet<String>(Arrays.asList(units));
