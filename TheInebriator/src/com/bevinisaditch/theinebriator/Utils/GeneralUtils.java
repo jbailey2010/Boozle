@@ -34,14 +34,14 @@ public class GeneralUtils {
 		
 		public static List<String> getINames(){
 			if(iNames == null || iNames.size() == 0){
-				iNames = deduplicateList(Loading.ingrNames, true);
+				iNames = deduplicateList(Loading.ingrNames);
 			}
 			return iNames;
 		}
 		
 		public static List<String> getDNames(){
 			if(dNames == null || dNames.size() == 0){
-				dNames = deduplicateList(Loading.drinkNames, false);
+				dNames = deduplicateList(Loading.drinkNames);
 			}
 			return dNames;
 		}
@@ -53,50 +53,16 @@ public class GeneralUtils {
 		 * @param names - the ingredient or drink names, uncut
 		 * @return the trimmed, deduplicated version
 		 */
-		private static List<String> deduplicateList(List<String> names, boolean isIngr){
+		private static List<String> deduplicateList(List<String> names){
 			List<String> dedupNames = new ArrayList<String>();
 			Set<String> dedup = new HashSet<String>();
-			for(String nameIter : names){
-				String name = null;
-				if(isIngr){
-					name = sanitizeIngr(nameIter);
-				}
-				else{
-					name = sanitizeName(nameIter);
-				}
+			for(String name : names){
 				if(!dedup.contains(name)){
 					dedup.add(name);
 				}
 			}
 			dedupNames.addAll(dedup);
 			return dedupNames;
-		}
-		
-		
-		
-		private static String sanitizeName(String input){
-			//Cut leading and trailing spaces
-			input = input.trim();
-			//Split on #<number> to avoid dedup
-			input = input.split(" #[0-9]+$")[0];
-			
-			return input;
-		}
-		
-		private static String sanitizeIngr(String input){
-			//Cut leading and trailing spaces
-			input = input.trim();
-			//Apply trimming here for units and whatnot
-			String[] ingrArr = input.split(" ");
-			HashSet<String> units = GeneralUtils.getUnits();
-			for(int i = 0; i < ingrArr.length; i++){
-				String elem = ingrArr[i];
-				if(units.contains(elem) && i+1 < ingrArr.length){
-					input = input.split(elem)[1];
-					break;
-				}
-			}
-			return input;
 		}
 		
 		public static HashSet<String> getUnits(){
@@ -107,13 +73,13 @@ public class GeneralUtils {
 		}
 		
 		private static HashSet<String> populateSet(){
-			String[] units = {"teaspoon","scoop","cup","part","package", 
+			String[] units = {"teaspoon","scoop","cup","cups","part","package", "plateful", 
 					"shot","dashes","dash","tsp","tbsp","pony","ml","sprig","pinch","inch","jigger",
-					"can","bottle","tb","drop","liter","litre","twist","heaping bar spoon","bar spoon",
-					"spoon","squeeze","pinch","stalk","bag","fifth",
-			       "gal","splashes","splash","float","pint","glass",
-			       "tablespoon","ponies","gallon","quart","oz",
-			       "ounce","slice","cl","whole","piece","g","lb","L", 
+					"can","cans","bottle","tb","drop","liter","litre","twist","amount",
+					"spoon","squeeze","pinch","stalk","bag","fifth","bottles","liters",
+			       "gal","splashes","splash","float","pint","glass","clbottle",
+			       "tablespoon","ponies","gallon","quart","oz", "oz)",
+			       "ounce","slice","cl","whole","piece","pieces","g","lb", "oz", 
 			       "l","dl","pt","qt"};
 			return new HashSet<String>(Arrays.asList(units));
 		}

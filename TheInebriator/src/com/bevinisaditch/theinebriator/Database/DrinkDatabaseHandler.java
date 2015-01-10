@@ -14,6 +14,7 @@ import org.apache.commons.lang3.StringEscapeUtils;
 
 import com.bevinisaditch.theinebriator.ClassFiles.Drink.Rating;
 import com.bevinisaditch.theinebriator.ClassFiles.*;
+import com.bevinisaditch.theinebriator.Utils.GeneralUtils;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -169,6 +170,8 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 		public long addDrink(Drink drink) {
 			SQLiteDatabase db = this.getWritableDatabase();
 						
+			//TODO: This could be done in one transaction, similar to the adds adjusted below 
+			
 			//Add drink
 			ContentValues drinkValues = new ContentValues();
 			drinkValues.put("NAME", drink.getName());
@@ -196,23 +199,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 			return drinkID;
 			
 		}
-		
-	    /**
-	     * Adds a drink to the database, ignoring its ingredients.
-	     * @param drink
-	     */
-	    public void addDrinkWithoutIngredients(Drink drink) {
-	    	SQLiteDatabase db = this.getWritableDatabase();
-	    	 
-	        ContentValues values = new ContentValues();
-	        values.put("ID", drink.getId()); 
-	        values.put("NAME", drink.getName());
-	        values.put("RATING", ratingToInt(drink.getRating()));
-	        values.put("INSTRUCTIONS", drink.getInstructions());
-	     
-	        // Inserting Row
-	        db.insert("DRINKS", null, values);
-	    }
+
 	    
 	    /**
 	     * Adds all drinks to the database, unless it's empty
@@ -296,6 +283,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    		db.endTransaction();
 	    	}
 	    }
+
 
 
 	    /**
@@ -393,36 +381,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     
 	        return pairs; 
 	    }
-	    
-	    /**
-	     * Gets all drinks in the database with ingredients
-	     * @return
-	     */
-	    public ArrayList<Drink> getAllDrinks() {
-	    	ArrayList<Drink> drinks = new ArrayList<Drink>();
-	    	ArrayList<Matching> allMatches = getAllMatchings();
-			ArrayList<IngredientIDPair> allPairs = getAllPairs();
-			String selectQuery = "SELECT * FROM DRINKS;" ;
-			SQLiteDatabase db = this.getWritableDatabase();
-			Cursor cursor = db.rawQuery(selectQuery, null);
-			
-			if (cursor.moveToFirst()) {
-				do 	{
-					Long id = cursor.getLong(0);
-					String name = cursor.getString(1);
-					Drink.Rating rating =  intToRating(cursor.getInt(2));
-					String instructions = cursor.getString(3);
-					ArrayList<Ingredient> ingredients = getIngredientsForDrinkID(id, allMatches, allPairs);
 
-					Drink currDrink = new Drink(name, rating, ingredients, instructions, id);
-					//Add currDrink to database
-					drinks.add(currDrink);
-				} while (cursor.moveToNext());
-			}
-			
-			cursor.close();
-			return drinks;
-	    }
 	    
 	    /**
 	     * Reads all of the drink names from file, for the 
@@ -458,11 +417,26 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	
 	    	if (cursor.moveToFirst()) {
 	    		do {
-	    			names.add(cursor.getString(0));
+	    			names.add(sanitizeIngr(cursor.getString(0)));
 	    		} while(cursor.moveToNext());
 	    	}
 	    	return names;
 	    }
+	    
+	    
+	    private static String sanitizeIngr(String input){
+			//Apply trimming here for units and whatnot
+			String[] ingrArr = input.split(" ");
+			HashSet<String> units = GeneralUtils.getUnits();
+			for(int i = 0; i < ingrArr.length; i++){
+				String elem = ingrArr[i];
+				if(units.contains(elem) && i+1 < ingrArr.length){
+					input = input.split(elem)[1];
+					break;
+				}
+			}
+			return input;
+		}
 	    
 	    /**
 	     * Gets the rating of a drink, given the id of that drink
@@ -583,37 +557,6 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	}
 	    	return id;
 	    }
-	    
-	    /**
-	     * A janky helper to determine how unique the instructions plus 
-	     * drink identifier is. It may be useful again if we add drinks, 
-	     * but as of the original set, there are 13232 drinks, and it identifies
-	     * 13228 uniquely by that classification.
-	     */
-		public void isUnique(){
-			String selectTotal = "SELECT count(ID) FROM DRINKS";
-			int count = -1;
-			SQLiteDatabase db = this.getWritableDatabase();
-	    	Cursor cursor = db.rawQuery(selectTotal, null);
-	    	if (cursor.moveToFirst()){
-	    		do {
-	    			count = cursor.getInt(0);
-	    		} while(cursor.moveToNext());
-	    	}
-	    	System.out.println("Total count: " + count);
-	    	
-	    	String selectUnique = "SELECT DISTINCT NAME,INSTRUCTIONS FROM DRINKS";
-	    	cursor = db.rawQuery(selectUnique, null);
-	    	count = 0;
-	    	if (cursor.moveToFirst()){
-	    		do {
-	    			count++;
-	    			cursor.getInt(0);
-	    		} while(cursor.moveToNext());
-	    	}
-	    	System.out.println("Unique count: " + count);
-		}
-	    
 	    
 	    /**
 	     * Gets relevant drinks by name

@@ -54,13 +54,13 @@ One hit super premium sativa or indica
 2 Dashes orange bitters
 --
 18
-Liberal amount (2 parts) Svedka vodka
+Liberal amount Svedka vodka
 --
 19
 1/2 part simple sugar
 --
 20
-Conservative splash of lemon juice
+Conservative splash lemon juice
 --
 21
 1 oz anisette
@@ -96,7 +96,7 @@ Soda water
 2 parts ginger ale
 --
 32
-1 squeeze of lime
+1 squeeze lime
 --
 33
 1 part Absolut Citron
@@ -108,10 +108,10 @@ Soda water
 2 parts strawberry-infused simple syrup
 --
 36
-Splash of Sprite
+splash Sprite
 --
 37
-Splash of sour mix
+splash sour mix
 --
 38
 2 parts Absolut Mandrin
@@ -234,7 +234,7 @@ Orange slice
 1 bar spoon Scotch whisky
 --
 78
-1 bar spoon of honey
+1 bar spoon honey
 --
 79
 2 oz Bluecoat gin
@@ -375,7 +375,7 @@ Sliced strawberries (garnish)
 1 oz Razzmataz (raspberry schnapps) OR Blackhaus
 --
 125
-1 cup of ice
+1 cup ice
 --
 126
 1 oz Domaine de Canton
@@ -435,16 +435,16 @@ Cinnamon
 3 oz Apple-Thyme Water (ingredients listed below)
 --
 145
-Garnish: Small thyme sprig and thin slice of green apple
+Garnish: Small thyme sprig and thin slice green apple
 --
 146
 Apple-Thyme Water:
 --
 147
-1-2 cups of diced apples
+1-2 cups diced apples
 --
 148
-4 cups of cold, distilled water
+4 cups cold, distilled water
 --
 149
 6 sprigs fresh Thyme
@@ -492,7 +492,7 @@ Apple-Thyme Water:
 1/2 oz fresh orange juice
 --
 164
-2 dashes of orange bitters
+2 dashes orange bitters
 --
 165
 2 oz tequila
@@ -519,7 +519,7 @@ Lime slice for garnish
 2 dashes bitters
 --
 173
-1 1/2 oz Espolón tequila reposado
+1 1/2 oz Espolon tequila reposado
 --
 174
 1/2 oz Pedro Ximenez sherry
@@ -537,19 +537,19 @@ Lime slice for garnish
 1 pinch ground cinnamon
 --
 179
-1 oz. Lucid Absinthe
+1 oz Lucid Absinthe
 --
 180
-2 oz. apple cider
+2 oz apple cider
 --
 181
-1 oz. cranberry juice
+1 oz cranberry juice
 --
 182
-1 oz. ginger ale
+1 oz ginger ale
 --
 183
-0.5 oz. Chambord Raspberry Liqueur
+0.5 oz Chambord Raspberry Liqueur
 --
 184
 1 oz Smirnoff vodka
@@ -582,7 +582,7 @@ Lime
 1/2oz Unsweetened Ice Tea
 --
 194
-1/2oz of Soda Water
+1/2oz Soda Water
 --
 195
 Mint Leaf
@@ -669,10 +669,10 @@ Basil to taste
 1 cup orange juice
 --
 223
-Juice of 1/2 of a lime
+Juice 1/2 a lime
 --
 224
-2 ounces Tequila Avión Silver
+2 ounces Tequila Avion Silver
 --
 225
 1 ounce Cointreau
@@ -687,7 +687,7 @@ Juice of 1/2 of a lime
 5 blackberries
 --
 229
-Sprig of thyme
+Sprig thyme
 --
 230
 6 oz Sierra Nevada Pale Ale
@@ -747,13 +747,13 @@ Lemon wedge
 Dash grenadine
 --
 249
-1 oz Baileys Irish Cream with a Hint of Mint Chocolate
+1 oz Baileys Irish Cream with a Hint Mint Chocolate
 --
 250
 1 oz iced coffee
 --
 251
-1 cup of chipped ice
+1 cup chipped ice
 --
 252
 1 tablespoon espresso
@@ -783,19 +783,19 @@ Cinnamon stick
 1 oz Godiva Chocolate Liqueur
 --
 261
-5 drops of rose water
+5 drops rose water
 --
 262
-1 shot (1 1/2 oz) of Patrón Silver
+1 shot Patron Silver
 --
 263
 2 cherries
 --
 264
-1 tsp of pure sugar cane
+1 tsp pure sugar cane
 --
 265
-1 cup of chocolate milk
+1 cup chocolate milk
 --
 266
 1-1/2 oz bourbon
@@ -816,7 +816,7 @@ Orange peel twist for garnish
 2 oz white rum
 --
 272
-juice of half a lime
+juice half a lime
 --
 273
 1 tablespoon sugar
@@ -927,19 +927,19 @@ Ground Cinnamon
 3 oz Hefeweizen beer
 --
 309
-32 oz of fresh apple juice
+32 oz fresh apple juice
 --
 310
-10 oz of lemon juice
+10 oz lemon juice
 --
 311
-1/4 pound of 10X powdered sugar
+1/4 pound 10X powdered sugar
 --
 312
 10 oz red beet reduction
 --
 313
-1 bottle (750ml) Highland Park 12 year
+1 bottle Highland Park 12 year
 --
 314
 10 oz Dolin sweet vermouth
@@ -948,10 +948,10 @@ Ground Cinnamon
 1 oz mint leaves
 --
 316
-10 dashes of Fee Brothers bitters
+10 dashes Fee Brothers bitters
 --
 317
-1 tbs of orange zest
+1 tbs orange zest
 --
 318
 1 peach, pureed
@@ -972,7 +972,7 @@ Club soda or ginger ale
 8-9 raspberries
 --
 324
-1.5 parts Tequila Tezón anejo
+1.5 parts Tequila Tezon anejo
 --
 325
 1 part limoncello
@@ -981,10 +981,10 @@ Club soda or ginger ale
 1 part Stoli Citros
 --
 327
-Dash of grenadine
+Dash grenadine
 --
 328
-Juice of half a lemon
+Juice half a lemon
 --
 329
 1 oz cognac or brandy
@@ -1038,7 +1038,7 @@ A little lemon zest
 1/2 glass Harp Ale
 --
 346
-1 bottle (inexpensive) red wine
+1 bottle red wine
 --
 347
 12 oz club soda
@@ -1056,7 +1056,7 @@ A little lemon zest
 1/2 cup red or black grapes, halved
 --
 352
-1/2 cup pitted cherries (can use frozen if necessary)
+1/2 cup pitted cherries
 --
 353
 3 oz Blood orange-infused Purity Vodka
@@ -1074,7 +1074,7 @@ A little lemon zest
 2 oz blackberry soda
 --
 358
-1 1/2 oz vodka or gin (even better use Stoli Strasberi)
+1 1/2 oz vodka or gin
 --
 359
 1 dash sweet vermouth
@@ -1134,7 +1134,7 @@ Pickle, green bean, or celery spear and lemon wedge to garnish
 1/8 tsp freshly ground black pepper
 --
 378
-2 parts Tequila Tezón blanco
+2 parts Tequila Tezon blanco
 --
 379
 Bloody Mary mix
@@ -1146,16 +1146,16 @@ Sprinkle coarse black pepper
 1 1/2 ounces Tequila Don Julio Reposado
 --
 382
-6 drops of Tabasco
+6 drops Tabasco
 --
 383
-8 drops of Worcester sauce
+8 drops Worcester sauce
 --
 384
-1 pinch of celery salt
+1 pinch celery salt
 --
 385
-1 pinch of ground black pepper
+1 pinch ground black pepper
 --
 386
 1 teaspoon ground horseradish
@@ -1191,19 +1191,19 @@ Fill with tomato juice
 11/2 oz vodka
 --
 397
-2-5 drops of Malpighi Balsamic Extra Vecchio 25-year reserve
+2-5 drops Malpighi Balsamic Extra Vecchio 25-year reserve
 --
 398
-a dash of lemon juice
+a dash lemon juice
 --
 399
-a dash of salt
+a dash salt
 --
 400
-a dash of freshly ground pepper
+a dash freshly ground pepper
 --
 401
-1 750 ml bottle of Don Q Cristal rum
+1 750 ml bottle Don Q Cristal rum
 --
 402
 1/2 bottle red wine
@@ -1227,7 +1227,7 @@ a dash of freshly ground pepper
 1 scoop lemon sorbet, softened
 --
 409
-1 oz St. Germain elderflower liqueur
+1 oz St Germain elderflower liqueur
 --
 410
 Moët & Chandon Imperial Champagne
@@ -1236,7 +1236,7 @@ Moët & Chandon Imperial Champagne
 Edible flowers, for garnish
 --
 412
-1 1/2 oz Rum or vodka or a mix of both
+1 1/2 oz Rum or vodka or a mix both
 --
 413
 1/2 oz blue curaçao
@@ -1254,7 +1254,7 @@ Edible flowers, for garnish
 2 oz pineapple juice
 --
 418
-1 oz cream of coconut (optional)
+1 oz cream coconut
 --
 419
 1 1/2 oz Blue Ice American Vodka
@@ -1320,7 +1320,7 @@ Orange twist
 Orange juice
 --
 440
-A lime and a small plateful of coarse (kosher) salt
+A lime and a small plateful coarse (kosher) salt
 --
 441
 1/4 cup fresh lime juice
@@ -1329,7 +1329,7 @@ A lime and a small plateful of coarse (kosher) salt
 About 1/2 teaspoon Worcestershire sauce, or to taste
 --
 443
-About 1/2 teaspoon hot sauce (such as Frontera Red Pepper), or to taste
+About 1/2 teaspoon hot sauce
 --
 444
 1 12-ounce Bohemia beer
@@ -1497,7 +1497,7 @@ Lemon & orange slices, garnish
 1 part apple juice
 --
 499
-generous amount of basil leaves
+generous amount basil leaves
 --
 500
 1/2 oz dry vermouth
@@ -1509,10 +1509,10 @@ Orange slice for garnish
 2 oz bourbon whiskey
 --
 503
-Dash of maraschino liqueur
+Dash maraschino liqueur
 --
 504
-Dash of Amer Picon
+Dash Amer Picon
 --
 505
 1/2 oz grapefruit juice
@@ -1533,25 +1533,25 @@ Dash of Amer Picon
 1 oz Champagne Laurent-Perrier Brut NV
 --
 511
-Splash of lemon lime soda
+splash lemon lime soda
 --
 512
 Lime twist, as garnish
 --
 513
-1/2 oz. Port
+1/2 oz Port
 --
 514
-1/2 oz. Perfect Puree Raspberry puree, thawed
+1/2 oz Perfect Puree Raspberry puree, thawed
 --
 515
-1/2 oz. Perfect Puree Pink Guava puree, thawed
+1/2 oz Perfect Puree Pink Guava puree, thawed
 --
 516
-1/2 oz. Perfect Puree Lychee puree, thawed
+1/2 oz Perfect Puree Lychee puree, thawed
 --
 517
-1/4 oz. lemon juice
+1/4 oz lemon juice
 --
 518
 3 ounces chilled Croft Pink Port
@@ -1584,7 +1584,7 @@ Lime twist, as garnish
 1/4 oz honey
 --
 528
-Pinch of sea salt
+pinch sea salt
 --
 529
 1 oz prosecco
@@ -1647,7 +1647,7 @@ Pinch of sea salt
 2 parts Prairie organic vodka
 --
 549
-1/2 part St. Germain elderflower liqueur
+1/2 part St Germain elderflower liqueur
 --
 550
 1/2 part fresh lime juice
@@ -1665,10 +1665,10 @@ Pinch of sea salt
 2 parts fresh lemon juice
 --
 555
-2 heaping bar spoons of cinnamon flavored apple sauce
+2 heaping bar spoons cinnamon flavored apple sauce
 --
 556
-1/2 parts egg white (optional)
+1/2 parts egg white
 --
 557
 1 part Malibu Black Rum
@@ -1677,16 +1677,16 @@ Pinch of sea salt
 1/2 part pomegranate juice
 --
 559
-3 oz. Ahoy, Captain tea, brewed
+3 oz Ahoy, Captain tea, brewed
 --
 560
 Can be substituted with Rooibos
 --
 561
-1 oz. Captain Morgan Original Spiced Rum
+1 oz Captain Morgan Original Spiced Rum
 --
 562
-1 tbsp. agave (or sweetener of choice)
+1 tbsp agave (or sweetener choice)
 --
 563
 Fresh strawberries, blueberries, raspberries & blackberries
@@ -1698,7 +1698,7 @@ Canadian Club 12-year-reserve whisky
 Angostura bitters
 --
 566
-Lump of sugar
+Lump sugar
 --
 567
 Water
@@ -1710,7 +1710,7 @@ Water
 1 oz Irish whisky
 --
 570
-Dash of bitters
+Dash bitters
 --
 571
 1/2 oz Skyy vodka
@@ -1734,7 +1734,7 @@ Top Peroni beer
 1 oz pomegranate juice
 --
 578
-2 750 ml bottles of chilled brut champagne or sparkling wine
+2 750 ml bottles chilled brut champagne or sparkling wine
 --
 579
 2 liters ginger ale
@@ -1773,7 +1773,7 @@ Lemon twist, garnish
 1 oz sweet vermouth
 --
 591
-Splash of Champagne or sparkling wine
+splash Champagne or sparkling wine
 --
 592
 3/4 oz Frangelico hazelnut liqueur
@@ -1794,7 +1794,7 @@ Splash of Champagne or sparkling wine
 4 ounces cola
 --
 598
-Squeeze of lime juice
+Squeeze lime juice
 --
 599
 2 oz frozen cherries (approximately 12 cherries)
@@ -1806,19 +1806,19 @@ Squeeze of lime juice
 1 dash bitters
 --
 602
-1 oz. Basil Hayden Bourbon
+1 oz Basil Hayden Bourbon
 --
 603
-1/2 oz. simple syrup
+1/2 oz simple syrup
 --
 604
-1/2 oz. cinnamon simple syrup
+1/2 oz cinnamon simple syrup
 --
 605
-1 1/2 oz. Perfect Puree Cherry puree, thawed
+1 1/2 oz Perfect Puree Cherry puree, thawed
 --
 606
-1/8 oz. Perfect Puree Key Lime concentrate, thawed
+1/8 oz Perfect Puree Key Lime concentrate, thawed
 --
 607
 2 oz Skyy Infusions cherry vodka
@@ -1836,19 +1836,19 @@ Grated cinnamon
 Grated dark chocolate
 --
 612
-1 1/2 oz. Grey Goose Cherry Noir
+1 1/2 oz Grey Goose Cherry Noir
 --
 613
-3/4 oz. Creme de Yvette
+3/4 oz Creme de Yvette
 --
 614
-1 oz. The Perfect Puree Cherry
+1 oz The Perfect Puree Cherry
 --
 615
-1/8 oz. balsamic vinegar
+1/8 oz balsamic vinegar
 --
 616
-1/4 oz. simple syrup
+1/4 oz simple syrup
 --
 617
 club soda to top
@@ -1857,7 +1857,7 @@ club soda to top
 1 1/2 oz Skyy Infusions cherry vodka
 --
 619
-1 oz. freshly-squeezed lemon juice
+1 oz freshly-squeezed lemon juice
 --
 620
 3/4 oz rye whiskey
@@ -1869,7 +1869,7 @@ club soda to top
 1.5 oz Frangelico Hazelnut Liqueur
 --
 623
-Float cherry heering
+float cherry heering
 --
 624
 2 parts GREY GOOSE Cherry Noir Flavored Vodka
@@ -1884,7 +1884,7 @@ Float cherry heering
 1 1/2 oz Agavero licor de tequila
 --
 628
-3/4 oz Cherry Blossom Sling margarita mix (substitute equal parts of cherry & lime juice)
+3/4 oz Cherry Blossom Sling margarita mix (substitute equal parts cherry & lime juice)
 --
 629
 4 oz sparkling water
@@ -1902,7 +1902,7 @@ Float cherry heering
 1 part puree de mandarine
 --
 634
-1 oz cream of coconut
+1 oz cream coconut
 --
 635
 1/2 banana
@@ -1914,7 +1914,7 @@ Float cherry heering
 1 oz champagne
 --
 638
-Dash of angostura bitters
+Dash angostura bitters
 --
 639
 Dash triple sec
@@ -2013,7 +2013,7 @@ Whipped Cream Topping
 1/4 oz Tuaca
 --
 671
-Mix of cinnamon and sugar for the rim
+Mix cinnamon and sugar for the rim
 --
 672
 1 ounce Campari
@@ -2049,16 +2049,16 @@ Fresh Basil
 Garnish: Pomegranate seeds, raspberries, lime and grapefruit discs
 --
 683
-1 Oz. Cinnamon Infused Vodka
+1 oz Cinnamon Infused Vodka
 --
 684
-1 Oz. Appleton 12 Year Old Rum
+1 oz Appleton 12 Year Old Rum
 --
 685
-.5 Oz. Schoenauer (Brown) Apple Schnapps
+.5 oz Schoenauer (Brown) Apple Schnapps
 --
 686
-1.5 Oz. Apple Cider
+1.5 oz Apple Cider
 --
 687
 2 oz Peligroso Cinnamon Tequila
@@ -2070,7 +2070,7 @@ Garnish: Pomegranate seeds, raspberries, lime and grapefruit discs
 1 oz Orange juice
 --
 690
-Squeeze of fresh lime
+Squeeze fresh lime
 --
 691
 1 part Hiram Walker Original Cinn cinnamon liqueur
@@ -2088,7 +2088,7 @@ Squeeze of fresh lime
 1 oz Midori or melon liqueur
 --
 696
-Splash of soda
+splash soda
 --
 697
 1 1/2 oz Skyy Infusions citrus vodka
@@ -2139,7 +2139,7 @@ Pink grapefruit juice
 Pineapple juice
 --
 713
-Splash of grenadine
+splash grenadine
 --
 714
 1/2 oz tawny port
@@ -2193,16 +2193,16 @@ Glass:Rocks or Highball
 3/4 parts simple syrup
 --
 731
-1 dash of Fee Brothers mint bitters
+1 dash Fee Brothers mint bitters
 --
 732
 6 mint leaves
 --
 733
-3 slices of cucumber
+3 slices cucumber
 --
 734
-2 large sprigs of fresh mint
+2 large sprigs fresh mint
 --
 735
 1 1/2 oz Moon Mountain vodka
@@ -2211,7 +2211,7 @@ Glass:Rocks or Highball
 5 basil leaves
 --
 737
-Juice of 1 lime
+Juice 1 lime
 --
 738
 2 oz cucumber-infused gin*
@@ -2271,13 +2271,13 @@ Garnish: Pineapple Slice and Pineapple Leaf
 Chilled sparkling apple cider
 --
 757
-2 oz. Brugal Extra Dry
+2 oz Brugal Extra Dry
 --
 758
-1 oz. Fresh Lime Juice
+1 oz Fresh Lime Juice
 --
 759
-0 .75 oz. Simple Syrup
+0 .75 oz Simple Syrup
 --
 760
 2 oz light rum
@@ -2289,19 +2289,19 @@ Chilled sparkling apple cider
 1 tsp sugar
 --
 763
-2 oz. Denizen Rum
+2 oz Denizen Rum
 --
 764
-1oz. Lime Juice
+1oz Lime Juice
 --
 765
-1/2 oz. Cane Syrup
+1/2 oz Cane Syrup
 --
 766
-1/4 oz. Velvet Falernum
+1/4 oz Velvet Falernum
 --
 767
-3/4 oz. Strega Liqueur
+3/4 oz Strega Liqueur
 --
 768
 1 part Goslings Rum
@@ -2349,19 +2349,19 @@ black or red grapes
 club soda
 --
 783
-1 oz. Anejo Tequila
+1 oz Anejo Tequila
 --
 784
 1 oz Lime Juice
 --
 785
-1/2 oz. Simple Syrup
+1/2 oz Simple Syrup
 --
 786
-1/2 oz. Anaheim Chile Infused Triple Sec*
+1/2 oz Anaheim Chile Infused Triple Sec*
 --
 787
-1/2 oz. Mezcal
+1/2 oz Mezcal
 --
 788
 Spicy Bloody Mary mix (for drizzle)
@@ -2454,7 +2454,7 @@ Lemon juice
 Sparkling water or club soda
 --
 818
-1 1/2 oz. DonQ Gold rum
+1 1/2 oz DonQ Gold rum
 --
 819
 1 1/2 oz DonQ Coco rum
@@ -2475,7 +2475,7 @@ Splash ginger beer
 One orange peel
 --
 825
-Dr. Pepper
+Dr Pepper
 --
 826
 Cockspur Rum
@@ -2496,7 +2496,7 @@ Jagermeister
 1 oz Peachtree schnapps
 --
 832
-Splash of lemon-lime soda
+splash lemon-lime soda
 --
 833
 1 750 ml bottle vodka
@@ -2505,7 +2505,7 @@ Splash of lemon-lime soda
 1/2 cup orange liqueur
 --
 835
-6 cups (48 oz) red fruit punch
+6 cups red fruit punch
 --
 836
 6 cups apple juice
@@ -2541,19 +2541,19 @@ Dash angostura bitters (optional)
 1 kiwi fruit peeled and quartered
 --
 847
-1 sprig of mint
+1 sprig mint
 --
 848
-1 inch piece of vanilla pod
+1 inch piece vanilla pod
 --
 849
-Splash of club soda
+splash club soda
 --
 850
 1 1/2 oz Dubonnet
 --
 851
-2 oz Tequila Tezón reposado
+2 oz Tequila Tezon reposado
 --
 852
 1 oz Martell cognac
@@ -2586,7 +2586,7 @@ Bols Genever gin
 Olive stuffed radish
 --
 862
-2 parts Portón Pisco
+2 parts Porton Pisco
 --
 863
 1 part Pomegranate juice
@@ -2634,28 +2634,28 @@ Dash bitters
 Tabasco
 --
 878
-1.5 oz. Campo de Encanto pisco
+1.5 oz Campo de Encanto pisco
 --
 879
-1 oz. St Germain elderflower liqueur
+1 oz St Germain elderflower liqueur
 --
 880
-1/2 oz. fresh lime juice
+1/2 oz fresh lime juice
 --
 881
-2.5 oz. Fever-Tree ginger beer
+2.5 oz Fever-Tree ginger beer
 --
 882
-3 drops of Angostura bitters
+3 drops Angostura bitters
 --
 883
 2 oz Cabo Wabo blanco tequila
 --
 884
-3 dashes of hot sauce
+3 dashes hot sauce
 --
 885
-2 small slices of serrano pepper
+2 small slices serrano pepper
 --
 886
 1 oz fresh orange juice
@@ -2688,7 +2688,7 @@ Dash grenadine,
 1/2 oz runny honey
 --
 896
-Fill a glass with ice and pour the vodka and lemon drink into it then drizzle in the honey. Garnish with a lemon wedge or honey stick.
+Fill a glass with ice and pour the vodka and lemon drink into it then drizzle in the honey Garnish with a lemon wedge or honey stick.
 --
 897
 1 part vodka
@@ -2733,7 +2733,7 @@ Frozen flavor ice pops
 2 oz champagne
 --
 911
-2 oz Tequila Avión Reposado
+2 oz Tequila Avion Reposado
 --
 912
 1 1/2 oz rose water (Can use Monin Rose Syrup mixed with water as alternate)
@@ -2763,16 +2763,16 @@ Frozen flavor ice pops
 1 tsp sherry
 --
 921
-2 oz. Sandeman Founders Reserve Porto
+2 oz Sandeman Founders Reserve Porto
 --
 922
-1/2 oz. blended scotch whisky
+1/2 oz blended scotch whisky
 --
 923
-3/4 oz. blood orange juice
+3/4 oz blood orange juice
 --
 924
-3/4 oz. sweet honey-cucumber water (honey that has been diluted with water that has cucumber slices marinating in it)
+3/4 oz sweet honey-cucumber water (honey that has been diluted with water that has cucumber slices marinating in it)
 --
 925
 Garnish: cucumber slice
@@ -2790,7 +2790,7 @@ Garnish: cucumber slice
 1 1/2 oz Bombay Sapphire gin
 --
 930
-1 oz Strawberry Perfect Puree of Napa Valley
+1 oz Strawberry Perfect Puree Napa Valley
 --
 931
 ? oz balsamic vinaigrette
@@ -2802,10 +2802,10 @@ Garnish: cucumber slice
 1 oz Frangelico Hazelnut Liqueur
 --
 934
-Equal parts pale lager and citrus soda (i.e. sprite)
+Equal parts pale lager and citrus soda (i.e sprite)
 --
 935
-Twist of lemon
+Twist lemon
 --
 936
 1 oz Frangelico
@@ -2814,7 +2814,7 @@ Twist of lemon
 1 oz SKYY vodka
 --
 938
-3/4 oz of espresso
+3/4 oz espresso
 --
 939
 1 1/2 oz Beefeater gin
@@ -2823,7 +2823,7 @@ Twist of lemon
 2 tsp confectioners sugar (stir in well)
 --
 941
-Fill glass with chilled G.H. Mumm Champagne
+Fill glass with chilled G.H Mumm Champagne
 --
 942
 1 oz Chambord
@@ -2847,7 +2847,7 @@ Fill glass with chilled G.H. Mumm Champagne
 Bar spoon pineapple juice
 --
 949
-2 oz Espolón tequila blanco
+2 oz Espolon tequila blanco
 --
 950
 1 small strawberry
@@ -2856,19 +2856,19 @@ Bar spoon pineapple juice
 10 whole black peppercorns
 --
 952
-Splash of absinthe
+splash absinthe
 --
 953
 2 oz Purity Vodka
 --
 954
-1/8 oz Wash of aquavit
+1/8 oz Wash aquavit
 --
 955
-3 Slices of cucumber
+3 Slices cucumber
 --
 956
-1 Small sprig of dill
+1 Small sprig dill
 --
 957
 2 oz white tequila
@@ -2883,7 +2883,7 @@ Splash of absinthe
 1 can Fruit Cocktail (sub real fruit if wanted)
 --
 961
-2 tbs. sugar
+2 tbs sugar
 --
 962
 6 quarts ice
@@ -2925,7 +2925,7 @@ Splash of absinthe
 1/2 oz fresh grapefruit juice
 --
 975
-Splash of prosecco or champagne
+splash prosecco or champagne
 --
 976
 1/2 oz Southern Comfort
@@ -2964,10 +2964,10 @@ Splash of prosecco or champagne
 1/4 oz half and half
 --
 988
-1/4 oz shavings of white chocolate
+1/4 oz shavings white chocolate
 --
 989
-1 oz. gin
+1 oz gin
 --
 990
 3 oz orange ice*
@@ -2988,7 +2988,7 @@ Splash of prosecco or champagne
 1 1/2 oz passion fruit juice
 --
 996
-1 750 ml bottle of light rum
+1 750 ml bottle light rum
 --
 997
 4 oz apricot brandy
@@ -3027,19 +3027,19 @@ Orange slices
 2 dash bitters
 --
 1009
-1 oz. Three Olives Cake Vodka
+1 oz Three Olives Cake Vodka
 --
 1010
-0.5 oz. Frangelico
+0.5 oz Frangelico
 --
 1011
-0.5 oz. Amaretto
+0.5 oz Amaretto
 --
 1012
 0.5 Butter Scotch Schnapps
 --
 1013
-1 oz. Godiva White Chocolate Liqueur
+1 oz Godiva White Chocolate Liqueur
 --
 1014
 1 1/2 oz Wild Turkey 101 bourbon
@@ -3057,10 +3057,10 @@ Orange slices
 3/4 oz Ruby Port
 --
 1019
-5 drops of Orange Blossom Water
+5 drops Orange Blossom Water
 --
 1020
-2 dashes of Orange Bitters
+2 dashes Orange Bitters
 --
 1021
 2 oz Bombay Sapphire
@@ -3096,7 +3096,7 @@ Frozen cranberries
 3 oz coconut milk
 --
 1032
-Dash of nutmeg (garnish)
+Dash nutmeg (garnish)
 --
 1033
 1 1/2 oz Herradura silver tequila
@@ -3105,7 +3105,7 @@ Dash of nutmeg (garnish)
 3/4 oz melon liqueur
 --
 1035
-Squeeze of lime
+Squeeze lime
 --
 1036
 2 parts Absolut Wild Tea vodka
@@ -3180,7 +3180,7 @@ Club soda to taste
 3/4 oz green tea, brewed
 --
 1060
-Lots of ice
+Lots ice
 --
 1061
 Lemon for garnish
@@ -3198,7 +3198,7 @@ Lemon for garnish
 1 oz Tequila Tezon
 --
 1066
-Splash of grapefruit juice
+splash grapefruit juice
 --
 1067
 Fill with grapefruit juice
@@ -3243,7 +3243,7 @@ Ground black pepper
 Agave nectar, to taste
 --
 1081
-Juice of 1/2 lime
+Juice 1/2 lime
 --
 1082
 Ice cubes, as necessary
@@ -3285,7 +3285,7 @@ Lucid Absinthe
 2 1/2 ounces Tomato Juice
 --
 1095
-1 dash of Worcestershire Sauce
+1 dash Worcestershire Sauce
 --
 1096
 1 tablespoon Fresh Lime Juice
@@ -3348,7 +3348,7 @@ Top with 2-3 parts dry apple cider
 Fill with orange juice
 --
 1116
-Float 1/2 oz Galliano
+float 1/2 oz Galliano
 --
 1117
 1 1/2 parts Cruzan Velvet Cinn Horchata Cream Liqueur
@@ -3360,7 +3360,7 @@ Float 1/2 oz Galliano
 1/2 parts DeKuyper Blood Orange Liqueur
 --
 1120
-Float DeKuyper Hot Damn Liqueur
+float DeKuyper Hot Damn Liqueur
 --
 1121
 Flamed Orange zest
@@ -3381,7 +3381,7 @@ Flamed Orange zest
 1/2 part grenadine
 --
 1127
-Splash of blue curaçao
+splash blue curaçao
 --
 1128
 1/2 oz Cointreau or triple sec
@@ -3417,7 +3417,7 @@ Splash of blue curaçao
 1/2 part Drambuie
 --
 1139
-1 piece of honeycomb for garnish
+1 piece honeycomb for garnish
 --
 1140
 1/2 oz peach schnapps
@@ -3429,19 +3429,19 @@ Splash of blue curaçao
 2 teaspoon grenadine
 --
 1143
-1.75 oz. The Black Grouse
+1.75 oz The Black Grouse
 --
 1144
-.25 oz. Velvet Falernum
+.25 oz Velvet Falernum
 --
 1145
-.75 oz. Lemon Juice
+.75 oz Lemon Juice
 --
 1146
-.5 oz. Simple Syrup
+.5 oz Simple Syrup
 --
 1147
-.25 oz. Egg White
+.25 oz Egg White
 --
 1148
 Yellow Chartreuse Rinse
@@ -3468,7 +3468,7 @@ Yellow Chartreuse Rinse
 Dash Cointreau
 --
 1156
-1 1/2 oz of Herradura silver tequila
+1 1/2 oz Herradura silver tequila
 --
 1157
 3 fresh mint sprigs
@@ -3483,7 +3483,7 @@ Dash Cointreau
 2 1/2 oz fresh mango juice
 --
 1161
-1 1/4 oz of Herradura silver tequila
+1 1/4 oz Herradura silver tequila
 --
 1162
 2 oz cranberry juice
@@ -3546,7 +3546,7 @@ Hard cider
 1 oz lychee puree
 --
 1182
-Splash of fresh lemon juice
+splash fresh lemon juice
 --
 1183
 Grenadine
@@ -3588,31 +3588,31 @@ Top with soda
 7 parts Tomato Juice
 --
 1196
-1 squeeze of Siracha Chili Sauce
+1 squeeze Siracha Chili Sauce
 --
 1197
 3 grinds Fresh Black Pepper
 --
 1198
-Juice of 1 Lemon
+Juice 1 Lemon
 --
 1199
-Dash of Celery Salt
+Dash Celery Salt
 --
 1200
-Dash of Paprika
+Dash Paprika
 --
 1201
-Dash of Cumin
+Dash Cumin
 --
 1202
-Several dashes of Worcestershire Sauce
+Several dashes Worcestershire Sauce
 --
 1203
 Iced tea
 --
 1204
-Wedge of lime
+Wedge lime
 --
 1205
 Dash white creme de menthe
@@ -3633,7 +3633,7 @@ Mint
 750 ml bottle premium vodka or white rum
 --
 1211
-2 liter bottles of lemon lime soda – make sure to get a clear brand
+2 liter bottles lemon lime soda – make sure to get a clear brand
 --
 1212
 Red food coloring
@@ -3651,7 +3651,7 @@ Marshmallows (optional)
 1/2 oz apple cider
 --
 1217
-1 teaspoon of spiced pumpkin pie mix
+1 teaspoon spiced pumpkin pie mix
 --
 1218
 3/4 oz coffee liqueur (Kahlúa, Tia Maria)
@@ -3675,7 +3675,7 @@ Marshmallows (optional)
 2 parts soda water
 --
 1225
-1 ounce Baileys Irish Cream with a Hint of Caramel
+1 ounce Baileys Irish Cream with a Hint Caramel
 --
 1226
 1/2 ounce Zacapa rum
@@ -3708,13 +3708,13 @@ Lemon peel
 1/2 oz Irish creme liqueur
 --
 1236
-1 oz. Irish Whiskey
+1 oz Irish Whiskey
 --
 1237
-1 tsp. Sugar
+1 tsp Sugar
 --
 1238
-4 oz. Coffee
+4 oz Coffee
 --
 1239
 Whipped cream (unsweetened)
@@ -3750,25 +3750,25 @@ Dash sugar
 1 oz Scotch whisky
 --
 1250
-3 dashes of orange bitters
+3 dashes orange bitters
 --
 1251
-3/4 oz of Tullamore Dew Irish Whiskey
+3/4 oz Tullamore Dew Irish Whiskey
 --
 1252
-1/2 oz of peach schnapps
+1/2 oz peach schnapps
 --
 1253
-4 oz of ginger ale
+4 oz ginger ale
 --
 1254
-2 oz of orange juice
+2 oz orange juice
 --
 1255
 1 1/2 oz Irish Mist Whiskey Liqueur
 --
 1256
-4 oz. Fresh Brewed Coffee
+4 oz Fresh Brewed Coffee
 --
 1257
 2 Sugar Cubes (optional)
@@ -3795,7 +3795,7 @@ Whipped Cream
 1 whole fresh egg white
 --
 1265
-1 oz celery juice from 1-2 ribs of celery
+1 oz celery juice from 1-2 ribs celery
 --
 1266
 1 1/2 oz gin
@@ -3885,7 +3885,7 @@ Black licorice, for garnish
 1/2 cup lemon juice
 --
 1295
-1 750 ml bottle of Prosecco
+1 750 ml bottle Prosecco
 --
 1296
 1 1/2 oz bourbon whiskey
@@ -3897,10 +3897,10 @@ Black licorice, for garnish
 1 tsp sweet vermouth
 --
 1299
-A dash of angostura bitters
+A dash angostura bitters
 --
 1300
-A twist of lemon
+A twist lemon
 --
 1301
 1 oz Tuaca
@@ -3936,7 +3936,7 @@ Nutmeg or cinnamon
 2 whole cloves
 --
 1312
-1 pinch of fresh nutmeg
+1 pinch fresh nutmeg
 --
 1313
 2 oz apple juice
@@ -3960,7 +3960,7 @@ Toasted pumpkin seeds (optional)
 7 mint leaves
 --
 1320
-2 oz. Jack Daniels Whiskey
+2 oz Jack Daniels Whiskey
 --
 1321
 1.5 oz Simple Syrup
@@ -4065,10 +4065,10 @@ Lime slice
 Fill with champagne
 --
 1355
-1 1/2 parts Grey Goose La Poire (Pear) Vodka
+1 1/2 parts Grey Goose La Poire Vodka
 --
 1356
-1/2 part St. Germain Elderflower Cordial
+1/2 part St Germain Elderflower Cordial
 --
 1357
 1/2 ounce agave nectar
@@ -4086,7 +4086,7 @@ Fill with champagne
 .75 oz orgeat
 --
 1362
-Topped with .25 oz to .5 oz float of Chilean white wine
+Topped with .25 oz to .5 oz float Chilean white wine
 --
 1363
 2 parts Cruzan Aged Dark Rum
@@ -4113,10 +4113,10 @@ Bitters
 1/2 oz hibiscus liqueur
 --
 1371
-Dash of Peychaud’s bitters
+Dash Peychaud’s bitters
 --
 1372
-Juice of 1/2 lime
+Juice 1/2 lime
 --
 1373
 1/4 cup strawberry puree*
@@ -4140,7 +4140,7 @@ Juice of 1/2 lime
 Sparkling wine (brut)
 --
 1380
-2 sprigs of lavender flowers
+2 sprigs lavender flowers
 --
 1381
 1/2 oz fresh-squeezed lemon juice
@@ -4155,7 +4155,7 @@ Sparkling wine (brut)
 2 tbs simple syrup
 --
 1385
-2 parts Tequila Avión Silver
+2 parts Tequila Avion Silver
 --
 1386
 4 parts Fresh Lemon Juice
@@ -4200,13 +4200,13 @@ Splash lime juice
 Lime twist
 --
 1400
-2 oz. Brugal Extra Dry Rum
+2 oz Brugal Extra Dry Rum
 --
 1401
-1 oz. Lime Juice
+1 oz Lime Juice
 --
 1402
-0.75 oz. Simple Syrup
+0.75 oz Simple Syrup
 --
 1403
 6 Watermelon Chunks
@@ -4323,13 +4323,13 @@ Dash egg white
 1 oz lucid absinthe
 --
 1441
-1/2 oz of simple syrup
+1/2 oz simple syrup
 --
 1442
 6–8 fresh mint leaves
 --
 1443
-1 oz of soda water
+1 oz soda water
 --
 1444
 1/4 oz anisette
@@ -4338,13 +4338,13 @@ Dash egg white
 1/4 oz white creme de cacao
 --
 1446
-1 oz. Jack Daniels?
+1 oz Jack Daniels?
 --
 1447
-1/2 oz. Triple Sec?
+1/2 oz Triple Sec?
 --
 1448
-1 oz. Sweet & Sour
+1 oz Sweet & Sour
 --
 1449
 7up
@@ -4365,10 +4365,10 @@ Dash egg white
 1 glass water
 --
 1455
-A sprig of mint
+A sprig mint
 --
 1456
-A slice of lemon
+A slice lemon
 --
 1457
 1/2 oz orgeat syrup
@@ -4392,7 +4392,7 @@ Mint leaves
 2 cups milk
 --
 1464
-1 disk of Ibarra chocolate
+1 disk Ibarra chocolate
 --
 1465
 Tequila Tezon blanco
@@ -4401,7 +4401,7 @@ Tequila Tezon blanco
 Silver tequila (this recipe uses Hornitos Plata)
 --
 1467
-1 disk of Mexican chocolate
+1 disk Mexican chocolate
 --
 1468
 2 oz Herradura Silver Tequila
@@ -4413,7 +4413,7 @@ Silver tequila (this recipe uses Hornitos Plata)
 2 oz sweet and sour mix
 --
 1471
-Splash of lemon-lime juice
+splash lemon-lime juice
 --
 1472
 2 olives
@@ -4458,7 +4458,7 @@ Garnish; Crispy mint sprig and orange crab twist
 1.5oz Antica Formula Carpano (Sweet Vermouth)
 --
 1486
-2 Dashes of Homemade Cherry Bitters
+2 Dashes Homemade Cherry Bitters
 --
 1487
 Garnish: a Maraschino Cherry
@@ -4533,13 +4533,13 @@ Dry champagne
 2 oz Skyy citrus vodka
 --
 1511
-Splash of white cranberry juice
+splash white cranberry juice
 --
 1512
 1/4 oz creme de noyaux
 --
 1513
-1 1/2 oz ( ~50 ml) Benedictine
+1 1/2 oz Benedictine
 --
 1514
 Milk
@@ -4557,7 +4557,7 @@ Club soda or sparkling water
 2 oz Bourbon
 --
 1519
-6 sprigs of fresh mint
+6 sprigs fresh mint
 --
 1520
 2 tsp super fine sugar
@@ -4566,25 +4566,25 @@ Club soda or sparkling water
 water
 --
 1522
-3 oz. Morgan-ade tea, brewed
+3 oz Morgan-ade tea, brewed
 --
 1523
 Can be substituted with Lemon Verbena and Peppermint tea
 --
 1524
-1oz. Captain Morgan Original Spiced Rum
+1oz Captain Morgan Original Spiced Rum
 --
 1525
-1/2 oz. Lemon juice
+1/2 oz Lemon juice
 --
 1526
-1/2 oz. Lime juice
+1/2 oz Lime juice
 --
 1527
 2 oz pomegranate juice
 --
 1528
-Squeeze of lemon
+Squeeze lemon
 --
 1529
 1 oz Grey Goose Citron vodka
@@ -4596,13 +4596,13 @@ Squeeze of lemon
 Fill glass with Mumm champagne
 --
 1532
-1 bottle of Skinnygirl Red Wine
+1 bottle Skinnygirl Red Wine
 --
 1533
 3 cinnamon sticks, broken in half
 --
 1534
-1 tablespoon of cloves
+1 tablespoon cloves
 --
 1535
 3 star anise
@@ -4635,13 +4635,13 @@ Agave Nectar to taste
 3/4 oz agave nectar
 --
 1545
-2 slices of lime (muddle)
+2 slices lime (muddle)
 --
 1546
-2 slices of lemon (muddle)
+2 slices lemon (muddle)
 --
 1547
-2 slices of orange (muddle)
+2 slices orange (muddle)
 --
 1548
 3–4 mint leaves
@@ -4659,13 +4659,13 @@ Agave Nectar to taste
 1 1/2 oz lemon-lime soda
 --
 1553
-1 oz. Frangelico Hazelnut Liqueur
+1 oz Frangelico Hazelnut Liqueur
 --
 1554
-1 oz. passion fruit juice
+1 oz passion fruit juice
 --
 1555
-3 oz. Champagne Laurent-Perrier Brut L-P
+3 oz Champagne Laurent-Perrier Brut L-P
 --
 1556
 1 oz 99-proof banana schnapps
@@ -4713,10 +4713,10 @@ Orange slice or orange rind (optional)
 Ginger beer
 --
 1571
-4 slices of cucumber
+4 slices cucumber
 --
 1572
-3 large sprigs of fresh mint
+3 large sprigs fresh mint
 --
 1573
 2 oz Parrot Bay coconut rum
@@ -4740,7 +4740,7 @@ Ginger beer
 2 oz Cinzano Rosso
 --
 1580
-3 dashes of peach bitters
+3 dashes peach bitters
 --
 1581
 4 parts Prairie organic vodka
@@ -4794,7 +4794,7 @@ Dash lime juice
 1 oz creme de cacao
 --
 1598
-1 1/2 oz. Sailor Jerry spiced rum
+1 1/2 oz Sailor Jerry spiced rum
 --
 1599
 1/2 oz Cherry Heering cherry liqueur
@@ -4809,7 +4809,7 @@ Dash lime juice
 1.5oz Bols Genever
 --
 1603
-.5oz St. Elizabeth’s Allspice Dream
+.5oz St Elizabeth’s Allspice Dream
 --
 1604
 .75oz lemon juice
@@ -4833,7 +4833,7 @@ Dash lime juice
 1 oz watermelon pucker
 --
 1611
-Splash of cranberry juice
+splash cranberry juice
 --
 1612
 1/2 oz Dubonnet Rouge
@@ -4857,13 +4857,13 @@ Splash of cranberry juice
 3/4 oz triple sec
 --
 1619
-1/2 oz. Drambuie
+1/2 oz Drambuie
 --
 1620
-1 oz. Grey Goose L’Orange Flavored Vodka
+1 oz Grey Goose L’Orange Flavored Vodka
 --
 1621
-Juice of 1/2 Orange
+Juice 1/2 Orange
 --
 1622
 1 1/2 oz Grey Goose orange vodka
@@ -4899,16 +4899,16 @@ Mango for garnish
 2 oz apricot nectar
 --
 1633
-1/2 tsp of ground cayenne pepper
+1/2 tsp ground cayenne pepper
 --
 1634
-1 slice of lime
+1 slice lime
 --
 1635
 1/2 oz sake
 --
 1636
-2 oz p.i.n.k. vodka
+2 oz p.i.n.k vodka
 --
 1637
 1.5 oz Irish cream
@@ -4920,7 +4920,7 @@ Mango for garnish
 Chocolate syrup
 --
 1640
-2.5 oz p.i.n.k. vodka
+2.5 oz p.i.n.k vodka
 --
 1641
 1 oz white creme de menthe
@@ -4935,16 +4935,16 @@ Chocolate syrup
 2 oz cranapple juice
 --
 1645
-1 1/2 cups of Maker’s Mark bourbon
+1 1/2 cups Maker’s Mark bourbon
 --
 1646
-1/2 cup of triple sec
+1/2 cup triple sec
 --
 1647
-4 cups of lemonade
+4 cups lemonade
 --
 1648
-2 cups of 7 Up
+2 cups 7 Up
 --
 1649
 1 apple, sliced thinly
@@ -5055,7 +5055,7 @@ Lemon Wheel (thinly sliced)
 1/4 oz Simple Syrup
 --
 1685
-1/2 of a ripe, yellow peach in chunks
+1/2 a ripe, yellow peach in chunks
 --
 1686
 4 mint leaves
@@ -5082,13 +5082,13 @@ Lemon Wheel (thinly sliced)
 1 oz Raspberry Syrup (House Made)
 --
 1694
-3/4 oz St. Elizabeth Allspice Dram Liqueur
+3/4 oz St Elizabeth Allspice Dram Liqueur
 --
 1695
 3/4 oz Fresh Lime Juice
 --
 1696
-Garnish: Lime boat (half lime cut in half and cored out. Add raspberries, blueberries and roasted unsalted peanut halves. Then drizzle with honey and add bamboo skewer.
+Garnish: Lime boat (half lime cut in half and cored out Add raspberries, blueberries and roasted unsalted peanut halves Then drizzle with honey and add bamboo skewer.
 --
 1697
 2.5 ounces Peanut infused bourbon
@@ -5151,31 +5151,31 @@ Garnish: 2 Chocolate covered Maraschino cherries
 2 dashes peach bitters (optional)
 --
 1717
-1 bottle of Brugal Extra Dry Rum
+1 bottle Brugal Extra Dry Rum
 --
 1718
-2 oz. Highland Park 12 Year Old Scotch Whisky
+2 oz Highland Park 12 Year Old Scotch Whisky
 --
 1719
-2 oz. Gran Classico Bitters
+2 oz Gran Classico Bitters
 --
 1720
-8 oz. Cocchi Americano
+8 oz Cocchi Americano
 --
 1721
-2 oz. Agave syrup
+2 oz Agave syrup
 --
 1722
-6 oz. Fresh squeezed orange juice
+6 oz Fresh squeezed orange juice
 --
 1723
-6 oz. Fresh squeezed lemon juice
+6 oz Fresh squeezed lemon juice
 --
 1724
-6 to 8 slices of orange rind
+6 to 8 slices orange rind
 --
 1725
-6 to 8 slices of lemon rind
+6 to 8 slices lemon rind
 --
 1726
 1 1/2 oz Amarula cream liqueur, shaken
@@ -5217,19 +5217,19 @@ Ice cubes
 2 oz citrus vodka
 --
 1739
-Pop Rocks, flavor of your choice
+Pop Rocks, flavor your choice
 --
 1740
 Hornitos Premium tequila
 --
 1741
-2 oz. Cruzan Black Strap Rum
+2 oz Cruzan Black Strap Rum
 --
 1742
-.75 oz. cane syrup
+.75 oz cane syrup
 --
 1743
-3 oz. milk
+3 oz milk
 --
 1744
 1 oz espresso
@@ -5277,7 +5277,7 @@ Garnish: cucumber wheel
 1 part cold water
 --
 1759
-1 twist of lemon if desired
+1 twist lemon if desired
 --
 1760
 2 oz Leblon cachaça
@@ -5367,10 +5367,10 @@ Pumpkin pie spice
 1 oz pumpkin puree
 --
 1789
-Splash of honey, water
+splash honey, water
 --
 1790
-Slice of fresh ginger
+Slice fresh ginger
 --
 1791
 1 oz Skyy Infusions passion fruit
@@ -5403,7 +5403,7 @@ Slice of fresh ginger
 4 Watermelon cubes
 --
 1801
-1 small handful of blueberries
+1 small handful blueberries
 --
 1802
 3 parts coconut water
@@ -5469,10 +5469,10 @@ nutmeg
 4 parts cola
 --
 1823
-Slice of lemon
+Slice lemon
 --
 1824
-Splash of orange-flavored syrup
+splash orange-flavored syrup
 --
 1825
 1 tsp powdered sugar
@@ -5526,13 +5526,13 @@ Pepper to taste
 2 oz Fortaleza tequila blanco
 --
 1842
-1 heaping bar spoon of spicy mango chutney (3/4 oz)
+1 heaping bar spoon spicy mango chutney (3/4 oz)
 --
 1843
-1 pinch of smoked chili salt (1/8 oz)
+1 pinch smoked chili salt (1/8 oz)
 --
 1844
-3 sprigs of fresh cilantro
+3 sprigs fresh cilantro
 --
 1845
 3/4 egg white
@@ -5571,13 +5571,13 @@ Pepper to taste
 1/2 tsp finely-chopped chipotle en adobo
 --
 1857
-Pinch of kosher salt and freshly-ground black pepper
+pinch kosher salt and freshly-ground black pepper
 --
 1858
-Generous squeeze of lemon juice
+Generous squeeze lemon juice
 --
 1859
-Pinch of celery seeds
+pinch celery seeds
 --
 1860
 1 celery stick
@@ -5595,7 +5595,7 @@ Pinch of celery seeds
 1 part sangrita
 --
 1865
-Splash of lime juice
+splash lime juice
 --
 1866
 1 oz Ketel One Citroen
@@ -5619,19 +5619,19 @@ Orange
 2 oz oval vodka
 --
 1873
-3 tablespoons of macerated strawberries*
+3 tablespoons macerated strawberries*
 --
 1874
-A splash of fresh-squeezed lemon juice
+A splash fresh-squeezed lemon juice
 --
 1875
-A splash of blue curaçao
+A splash blue curaçao
 --
 1876
 2 parts pomegranate juice
 --
 1877
-A squeeze of fresh lemon juice
+A squeeze fresh lemon juice
 --
 1878
 1 oz Jaegermeister
@@ -5640,10 +5640,10 @@ A squeeze of fresh lemon juice
 1 oz peach schnapps
 --
 1880
-1 bottle of Champagne
+1 bottle Champagne
 --
 1881
-1/2 bottle of brandy
+1/2 bottle brandy
 --
 1882
 1 pint rum
@@ -5652,25 +5652,25 @@ A squeeze of fresh lemon juice
 1 pint arrack
 --
 1884
-2 oz of Maraschino liqueur
+2 oz Maraschino liqueur
 --
 1885
-1 pint of pineapple syrup
+1 pint pineapple syrup
 --
 1886
-4 oz. sugar
+4 oz sugar
 --
 1887
-1 quart of boiling water
+1 quart boiling water
 --
 1888
 2 tsp green tea
 --
 1889
-thin peel of one lemon
+thin peel one lemon
 --
 1890
-thin peel of one orange
+thin peel one orange
 --
 1891
 1/2 oz freshly-squeezed orange juice
@@ -5691,7 +5691,7 @@ thin peel of one orange
 1-2 fresh gala apples, sliced
 --
 1897
-1 cup of cherries
+1 cup cherries
 --
 1898
 2-3 oranges, sliced (not peeled)
@@ -5721,13 +5721,13 @@ thin peel of one orange
 3/4 oz Midori melon liqueur
 --
 1907
-1/2 oz. Green Creme de Menthe
+1/2 oz Green Creme de Menthe
 --
 1908
-1/2 oz. White Creme de Cacao
+1/2 oz White Creme de Cacao
 --
 1909
-1 oz. Half-and-Half
+1 oz Half-and-Half
 --
 1910
 3 1/2 parts Malibu coconut rum
@@ -5775,7 +5775,7 @@ thin peel of one orange
 3 pineapple chunks
 --
 1925
-5 sprigs of cilantro
+5 sprigs cilantro
 --
 1926
 2 thin habanero peppers
@@ -5799,7 +5799,7 @@ thin peel of one orange
 1 ounce Wild Turkey American Honey
 --
 1933
-Dollop of egg white
+Dollop egg white
 --
 1934
 10 oz Heavy Cream
@@ -5817,7 +5817,7 @@ Dollop of egg white
 3 Tablespoons Toasted Ground Sesame Seeds
 --
 1939
-14 oz Brandy of Choice (I used Tesseron)
+14 oz Brandy Choice (I used Tesseron)
 --
 1940
 Garnish: Black and White whole Sesame Seeds
@@ -5826,13 +5826,13 @@ Garnish: Black and White whole Sesame Seeds
 2 oz Remy Martin V.S.O.P
 --
 1942
-1/2 of a fresh banana
+1/2 a fresh banana
 --
 1943
 1 1/4 oz simple syrup
 --
 1944
-Splash of balsamic vinegar
+splash balsamic vinegar
 --
 1945
 Lemon peel (garnish)
@@ -5850,16 +5850,16 @@ Lemon peel (garnish)
 6 oz cranberry juice
 --
 1950
-3 oz. prosecco (chilled)
+3 oz prosecco (chilled)
 --
 1951
-1 oz. vodka (chilled)
+1 oz vodka (chilled)
 --
 1952
-3 oz. lemon sorbet
+3 oz lemon sorbet
 --
 1953
-spring of mint (optional)
+spring mint (optional)
 --
 1954
 1 cup chilled prosecco (Italian sparkling white wine)
@@ -5877,10 +5877,10 @@ spring of mint (optional)
 1/2 oz melon liqueur
 --
 1959
-Dash of green chartreuse
+Dash green chartreuse
 --
 1960
-Dash of green creme de menthe
+Dash green creme de menthe
 --
 1961
 1 1/2 oz green creme de menthe
@@ -5910,13 +5910,13 @@ Dash of green creme de menthe
 2 cups crushed ice
 --
 1970
-3 oz. Purity Vodka
+3 oz Purity Vodka
 --
 1971
-3/8 oz. Elderflower liqueur
+3/8 oz Elderflower liqueur
 --
 1972
-3/8 oz. Lemon juice
+3/8 oz Lemon juice
 --
 1973
 1 bar spoon apricot preserves
@@ -5937,7 +5937,7 @@ maraschino cherries
 6 – 12 oz beer
 --
 1979
-1 oz. creme de violette
+1 oz creme de violette
 --
 1980
 1 1/2 oz VS or VSOP cognac
@@ -5955,7 +5955,7 @@ maraschino cherries
 1 oz heavy cream
 --
 1985
-1 (6 oz) can pink lemonade concentrate, partially thawed
+6 oz pink lemonade concentrate, partially thawed
 --
 1986
 8 oz pineapple juice
@@ -6000,10 +6000,10 @@ Sugar
 1/2 tbsp pumpkin pie spice
 --
 2000
-1 cup of Svedka vodka
+1 cup Svedka vodka
 --
 2001
-1.5 cups of Crystal Light, Orange Sunrise flavor
+1.5 cups Crystal Light, Orange Sunrise flavor
 --
 2002
 .5 cup fresh raspberries
@@ -6114,19 +6114,19 @@ Toasted pumpkin seeds for garnish
 1/2 part fresh lemon juice
 --
 2038
-3 slices of fresh ginger
+3 slices fresh ginger
 --
 2039
-2 oz. Scorpion Silver Mezcal
+2 oz Scorpion Silver Mezcal
 --
 2040
-3/4 oz. Celery Puree
+3/4 oz Celery Puree
 --
 2041
-3/4 oz. Fresh Mango Puree
+3/4 oz Fresh Mango Puree
 --
 2042
-1/2 oz. Chili infused sour mix
+1/2 oz Chili infused sour mix
 --
 2043
 3 oz Grey Goose vodka
@@ -6180,7 +6180,7 @@ Dry vermouth
 Orange bitters
 --
 2060
-The peel of 3 lemons, each cut in a 1/2 inch/15 mm wide spiral with a vegetable peeler
+The peel 3 lemons, each cut in a 1/2 inch/15 mm wide spiral with a vegetable peeler
 --
 2061
 3/4 cup/180 ml sugar
@@ -6237,7 +6237,7 @@ Stripes:
 1/2 tsp ground allspice
 --
 2079
-2 small sticks of cinnamon
+2 small sticks cinnamon
 --
 2080
 2 part Absolut Wild Tea vodka
@@ -6282,7 +6282,7 @@ crushed ice
 3 medium sized, or 2 large, strawberries (muddled)
 --
 2094
-1/4 squeeze of lime
+1/4 squeeze lime
 --
 2095
 2 parts Domaine de Canton ginger liqueur
@@ -6306,7 +6306,7 @@ Lemon or lime juice
 1 oz sweet & sour mix
 --
 2102
-Splash of grenadine or cherry juice
+splash grenadine or cherry juice
 --
 2103
 1 1/2 oz gin, preferably Hendricks*
@@ -6354,7 +6354,7 @@ Splash of grenadine or cherry juice
 2 fresh raspberries
 --
 2118
-2 chunks of diced pineapple
+2 chunks diced pineapple
 --
 2119
 1 part soda
@@ -6387,10 +6387,10 @@ Celery Stick and Oversized lemon twist
 .5 parts simple syrup
 --
 2129
-2 slices of mango
+2 slices mango
 --
 2130
-2 slices of pineapple
+2 slices pineapple
 --
 2131
 1 1/2 parts Effen Vodka
@@ -6426,10 +6426,10 @@ Celery Stick and Oversized lemon twist
 2 six packs 7 Up
 --
 2142
-3 oz. Wild Turkey American Honey liqueur
+3 oz Wild Turkey American Honey liqueur
 --
 2143
-6 oz. fresh squeezed grapefruit juice
+6 oz fresh squeezed grapefruit juice
 --
 2144
 1 sprig rosemary
@@ -6447,7 +6447,7 @@ Celery Stick and Oversized lemon twist
 1/2 oz peach liqueur
 --
 2149
-1 oz. cognac
+1 oz cognac
 --
 2150
 1 1/2 parts Absolut Brooklyn vodka
@@ -6474,7 +6474,7 @@ Celery Stick and Oversized lemon twist
 1/2 a blood orange (sliced with peel and pith removed)
 --
 2158
-Sprig of mint leaves
+Sprig mint leaves
 --
 2159
 2 lime slices
@@ -6486,13 +6486,13 @@ Powdered sugar
 2 oz black vodka
 --
 2162
-1 oz. Patron Tequila
+1 oz Patron Tequila
 --
 2163
-1 1/2 oz. Zen Green Tea Liqueur
+1 1/2 oz Zen Green Tea Liqueur
 --
 2164
-2 oz. The Perfect Puree Coconut
+2 oz The Perfect Puree Coconut
 --
 2165
 .5 oz water
@@ -6540,7 +6540,7 @@ Squirt
 Strawberry for garnish
 --
 2180
-2 oz Patrón XO Cafe Dark Cocoa
+2 oz Patron XO Cafe Dark Cocoa
 --
 2181
 3/4 oz Ultimat Vodka
@@ -6597,19 +6597,19 @@ Pineapple wedge
 2 oz Ginger Beer
 --
 2199
-2 oz. Tequila Avión Silver
+2 oz Tequila Avion Silver
 --
 2200
-1/2 oz. lime juice
+1/2 oz lime juice
 --
 2201
-1/2 oz. orange juice
+1/2 oz orange juice
 --
 2202
-1/2 tsp. tamarindo puree
+1/2 tsp tamarindo puree
 --
 2203
-1 tsp. sugar
+1 tsp sugar
 --
 2204
 2 oz Tangerine-infused Purity Vodka
@@ -6627,7 +6627,7 @@ Pineapple wedge
 3 dashes Peychaud’s bitters
 --
 2209
-3 drops of rosewater
+3 drops rosewater
 --
 2210
 1/2 oz Stoli Oranj vodka or Absolut Tangerine vodka
@@ -6645,7 +6645,7 @@ Pineapple wedge
 1 part lavender sirop
 --
 2215
-1 bar spoon of orgeat sirop
+1 bar spoon orgeat sirop
 --
 2216
 1/2 part mineral water
@@ -6720,7 +6720,7 @@ Fresh cilantro or basil
 Fresh Mint Leaves
 --
 2240
-1 Sphere of Ice
+1 Sphere Ice
 --
 2241
 1 1/2 oz Parrot Bay pineapple rum
@@ -6744,22 +6744,22 @@ Fresh Mint Leaves
 Lemon-lime or club soda
 --
 2248
-1 oz. Botran Reserva Rum
+1 oz Botran Reserva Rum
 --
 2249
-1 oz. Botran Solera Rium
+1 oz Botran Solera Rium
 --
 2250
-3/4 oz. Tom’s Mix (1/2 oz. passion and 1/4 oz. mango)
+3/4 oz Tom’s Mix (1/2 oz passion and 1/4 oz mango)
 --
 2251
-3/4 oz. Orgeat Syrup
+3/4 oz Orgeat Syrup
 --
 2252
-3/4 oz. Lime Juice
+3/4 oz Lime Juice
 --
 2253
-Handful of crushed Rock Candy
+Handful crushed Rock Candy
 --
 2254
 Fresh mint
@@ -6786,7 +6786,7 @@ Fresh mint
 1 1/2 oz Ketel One vodka
 --
 2262
-1/2 oz Baileys with a Hint of Caramel
+1/2 oz Baileys with a Hint Caramel
 --
 2263
 1/2 oz pumpkin liqueur
@@ -6861,10 +6861,10 @@ Fresh cherry for garnish
 Egg White
 --
 2287
-1 oz Patrón silver tequila
+1 oz Patron silver tequila
 --
 2288
-1 oz Patrón gold tequila
+1 oz Patron gold tequila
 --
 2289
 2 parts Absolut Ruby Red
@@ -6879,16 +6879,16 @@ Egg White
 2 oz triple sec
 --
 2293
-Dash of hot sauce (to taste)
+Dash hot sauce (to taste)
 --
 2294
 2 parts Bushmills 10-yearr-old single malt Irish whiskey
 --
 2295
-1 part King of Spirits Gold absinthe
+1 part King Spirits Gold absinthe
 --
 2296
-1 twist of lemon
+1 twist lemon
 --
 2297
 11/2 cups Highland Park 12-Year scotch whisky
@@ -6933,7 +6933,7 @@ Seasonal fruit
 3/4 oz sweet vermouth (preferably Carpano Antica)
 --
 2311
-Dash of orange bitters
+Dash orange bitters
 --
 2312
 1 oz cachaça
@@ -7005,7 +7005,7 @@ Ingredients:
 3 sage leaves
 --
 2335
-1 pinch of saffron
+1 pinch saffron
 --
 2336
 2 orange twists
@@ -7044,7 +7044,7 @@ Ingredients:
 0.5 Apple Butter Syrup
 --
 2348
-Pinch of Cinnamon Spice
+pinch Cinnamon Spice
 --
 2349
 Brown Sugar
@@ -7053,7 +7053,7 @@ Brown Sugar
 Peach or Apple (to garnish)
 --
 2351
-3/4 oz. Pink Pigeon Rum
+3/4 oz Pink Pigeon Rum
 --
 2352
 1 Sugar Cube
@@ -7080,10 +7080,10 @@ Peach or Apple (to garnish)
 1 part X-Rated Fusion Liqueur
 --
 2360
-Splash of orange liqueur or triple sec
+splash orange liqueur or triple sec
 --
 2361
-Squeeze of fresh lime wedge
+Squeeze fresh lime wedge
 --
 2362
 1 part UV cherry vodka
@@ -7092,7 +7092,7 @@ Squeeze of fresh lime wedge
 2 parts champagne
 --
 2364
-1 1/2 oz bourbon (I used Eagle Rare. Want a stronger drink? Make it 2 oz!)
+1 1/2 oz bourbon (I used Eagle Rare Want a stronger drink? Make it 2 oz!)
 --
 2365
 1 oz honey-tea pear syrup*
@@ -7137,7 +7137,7 @@ Salted rim (provides the grit!)
 2 strawberries
 --
 2379
-2 oz Baileys with a Hint of Milk Chocolate
+2 oz Baileys with a Hint Milk Chocolate
 --
 2380
 1/2 oz vanilla-flavored vodka
@@ -7149,7 +7149,7 @@ Salted rim (provides the grit!)
 1 part DeKuyper melon liqueur
 --
 2383
-Splash of orange juice
+splash orange juice
 --
 2384
 3/4 ounce silver tequila
@@ -7167,7 +7167,7 @@ Splash of orange juice
 2 parts Hornitos Plata tequila
 --
 2389
-4 parts beer of your choice
+4 parts beer your choice
 --
 2390
 1 1/2 oz whiskey
@@ -7185,7 +7185,7 @@ Splash of orange juice
 6 cups water
 --
 2395
-Sprigs of fresh mint + lemon wedges for garnish
+Sprigs fresh mint + lemon wedges for garnish
 --
 2396
 1 1/2 oz Dry Gin
@@ -7239,7 +7239,7 @@ Layer 3
 1/2 oz fresh squeezed lime juice
 --
 2413
-1/2 white of 1 egg
+1/2 white 1 egg
 --
 2414
 2 oz sangrita
@@ -7257,7 +7257,7 @@ Layer 3
 1 1/2 oz ouzo
 --
 2419
-Dashes of blue Curaçao
+Dashes blue Curaçao
 --
 2420
 1 1/4 oz Voodoo Tiki Desert Rose
@@ -7326,16 +7326,16 @@ Milk (cooked till hot)
 1 1/2 oz Skyy Infusions Cherry
 --
 2442
-2 oz. Flor De Cana 7-year Grand Reserve
+2 oz Flor De Cana 7-year Grand Reserve
 --
 2443
 1 scoop chocolate ice cream
 --
 2444
-1/2 oz. vanilla syrup
+1/2 oz vanilla syrup
 --
 2445
-1/2 oz. Licor 43
+1/2 oz Licor 43
 --
 2446
 1 oz creme de banane
@@ -7356,7 +7356,7 @@ Milk (cooked till hot)
 1 pound guava, quartered
 --
 2452
-3 (3 to 4-inch) pieces sugarcane, each cut in strips
+3 (3 to 4-inch) pieces sugarcane cut in strips
 --
 2453
 1/2 cup prunes
@@ -7365,7 +7365,7 @@ Milk (cooked till hot)
 1/2 pound crabapples, peeled and cored
 --
 2455
-2 cups (1-inch) diced pineapple
+2 cups diced pineapple
 --
 2456
 8 large strawberries
@@ -7377,7 +7377,7 @@ Milk (cooked till hot)
 8 cups water
 --
 2459
-8 oz of Cabo Wabo tequila blanco
+8 oz Cabo Wabo tequila blanco
 --
 2460
 Orange slices to garnish
@@ -7404,22 +7404,22 @@ Orange slices to garnish
 1 1/4 oz grenadine
 --
 2468
-1/2 oz (15 ml) Luxardo Passione Nera black sambuca
+1/2 oz Luxardo Passione Nera black sambuca
 --
 2469
-1/3 oz (10 ml) Midori green melon liqueur
+1/3 oz Midori green melon liqueur
 --
 2470
 1 part coconut cream
 --
 2471
-1 part tangerine flavored mixer (suggested, Stirrings Tangerini)
+1 part tangerine flavored mixer
 --
 2472
 1 part banana liqueur
 --
 2473
-Splash of white rum
+splash white rum
 --
 2474
 1/2 oz orange curaçao or Grand Marnier
@@ -7455,10 +7455,10 @@ Olive (jalapeno stuffed)
 1/4 oz cranberry juice
 --
 2485
-1/2 oz of raspberry liqueur
+1/2 oz raspberry liqueur
 --
 2486
-1 splash of cranberry juice
+1 splash cranberry juice
 --
 2487
 Sour
@@ -7518,7 +7518,7 @@ Sour
 1 tbsp tequila
 --
 2506
-Pinch of salt
+pinch salt
 --
 2507
 2 oz tomato juice
@@ -7545,7 +7545,7 @@ Strawberry syrup
 .5 oz Tomato Juice floated on top
 --
 2515
-1 Pinch of Salt for the glass rim
+1 pinch Salt for the glass rim
 --
 2516
 18 oz Skyy Infusions Cherry
@@ -7707,7 +7707,7 @@ Mini-marshmallows (optional)
 3 1/2 cups apple juice
 --
 2569
-2 cups dried fruit of your choice
+2 cups dried fruit your choice
 --
 2570
 2 tbs granulated sugar
@@ -7728,13 +7728,13 @@ Mini-marshmallows (optional)
 1 1/2 oz Cazadores Blanco
 --
 2576
-3 medium size pieces of fresh watermelon, muddled
+3 medium size pieces fresh watermelon, muddled
 --
 2577
-1 fresh sprig of basil, muddled
+1 fresh sprig basil, muddled
 --
 2578
-1 pinch of Cajun pepper
+1 pinch Cajun pepper
 --
 2579
 2 oz Herradura Silver tequila
@@ -7770,10 +7770,10 @@ Mini-marshmallows (optional)
 6 Fresh Blueberries
 --
 2590
-1 Dash of Cherry Bitters
+1 Dash Cherry Bitters
 --
 2591
-1 Bar Spoon of White Sugar
+1 Bar Spoon White Sugar
 --
 2592
 1 1/2 oz fresh carrot juice
@@ -7794,7 +7794,7 @@ Mini-marshmallows (optional)
 2 oz Yamazaki 12yr Whiskey
 --
 2598
-1.5oz Homemade Sencha greentea mint syrup. (Enrich Loose leaf Sencha was used)
+1.5oz Homemade Sencha greentea mint syrup (Enrich Loose leaf Sencha was used)
 --
 2599
 Glass: Rocks
@@ -7845,13 +7845,13 @@ Lime twist, garnish
 1/2 part Cointreau liqueur
 --
 2615
-1 1/2 oz Tequila Avión reposado
+1 1/2 oz Tequila Avion reposado
 --
 2616
 2 oz fresh sour mix
 --
 2617
-1 750-ml bottle of HobNob Wicked Red
+1 750-ml bottle HobNob Wicked Red
 --
 2618
 11/2 cups spiced rum
@@ -7860,7 +7860,7 @@ Lime twist, garnish
 2 cups freshly squeezed orange juice
 --
 2620
-2 tablespoons of orange zest
+2 tablespoons orange zest
 --
 2621
 1 tablespoons ground ginger
@@ -7938,7 +7938,7 @@ Red apple slices
 1 Mario gummy to garnish
 --
 2646
-1L – 750 ml Sobieski Polish vodka
+1l – 750 ml Sobieski Polish vodka
 --
 2647
 4 cups chai tea (sweetened according to taste)
@@ -7965,22 +7965,22 @@ Red apple slices
 Fresh egg white
 --
 2655
-Pinch of Indonesian pepper
+pinch Indonesian pepper
 --
 2656
-1 1/2 parts of Zen green tea liqueur
+1 1/2 parts Zen green tea liqueur
 --
 2657
 6 parts steamed milk
 --
 2658
-3/4 oz. Drambuie
+3/4 oz Drambuie
 --
 2659
-1/4 oz. Triple Sec
+1/4 oz Triple Sec
 --
 2660
-Juice of 1/2 Lemon
+Juice 1/2 Lemon
 --
 2661
 Splash Ginger Ale
@@ -8010,16 +8010,16 @@ Splash Ginger Ale
 1/2 oz Donn’s Mix*
 --
 2670
-3/4 oz. dry gin (we like Bluecoat or Aviation)
+3/4 oz dry gin (we like Bluecoat or Aviation)
 --
 2671
-3/4 oz. orange liqueur (for example, Cointreau or Patron Citronge)
+3/4 oz orange liqueur (for example, Cointreau or Patron Citronge)
 --
 2672
-3/4 oz. Lillet Blanc
+3/4 oz Lillet Blanc
 --
 2673
-3/4 oz. fresh lemon juice
+3/4 oz fresh lemon juice
 --
 2674
 2 dashes absinthe
@@ -8028,7 +8028,7 @@ Splash Ginger Ale
 1 zombie bunny Peep
 --
 2676
-1 formerly living bunny Peep in the throes of being eaten
+1 formerly living bunny Peep in the throes being eaten
 --
 2677
 4 zombie apostle chick Peeps
@@ -8139,7 +8139,7 @@ coconut syrup
 wildberry schnapps
 --
 2713
-cream of coconut
+cream coconut
 --
 2714
 blueberries
@@ -8532,7 +8532,7 @@ creme de bananes
 fill with Sunny Delight orange juice
 --
 2844
-juice of 1/2 lemons
+juice 1/2 lemons
 --
 2845
 1 maraschino cherry
@@ -8625,10 +8625,10 @@ lime sherbet
 2 liters Sprite soda
 --
 2875
-juice of 2 lemons
+juice 2 lemons
 --
 2876
-juice of 2 limes
+juice 2 limes
 --
 2877
 dark rum
@@ -8838,7 +8838,7 @@ frozen lemonade
 whipping cream
 --
 2946
-juice of 1 limes
+juice 1 limes
 --
 2947
 lime
@@ -8883,7 +8883,7 @@ sloe gin
 3/4 shot wildberry schnapps
 --
 2961
-1 can Dr. Pepper soda
+1 can Dr Pepper soda
 --
 2962
 DeKuyper Razzmatazz liqueur
@@ -9006,7 +9006,7 @@ es Worcestershire sauce
 Goldschlager cinnamon schnapps
 --
 3002
-Dr. Pepper soda
+Dr Pepper soda
 --
 3003
 cranberry-apple juice
@@ -9441,7 +9441,7 @@ honey
 1/2 banana
 --
 3147
-1/2 can cream of coconut
+1/2 can cream coconut
 --
 3148
 1/2 shot peach schnapps
@@ -9474,7 +9474,7 @@ Pepsi cola
 2 cl white creme de menthe
 --
 3158
-1 cl syrup of roses
+1 cl syrup roses
 --
 3159
 es 7-Up soda
@@ -9666,10 +9666,10 @@ fruit
 Safari liqueur
 --
 3222
-juice of 1 oranges
+juice 1 oranges
 --
 3223
-juice of 1/2 grapefruits
+juice 1/2 grapefruits
 --
 3224
 6 cl Passoa liqueur
@@ -9909,7 +9909,7 @@ raspberry syrup
 Alize liqueur
 --
 3303
-Smirnoff? No. 21 Vodka
+Smirnoff? No 21 Vodka
 --
 3304
 2 red hot sauce
@@ -9933,7 +9933,7 @@ Smirnoff? No. 21 Vodka
 1/2 bottlechilled carbonated water
 --
 3311
-juice of 1/2 limes
+juice 1/2 limes
 --
 3312
 d banana
@@ -10062,7 +10062,7 @@ Nestle hot chocolate
 fill with hot chocolate
 --
 3354
-juice of 1/4 oranges
+juice 1/4 oranges
 --
 3355
 1 pint vodka
@@ -10134,7 +10134,7 @@ fill with tonic water
 1 shot orange juice
 --
 3378
-juice of 1 lemons
+juice 1 lemons
 --
 3379
 3 drops Tabasco sauce
@@ -10248,7 +10248,7 @@ white tequila
 15 ml Cointreau orange liqueur
 --
 3416
-30 ml cream of coconut
+30 ml cream coconut
 --
 3417
 60 ml pineapple juice
@@ -10299,7 +10299,7 @@ bananas
 1 glass orange juice
 --
 3433
-rind of 1 lemons
+rind 1 lemons
 --
 3434
 1/2 lb sugar
@@ -10554,7 +10554,7 @@ Irish Mist herbal liqueur
 Kerns apricot nectar
 --
 3518
-juice of 1/4 lemons
+juice 1/4 lemons
 --
 3519
 4 fifths Champagne
@@ -11130,7 +11130,7 @@ top with pineapple juice
 1 shot orange liqueur
 --
 3710
-1 shot cream of coconut
+1 shot cream coconut
 --
 3711
 8 ice cubes
@@ -11739,7 +11739,7 @@ Orangina orange soda
 1 bottle Champagne
 --
 3913
-juice of 1/2 oranges
+juice 1/2 oranges
 --
 3914
 peanut liqueur
@@ -12171,7 +12171,7 @@ powdered lemonade mix
 4 cl Simers aquavit
 --
 4057
-4 cl St. Hallvard herbal liqueur
+4 cl St Hallvard herbal liqueur
 --
 4058
 Cinzano Orancio French vermouth
@@ -12246,7 +12246,7 @@ es Bols green creme de menthe
 2 shots whiskey
 --
 4082
-fill with Dr. Pepper soda
+fill with Dr Pepper soda
 --
 4083
 fill with lemon-lime soda
@@ -12369,7 +12369,7 @@ fill with Snapple soda
 cherry vodka
 --
 4123
-juice of 1 small lemons
+juice 1 small lemons
 --
 4124
 strawberry juice
@@ -12687,7 +12687,7 @@ Casa Noble anejo tequila
 4 cl DeKuyper Hot Damn cinnamon schnapps
 --
 4229
-4 cl Dr. Pepper soda
+4 cl Dr Pepper soda
 --
 4230
 3 - 5 squirts Tabasco sauce
@@ -12855,7 +12855,7 @@ lace with grenadine syrup
 high proof vodka
 --
 4285
-juice of 3 - 6 lemons
+juice 3 - 6 lemons
 --
 4286
 ice cold water
@@ -13047,7 +13047,7 @@ papaya juice
 2 cl 151 proof rum
 --
 4349
-juice of 1/4 limes
+juice 1/4 limes
 --
 4350
 1/2 shot Blue Curacao liqueur
@@ -14364,7 +14364,7 @@ Mount Gay Barbados rum
 1/2 shot Absolut vodka
 --
 4788
-syrup of roses
+syrup roses
 --
 4789
 6 cl Absolut vodka
@@ -14826,7 +14826,7 @@ es Orange Curacao liqueur
 Kool-Aid Lemon-Lime mix
 --
 4942
-juice of 1 small limes
+juice 1 small limes
 --
 4943
 1 can beer
@@ -15183,7 +15183,7 @@ fill with blackcurrant squash
 top with fresh cream
 --
 5061
-zest of 15 fresh lemons
+zest 15 fresh lemons
 --
 5062
 2 shots vanilla vodka
@@ -15519,7 +15519,7 @@ es anisette
 4 cl Sagatiba Pura
 --
 5173
-4 cl cream of coconut
+4 cl cream coconut
 --
 5174
 10 cl cherry juice
@@ -15582,7 +15582,7 @@ iced water
 en fruit
 --
 5194
-juice of 1 lemon
+juice 1 lemon
 --
 5195
 9 cl lemon juice
@@ -15816,7 +15816,7 @@ Johnnie Walker Scotch whisky
 Arandas white tequila
 --
 5272
-Coco Lopez cream of coconut
+Coco Lopez cream coconut
 --
 5273
 blush wine
@@ -16332,7 +16332,7 @@ Lambrusco red wine
 pomegranate juice
 --
 5444
-juice of 1/3 oranges
+juice 1/3 oranges
 --
 5445
 clove syrup
@@ -16464,7 +16464,7 @@ weetened cocoa powder
 1/4 shot Jagermeister herbal liqueur
 --
 5488
-2 cans Coco Lopez cream of coconut
+2 cans Coco Lopez cream coconut
 --
 5489
 Del Monte pineapple juice
@@ -17256,7 +17256,7 @@ es Russian vodka
 5 bags tea
 --
 5752
-1/2 can Dr. Pepper soda
+1/2 can Dr Pepper soda
 --
 5753
 60 ml sherry
@@ -17874,7 +17874,7 @@ Cruzan banana rum
 Suntory Royal whisky
 --
 5958
-St. Raphael Aperitif de France wine
+St Raphael Aperitif de France wine
 --
 5959
 2.5 cl creme de bananes
@@ -18069,7 +18069,7 @@ Kool-Aid Blue Raspberry mix
 DeKuyper Blue Curacao liqueur
 --
 6023
-1 L Kool-Aid Blue Moon Berry mix
+1 l Kool-Aid Blue Moon Berry mix
 --
 6024
 Sour Puss raspberry liqueur
@@ -18078,7 +18078,7 @@ Sour Puss raspberry liqueur
 blue Gatorade energy drink
 --
 6026
-(large) Mayfield Rocky Road ice cream
+Mayfield Rocky Road ice cream
 --
 6027
 Galliano white sambuca
@@ -18090,7 +18090,7 @@ cherry advocaat liqueur
 Bols Gold Strike cinnamon liqueur
 --
 6030
-2 L grape soda
+2 l grape soda
 --
 6031
 rainbow sherbert
@@ -18138,22 +18138,22 @@ Bacardi Coco rum
 Absolut Limon vodka
 --
 6046
-1 L Bacardi 151 rum
+1 l Bacardi 151 rum
 --
 6047
-1 L Blue Curacao liqueur
+1 l Blue Curacao liqueur
 --
 6048
-1 L sweet and sour mix
+1 l sweet and sour mix
 --
 6049
-1 L cranberry juice
+1 l cranberry juice
 --
 6050
 POM pomegranate juice
 --
 6051
-1 L dark rum
+1 l dark rum
 --
 6052
 1 fresh cinnamon
@@ -18180,7 +18180,7 @@ Parmesan cheese
 1/3 glass Presidente brandy
 --
 6060
-2/3 glass Dr. Pepper soda
+2/3 glass Dr Pepper soda
 --
 6061
 2 bottles beer
@@ -18213,10 +18213,10 @@ Montezuma gold tequila
 Sunny Delight California Style orange juice
 --
 6071
-1 L vodka
+1 l vodka
 --
 6072
-1 L 7-Up soda
+1 l 7-Up soda
 --
 6073
 Archers cranberry schnapps
@@ -18231,7 +18231,7 @@ green Gatorade energy drink
 Dole Pine-Orange-Banana Juice
 --
 6077
-1 L lemonade
+1 l lemonade
 --
 6078
 red Aftershock Hot & Cool cinnamon schnapps
@@ -18441,10 +18441,10 @@ Coca-Cola Diet Coke
 1 can Minute Maid berry punch
 --
 6147
-(4 cans) cola
+4 cans cola
 --
 6148
-(2 cans) Sprite soda
+2 cans Sprite
 --
 6149
 1/2 pint Skyy Blue vodka
@@ -18549,7 +18549,7 @@ thawed lemon juice
 750 mlbottle triple sec
 --
 6183
-1 bottle(large) cranberry juice
+1 bottle cranberry juice
 --
 6184
 1 bottle sweet and sour mix
@@ -18744,22 +18744,22 @@ hot malted milk
 750 mlbottle Champagne
 --
 6248
-(4 bottles) Bass pale ale
+4 bottles Bass pale ale
 --
 6249
 4 whole cloves
 --
 6250
-2.25 liters(3 bottles) claret
+2.25 liters claret
 --
 6251
 1 liter gold tequila
 --
 6252
-1.5 liters(2 bottles) chilled Champagne
+1.5 liters chilled Champagne
 --
 6253
-3 liters(4 bottles) chilled Sauternes white wine
+3 liters chilled Sauternes white wine
 --
 6254
 1 large honeydew melon
@@ -18774,7 +18774,7 @@ hot malted milk
 24 maraschino cherries
 --
 6258
-2.25 liters(3 bottles) chilled Champagne
+2.25 liters chilled Champagne
 --
 6259
 750 mlbottle ruby port
@@ -18783,7 +18783,7 @@ hot malted milk
 ground mace
 --
 6261
-1.5 liters(2 bottles) ruby port
+1.5 liters ruby port
 --
 6262
 1 liter lemon-lime soda
@@ -19320,7 +19320,7 @@ can, chilled Red Bull energy drink
 icing sugar
 --
 6440
-can Dr. Pepper soda
+can Dr Pepper soda
 --
 6441
 Stoli Zinamon vodka
@@ -19449,7 +19449,7 @@ pure grape juice
 chilled orange soda
 --
 6483
-Pepe Lopez cream of coconut
+Pepe Lopez cream coconut
 --
 6484
 Wyborowa vodka
@@ -19662,7 +19662,7 @@ habanero pepper sauce
 cayenne peppers
 --
 6554
-(large) vanilla ice cream
+vanilla ice cream
 --
 6555
 2/3 glass Canadian whisky
@@ -19836,7 +19836,7 @@ sour lemonade
 375 mlcan Carnation creamy evaporated milk
 --
 6612
-4 cans Coco Lopez cream of coconut
+4 cans Coco Lopez cream coconut
 --
 6613
 3 cans evaporated milk
@@ -20043,10 +20043,10 @@ vanilla Chai tea
 1 twist limes
 --
 6681
-en raspberry lemonade
+raspberry lemonade
 --
 6682
-1 can(equivalent) vodka
+1 can vodka
 --
 6683
 1 bottle Yoo-hoo chocolate milk
@@ -20229,7 +20229,7 @@ unsweetened iced tea
 chilled Jim Beam bourbon whiskey
 --
 6743
-chilled Dr. Pepper soda
+chilled Dr Pepper soda
 --
 6744
 1 package lime jell-o
@@ -20325,7 +20325,7 @@ chilled Hawaiian Punch
 chilled amaretto almond liqueur
 --
 6775
-4 sprigs of large mint
+4 sprigs large mint
 --
 6776
 4 fresh lime
@@ -20358,7 +20358,7 @@ es ginseng extract
 1 lychee
 --
 6786
-(2 x 12-oz bottles) Coors Light beer
+2 x 12-oz bottles Coors Light beer
 --
 6787
 70 clbottle vodka
@@ -20367,16 +20367,16 @@ es ginseng extract
 70 clbottle Bacardi gold rum
 --
 6789
-2 litersbottle Coca-Cola
+2 liters Coca-Cola
 --
 6790
-2 litersbottle lemonade
+2 liters lemonade
 --
 6791
-1 litercarton blackcurrant juice
+1 liter blackcurrant juice
 --
 6792
-1 litercarton orange juice
+1 liter orange juice
 --
 6793
 1 shot Pepsi Twist cola
@@ -20436,7 +20436,7 @@ can pineapple juice
 McGuinness creme de banane
 --
 6812
-(3 x 12-oz cans) Lipton Brisk iced tea
+3 x 12-oz cans Lipton Brisk iced tea
 --
 6813
 3 shotscheap vodka
@@ -20595,7 +20595,7 @@ lons Hi-C fruit punch
 pickle brine
 --
 6865
-Dr. Pepper vanilla soda
+Dr Pepper vanilla soda
 --
 6866
 1 drop Tapatio hot sauce
@@ -20658,7 +20658,7 @@ longreen Hawaiian Punch
 aged tequila
 --
 6886
-St. Vincent Sunset 169 proof rum
+St Vincent Sunset 169 proof rum
 --
 6887
 Absolut Apeach vodka
@@ -20850,7 +20850,7 @@ apple vodka
 Fresca Black Cherry soda
 --
 6950
-thawed The Perfect Puree of Napa Valley Scarlet Orange concentrate
+thawed The Perfect Puree Napa Valley Scarlet Orange concentrate
 --
 6951
 premium tequila
@@ -20928,7 +20928,7 @@ chilled Canada Dry ginger ale
 Nestea raspberry iced tea
 --
 6976
-1 peel of lemon
+1 peel lemon
 --
 6977
 1 package grape jello
@@ -21198,7 +21198,7 @@ chilled Barenjager honey liqueur
 chilled Go Fast energy drink
 --
 7066
-2% (semi-skimmed) milk
+2% milk
 --
 7067
 Cane sugar
@@ -21525,7 +21525,7 @@ full pulp orange juice
 Chaser 5-Hour energy drink
 --
 7175
-1 package(large) lime jell-o
+1 package lime jell-o
 --
 7176
 Absolut pepper vodka
@@ -21837,7 +21837,7 @@ Southern Comfort
 Pineapple Juice
 --
 7279
-Dash of Grenadine (Optional)
+Dash Grenadine (Optional)
 --
 7280
 Coffee Liqueur
@@ -21873,7 +21873,7 @@ Melon Liqueur
 Cranberry Juice
 --
 7291
-Splash of Grenadine
+splash Grenadine
 --
 7292
 Rum (Light)
@@ -21891,7 +21891,7 @@ Peach Schnapps
 Triple Sec
 --
 7297
-Splash of Sweet & Sour Mix
+splash Sweet & Sour Mix
 --
 7298
 Rum (Anejo)
@@ -21915,7 +21915,7 @@ Cointreau Orange Liqueur
 Gin
 --
 7305
-Dash of Orange Bitters
+Dash Orange Bitters
 --
 7306
 Drambuie
@@ -21933,7 +21933,7 @@ Absinthe
 of Orange Bitters
 --
 7311
-Splash of Simple Syrup (Optional)
+splash Simple Syrup (Optional)
 --
 7312
 of Bitters
@@ -21963,7 +21963,7 @@ Wild Turkey Bourbon
 Butterscotch Schnapps
 --
 7321
-Splash of Cream / Half & Half
+splash Cream / Half & Half
 --
 7322
 Brandy
@@ -21972,10 +21972,10 @@ Brandy
 Forbidden Fruit Liqueur
 --
 7324
-Splash of Lemon Juice
+splash Lemon Juice
 --
 7325
-Float of Blue Curacao
+float Blue Curacao
 --
 7326
 Sherry (Dry)
@@ -22002,7 +22002,7 @@ Creme de Menthe (White)
 Banana Liqueur
 --
 7334
-Float of Grenadine
+float Grenadine
 --
 7335
 Vanilla Vodka
@@ -22047,13 +22047,13 @@ Simple Syrup
 Tequila
 --
 7349
-Splash of Lemon-Lime Soda
+splash Lemon-Lime Soda
 --
 7350
 Chartreuse (Yellow)
 --
 7351
-Splash of Raspberry Syrup
+splash Raspberry Syrup
 --
 7352
 Creme de Cacao (White)
@@ -22062,7 +22062,7 @@ Creme de Cacao (White)
 Cream / Half & Half
 --
 7354
-Splash of Triple Sec
+splash Triple Sec
 --
 7355
 Dubonnet
@@ -22077,7 +22077,7 @@ Vodka (Optional)
 Bourbon
 --
 7359
-Splash of Blackberry Brandy
+splash Blackberry Brandy
 --
 7360
 Maraschino Liqueur
@@ -22086,10 +22086,10 @@ Maraschino Liqueur
 Tonic Water
 --
 7362
-Splash of Pernod
+splash Pernod
 --
 7363
-Dash of Bitters
+Dash Bitters
 --
 7364
 Kümmel
@@ -22119,10 +22119,10 @@ Hot Coffee
 Orange Bitters
 --
 7373
-Splash of Orange Juice
+splash Orange Juice
 --
 7374
-Float of Port
+float Port
 --
 7375
 Creme de Cacao (Dark)
@@ -22149,22 +22149,22 @@ Apple Juice
 Ginger Ale or Club Soda / Carbonated Water
 --
 7383
-Cream of Coconut
+Cream Coconut
 --
 7384
 Sour Apple Pucker
 --
 7385
-Float of Sour Apple Pucker
+float Sour Apple Pucker
 --
 7386
 Apple Vodka
 --
 7387
-Splash of Apple Brandy
+splash Apple Brandy
 --
 7388
-Splash of Cinnamon Schnapps
+splash Cinnamon Schnapps
 --
 7389
 of Vanilla Ice Cream
@@ -22179,7 +22179,7 @@ Vodka or Apple Vodka
 Apple Juice (Optional)
 --
 7393
-Splash of Anisette
+splash Anisette
 --
 7394
 Cherry Brandy
@@ -22188,7 +22188,7 @@ Cherry Brandy
 White Curacao
 --
 7396
-Splash of Lime Juice
+splash Lime Juice
 --
 7397
 Galliano Liqueur
@@ -22212,7 +22212,7 @@ Iced Tea
 Lemonade
 --
 7404
-Splash of Vermouth (Sweet)
+splash Vermouth (Sweet)
 --
 7405
 Canadian Whisky
@@ -22227,7 +22227,7 @@ Whiskey or Creme de Cacao (White)
 Hazelnut Liqueur or Amaretto
 --
 7409
-Dash of Grenadine
+Dash Grenadine
 --
 7410
 Citrus Rum
@@ -22254,7 +22254,7 @@ Madeira
 Pina Colada Mix
 --
 7418
-Splash of Pineapple Juice
+splash Pineapple Juice
 --
 7419
 Vodka or Vanilla Vodka
@@ -22269,7 +22269,7 @@ Chocolate Liqueur
 Cream / Half & Half or Milk
 --
 7423
-Float of Banana Liqueur
+float Banana Liqueur
 --
 7424
 Kirschwasser
@@ -22281,16 +22281,16 @@ Pernod
 Captain Morgan Tattoo Rum
 --
 7427
-Splash of Cranberry Juice
+splash Cranberry Juice
 --
 7428
-Splash of Creme de Cacao (Dark)
+splash Creme de Cacao (Dark)
 --
 7429
-Splash of Creme de Cacao (White)
+splash Creme de Cacao (White)
 --
 7430
-Splash of Grenadine (Optional)
+splash Grenadine (Optional)
 --
 7431
 Cachaca
@@ -22299,7 +22299,7 @@ Cachaca
 Passion Fruit Puree
 --
 7433
-Float of Rum (151-Proof)
+float Rum (151-Proof)
 --
 7434
 Grape Juice
@@ -22332,7 +22332,7 @@ Chartreuse (Green)
 Burgundy
 --
 7444
-Dash of Lime Juice
+Dash Lime Juice
 --
 7445
 Club Soda / Carbonated Water or Ginger Ale
@@ -22356,7 +22356,7 @@ Coffee Brandy
 Blue Curacao (Optional)
 --
 7452
-Splash of Cherry Brandy
+splash Cherry Brandy
 --
 7453
 Tequila (Optional)
@@ -22368,7 +22368,7 @@ Honey or Molasses
 Pear Cider
 --
 7456
-Splash of Club Soda / Carbonated Water (Optional)
+splash Club Soda / Carbonated Water (Optional)
 --
 7457
 Rum (Gold)
@@ -22380,10 +22380,10 @@ Limoncello Lemon Liqueur
 Blackberries
 --
 7460
-Splash of Gin
+splash Gin
 --
 7461
-Splash of Maraschino Liqueur
+splash Maraschino Liqueur
 --
 7462
 of Blueberries
@@ -22410,13 +22410,13 @@ Beef Bouillon
 Clamato Juice
 --
 7470
-Dash of Worcestershire Sauce
+Dash Worcestershire Sauce
 --
 7471
-Dash of Tabasco Sauce
+Dash Tabasco Sauce
 --
 7472
-Dash of Horseradish Sauce
+Dash Horseradish Sauce
 --
 7473
 of Worcestershire Sauce
@@ -22428,10 +22428,10 @@ Tomato Juice or Bloody Mary Mix
 Horseradish Sauce (Optional)
 --
 7476
-Float of Vodka (Optional)
+float Vodka (Optional)
 --
 7477
-Splash of Blue Curacao
+splash Blue Curacao
 --
 7478
 Blueberry Schnapps
@@ -22440,7 +22440,7 @@ Blueberry Schnapps
 Tequila (Premium)
 --
 7480
-Float of Grand Marnier Orange Liqueur
+float Grand Marnier Orange Liqueur
 --
 7481
 Tequila (Silver)
@@ -22449,10 +22449,10 @@ Tequila (Silver)
 Blueberries
 --
 7483
-Splash of Benedictine
+splash Benedictine
 --
 7484
-Splash of Club Soda / Carbonated Water
+splash Club Soda / Carbonated Water
 --
 7485
 of Whiskey
@@ -22464,13 +22464,13 @@ Maui Tropical Schnapps
 Passion Fruit Syrup
 --
 7488
-Splash of Rum (151-Proof)
+splash Rum (151-Proof)
 --
 7489
 Vanilla Schnapps
 --
 7490
-Splash of Water
+splash Water
 --
 7491
 Leaves
@@ -22485,10 +22485,10 @@ of Grenadine
 of Strawberry Liqueur or Raspberry Liqueur
 --
 7495
-Splash of Creme de Cassis
+splash Creme de Cassis
 --
 7496
-Splash of Vermouth (Dry)
+splash Vermouth (Dry)
 --
 7497
 Sherry (Cream)
@@ -22515,7 +22515,7 @@ Irish Mist
 of Rum (Light) or Rum (Dark)
 --
 7505
-Splash of Dubonnet
+splash Dubonnet
 --
 7506
 of Cherry Vodka
@@ -22530,7 +22530,7 @@ Grain Alcohol or Vodka (100-Proof)
 Cherry Liqueur
 --
 7510
-Splash of Grand Marnier Orange Liqueur
+splash Grand Marnier Orange Liqueur
 --
 7511
 Chocolate Syrup
@@ -22548,22 +22548,22 @@ Clam Juice
 Claret
 --
 7516
-Splash of Apricot Brandy
+splash Apricot Brandy
 --
 7517
-Splash of White Curacao
+splash White Curacao
 --
 7518
-Splash of Grenadine or Raspberry Syrup
+splash Grenadine or Raspberry Syrup
 --
 7519
 Amarula Cream
 --
 7520
-Splash of Creme de Menthe (White)
+splash Creme de Menthe (White)
 --
 7521
-Splash of Cola
+splash Cola
 --
 7522
 Orange Wedge
@@ -22575,10 +22575,10 @@ Peach Brandy
 Beer (Mexican)
 --
 7525
-Splash of Vermouth (Dry) (Optional)
+splash Vermouth (Dry)
 --
 7526
-Splash of Rum (Light)
+splash Rum (Light)
 --
 7527
 Zwack Herbal Liqueur
@@ -22593,7 +22593,7 @@ Fireball Cinnamon Whisky
 Akvavit
 --
 7531
-Float of Jagermeister
+float Jagermeister
 --
 7532
 Midori Melon Liqueur
@@ -22611,19 +22611,19 @@ Olive Juice
 Vodka or Gin
 --
 7537
-Splash of Olive Juice
+splash Olive Juice
 --
 7538
-Float of Cream / Half & Half
+float Cream / Half & Half
 --
 7539
-Float of Creme de Menthe (Green)
+float Creme de Menthe (Green)
 --
 7540
 Yukon Jack Whiskey
 --
 7541
-Dr. Pepper
+Dr Pepper
 --
 7542
 of Amaretto
@@ -22632,7 +22632,7 @@ of Amaretto
 of Rum (151-Proof)
 --
 7544
-Splash of Brandy
+splash Brandy
 --
 7545
 Cherry Juice
@@ -22647,7 +22647,7 @@ Tequila (Gold)
 Gin or Vodka
 --
 7549
-Splash of Sherry (Cream)
+splash Sherry (Cream)
 --
 7550
 Pepper Vodka
@@ -22659,7 +22659,7 @@ of Cinnamon Schnapps
 Raspberry Vodka
 --
 7553
-Splash of Kirschwasser
+splash Kirschwasser
 --
 7554
 Honey
@@ -22668,13 +22668,13 @@ Honey
 Orgeat Syrup
 --
 7556
-Splash of Banana Liqueur
+splash Banana Liqueur
 --
 7557
-Float of Galliano Liqueur
+float Galliano Liqueur
 --
 7558
-Splash of Milk
+splash Milk
 --
 7559
 Amaretto or Grand Marnier Orange Liqueur
@@ -22689,13 +22689,13 @@ Root Beer Vodka (100-Proof)
 of Creme de Menthe (Green)
 --
 7563
-Splash of Passion Fruit Syrup
+splash Passion Fruit Syrup
 --
 7564
 Creme de Noyaux
 --
 7565
-Float of Cherry Brandy
+float Cherry Brandy
 --
 7566
 Tanqueray Gin
@@ -22725,7 +22725,7 @@ of Cola
 Cranberry Juice (Optional)
 --
 7575
-Float of Raspberry Liqueur
+float Raspberry Liqueur
 --
 7576
 Lemonade or Sweet & Sour Mix
@@ -22740,7 +22740,7 @@ Guava Nectar
 Coffee Vodka or Van Gogh Double Espresso Vodka
 --
 7580
-Splash of Grapefruit Juice
+splash Grapefruit Juice
 --
 7581
 White Wine
@@ -22791,7 +22791,7 @@ Passion Fruit Syrup (Optional)
 of Pernod
 --
 7597
-Splash of Grapefruit Juice or Lemon Juice
+splash Grapefruit Juice or Lemon Juice
 --
 7598
 Passion Fruit Juice
@@ -22812,7 +22812,7 @@ Peppermint Schnapps (Optional)
 Peach Brandy or Peach Schnapps
 --
 7604
-Splash of Creme de Menthe (Green)
+splash Creme de Menthe (Green)
 --
 7605
 of Jagermeister
@@ -22821,10 +22821,10 @@ of Jagermeister
 Amaretto (Optional)
 --
 7607
-Splash of Claret
+splash Claret
 --
 7608
-Splash of Rum (Dark)
+splash Rum (Dark)
 --
 7609
 Jell-O Gelatin
@@ -22866,7 +22866,7 @@ Apricot Nectar
 Kiwi Liqueur
 --
 7622
-Splash of Coconut Liqueur
+splash Coconut Liqueur
 --
 7623
 Grain Alcohol
@@ -22890,13 +22890,13 @@ Goldschlager Cinnamon Schnapps (Optional)
 Lychee Liqueur
 --
 7630
-Splash of Simple Syrup
+splash Simple Syrup
 --
 7631
-Float of Rum (Dark)
+float Rum (Dark)
 --
 7632
-Splash of Almond Liqueur or Creme de Noyaux
+splash Almond Liqueur or Creme de Noyaux
 --
 7633
 Triple Sec or Orange Curacao
@@ -22911,13 +22911,13 @@ Mango Puree
 Maple Syrup
 --
 7637
-Splash of Sake
+splash Sake
 --
 7638
 Margarita Mix
 --
 7639
-Splash of Campari
+splash Campari
 --
 7640
 Big Red Soda
@@ -22929,28 +22929,28 @@ of Tequila
 of Hot Sauce
 --
 7643
-Splash of Creme de Noyaux
+splash Creme de Noyaux
 --
 7644
 Anisette or Pernod
 --
 7645
-Dash of Anisette
+Dash Anisette
 --
 7646
 Vermouth (Dry) or Vermouth (Sweet)
 --
 7647
-Splash of Peach Schnapps
+splash Peach Schnapps
 --
 7648
-Splash of Champagne
+splash Champagne
 --
 7649
-Splash of Bitters
+splash Bitters
 --
 7650
-Float of Melon Liqueur
+float Melon Liqueur
 --
 7651
 Vanilla Syrup
@@ -22959,7 +22959,7 @@ Vanilla Syrup
 Orange Curacao or Triple Sec
 --
 7653
-Splash of Scotch Whisky
+splash Scotch Whisky
 --
 7654
 Squirt Citrus Soda
@@ -22968,7 +22968,7 @@ Squirt Citrus Soda
 Papaya Syrup
 --
 7656
-Splash of Passion Fruit Juice
+splash Passion Fruit Juice
 --
 7657
 Passion Fruit Rum
@@ -23028,7 +23028,7 @@ Pomegranate Liqueur
 Pomegranate Juice (Optional)
 --
 7676
-Dash of Vinegar
+Dash Vinegar
 --
 7677
 Worcestershire Sauce
@@ -23046,7 +23046,7 @@ Grape Soda
 Vodka or Raspberry Vodka
 --
 7682
-Splash of Cranberry Juice or Grenadine
+splash Cranberry Juice or Grenadine
 --
 7683
 Raspberries
@@ -23064,7 +23064,7 @@ of Tomato Juice or Bloody Mary Mix
 Horseradish Sauce
 --
 7688
-Splash of Amaretto
+splash Amaretto
 --
 7689
 Root Beer Schnapps
@@ -23076,13 +23076,13 @@ of Vodka
 Rye Whiskey
 --
 7692
-Splash of Sambuca
+splash Sambuca
 --
 7693
 Beans
 --
 7694
-Splash of Chartreuse (Green)
+splash Chartreuse (Green)
 --
 7695
 Orgeat Syrup or Creme de Noyaux
@@ -23106,7 +23106,7 @@ Orange Juice (Optional)
 of Root Beer Schnapps
 --
 7702
-Splash of Raspberry Liqueur
+splash Raspberry Liqueur
 --
 7703
 of Grenadine (Optional)
@@ -23127,13 +23127,13 @@ Coffee Liqueur or Coffee Brandy
 White Wine or Red Wine
 --
 7709
-Float of Irish Cream
+float Irish Cream
 --
 7710
 of Raspberry Liqueur
 --
 7711
-Strawberry Liqueur (Optional)
+Strawberry Liqueur
 --
 7712
 Licor
@@ -23157,7 +23157,7 @@ Hot Tea
 Southern Comfort or Wild Turkey Bourbon
 --
 7719
-Splash of Sherry (Dry)
+splash Sherry (Dry)
 --
 7720
 Water or Milk
@@ -23181,13 +23181,13 @@ Barenjager Honey Liqueur
 Vanilla Vodka or Vanilla Rum
 --
 7727
-Splash of Tonic Water
+splash Tonic Water
 --
 7728
 Triple Sec Syrup
 --
 7729
-Splash of Pineapple Juice (Optional)
+splash Pineapple Juice (Optional)
 --
 7730
 Raspberry Vodka or Pear Vodka
@@ -23208,7 +23208,7 @@ White Zinfandel
 Strega Herbal Liqueur
 --
 7736
-Splash of Orange Juice (Optional)
+splash Orange Juice (Optional)
 --
 7737
 Grand Marnier Orange Liqueur or Triple Sec

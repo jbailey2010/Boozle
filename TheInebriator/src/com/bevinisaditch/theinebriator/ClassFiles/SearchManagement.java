@@ -117,7 +117,7 @@ public class SearchManagement {
 				searchDrinkName = possName;
 				dialog.dismiss();
 				SearchEngine search = new SearchEngine(c);
-				search.searchByName(possName);
+				search.searchByName(possName.trim());
 			}
 	    });
 	    TextView clear = (TextView)dialog.findViewById(R.id.clear);
@@ -210,10 +210,10 @@ public class SearchManagement {
 						submit.setBackground(c.getResources().getDrawable(R.drawable.btn_blue));
 					}
 					if(reqRadio.isChecked()) {
-						reqIngredients.add(name);
+						reqIngredients.add(name.trim());
 					}
 					else {
-						optIngredients.add(name);
+						optIngredients.add(name.trim());
 					}
 					updateTextViews(required, reqIngredients, "Required Ingredients:");
 					updateTextViews(optional, optIngredients, "Optional Ingredients:");
