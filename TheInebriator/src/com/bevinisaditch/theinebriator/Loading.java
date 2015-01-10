@@ -1,6 +1,8 @@
 package com.bevinisaditch.theinebriator;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -15,6 +17,8 @@ import android.view.Menu;
 import android.widget.ImageView;
 
 import com.bevinisaditch.theinebriator.ClassFiles.Drink;
+import com.bevinisaditch.theinebriator.ClassFiles.IngredientIDPair;
+import com.bevinisaditch.theinebriator.ClassFiles.Matching;
 import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;
 import com.devingotaswitch.theinebriator.R;
 /**
@@ -27,6 +31,7 @@ public class Loading extends Activity {
 	private ImageView img;
 	public static List<String> drinkNames;
 	public static List<String> ingrNames;
+	public static HashMap<Integer, IngredientIDPair> allPairs;
 	
 	/**
 	 * Sets the display, and spawns the loading threads
@@ -69,6 +74,7 @@ public class Loading extends Activity {
 		Activity act;
 		List<String> drinks;
 		List<String> ingredients;
+		HashMap<Integer, IngredientIDPair> pairs;
 		
 		/**
 		 * Calls the method to load the drinks
@@ -79,6 +85,7 @@ public class Loading extends Activity {
         	DrinkDatabaseHandler drinkHandler = new DrinkDatabaseHandler(cont);
         	drinks = drinkHandler.getDrinkNames();
         	ingredients = drinkHandler.getIngredientNames();
+        	pairs = drinkHandler.getAllPairs();
         	return null;
         }
 
@@ -89,6 +96,7 @@ public class Loading extends Activity {
         protected void onPostExecute(Void result) {
             drinkNames = drinks;
             ingrNames = ingredients;
+            allPairs = pairs;
             Intent intent = new Intent(act, Home.class);
             startActivity(intent);
         }

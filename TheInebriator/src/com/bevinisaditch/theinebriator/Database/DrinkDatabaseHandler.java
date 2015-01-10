@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,7 @@ import java.util.Set;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 
+import com.bevinisaditch.theinebriator.Loading;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink.Rating;
 import com.bevinisaditch.theinebriator.ClassFiles.*;
 import com.bevinisaditch.theinebriator.Utils.GeneralUtils;
@@ -331,14 +333,14 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * Gets all matchings in the database
 	     * @return
 	     */
-	    public ArrayList<Matching> getAllMatchings() {
-	    	ArrayList<Matching> matchings = new ArrayList<Matching>();
+	    public HashMap<Integer, HashSet<Matching>> getAllMatchings() {
+	    	HashMap<Integer, HashSet<Matching>> matchings = new HashMap<Integer, HashSet<Matching>>();
 	        // Select All Query
 	        String selectQuery = "SELECT * FROM MATCHINGS";
 	     
 	        SQLiteDatabase db = this.getWritableDatabase();
 	        Cursor cursor = db.rawQuery(selectQuery, null);
-	     
+	        //TODO: Not loading all?
 	        // looping through all rows and adding to list
 	        if (cursor.moveToFirst()) {
 	            do {
@@ -348,7 +350,16 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	                matching.ingredientID = cursor.getInt(2);
 	                matching.quantity = cursor.getString(3);
 	                matching.units = cursor.getString(4);
-	                matchings.add(matching);
+	                if(matchings.containsKey(matching.drinkID)){
+	                	HashSet<Matching> matchingSet = matchings.get(matching.drinkID);
+	                	matchingSet.add(matching);
+	                	matchings.put(matching.drinkID, matchingSet);
+	                }
+	                else{
+	                	HashSet<Matching> matchingSet = new HashSet<Matching>();
+	                	matchingSet.add(matching);
+	                	matchings.put(matching.drinkID, matchingSet);
+	                }
 	            } while (cursor.moveToNext());
 	        }
 	        
@@ -361,8 +372,8 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * Gets all IngredientIDPairs in the database
 	     * @return
 	     */
-	    public ArrayList<IngredientIDPair> getAllPairs() {
-	    	ArrayList<IngredientIDPair> pairs = new ArrayList<IngredientIDPair>();
+	    public HashMap<Integer, IngredientIDPair> getAllPairs() {
+	    	HashMap<Integer, IngredientIDPair> pairs = new HashMap<Integer, IngredientIDPair>();
 	        // Select All Query
 	        String selectQuery = "SELECT * FROM INGREDIENTS";
 	     
@@ -373,7 +384,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	        if (cursor.moveToFirst()) {
 	            do {
 	            	IngredientIDPair pair = new IngredientIDPair(cursor.getInt(0), cursor.getString(1));
-	                pairs.add(pair);
+	                pairs.put(pair.id, pair);
 	            } while (cursor.moveToNext());
 	        }
 	        
@@ -565,8 +576,8 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 		**/
 	    public ArrayList<Drink> getRelevantDrinksByName(ArrayList<String> terms) {
 	    	SQLiteDatabase db = this.getWritableDatabase();
-	    	ArrayList<Matching> allMatches = getAllMatchings();
-	    	ArrayList<IngredientIDPair> allPairs = getAllPairs();
+	    	HashMap<Integer, HashSet<Matching>> allMatches = getAllMatchings();
+	    	HashMap<Integer, IngredientIDPair> allPairs = Loading.allPairs;
 	    	
 	    	String selectQuery = "SELECT * FROM DRINKS WHERE ";
 	    	
@@ -612,6 +623,8 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    {
 	    	SQLiteDatabase db = this.getWritableDatabase();
 	    	ArrayList<Drink> drinks = new ArrayList<Drink>();
+	    	HashMap<Integer, HashSet<Matching>> allMatches = getAllMatchings();
+	    	HashMap<Integer, IngredientIDPair> allPairs = Loading.allPairs;
 	    	
 	    	for (String ingredient : ingredients ) {
 	    		
@@ -634,7 +647,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 						String instructions = cursor.getString(3);
 						
 						//Get the ingredients for this specific drink
-						ArrayList<Ingredient> drinkIngredients = getIngredientsForDrinkID(id);
+						ArrayList<Ingredient> drinkIngredients = getIngredientsForDrinkID(id, allMatches, allPairs);
 
 						//Create drink and add to return list
 						Drink currDrink = new Drink(name, rating, drinkIngredients, instructions, id);
@@ -656,20 +669,16 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * @param allPairs
 	     * @return
 	     */
-	    private static ArrayList<Ingredient> getIngredientsForDrinkID(Long drinkID, ArrayList<Matching> allMatches,
-	    		ArrayList<IngredientIDPair> allPairs) {
+	    private static ArrayList<Ingredient> getIngredientsForDrinkID(Long drinkID, HashMap<Integer, HashSet<Matching>> allMatches,
+	    		HashMap<Integer, IngredientIDPair> allPairs) {
 			ArrayList<Ingredient> ingList = new ArrayList<Ingredient>();
-			for (Matching currMatch : allMatches) {
-				if (currMatch.drinkID == drinkID) {
-					Ingredient currIngredient = new Ingredient();
-					currIngredient.setName(allPairs.get(currMatch.ingredientID-1).name);
-					currIngredient.setQuantity(currMatch.quantity);
-					currIngredient.setUnits(currMatch.units);
-					ingList.add(currIngredient);
-				}
-				else if (currMatch.drinkID > drinkID) {
-					break;
-				}
+			HashSet<Matching> matches = allMatches.get(drinkID);
+			for (Matching currMatch : matches) {
+				Ingredient currIngredient = new Ingredient();
+				currIngredient.setName(allPairs.get(currMatch.ingredientID).name);
+				currIngredient.setQuantity(currMatch.quantity);
+				currIngredient.setUnits(currMatch.units);
+				ingList.add(currIngredient);
 			}
 			return ingList;
 		}
