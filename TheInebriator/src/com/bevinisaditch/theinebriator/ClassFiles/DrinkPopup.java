@@ -98,6 +98,7 @@ public class DrinkPopup {
 					}
 					else{
 						((Home)cont).showRandomDrink(); 
+						dialog.dismiss();
 					}
 				} 
 		    });

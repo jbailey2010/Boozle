@@ -22,7 +22,7 @@
         android:layout_below="@+id/close"
         android:layout_centerHorizontal="true"
         android:text="Enter ingredients below"
-        android:textSize="15sp" />
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -32,7 +32,7 @@
         android:layout_alignRight="@+id/clear"
         android:layout_below="@+id/textView1"
         android:text="Press add to add the searched ingredient, use the toggle to determine if it&apos;s optional or required"
-        android:textSize="11sp" />
+        android:textSize="10sp" />
 
     <AutoCompleteTextView
         android:id="@+id/search_input_view"
