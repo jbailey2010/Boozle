@@ -49,7 +49,7 @@ public class BM25Ranker extends Ranker {
 		this.context = context;
 		this.optIngredients = optIngredients;
 		this.reqIngredients = reqIngredients;
-		this.handler = new TermFrequencyDatabaseHandler(context);
+		this.handler = new TermFrequencyDatabaseHandler();
 		this.searchType = searchType;
 	}
 	
@@ -106,6 +106,7 @@ public class BM25Ranker extends Ranker {
 			
 		}		
 		
+		
 		HashMap<Drink, Double> unsortedDrinks = new HashMap<Drink, Double>();		
 		ArrayList<String> individualTerms = parseTerms(terms);
 		
@@ -116,7 +117,7 @@ public class BM25Ranker extends Ranker {
 		
 		ArrayList<TermFrequency> termFreqs = new ArrayList<TermFrequency>();
 		for (String term : individualTerms) {
-			TermFrequency termFreq = handler.getTermFrequency(term.toLowerCase());
+			TermFrequency termFreq = handler.getTermFrequency(context, term.toLowerCase());
 			if (termFreq != null) {
 				termFreqs.add(termFreq);	
 			} else {

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -66,6 +67,7 @@ public class SearchEngine {
 		 */
         @Override
         protected BM25Ranker doInBackground(Object... params) {
+        	//TODO: No longer needs to be asynchronous, is the overhead unnecessary?
         	String name = (String)params[0];
         	engine = (SearchEngine)params[1];
 
@@ -101,12 +103,15 @@ public class SearchEngine {
 	
 	private class AsyncLoaderIngr extends AsyncTask<Object, Void, BM25Ranker> {
 		SearchEngine engine;
+		public ProgressDialog loginDialog;
+
 
 		/**
 		 * Calls the method to load the drinks
 		 */
         @Override
         protected BM25Ranker doInBackground(Object... params) {
+        	//TODO: No longer needs to be asynchronous, is the overhead unnecessary?
         	ArrayList<String> optIngredients = (ArrayList<String>)params[0];
         	engine = (SearchEngine)params[1];
         	ArrayList<String> reqIngredients = (ArrayList<String>)params[2];
@@ -125,7 +130,16 @@ public class SearchEngine {
         @Override
         protected void onPostExecute(BM25Ranker ranker) {
             engine.ranker = ranker;
+            loginDialog.dismiss();
             ranker.execute();
+        }
+        
+        protected void onPreExecute() {
+        	super.onPreExecute();
+    		loginDialog = new ProgressDialog(context);
+        	loginDialog.setMessage("Please wait... warming up");
+        	loginDialog.setCancelable(false);
+            loginDialog.show();
         }
     }
 	

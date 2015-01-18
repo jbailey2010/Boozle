@@ -118,6 +118,7 @@ Add lemon juice, mint and berries into mixing glass and lightly muddle. Add the 
 American Beauty Shot
 THUMBSNULL
 Mix everything in a cocktail shaker with ice. Strain into a chilled cocktail glass or a highball glass filled with ice.
+--
 29
 American Flyer
 THUMBSNULL
@@ -413,12 +414,6 @@ Berry Madness
 THUMBSNULL
 Combine in a shaker with ice. Shake vigorously and strain into a chilled cocktail glass. Serve with a cherry, and whipped cream around the glass. Or rim the glass with sugar if desired.
 --
-97
-Berry Madness
-THUMBSNULL
-Combine in a shaker with ice. Shake vigorously and strain into a chilled cocktail glass. Serve with a cherry, and whipped cream around the glass. Or rim the glass with sugar if desired.
---
-
 99
 Berry Thankful
 THUMBSNULL

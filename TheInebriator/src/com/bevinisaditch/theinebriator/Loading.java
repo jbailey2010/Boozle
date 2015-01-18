@@ -20,6 +20,8 @@ import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.IngredientIDPair;
 import com.bevinisaditch.theinebriator.ClassFiles.Matching;
 import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;
+import com.bevinisaditch.theinebriator.Database.TermFrequencyDatabaseHandler;
+import com.bevinisaditch.theinebriator.Utils.GeneralUtils;
 import com.devingotaswitch.theinebriator.R;
 /**
  * The activity that loads from file, with a fun gif to kill time
@@ -75,6 +77,20 @@ public class Loading extends Activity {
 		List<String> drinks;
 		List<String> ingredients;
 		HashMap<Integer, IngredientIDPair> pairs;
+		HashSet<String> units;
+		
+		private String sanitizeIngr(String input){
+			//Apply trimming here for units and whatnot
+			String[] ingrArr = input.split(" ");
+			for(int i = 0; i < ingrArr.length; i++){
+				String elem = ingrArr[i];
+				if(units.contains(elem) && i+1 < ingrArr.length){
+					input = input.split(elem)[1];
+					break;
+				}
+			}
+			return input;
+		}
 		
 		/**
 		 * Calls the method to load the drinks
@@ -84,8 +100,20 @@ public class Loading extends Activity {
         	act = (Activity)params[0];
         	DrinkDatabaseHandler drinkHandler = new DrinkDatabaseHandler(cont);
         	drinks = drinkHandler.getDrinkNames();
-        	ingredients = drinkHandler.getIngredientNames();
         	pairs = drinkHandler.getAllPairs();
+        	ingredients = new ArrayList<String>();
+        	
+			units = GeneralUtils.getUnits();
+        	for(Integer key : pairs.keySet()){
+        		ingredients.add(sanitizeIngr(pairs.get(key).name));
+        	}
+        	
+        	TermFrequencyDatabaseHandler handler = new TermFrequencyDatabaseHandler();
+        	if(handler.lastCount(act) != drinks.size()){
+        		//Populate will update the last count cache (if successful)
+        		handler.populateDatabase(act, drinks, ingredients);
+        	}
+        	
         	return null;
         }
 

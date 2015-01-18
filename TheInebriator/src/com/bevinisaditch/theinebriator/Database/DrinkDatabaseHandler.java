@@ -18,8 +18,10 @@ import com.bevinisaditch.theinebriator.ClassFiles.Drink.Rating;
 import com.bevinisaditch.theinebriator.ClassFiles.*;
 import com.bevinisaditch.theinebriator.Utils.GeneralUtils;
 
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -36,7 +38,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 		 
 	    // All Static variables
 	    // Database Version
-	    private static final int DATABASE_VERSION = 2;
+	    private static final int DATABASE_VERSION = 3;
 	 
 	    // Database Name
 	    private static final String DATABASE_NAME = "DrinksAndIngredients";
@@ -334,13 +336,14 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * @return
 	     */
 	    public HashMap<Integer, HashSet<Matching>> getAllMatchings() {
+	    	
+	    	
 	    	HashMap<Integer, HashSet<Matching>> matchings = new HashMap<Integer, HashSet<Matching>>();
 	        // Select All Query
 	        String selectQuery = "SELECT * FROM MATCHINGS";
 	     
 	        SQLiteDatabase db = this.getWritableDatabase();
 	        Cursor cursor = db.rawQuery(selectQuery, null);
-	        //TODO: Not loading all?
 	        // looping through all rows and adding to list
 	        if (cursor.moveToFirst()) {
 	            do {
@@ -362,9 +365,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	                }
 	            } while (cursor.moveToNext());
 	        }
-	        
-	        cursor.close();
-	     
+        	cursor.close();
 	        return matchings;
 	    }
 	    
@@ -392,7 +393,6 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     
 	        return pairs; 
 	    }
-
 	    
 	    /**
 	     * Reads all of the drink names from file, for the 
@@ -413,42 +413,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	}
 	    	return names;
 	    }
-	    
-	    /**
-	     * Reads all of the ingredient names from file, for the 
-	     * sake of the search dropdown primarily
-	     * 
-	     * @return - the list of ingredient names, uniquely
-	     */
-	    public List<String> getIngredientNames(){
-	    	List<String> names = new ArrayList<String>();
-	    	String selectQuery = "SELECT NAME FROM INGREDIENTS";
-	    	SQLiteDatabase db = this.getWritableDatabase();
-	    	Cursor cursor = db.rawQuery(selectQuery, null);
-	    	
-	    	if (cursor.moveToFirst()) {
-	    		do {
-	    			names.add(sanitizeIngr(cursor.getString(0)));
-	    		} while(cursor.moveToNext());
-	    	}
-	    	return names;
-	    }
-	    
-	    
-	    private static String sanitizeIngr(String input){
-			//Apply trimming here for units and whatnot
-			String[] ingrArr = input.split(" ");
-			HashSet<String> units = GeneralUtils.getUnits();
-			for(int i = 0; i < ingrArr.length; i++){
-				String elem = ingrArr[i];
-				if(units.contains(elem) && i+1 < ingrArr.length){
-					input = input.split(elem)[1];
-					break;
-				}
-			}
-			return input;
-		}
-	    
+
 	    /**
 	     * Gets the rating of a drink, given the id of that drink
 	     * 
@@ -602,7 +567,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 					String name = cursor.getString(1);
 					Drink.Rating rating =  intToRating(cursor.getInt(2));
 					String instructions = cursor.getString(3);
-					ArrayList<Ingredient> ingredients = getIngredientsForDrinkID(id, allMatches, allPairs);
+					ArrayList<Ingredient> ingredients = getIngredientsForDrinkID((int)id, allMatches, allPairs);
 
 					Drink currDrink = new Drink(name, rating, ingredients, instructions, id);
 					drinks.add(currDrink);
@@ -647,7 +612,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 						String instructions = cursor.getString(3);
 						
 						//Get the ingredients for this specific drink
-						ArrayList<Ingredient> drinkIngredients = getIngredientsForDrinkID(id, allMatches, allPairs);
+						ArrayList<Ingredient> drinkIngredients = getIngredientsForDrinkID((int)id, allMatches, allPairs);
 
 						//Create drink and add to return list
 						Drink currDrink = new Drink(name, rating, drinkIngredients, instructions, id);
@@ -669,7 +634,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * @param allPairs
 	     * @return
 	     */
-	    private static ArrayList<Ingredient> getIngredientsForDrinkID(Long drinkID, HashMap<Integer, HashSet<Matching>> allMatches,
+	    private static ArrayList<Ingredient> getIngredientsForDrinkID(Integer drinkID, HashMap<Integer, HashSet<Matching>> allMatches,
 	    		HashMap<Integer, IngredientIDPair> allPairs) {
 			ArrayList<Ingredient> ingList = new ArrayList<Ingredient>();
 			HashSet<Matching> matches = allMatches.get(drinkID);

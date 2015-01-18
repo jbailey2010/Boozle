@@ -1353,7 +1353,7 @@ About 1/2 teaspoon hot sauce
 1 shot glass Wild Turkey bourbon
 --
 451
-1.5oz Camus Borderies XO
+1.5 oz Camus Borderies XO
 --
 452
 1/2oz Orange Curaçao
@@ -4437,25 +4437,25 @@ splash lemon-lime juice
 1 oz Club soda
 --
 1479
-1oz Scorpion Silver Mezcal
+1 oz Scorpion Silver Mezcal
 --
 1480
-1oz Atlantico Reserve Rum
+1 oz Atlantico Reserve Rum
 --
 1481
-1/4oz Curaçao
+1/4 oz Curaçao
 --
 1482
-3/4oz Orgeat Syrup(House Made)
+3/4 oz Orgeat Syrup(House Made)
 --
 1483
 Garnish; Crispy mint sprig and orange crab twist
 --
 1484
-2.5oz Scorpion Reposado Mezcal
+2.5 oz Scorpion Reposado Mezcal
 --
 1485
-1.5oz Antica Formula Carpano (Sweet Vermouth)
+1.5 oz Antica Formula Carpano (Sweet Vermouth)
 --
 1486
 2 Dashes Homemade Cherry Bitters
@@ -4806,19 +4806,19 @@ Dash lime juice
 2 dashes Bitter Truth orange bitters
 --
 1602
-1.5oz Bols Genever
+1.5 oz Bols Genever
 --
 1603
-.5oz St Elizabeth’s Allspice Dream
+.5 oz St Elizabeth’s Allspice Dream
 --
 1604
-.75oz lemon juice
+.75 oz lemon juice
 --
 1605
-.5oz orange juice
+.5 oz orange juice
 --
 1606
-.5oz pineapple gum syrup
+.5 oz pineapple gum syrup
 --
 1607
 1 1/2 oz tequila
@@ -5307,10 +5307,10 @@ Garnish: cucumber wheel
 1 bar spoon lemon juice
 --
 1769
-1.5oz Wild Turkey 101 Bourbon
+1.5 oz Wild Turkey 101 Bourbon
 --
 1770
-2.5oz Pumpkin Horchata
+2.5 oz Pumpkin Horchata
 --
 1771
 Garnish: Sprinkle top with fresh ground nutmeg
@@ -6366,10 +6366,10 @@ splash grenadine or cherry juice
 .75oz Ginger Infused Sour Mix
 --
 2122
-.5oz Celery Puree
+.5 oz Celery Puree
 --
 2123
-1.25oz Strawberry puree
+1.25 oz Strawberry puree
 --
 2124
 Garnish:
@@ -7794,7 +7794,7 @@ Mini-marshmallows (optional)
 2 oz Yamazaki 12yr Whiskey
 --
 2598
-1.5oz Homemade Sencha greentea mint syrup (Enrich Loose leaf Sencha was used)
+1.5 oz Homemade Sencha greentea mint syrup (Enrich Loose leaf Sencha was used)
 --
 2599
 Glass: Rocks
