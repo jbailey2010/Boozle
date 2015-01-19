@@ -1,36 +1,59 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+	android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    android:orientation="vertical"
-    android:weightSum="12"
     tools:context=".Loading" >
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="6">
-	     <ImageView
+    
+	<LinearLayout 
+		android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical"
+	    android:weightSum="20">
+	    <RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="0dp"
+	        android:background="#115511"
+	        android:layout_weight="7">
+	        		<RelativeLayout
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_centerInParent="true">
+		    <ImageView
 		     android:id="@+id/logo_loading"
 		     android:layout_width="wrap_content"
 		     android:layout_centerInParent="true"
 		     android:layout_height="wrap_content"
-		     android:scaleX = "1.2"
-		     android:scaleY="1.2"
 		     android:src="@drawable/boozle_logo" />
-     </RelativeLayout>
- 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="6">
-		<ImageView
-		    android:id="@+id/loading_gif"
-		    android:layout_width="match_parent"
-		    android:layout_height="match_parent"
-		    android:layout_marginLeft="15dp"
-		    android:layout_marginBottom="15dp"
-		    />
-	</RelativeLayout>
 
-</LinearLayout>
+    </RelativeLayout>
+	     </RelativeLayout>
+	     
+	        <RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="0dip"
+	        android:layout_weight="1"
+	        android:background="#333333">
+	        <View
+	            android:layout_width="match_parent"
+	            android:layout_height="1dp"
+	            android:background="#222222"
+	            android:layout_alignParentTop="true"/>
+	    </RelativeLayout>
+	 
+	    <RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="12"
+	        android:background="#ffffff">
+		    <ImageView
+				    android:id="@+id/loading_gif"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_centerInParent="true"
+				    android:padding="20dp"
+				    />
+		</RelativeLayout>
+	
+	</LinearLayout>
+</RelativeLayout>

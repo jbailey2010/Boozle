@@ -126,7 +126,9 @@ public class Loading extends Activity {
             ingrNames = ingredients;
             allPairs = pairs;
             Intent intent = new Intent(act, Home.class);
-            startActivity(intent);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivityForResult(intent, 0);
+            overridePendingTransition(0,0); //0 for no animation
         }
     }
 

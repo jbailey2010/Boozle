@@ -110,11 +110,8 @@ public class BM25Ranker extends Ranker {
 		HashMap<Drink, Double> unsortedDrinks = new HashMap<Drink, Double>();		
 		ArrayList<String> individualTerms = parseTerms(terms);
 		
-		//TODO: Cache this, only running it once on initial load? 
-		//Seems sharedprefs-able
 		int averageLength = getAvgLengthOfDrinks(drinks);
-	
-		
+			
 		ArrayList<TermFrequency> termFreqs = new ArrayList<TermFrequency>();
 		for (String term : individualTerms) {
 			TermFrequency termFreq = handler.getTermFrequency(context, term.toLowerCase());

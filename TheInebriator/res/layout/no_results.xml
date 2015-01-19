@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".Home" >
 <LinearLayout 
-    android:weightSum="5"
+    android:weightSum="20"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -13,88 +13,106 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
-        android:layout_weight="2" >
+        android:background="#115511"
+        android:layout_weight="7" >
 		<RelativeLayout
 		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
 		    android:layout_centerInParent="true">
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:paddingTop="-50dp"
-            android:layout_marginLeft="40dp"
-            android:paddingRight="40dp"
-            android:text="Press the search icon above to begin a search"
-            android:textColor="#002800"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+		    <ImageView
+		     android:id="@+id/logo_loading"
+		     android:layout_width="wrap_content"
+		     android:layout_centerInParent="true"
+		     android:layout_height="wrap_content"
+		     android:src="@drawable/boozle_logo" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView1"
-            android:layout_marginLeft="40dp"
-            android:paddingRight="40dp"
-            android:layout_centerHorizontal="true"
-            android:text="Additional options are available below"
-            android:textColor="#003200"
-            android:textSize="16sp" />
     </RelativeLayout>
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:background="#333333">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#222222"
+            android:layout_alignParentTop="true"/>
     </RelativeLayout>
     
 	<RelativeLayout
 	    android:id="@+id/button_list"
 	    android:layout_width="match_parent"
 	    android:layout_height="0dip"
-	    android:background="@drawable/penguin2"
-	    android:layout_weight="3">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="4"
-        android:orientation="vertical" >
-
-    
-     <Button
-        android:id="@+id/menu_random"
-        style="@style/ButtonText"
-        android:text="I'm Feeling Hammered"
-        android:title="I'm feeling hammered"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:background="@drawable/btn_blue_semi_trans"
-        android:layout_height="wrap_content"/>
-    <Button
-        android:id="@+id/menu_liked"
-        style="@style/ButtonText"
-        android:text="Liked Drinks"
-        android:title="Liked Drinks"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_blue_semi_trans"/>
-    <Button
-        android:id="@+id/menu_disliked"
-        style="@style/ButtonText"
-        android:text="Disliked Drinks"
-        android:title="Disliked Drinks"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_blue_semi_trans"/>
-    <Button
-        android:id="@+id/menu_popularity"
-        style="@style/ButtonText"
-        android:text="Most Popular Drinks"
-        android:title="Most Popular"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/btn_blue_semi_trans"/>
-	</LinearLayout>
-	</RelativeLayout>
+	    android:background="#eeeeee"
+	    android:layout_weight="12">
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:weightSum="4"
+	        android:orientation="vertical" >
+	
+	    
+		     <Button
+		        android:id="@+id/menu_random"
+		        android:text="I'm Feeling Hammered"
+		        android:background="?android:attr/selectableItemBackground"
+		        android:layout_weight="1"
+		        android:layout_width="match_parent"
+		        android:textColor="#555555"
+		        android:typeface="sans"
+		        android:textSize="20sp"
+		        android:layout_height="wrap_content"/>
+		     <View
+		         android:layout_width="match_parent"
+		         android:layout_height="1dp"
+		         android:layout_marginLeft="25dp"
+		         android:layout_marginRight="25dp"
+		         android:background="#cccccc"/>
+		    <Button
+		        android:id="@+id/menu_liked"
+		        android:text="Liked Drinks"
+		        android:background="?android:attr/selectableItemBackground"
+		        android:layout_weight="1"
+		        android:textColor="#555555"
+		        android:typeface="sans"
+		        android:textSize="20sp"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"/>
+		    <View
+		         android:layout_width="match_parent"
+		         android:layout_height="1dp"
+		         android:layout_marginLeft="25dp"
+		         android:layout_marginRight="25dp"
+		         android:background="#cccccc"/>
+		    <Button
+		        android:id="@+id/menu_disliked"
+		        android:text="Disliked Drinks"
+		        android:background="?android:attr/selectableItemBackground"
+		        android:layout_weight="1"
+		        android:textColor="#555555"
+		        android:typeface="sans"
+		        android:textSize="20sp"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"/>
+		    <View
+		         android:layout_width="match_parent"
+		         android:layout_height="1dp"
+		         android:layout_marginLeft="25dp"
+		         android:layout_marginRight="25dp"
+		         android:background="#cccccc"/>
+		    <Button
+		        android:id="@+id/menu_popularity"
+		        android:text="Most Popular Drinks"
+		        android:background="?android:attr/selectableItemBackground"
+		        android:layout_width="match_parent"
+		        android:textColor="#555555"
+		        android:typeface="sans"
+		        android:textSize="20sp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"/>
+		</LinearLayout>
+		</RelativeLayout>
 	</LinearLayout>
 </RelativeLayout>

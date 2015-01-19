@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EAEAEA"
     tools:context=".Home" >
 
     <com.bevinisaditch.theinebriator.InterfaceAugmentations.BounceListView
@@ -9,8 +10,8 @@
 	        android:id="@+id/listview_rankings"
 	        android:layout_width="match_parent"
 	        android:layout_height="match_parent"
-	        android:divider="#999999"
-	        android:background="#999999"
+	        android:dividerHeight="2dp"
+  			android:divider="@drawable/list_divider"
 	        android:clickable="true"> 
 	    </com.bevinisaditch.theinebriator.InterfaceAugmentations.BounceListView>
 	    <com.devspark.sidenavigation.SideNavigationView
