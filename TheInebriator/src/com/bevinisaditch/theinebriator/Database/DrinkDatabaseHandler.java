@@ -173,8 +173,6 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 		 */
 		public long addDrink(Drink drink) {
 			SQLiteDatabase db = this.getWritableDatabase();
-						
-			//TODO: This could be done in one transaction, similar to the adds adjusted below 
 			
 			//Add drink
 			ContentValues drinkValues = new ContentValues();
@@ -541,7 +539,6 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 		**/
 	    public ArrayList<Drink> getRelevantDrinksByName(ArrayList<String> terms) {
 	    	SQLiteDatabase db = this.getWritableDatabase();
-	    	//TODO: Singleton get all matchings?
 	    	HashMap<Integer, HashSet<Matching>> allMatches = getAllMatchings();
 	    	HashMap<Integer, IngredientIDPair> allPairs = Loading.allPairs;
 	    	
@@ -589,7 +586,6 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    {
 	    	SQLiteDatabase db = this.getWritableDatabase();
 	    	ArrayList<Drink> drinks = new ArrayList<Drink>();
-	    	//TODO: Singleton here?
 	    	HashMap<Integer, HashSet<Matching>> allMatches = getAllMatchings();
 	    	HashMap<Integer, IngredientIDPair> allPairs = Loading.allPairs;
 	    	
