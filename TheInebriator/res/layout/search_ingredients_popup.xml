@@ -24,27 +24,17 @@
         android:text="Enter ingredients below"
         android:textSize="14sp" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/search_input_view"
-        android:layout_alignRight="@+id/clear"
-        android:layout_below="@+id/textView1"
-        android:text="Press add to add the searched ingredient, use the toggle to determine if it&apos;s optional or required"
-        android:textSize="10sp" />
-
     <AutoCompleteTextView
         android:id="@+id/search_input_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="5dp"
-        android:dropDownHeight="160dp"
         android:background="@drawable/input_well"
+        android:dropDownHeight="160dp"
         android:ems="10"
         android:textColor="#000000" />
 
