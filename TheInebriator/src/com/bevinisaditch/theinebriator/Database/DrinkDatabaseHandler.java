@@ -408,7 +408,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	
 	    	if (cursor.moveToFirst()) {
 	    		do {
-	    			names.add(cursor.getString(0));
+	    			names.add(cursor.getString(0).trim());
 	    		} while(cursor.moveToNext());
 	    	}
 	    	return names;

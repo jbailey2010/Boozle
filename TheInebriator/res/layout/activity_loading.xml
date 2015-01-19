@@ -13,7 +13,7 @@
 	    <RelativeLayout
 	        android:layout_width="match_parent"
 	        android:layout_height="0dp"
-	        android:background="#115511"
+	        android:background="#226622"
 	        android:layout_weight="7">
 	        		<RelativeLayout
 		    android:layout_width="fill_parent"
