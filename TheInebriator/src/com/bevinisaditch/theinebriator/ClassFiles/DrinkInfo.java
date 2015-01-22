@@ -69,7 +69,7 @@ public class DrinkInfo
 						while(!sorted.isEmpty() && i < 15) {
 							Entity elem = sorted.poll();
 							i++;
-							data.append(i + ". "+ elem.getDisplayName() + " - " + elem.getEntityStats().getViews() + " views\n");
+							data.append(i + ". "+ elem.getDisplayName().split("@%")[0] + " - " + elem.getEntityStats().getViews() + " views\n");
 						}
 					}
 					//Sort hte top <= 15 by socialize comments
@@ -82,7 +82,7 @@ public class DrinkInfo
 						}
 						Entity elem = sortedComments.poll();
 						i++;
-						data.append(i + ". "+ elem.getDisplayName() + " - " + elem.getEntityStats().getComments() + " likes\n");
+						data.append(i + ". "+ elem.getDisplayName().split("@%")[0] + " - " + elem.getEntityStats().getComments() + " likes\n");
 					}
 					//Sorts the top <= 15 by local thumbs ups
 					i = 0;
@@ -97,7 +97,7 @@ public class DrinkInfo
 						}
 						Entity elem = sortedThumbs.poll();
 						i++;
-						data.append(i + ". "+ elem.getDisplayName() + " - " + elem.getMetaData() + " times\n");
+						data.append(i + ". "+ elem.getDisplayName().split("@%")[0] + " - " + elem.getMetaData() + " times\n");
 					}
 				}
 				else{

@@ -133,9 +133,9 @@ public class GeneralUtils {
 		 * @param name - The drink to look at
 		 * @param cont - The context for the sake of the asynchronous check
 		 */
-		public static void bumpEntityValue(String name, final Context cont)
+		public static void bumpEntityValue(String name, int id, final Context cont)
 		{
-			String key = "http://www.boozle.com/" + name;
+			String key = "http://www.boozle.com/" + id + "@%" + name;
 			EntityUtils.getEntity((Activity) cont, key, new EntityGetListener() {
 				//The entity was gotten, though an error is still possible
 				@Override

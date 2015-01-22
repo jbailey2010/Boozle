@@ -63,7 +63,7 @@ public class DrinkPopup {
 	    dialog.setContentView(R.layout.drink_popup);
 	    //If there's internet, add the comment thread
 	    if(GeneralUtils.testInternet(c)){
-		 	String entityKey = "http://www.boozle.com/" + name;
+		 	String entityKey = "http://www.boozle.com/" + (int)id + "@%" +  name;
 		 	Entity entity = Entity.newInstance(entityKey, name);
 		 	ActionBarOptions options = new ActionBarOptions();
 		 	options.setHideShare(true);
@@ -221,7 +221,7 @@ public class DrinkPopup {
 	 */
 	public static void updateDrinkState(Rating rating){
 		if(rating.equals(Drink.Rating.THUMBSUP) && GeneralUtils.testInternet(cont)){
-			GeneralUtils.bumpEntityValue(nameDrink, cont);
+			GeneralUtils.bumpEntityValue(nameDrink, (int) id, cont);
 		}
 		DrinkDatabaseHandler handler = Home.getHandler(cont);
 		handler.setDrinkRating(id, rating);
