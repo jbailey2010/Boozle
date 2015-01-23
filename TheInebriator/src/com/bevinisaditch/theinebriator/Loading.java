@@ -20,7 +20,6 @@ import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.IngredientIDPair;
 import com.bevinisaditch.theinebriator.ClassFiles.Matching;
 import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;
-import com.bevinisaditch.theinebriator.Database.TermFrequencyDatabaseHandler;
 import com.bevinisaditch.theinebriator.Utils.GeneralUtils;
 import com.devingotaswitch.theinebriator.R;
 /**
@@ -106,12 +105,6 @@ public class Loading extends Activity {
 			units = GeneralUtils.getUnits();
         	for(Integer key : pairs.keySet()){
         		ingredients.add(sanitizeIngr(pairs.get(key).name));
-        	}
-        	
-        	TermFrequencyDatabaseHandler handler = new TermFrequencyDatabaseHandler();
-        	if(handler.lastCount(act) != drinks.size()){
-        		//Populate will update the last count cache (if successful)
-        		handler.populateDatabase(act, drinks, ingredients);
         	}
         	
         	return null;

@@ -74,10 +74,8 @@ public class DrinkInfo
 					}
 					//Sort hte top <= 15 by socialize comments
 					PriorityQueue<Entity> sortedComments = sortEntitiesComments(results);
-					while(!sortedComments.isEmpty() && i < 15)
-					{
-						if(i == 0)
-						{
+					while(!sortedComments.isEmpty() && i < 15) {
+						if(i == 0) {
 							data.append("Comments:\n");
 						}
 						Entity elem = sortedComments.poll();

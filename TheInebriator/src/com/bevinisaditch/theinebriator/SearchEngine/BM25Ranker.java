@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.TreeMap;
 
 import android.annotation.SuppressLint;
@@ -19,7 +21,6 @@ import com.bevinisaditch.theinebriator.ClassFiles.Drink;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
 import com.bevinisaditch.theinebriator.ClassFiles.TermFrequency;
 import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;
-import com.bevinisaditch.theinebriator.Database.TermFrequencyDatabaseHandler;
 
 @SuppressLint("DefaultLocale")
 public class BM25Ranker extends Ranker {
@@ -27,7 +28,6 @@ public class BM25Ranker extends Ranker {
 	public ProgressDialog loginDialog;
 	ArrayList<String> optIngredients;
 	ArrayList<String> reqIngredients;
-	TermFrequencyDatabaseHandler handler;
 	Integer searchType;
 	
 	//Constants used in BM25
@@ -49,7 +49,6 @@ public class BM25Ranker extends Ranker {
 		this.context = context;
 		this.optIngredients = optIngredients;
 		this.reqIngredients = reqIngredients;
-		this.handler = new TermFrequencyDatabaseHandler();
 		this.searchType = searchType;
 	}
 	
@@ -84,6 +83,7 @@ public class BM25Ranker extends Ranker {
 		DrinkDatabaseHandler drinkHandler = Home.getHandler(context);
 		ArrayList<Drink> drinks = new ArrayList<Drink>();
 		ArrayList<String> terms = new ArrayList<String>();
+		
 		if(searchType == SearchEngine.SEARCH_NAME){
 			terms.add(reqIngredients.get(0));
 			
@@ -105,24 +105,8 @@ public class BM25Ranker extends Ranker {
 			terms.addAll(reqIngredients);
 			
 		}		
-		
-		
 		HashMap<Drink, Double> unsortedDrinks = new HashMap<Drink, Double>();		
 		ArrayList<String> individualTerms = parseTerms(terms);
-		
-		int averageLength = getAvgLengthOfDrinks(drinks);
-			
-		ArrayList<TermFrequency> termFreqs = new ArrayList<TermFrequency>();
-		for (String term : individualTerms) {
-			TermFrequency termFreq = handler.getTermFrequency(context, term.toLowerCase());
-			if (termFreq != null) {
-				termFreqs.add(termFreq);	
-			} else {
-				float freq = 0f;
-				termFreqs.add(new TermFrequency(term, freq));
-				//Log.d("BM25Ranker", "No matching term freq for " + term);
-			}
-		}
 		
 		//For each drink, get a score
 		for (Drink drink : drinks) {
@@ -138,28 +122,20 @@ public class BM25Ranker extends Ranker {
 					wordsInDrink.add(ing.getName());
 				}
 			}
-			double totalFreq = parseTerms(wordsInDrink).size();
-			//Log.d("BM25Ranker", "total frequency for " + drink.getName() + "is " + totalFreq);
 			
+			double totalFreq = parseTerms(wordsInDrink).size();
 			//Sum up all terms to get score
-			for (TermFrequency termFreq : termFreqs) {
-				
-				String term = termFreq.getTerm();
-				float freq = termFreq.getFrequency();
-				
-				double invDocFreq = Math.log((drinks.size()-freq+.5)/(freq + .5))/Math.log(2);
-				//Log.d("BM25Ranker", "InvDocFreq for " + term + " is " + invDocFreq);
-				
-				
+			for (String term : individualTerms) {
 				double docFreq = 0.0;
 				
 				if (searchType == SearchEngine.SEARCH_NAME) {
-					
-					if (drink.getName().toLowerCase().contains(term.toLowerCase())) {
-						docFreq += 1.0;
+					String[] drinkName = drink.getName().toLowerCase().trim().split("\\s+");
+					for(String part : drinkName){
+						if(part.equals(term.toLowerCase())){
+							docFreq += 1.0;
+						}
 					}
 					
-					//docFreq += StringUtils.countMatches(drink.getName().toLowerCase(), term.toLowerCase());
 				}
 				
 				if (searchType == SearchEngine.SEARCH_INGREDIENT) {
@@ -169,17 +145,9 @@ public class BM25Ranker extends Ranker {
 						}
 					}
 				}
-				
 				docFreq /= totalFreq;
-				
-				//Log.d("BM25Ranker", "docFreq for " + term + " in " + drink.getName() + " is " + docFreq);
-				
-				double numerator = docFreq*(k+1)*invDocFreq;
-				double denominator = docFreq + k*(1-b+ b*(totalFreq/averageLength));
-				
-				score += numerator/denominator;
+				score += docFreq;
 			}
-			//Log.d("BM25Ranker", "Score for " + drink.getName() + " is " + score);
 			unsortedDrinks.put(drink, score);
 		}
 		
