@@ -125,28 +125,31 @@ public class BM25Ranker extends Ranker {
 			
 			double totalFreq = parseTerms(wordsInDrink).size();
 			//Sum up all terms to get score
-			for (String term : individualTerms) {
-				double docFreq = 0.0;
-				
-				if (searchType == SearchEngine.SEARCH_NAME) {
+			if (searchType == SearchEngine.SEARCH_NAME) {
+				for(String term : individualTerms){
+					double docFreq = 0.0;
 					String[] drinkName = drink.getName().toLowerCase().trim().split("\\s+");
 					for(String part : drinkName){
 						if(part.equals(term.toLowerCase())){
 							docFreq += 1.0;
 						}
 					}
-					
+					docFreq /= totalFreq;
+					score += docFreq;
 				}
-				
-				if (searchType == SearchEngine.SEARCH_INGREDIENT) {
+			}
+			
+			if (searchType == SearchEngine.SEARCH_INGREDIENT) {
+				for(String term : terms){
+					double docFreq = 0.0;
 					for (Ingredient ingredient : drink.getIngredients()) {
 						if ((ingredient.getName().toLowerCase()).contains(term.toLowerCase())) {
 							docFreq += 1.0;
 						}
 					}
+					docFreq /= totalFreq;
+					score += docFreq;
 				}
-				docFreq /= totalFreq;
-				score += docFreq;
 			}
 			unsortedDrinks.put(drink, score);
 		}
