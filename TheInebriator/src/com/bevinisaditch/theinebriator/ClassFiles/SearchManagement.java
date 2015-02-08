@@ -114,10 +114,12 @@ public class SearchManagement {
 			@Override
 			public void onClick(View v) {
 				String possName = (String)input.getText().toString();
-				searchDrinkName = possName;
-				dialog.dismiss();
-				SearchEngine search = new SearchEngine(c);
-				search.searchByName(possName.trim());
+				if(possName.trim().length() > 0){
+					searchDrinkName = possName;
+					dialog.dismiss();
+					SearchEngine search = new SearchEngine(c);
+					search.searchByName(possName.trim());
+				}
 			}
 	    });
 	    TextView clear = (TextView)dialog.findViewById(R.id.clear);
@@ -201,23 +203,25 @@ public class SearchManagement {
 			@Override
 			public void onClick(View v) {
 				String name = input.getText().toString();
-				if(reqIngredients.contains(name) || optIngredients.contains(name)) {
-					Toast.makeText(c, "That ingredient is already added", Toast.LENGTH_SHORT).show();
-					input.setText("");
-				}
-				else {
-					if(reqIngredients.size() == 0 && optIngredients.size() == 0) {
-						submit.setBackground(c.getResources().getDrawable(R.drawable.btn_blue));
-					}
-					if(reqRadio.isChecked()) {
-						reqIngredients.add(name.trim());
+				if(name.trim().length() > 0){
+					if(reqIngredients.contains(name) || optIngredients.contains(name)) {
+						Toast.makeText(c, "That ingredient is already added", Toast.LENGTH_SHORT).show();
+						input.setText("");
 					}
 					else {
-						optIngredients.add(name.trim());
+						if(reqIngredients.size() == 0 && optIngredients.size() == 0) {
+							submit.setBackground(c.getResources().getDrawable(R.drawable.btn_blue));
+						}
+						if(reqRadio.isChecked()) {
+							reqIngredients.add(name.trim());
+						}
+						else {
+							optIngredients.add(name.trim());
+						}
+						updateTextViews(required, reqIngredients, "Required Ingredients:");
+						updateTextViews(optional, optIngredients, "Optional Ingredients:");
+						input.setText("");
 					}
-					updateTextViews(required, reqIngredients, "Required Ingredients:");
-					updateTextViews(optional, optIngredients, "Optional Ingredients:");
-					input.setText("");
 				}
 			}
 	    });

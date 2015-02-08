@@ -40,7 +40,7 @@
 		        android:layout_alignParentLeft="true"
 		        android:layout_below="@+id/text2"
 		        android:text="Text Sub"
-		       	android:layout_marginLeft="15dp"
+		       	android:layout_marginLeft="10dp"
 		       	android:paddingRight="10dp"
 		       	android:layout_marginTop="5dp"
 		       	android:paddingBottom="10dp"

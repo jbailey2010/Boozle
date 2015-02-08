@@ -55,7 +55,7 @@ public class DrinkInfo
 			}
 	    });
 	    output = (TextView)dialog.findViewById(R.id.textView1);
-	    EntityUtils.getEntities((Activity) cont, 0, 500, SortOrder.TOTAL_ACTIVITY, new EntityListListener() {
+	    EntityUtils.getEntities((Activity) cont, 0, 15000, SortOrder.TOTAL_ACTIVITY, new EntityListListener() {
 			@Override
 			public void onList(ListResult<Entity> result) {
 				List<Entity> results = result.getItems();

@@ -5,7 +5,13 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+
+
+
+
+
 
 
 
@@ -48,7 +54,11 @@ import com.bevinisaditch.theinebriator.Utils.GeneralUtils;
 import com.devingotaswitch.theinebriator.R;
 import com.devspark.sidenavigation.ISideNavigationCallback;
 import com.devspark.sidenavigation.SideNavigationView;
+import com.socialize.EntityUtils;
 import com.socialize.Socialize;
+import com.socialize.entity.EntityStats;
+import com.socialize.error.SocializeException;
+import com.socialize.listener.entity.EntityGetListener;
 /**
  * Handles the important parts of the activity, the logic of searching, 
  * the interactions with the data...etc.
@@ -367,6 +377,7 @@ public class Home extends Activity {
 			else {
 				datum.put("img", "");
 			}
+		    getDrinkInformation(curr);
 			dataSet.add(datum);
 		}
 		if(results.size() == 0){
@@ -397,11 +408,11 @@ public class Home extends Activity {
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
 				String name = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text1)).getText().toString();
-				String ingredients = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text2)).getText().toString();
-				String instr = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text3)).getText().toString();
-				long id = Long.valueOf(((TextView)((RelativeLayout)arg1).findViewById(R.id.idHidden)).getText().toString());
 				if(!name.contains("No results")){
 					list.setSelection(arg2);
+					String ingredients = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text2)).getText().toString();
+					String instr = ((TextView)((RelativeLayout)arg1).findViewById(R.id.text3)).getText().toString().split("\n\nTotal Views: ")[0];
+					long id = Long.valueOf(((TextView)((RelativeLayout)arg1).findViewById(R.id.idHidden)).getText().toString());
 					DrinkPopup.drinkPopUpInit(cont, name, ingredients, instr, id, true, 
 							getDrinkRating(name, instr, ingredients), false, false);
 				}
@@ -550,5 +561,28 @@ public class Home extends Activity {
 			ingrStr.append(iter.toPrettyString() + "\n");
 		}
 		return ingrStr.toString();
+	}
+	
+	public void getDrinkInformation(final Drink drink){
+		if(GeneralUtils.testInternet(this)){
+			EntityUtils.getEntity(this, "http://www.boozle.com/" + drink.getId() + "@%" + drink.getName(), new EntityGetListener() {
+	    		@Override
+	    		public void onError(SocializeException error) {
+	    		}
+	
+				@Override
+				public void onGet(com.socialize.entity.Entity result) {
+					EntityStats es = result.getEntityStats();
+					int views = es.getViews();
+					for(HashMap<String, String> iter : dataSet) {
+						if(iter.get("name").equals(drink.getName()) && iter.get("id").equals(String.valueOf(drink.getId()))) {
+							iter.put("ingr", iter.get("ingr") + "\n\nTotal Views: " + views);
+							adapter.notifyDataSetChanged();
+							break;
+						}
+					}
+				}
+			});
+		}
 	}
 }
