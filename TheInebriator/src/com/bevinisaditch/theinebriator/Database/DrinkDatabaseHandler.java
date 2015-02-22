@@ -38,7 +38,10 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 		 
 	    // All Static variables
 	    // Database Version
-	    private static final int DATABASE_VERSION = 4;
+		// V 1-3: ?
+		// V 4: Sanitization out the wazoo, append/prepend spaces to limit query time, remove empty drinks
+		// V 5: Remove ' from all as they break queries, some sanitization
+	    private static final int DATABASE_VERSION = 5;
 	 
 	    // Database Name
 	    private static final String DATABASE_NAME = "DrinksAndIngredients";

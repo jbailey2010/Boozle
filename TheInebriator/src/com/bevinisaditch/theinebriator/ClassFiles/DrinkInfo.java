@@ -136,7 +136,9 @@ public class DrinkInfo
 				});
 		for(Entity elem : input)
 		{
-			sorted.add(elem);
+			if(elem.getKey().contains("@%")){
+				sorted.add(elem);
+			}
 		}
 		return sorted;
 	}
@@ -166,7 +168,7 @@ public class DrinkInfo
 				});
 		for(Entity elem : input)
 		{
-			if(elem.getEntityStats().getComments() > 0)
+			if(elem.getKey().contains("@%") && elem.getEntityStats().getComments() > 0)
 			{
 				sorted.add(elem);
 			}
@@ -200,7 +202,8 @@ public class DrinkInfo
 		for(Entity elem : input)
 		{
 			try{
-				if(elem.getMetaData()!= null && elem.getMetaData().length() > 0 && Integer.parseInt(elem.getMetaData()) > 0)
+				if(elem.getKey().contains("@%") && elem.getMetaData()!= null 
+						&& elem.getMetaData().length() > 0 && Integer.parseInt(elem.getMetaData()) > 0)
 				{
 					sorted.add(elem);
 				}

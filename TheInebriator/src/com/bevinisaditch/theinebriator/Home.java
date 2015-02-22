@@ -48,7 +48,6 @@ import com.bevinisaditch.theinebriator.ClassFiles.DrinkPopup;
 import com.bevinisaditch.theinebriator.ClassFiles.Ingredient;
 import com.bevinisaditch.theinebriator.ClassFiles.SearchManagement;
 import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;
-import com.bevinisaditch.theinebriator.InterfaceAugmentations.ActivitySwipeDetector;
 import com.bevinisaditch.theinebriator.InterfaceAugmentations.BounceListView;
 import com.bevinisaditch.theinebriator.Utils.GeneralUtils;
 import com.devingotaswitch.theinebriator.R;
@@ -94,7 +93,6 @@ public class Home extends Activity {
 		cont = this; 
 		handler = Home.getHandler(cont);
 		ll = (LinearLayout)findViewById(R.id.home_base);
-		ll.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
 		if(Loading.drinkNames == null || Loading.drinkNames.size() == 0){
 			Intent intent = new Intent(this, Loading.class);
             startActivity(intent);
@@ -272,7 +270,6 @@ public class Home extends Activity {
 	public void toggleMenu() {
 		sideNavigationView.toggleMenu();
 		sideListView = (ListView) sideNavigationView.findViewById(R.id.side_navigation_listview);
-		sideListView.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
 	}
 
 	
@@ -322,7 +319,6 @@ public class Home extends Activity {
 			scrollUp.setEnabled(false);
 		}
 		View res = ((Activity) cont).getLayoutInflater().inflate(R.layout.no_results, ll, false);
-		res.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
 		ll.removeAllViews();
 		ll.addView(res);
 		getActionBar().setDisplayHomeAsUpEnabled(false);
@@ -357,8 +353,7 @@ public class Home extends Activity {
 		clearRes.setEnabled(true);
 		View res = ((Activity) cont).getLayoutInflater().inflate(R.layout.list_results, ll, false);
 		menuInit(res);
-		list = (BounceListView)res.findViewById(R.id.listview_rankings);
-		list.setOnTouchListener(new ActivitySwipeDetector((Activity) cont));
+		list = (BounceListView)res.findViewById(R.id.listview_rankings);		
 		dataSet = new ArrayList<HashMap<String, String>>();
 		for(Drink curr: results) {
 			HashMap<String, String> datum = new HashMap<String, String>();

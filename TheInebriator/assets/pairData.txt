@@ -1410,7 +1410,7 @@ Sparking water or club soda
 Peach slice
 --
 470
-1 part Maker’s Mark Bourbon
+1 part Makers Mark Bourbon
 --
 471
 1/2 part Peach Schnapps
@@ -1890,7 +1890,7 @@ float cherry heering
 4 oz sparkling water
 --
 630
-11/2 parts GREY GOOSE L’Orange
+11/2 parts GREY GOOSE LOrange
 --
 631
 1/2 part BARON OTARD XO cognac
@@ -2037,7 +2037,7 @@ Fresh Basil
 1 Bottle El Jimador Blanco
 --
 679
-1 Bottle Prosecco4 oz Aperol (if you can’t find Aperol, Campari is a good substitute)
+1 Bottle Prosecco4 oz Aperol (if you cant find Aperol, Campari is a good substitute)
 --
 680
 1.5 Liters Pink Grapefruit Juice
@@ -2265,7 +2265,7 @@ Garnish: Pineapple Slice and Pineapple Leaf
 1/2 part Triple Sec
 --
 755
-1 oz Maker’s Mark
+1 oz Makers Mark
 --
 756
 Chilled sparkling apple cider
@@ -3270,7 +3270,7 @@ Lucid Absinthe
 2 oz Rye
 --
 1090
-3 dashes Peychaud’s Bitters
+3 dashes Peychauds Bitters
 --
 1091
 2 dashes Angostura Bitters
@@ -3498,7 +3498,7 @@ Dash Cointreau
 1.5 oz fresh lime juice
 --
 1166
-1 part Galliano L’Autentico
+1 part Galliano LAutentico
 --
 1167
 1 part espresso coffee
@@ -4113,7 +4113,7 @@ Bitters
 1/2 oz hibiscus liqueur
 --
 1371
-Dash Peychaud’s bitters
+Dash Peychauds bitters
 --
 1372
 Juice 1/2 lime
@@ -4230,7 +4230,7 @@ Lime twist
 2 tsp triple sec
 --
 1410
-2 parts Basil Hayden’s Bourbon
+2 parts Basil Haydens Bourbon
 --
 1411
 3/4 parts Simple Syrup
@@ -4809,7 +4809,7 @@ Dash lime juice
 1.5 oz Bols Genever
 --
 1603
-.5 oz St Elizabeth’s Allspice Dream
+.5 oz St Elizabeths Allspice Dream
 --
 1604
 .75 oz lemon juice
@@ -4860,7 +4860,7 @@ splash cranberry juice
 1/2 oz Drambuie
 --
 1620
-1 oz Grey Goose L’Orange Flavored Vodka
+1 oz Grey Goose LOrange Flavored Vodka
 --
 1621
 Juice 1/2 Orange
@@ -4935,7 +4935,7 @@ Chocolate syrup
 2 oz cranapple juice
 --
 1645
-1 1/2 cups Maker’s Mark bourbon
+1 1/2 cups Makers Mark bourbon
 --
 1646
 1/2 cup triple sec
@@ -6222,7 +6222,7 @@ Stripes:
 1/2 part lime juice
 --
 2074
-1 cup Maker’s Mark
+1 cup Makers Mark
 --
 2075
 4 cups apple cider
@@ -6624,7 +6624,7 @@ Pineapple wedge
 .25 oz rose syrup
 --
 2208
-3 dashes Peychaud’s bitters
+3 dashes Peychauds bitters
 --
 2209
 3 drops rosewater
@@ -6750,7 +6750,7 @@ Lemon-lime or club soda
 1 oz Botran Solera Rium
 --
 2250
-3/4 oz Tom’s Mix (1/2 oz passion and 1/4 oz mango)
+3/4 oz Toms Mix (1/2 oz passion and 1/4 oz mango)
 --
 2251
 3/4 oz Orgeat Syrup
@@ -6927,7 +6927,7 @@ Seasonal fruit
 1 oz POM 100% pomegranate juice
 --
 2309
-2 oz Maker’s 46
+2 oz Makers 46
 --
 2310
 3/4 oz sweet vermouth (preferably Carpano Antica)
@@ -7059,7 +7059,7 @@ Peach or Apple (to garnish)
 1 Sugar Cube
 --
 2353
-3 – 4 dashes Peychaud’s Bitters
+3 – 4 dashes Peychauds Bitters
 --
 2354
 2 oz Cabo Wabo anejo
@@ -7647,7 +7647,7 @@ Mini-marshmallows (optional)
 1 1/2 bar spoons muscovado sugar
 --
 2549
-2-3 dashes Jerry Thomas’ Own Decanter Bitters
+2-3 dashes Jerry Thomas Own Decanter Bitters
 --
 2550
 1/2 oz rich sugar syrup (2:1)
@@ -7674,7 +7674,7 @@ Mini-marshmallows (optional)
 2 dashes Angostura bitters
 --
 2558
-2 dashes Peychaud’s bitters
+2 dashes Peychauds bitters
 --
 2559
 2 oz IS vodka
@@ -7839,7 +7839,7 @@ Lime twist, garnish
 1/2 oz cream or half & half
 --
 2613
-2 parts Maker’s 46 bourbon
+2 parts Makers 46 bourbon
 --
 2614
 1/2 part Cointreau liqueur
@@ -8007,7 +8007,7 @@ Splash Ginger Ale
 1/2 oz Falernum
 --
 2669
-1/2 oz Donn’s Mix
+1/2 oz Donns Mix
 --
 2670
 3/4 oz dry gin
