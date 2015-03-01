@@ -68,7 +68,6 @@ public class Home extends Activity {
 	public Context cont;
 	private BounceListView list;
 	SideNavigationView sideNavigationView;
-	private ListView sideListView; 
 	public static SimpleAdapter adapter;
 	public static List<HashMap<String, String>> dataSet;
 	public static boolean backToNoResults = false;
@@ -269,7 +268,6 @@ public class Home extends Activity {
 	 */
 	public void toggleMenu() {
 		sideNavigationView.toggleMenu();
-		sideListView = (ListView) sideNavigationView.findViewById(R.id.side_navigation_listview);
 	}
 
 	

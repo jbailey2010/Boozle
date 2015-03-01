@@ -5,11 +5,6 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/TheInebriator/libs/docs/jsoup-1.7.3-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="libs/twitter4j-async-4.0.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="libs/twitter4j-core-4.0.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="libs/twitter4j-examples-4.0.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="libs/twitter4j-media-support-4.0.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="libs/twitter4j-stream-4.0.1.jar"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>

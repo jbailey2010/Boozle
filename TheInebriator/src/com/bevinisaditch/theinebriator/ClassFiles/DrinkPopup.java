@@ -18,7 +18,6 @@ import android.widget.TextView;
 
 import com.bevinisaditch.theinebriator.Home;
 import com.bevinisaditch.theinebriator.Loading;
-import com.bevinisaditch.theinebriator.TwitterInteraction;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink.Rating;
 import com.bevinisaditch.theinebriator.Database.DrinkDatabaseHandler;
 import com.bevinisaditch.theinebriator.Utils.GeneralUtils;
@@ -108,20 +107,6 @@ public class DrinkPopup {
 	    }
 	    TextView instrView = (TextView)dialog.findViewById(R.id.instructions_view);
 	    instrView.setText(instr);
-	    ImageView twitter = (ImageView)dialog.findViewById(R.id.twitter_logo);
-	    //If there's internet, allow twitter interaction, otherwise hide it
-	    if(GeneralUtils.testInternet(cont)){
-		    twitter.setOnClickListener(new OnClickListener(){
-				@Override
-				public void onClick(View v) {
-					TwitterInteraction obj = new TwitterInteraction();
-					obj.twitterInitial(cont, name);
-				}
-		    });
-	    }
-	    else{
-	    	twitter.setVisibility(View.GONE);
-	    }
 	    tu = (ImageView)dialog.findViewById(R.id.thumbs_up_img);
 	    td = (ImageView)dialog.findViewById(R.id.thumbs_down_img);
 	    if(rating.equals(Drink.Rating.THUMBSUP)){

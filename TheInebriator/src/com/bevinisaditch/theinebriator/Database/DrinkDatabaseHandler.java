@@ -22,6 +22,7 @@ import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -41,6 +42,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 		// V 1-3: ?
 		// V 4: Sanitization out the wazoo, append/prepend spaces to limit query time, remove empty drinks
 		// V 5: Remove ' from all as they break queries, some sanitization
+		// As of 2.0.5, updates here won't clear out thumbs up/down, so they can freely happen more
 	    private static final int DATABASE_VERSION = 5;
 	 
 	    // Database Name
@@ -52,6 +54,11 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    private static final String DRINK_FILE_NAME = "drinkData.txt";
 	    private static final String MATCH_FILE_NAME = "matchData.txt";
 	    private static final String PAIR_FILE_NAME = "pairData.txt";
+	    
+	    private final String SP_KEY = "bevinisaditch";
+	    private final String TRANSFER_KEY = "thumbs transferred";
+	    private final String THUMBS_UP = "thumbs up";
+	    private final String THUMBS_DOWN = "thumbs down";
 	    
 	    private Set<Integer> nullSet = new HashSet<Integer>();
 	    	 	  
@@ -105,11 +112,43 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * Deletes and repopulates tables if database was upgraded
 	     */
 	    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+	    	// A check to see if the transfer has been made before dropping it out
+	    	// this should be done beforehand, as future db upgrades shouldn't drop 
+	    	// thumbs up/down
+	    	if(thumbsInDatabase()){
+	    		transferThumbsToSp();
+	    	}
 	        // Drop older table if existed
 	        deleteTablesIfExist(db);
 	 
 	        // Create tables again
 	        onCreate(db);
+	    }
+	    
+	    private boolean thumbsInDatabase(){
+	    	return getSP().getBoolean(TRANSFER_KEY, false);
+	    }
+	    
+	    private void transferThumbsToSp(){
+	    	List<Integer> badIds = getDrinkIDByRating(Rating.THUMBSDOWN);
+	    	List<Integer> goodIds = getDrinkIDByRating(Rating.THUMBSUP);
+	    	Editor editor = getSP().edit();
+	    	Set<String> badIdSet = new HashSet<String>();
+	    	Set<String> goodIdSet = new HashSet<String>();
+	    	for(Integer badId : badIds){
+	    		badIdSet.add(String.valueOf(badId));
+	    	}
+	    	for(Integer goodId : goodIds){
+	    		goodIdSet.add(String.valueOf(goodId));
+	    	}
+	    	editor.putStringSet(THUMBS_UP, goodIdSet);
+	    	editor.putStringSet(THUMBS_DOWN, badIdSet);
+	    	editor.putBoolean(TRANSFER_KEY, true);
+	    	editor.apply();
+	    }
+	    
+	    private SharedPreferences getSP(){
+	    	return con.getSharedPreferences(SP_KEY, Context.MODE_PRIVATE);
 	    }
 
 	    /**
@@ -127,9 +166,13 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 		 * @param drinkID
 		 */
 		public void thumbsUpDrink(Long drinkID) {
-			SQLiteDatabase db = this.getWritableDatabase();
-			String updateText = "UPDATE DRINKS " + "SET RATING = 1 " + "WHERE ID = " + drinkID;
-			db.execSQL(updateText);
+			SharedPreferences sp = getSP();
+			Set<String> goodIds = sp.getStringSet(THUMBS_UP, new HashSet<String>());
+			String translatedId = String.valueOf(drinkID);
+			if(!goodIds.contains(translatedId)){
+				goodIds.add(translatedId);
+				sp.edit().putStringSet(THUMBS_UP, goodIds).apply();
+			}
 		}
 		
 		/**
@@ -137,19 +180,18 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 		 * @param drinkID
 		 */
 		public void thumbsNullDrink(Long drinkID) {
-			SQLiteDatabase db = this.getWritableDatabase();
-			String updateText = "UPDATE DRINKS " + "SET RATING = 0 " + "WHERE ID = " + drinkID;
-			db.execSQL(updateText);
-		}
-		
-		/**
-		 * Thumbs down the drink with given ID
-		 * @param drinkID
-		 */
-		public void thumbsDownDrink(Long drinkID) {
-			SQLiteDatabase db = this.getWritableDatabase();
-			String updateText = "UPDATE DRINKS " + "SET RATING = -1 " + "WHERE ID = " + drinkID;
-			db.execSQL(updateText);
+			SharedPreferences sp = getSP();
+			Set<String> goodIds = sp.getStringSet(THUMBS_UP, new HashSet<String>());
+			Set<String>  badIds = sp.getStringSet(THUMBS_DOWN, new HashSet<String>());
+			String translatedId = String.valueOf(drinkID);
+			if(goodIds.contains(translatedId)){
+				goodIds.remove(translatedId);
+				sp.edit().putStringSet(THUMBS_UP, goodIds).apply();
+			}
+			else if(badIds.contains(translatedId)){
+				badIds.remove(translatedId);
+				sp.edit().putStringSet(THUMBS_DOWN, badIds).apply();
+			}
 		}
 		
 		/**
@@ -165,6 +207,34 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 			else
 				thumbsNullDrink(drinkID);
 		}
+		
+		/**
+		 * Thumbs down the drink with given ID
+		 * @param drinkID
+		 */
+		public void thumbsDownDrink(Long drinkID) {
+			SharedPreferences sp = getSP();
+			Set<String> badIds = sp.getStringSet(THUMBS_DOWN, new HashSet<String>());
+			String translatedId = String.valueOf(drinkID);
+			if(!badIds.contains(translatedId)){
+				badIds.add(translatedId);
+				sp.edit().putStringSet(THUMBS_DOWN, badIds).apply();
+			}
+		}
+		
+		/**
+	     * Converts a rating to an int
+	     * @param rating The rating to convert
+	     * @return -1 if thumbs down 0 if thumbs null and +1 if thumbs up
+	     */
+	    private int ratingToInt(Rating rating) {
+	    	if (rating == Rating.THUMBSNULL)
+	    		return 0;
+	    	else if (rating == Rating.THUMBSUP)
+	    		return 1;
+	    	else
+	    		return -1;
+	    }
 		
 		
 		/**
@@ -288,22 +358,6 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    		db.endTransaction();
 	    	}
 	    }
-
-
-
-	    /**
-	     * Converts a rating to an int
-	     * @param rating The rating to convert
-	     * @return -1 if thumbs down 0 if thumbs null and +1 if thumbs up
-	     */
-	    private int ratingToInt(Rating rating) {
-	    	if (rating == Rating.THUMBSNULL)
-	    		return 0;
-	    	else if (rating == Rating.THUMBSUP)
-	    		return 1;
-	    	else
-	    		return -1;
-	    }
 	    
 	    
 
@@ -337,7 +391,6 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * @return
 	     */
 	    public HashMap<Integer, HashSet<Matching>> getAllMatchings() {
-	    	
 	    	
 	    	HashMap<Integer, HashSet<Matching>> matchings = new HashMap<Integer, HashSet<Matching>>();
 	        // Select All Query
@@ -422,18 +475,14 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * @return the rating of the drink
 	     */
 	    public Rating getDrinkRating(Long id){
-	    	Rating rating = Rating.THUMBSNULL;
-	    	String selectQuery = "SELECT RATING FROM DRINKS WHERE ID = '" + id + 
-	    			"'";
-	    	SQLiteDatabase db = this.getWritableDatabase();
-	    	Cursor cursor = db.rawQuery(selectQuery, null);
-	    	
-	    	if (cursor.moveToFirst()) {
-	    		do {
-	    			rating = intToRating(cursor.getInt(0));
-	    		} while(cursor.moveToNext());
+	    	String translatedId = String.valueOf(id);
+	    	if(getSP().getStringSet(THUMBS_DOWN, new HashSet<String>()).contains(translatedId)){
+	    		return Rating.THUMBSDOWN;
 	    	}
-	    	return rating;
+	    	else if(getSP().getStringSet(THUMBS_DOWN, new HashSet<String>()).contains(translatedId)){
+	    		return Rating.THUMBSUP;
+	    	}
+	    	return Rating.THUMBSNULL;
 	    }
 	    
 	    /**
@@ -465,9 +514,19 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * @return the list of drinks rated as such
 	     */
 	    public List<Drink> getRatedDrinks(Rating rating){
+	    	Set<Integer> ratedIds = new HashSet<Integer>();
+	    	Set<String> stringRatedIds = new HashSet<String>();
+	    	if(rating == Rating.THUMBSDOWN){
+	    		stringRatedIds = getSP().getStringSet(THUMBS_DOWN, new HashSet<String>());
+	    	}
+	    	else{
+	    		stringRatedIds = getSP().getStringSet(THUMBS_UP, new HashSet<String>());
+	    	}
+	    	for(String id : stringRatedIds){
+	    		ratedIds.add(Integer.parseInt(id));
+	    	}
 	    	List<Drink> drinks = new ArrayList<Drink>();
 	    	SQLiteDatabase db = this.getWritableDatabase();
-	    	List<Integer> ratedIds = getDrinkIDByRating(rating);
 	    	for(Integer id : ratedIds){
 	    		drinks.add(getDrinkByID(id, db));
 	    	}
@@ -477,6 +536,8 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    /**
 	     * Gets all of the ids of drinks that have the specified 
 	     * rating
+	     * 
+	     * DEPRECATED - only used by the transfer
 	     * 
 	     * @param rating - the rating, beit thumbs up, down, or null
 	     * @return the list of ids of those drinks
@@ -721,7 +782,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    			while (br.readLine() != null) {
 	    				int id = Integer.parseInt(br.readLine())+1;
 	    				String name = br.readLine();
-	    				int rating = stringToRatingToInt(br.readLine());
+	    				int rating = 0;
 	    				String instructions = br.readLine();
 	    				drinkData.add(id);
 	    				drinkData.add(name);
@@ -830,23 +891,6 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    		}
 	    	} catch (Exception e) {
 	    		e.printStackTrace();
-	    	}
-	    }
-	    
-	    /**
-	     * Converts a string rating to an int
-	     * @param str The rating in question
-	     * @return -1 if thumbs down, 0 if thumbs null, +1 if thumbs up
-	     */
-	    private int stringToRatingToInt(String str) {
-	    	if (str.equals("THUMBSUP")) {
-	    		return 1;
-	    	}
-	    	else if (str.equals("THUMBSDOWN")) {
-	    		return -1;
-	    	}
-	    	else {
-	    		return 0;
 	    	}
 	    }
 }

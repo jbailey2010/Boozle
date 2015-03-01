@@ -81,15 +81,6 @@
 	</RelativeLayout>
 
     <ImageView
-        android:id="@+id/twitter_logo"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:padding="10dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/twitter" />
-
-    <ImageView
         android:id="@+id/rerandomize"
         android:layout_width="40dp"
         android:layout_height="wrap_content"
