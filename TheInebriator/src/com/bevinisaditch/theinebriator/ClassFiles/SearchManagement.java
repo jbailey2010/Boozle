@@ -228,10 +228,13 @@ public class SearchManagement {
 	    submit.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				if(optIngredients.size() > 0 || reqIngredients.size() > 0) {
+				if(reqIngredients.size() > 0) {
 					dialog.dismiss();
 					SearchEngine search = new SearchEngine(c);
 					search.searchByIngredient((ArrayList<String>) optIngredients, (ArrayList<String>) reqIngredients);
+				}
+				else{
+					Toast.makeText(c, "You need at least one required ingredient", Toast.LENGTH_SHORT).show();
 				}
 			}
 	    });

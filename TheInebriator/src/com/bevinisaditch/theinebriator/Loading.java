@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.lang3.text.WordUtils;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.ActionBar;
@@ -104,7 +106,7 @@ public class Loading extends Activity {
         	
 			units = GeneralUtils.getUnits();
         	for(Integer key : pairs.keySet()){
-        		ingredients.add(sanitizeIngr(pairs.get(key).name));
+        		ingredients.add(WordUtils.capitalize(sanitizeIngr(pairs.get(key).name)));
         	}
         	
         	return null;

@@ -46,7 +46,9 @@ public class DrinkPopup {
 	 * display the data from the clicked element itself
 	 * @param id 
 	 */
-	public static void drinkPopUpInit(final Context c, final String name, String ingredients, final String instr, long drinkId, final boolean update, Rating rating, boolean showRefresh, final boolean isAllRandom)
+	public static void drinkPopUpInit(final Context c, final String name, String ingredients,
+			final String instr, long drinkId, final boolean update, Rating rating, 
+			boolean showRefresh, final boolean isAllRandom)
 	{
 		nameDrink = name;
 		ingrDrink = ingredients;

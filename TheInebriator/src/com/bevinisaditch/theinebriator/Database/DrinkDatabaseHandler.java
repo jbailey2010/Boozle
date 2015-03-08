@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.text.WordUtils;
 
 import com.bevinisaditch.theinebriator.Loading;
 import com.bevinisaditch.theinebriator.ClassFiles.Drink.Rating;
@@ -43,7 +44,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 		// V 4: Sanitization out the wazoo, append/prepend spaces to limit query time, remove empty drinks
 		// V 5: Remove ' from all as they break queries, some sanitization
 		// As of 2.0.5, updates here won't clear out thumbs up/down, so they can freely happen more
-	    private static final int DATABASE_VERSION = 5;
+	    private static final int DATABASE_VERSION = 6;
 	 
 	    // Database Name
 	    private static final String DATABASE_NAME = "DrinksAndIngredients";
@@ -112,39 +113,12 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	     * Deletes and repopulates tables if database was upgraded
 	     */
 	    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-	    	// A check to see if the transfer has been made before dropping it out
-	    	// this should be done beforehand, as future db upgrades shouldn't drop 
-	    	// thumbs up/down
-	    	if(thumbsInDatabase()){
-	    		transferThumbsToSp();
-	    	}
+
 	        // Drop older table if existed
 	        deleteTablesIfExist(db);
 	 
 	        // Create tables again
 	        onCreate(db);
-	    }
-	    
-	    private boolean thumbsInDatabase(){
-	    	return getSP().getBoolean(TRANSFER_KEY, false);
-	    }
-	    
-	    private void transferThumbsToSp(){
-	    	List<Integer> badIds = getDrinkIDByRating(Rating.THUMBSDOWN);
-	    	List<Integer> goodIds = getDrinkIDByRating(Rating.THUMBSUP);
-	    	Editor editor = getSP().edit();
-	    	Set<String> badIdSet = new HashSet<String>();
-	    	Set<String> goodIdSet = new HashSet<String>();
-	    	for(Integer badId : badIds){
-	    		badIdSet.add(String.valueOf(badId));
-	    	}
-	    	for(Integer goodId : goodIds){
-	    		goodIdSet.add(String.valueOf(goodId));
-	    	}
-	    	editor.putStringSet(THUMBS_UP, goodIdSet);
-	    	editor.putStringSet(THUMBS_DOWN, badIdSet);
-	    	editor.putBoolean(TRANSFER_KEY, true);
-	    	editor.apply();
 	    }
 	    
 	    private SharedPreferences getSP(){
@@ -479,7 +453,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    	if(getSP().getStringSet(THUMBS_DOWN, new HashSet<String>()).contains(translatedId)){
 	    		return Rating.THUMBSDOWN;
 	    	}
-	    	else if(getSP().getStringSet(THUMBS_DOWN, new HashSet<String>()).contains(translatedId)){
+	    	else if(getSP().getStringSet(THUMBS_UP, new HashSet<String>()).contains(translatedId)){
 	    		return Rating.THUMBSUP;
 	    	}
 	    	return Rating.THUMBSNULL;
@@ -782,6 +756,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    			while (br.readLine() != null) {
 	    				int id = Integer.parseInt(br.readLine())+1;
 	    				String name = br.readLine();
+	    				br.readLine();
 	    				int rating = 0;
 	    				String instructions = br.readLine();
 	    				drinkData.add(id);

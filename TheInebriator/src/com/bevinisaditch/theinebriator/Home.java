@@ -347,6 +347,7 @@ public class Home extends Activity {
 				backup.add(drink);
 			}
 		}
+		DrinkDatabaseHandler handler = new DrinkDatabaseHandler(this);
 		clearRes.setVisible(true);
 		clearRes.setEnabled(true);
 		View res = ((Activity) cont).getLayoutInflater().inflate(R.layout.list_results, ll, false);
@@ -361,10 +362,11 @@ public class Home extends Activity {
 			datum.put("info", ingrStr);
 			datum.put("ingr", curr.getInstructions());
 			datum.put("id", String.valueOf(curr.getId()));
-			if(curr.getRating() == Rating.THUMBSUP) {
+			Rating rating = handler.getDrinkRating(curr.getId());
+			if(rating == Rating.THUMBSUP) {
 				datum.put("img", Integer.toString(R.drawable.thumbsup));
 			}
-			else if(curr.getRating() == Rating.THUMBSDOWN) {
+			else if(rating == Rating.THUMBSDOWN) {
 				datum.put("img", Integer.toString(R.drawable.thumbsdown));
 			}
 			else {
