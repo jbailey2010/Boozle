@@ -577,7 +577,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 		**/
 	    public ArrayList<Drink> getRelevantDrinksByName(ArrayList<String> terms) {
 	    	SQLiteDatabase db = this.getWritableDatabase();
-	    	HashMap<Integer, HashSet<Matching>> allMatches = getAllMatchings();
+	    	HashMap<Integer, HashSet<Matching>> allMatches = Loading.allMatchings;
 	    	HashMap<Integer, IngredientIDPair> allPairs = Loading.allPairs;
 	    	
 	    	String selectQuery = "SELECT * FROM DRINKS WHERE ";
@@ -624,7 +624,7 @@ public class DrinkDatabaseHandler extends SQLiteOpenHelper
 	    {
 	    	SQLiteDatabase db = this.getWritableDatabase();
 	    	ArrayList<Drink> drinks = new ArrayList<Drink>();
-	    	HashMap<Integer, HashSet<Matching>> allMatches = getAllMatchings();
+	    	HashMap<Integer, HashSet<Matching>> allMatches = Loading.allMatchings;
 	    	HashMap<Integer, IngredientIDPair> allPairs = Loading.allPairs;
 	    	
 	    	for (String ingredient : ingredients ) {

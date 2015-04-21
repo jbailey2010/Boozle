@@ -35,6 +35,7 @@ public class Loading extends Activity {
 	public static List<String> drinkNames;
 	public static List<String> ingrNames;
 	public static HashMap<Integer, IngredientIDPair> allPairs;
+	public static HashMap<Integer, HashSet<Matching>> allMatchings;
 	
 	/**
 	 * Sets the display, and spawns the loading threads
@@ -79,6 +80,7 @@ public class Loading extends Activity {
 		List<String> ingredients;
 		HashMap<Integer, IngredientIDPair> pairs;
 		HashSet<String> units;
+		HashMap<Integer, HashSet<Matching>> matchings;
 		
 		private String sanitizeIngr(String input){
 			//Apply trimming here for units and whatnot
@@ -102,6 +104,7 @@ public class Loading extends Activity {
         	DrinkDatabaseHandler drinkHandler = new DrinkDatabaseHandler(cont);
         	drinks = drinkHandler.getDrinkNames();
         	pairs = drinkHandler.getAllPairs();
+        	matchings = drinkHandler.getAllMatchings();
         	ingredients = new ArrayList<String>();
         	
 			units = GeneralUtils.getUnits();
@@ -120,6 +123,7 @@ public class Loading extends Activity {
             drinkNames = drinks;
             ingrNames = ingredients;
             allPairs = pairs;
+            allMatchings = matchings;
             Intent intent = new Intent(act, Home.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivityForResult(intent, 0);
